@@ -10,7 +10,7 @@
 //     ];
 
     $router->get ('/culture_swap/','controller/index.php');
+    $router->get ('/culture_swap/template','controller/template.php');
 
 
 
-    // $router->delete ('/note','controller/notes/destroy.php');

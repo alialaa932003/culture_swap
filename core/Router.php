@@ -38,6 +38,7 @@ namespace core;
                     return require base_path($route['controller']);
                 }
             }
+            abort();
         }
 
         protected function abort($code=404){
