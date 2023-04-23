@@ -34,21 +34,21 @@ body {
     font-weight: 500;
     font-size: 14px;
     text-transform: capitalize;
-    color: var(--font-dark);
-    background: var(--second-bg);
+    color: var(--p-color);
+    background: var(--main-bg);
     overflow-x: hidden;
     transition: 0.3s all ease;
     margin: 0 auto;
 }
 
 ::-moz-selection {
-    background-color: var(--main-color);
+    background-color: var(--primary);
     color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background-color: var(--d-yellow-color);
+    background-color: var(--primary);
 
     color: #fff;
     text-shadow: none;
@@ -64,7 +64,7 @@ h6 {
     line-height: 1.6;
 
     padding: 0;
-    color: var(--font-dark);
+    color: var(--h-color);
 }
 
 p {
