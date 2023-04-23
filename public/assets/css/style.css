@@ -1,11 +1,11 @@
 :root {
-    --primary: #FD621A;
-    --secondary: #f00;
+    --primary: #fe6d60;
+    --secondary: #ffb400;
     --shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px;
-    --p-color: #00f;
-    --h-color: #0f0;
+    --p-color: #a9a2a2;
+    --h-color: #091d3e;
     --main-bg: #fff;
-    --second-bg: #f6f6f6;
+    --second-bg: #f9f9f9;
 }
 
 * {
