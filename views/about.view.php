@@ -5,8 +5,7 @@
   <?php
   require base_path("views/partials/head.view.php");
   ?>
-  <!-- عشان عارف انك حمار -->
-  <!--  put your css file here -->
+  <link rel="stylesheet" href="public/assets/css/about.css">
   <title>about</title>
 </head>
 
@@ -15,7 +14,7 @@
   require base_path("views/partials/nav.view.php");
   ?>
 
-  <p>All is done</p>
+  
 
 
 
@@ -27,8 +26,7 @@
   require base_path("views/partials/scripts.view.php");
   ?>
 
-  <!-- عشان عارف انك بهيم -->
-  <!-- حط ملف الجافاسكربت بتاعك هنا -->
+  <script src="public/assets/js/about.js"></script>
 </body>
 
 </html>
