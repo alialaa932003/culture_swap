@@ -3,9 +3,10 @@
 *****************************/
 
 header {
-    padding: 14rem 0 12rem;
+    padding: 16rem 0 14rem;
     background: linear-gradient(to right,
-            rgba(8, 4, 41, 0.95) 10%,
+            /* rgba(8, 4, 41, 0.95) 10%, */
+            rgba(4, 29, 41, 0.96) 10%,
             rgba(240, 240, 240, 0.2) 70%),
         url("../imgs/home/header3.webp") no-repeat;
 
@@ -52,3 +53,131 @@ header p {
     color: var(--h-color);
     margin-right: 1rem;
 }
+
+/*****************************
+***********[categories]******
+*****************************/
+.categories {
+    background: var(--second-bg);
+    padding: 4rem 0;
+}
+
+.item {
+    text-align: center;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--h-color);
+    margin: 1.5rem 0;
+
+}
+
+.item a {
+    /* box-shadow: var(--shadow); */
+    margin: 0 1rem;
+    /* background: #fff; */
+    padding: 2rem 1rem;
+}
+
+.item a:hover .itemText {
+    text-decoration: underline;
+
+}
+
+.itemIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    font-size: 5.2rem;
+    color: var(--secondary);
+}
+
+/*************************************
+************ [hosts]*************
+********************************/
+
+.cards {
+    background: var(--main-bg);
+
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.myCard {
+    box-shadow: var(--shadow);
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    flex-direction: column;
+    margin: 1.5rem 0;
+}
+
+.cardImage {
+    position: relative;
+}
+
+.love {
+    position: absolute;
+    bottom: 0;
+    right: 2rem;
+    transform: translateY(50%);
+    background: #fff;
+    box-shadow: var(--shadow);
+    width: 5rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: var(--primary);
+    font-size: 2.4rem;
+    border-radius: 50%;
+    padding: 2.8rem;
+}
+
+.love span {
+    padding: .8rem;
+    border: 3px dotted var(--primary);
+    display: flex;
+    border-radius: 50%;
+    transition: .5s all ease;
+}
+
+.love:hover span {
+    transform: rotate(360deg);
+}
+
+.cardContent {
+    padding: 3rem 3rem;
+}
+
+.cardContent h3 {
+    font-size: 2rem;
+    margin: 1.5rem 0 3rem;
+    font-weight: 600;
+}
+
+.cardDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rate {
+    margin-left: 1rem;
+    color: #ffd700;
+    font-size: 1.4rem;
+}
+
+/* .cards h2 {
+    position: relative;
+    font-size: 2.9rem;
+} */

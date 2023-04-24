@@ -15,7 +15,7 @@ require base_path("views/partials/head.view.php");
 require base_path("views/partials/nav.view.php");
 ?>
 
-
+    <!-- start header -->
     <header class="">
         <div class="container">
             <div class="headerContent">
@@ -32,6 +32,313 @@ require base_path("views/partials/nav.view.php");
 
     </header>
 
+    <!-- start categories section -->
+
+    <section class=" categories">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+                            <i class="fa-solid fa-seedling"></i>
+                        </span>
+                        <span class="itemText">Animals & Environment</span>
+                    </a>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+
+                                <i class="fa-regular fa-hospital"></i>
+                            
+
+                        </span>
+                        <span class="itemText">Backpacker Hostels & Hospitality</span>
+                    </a>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+                            <i class="fa-solid fa-tractor"></i>
+                        </span>
+                        <span class="itemText">Farming & Homesteads</span>
+                    </a>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+                            <i class="fa-solid fa-hammer"></i>
+                        </span>
+                        <span class="itemText">Building & Restoration Projects</span>
+                    </a>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </span>
+                        <span class="itemText">Teaching & Language</span>
+                    </a>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                    <a href="#">
+                        <span class="itemIcon">
+                            <i class="fa-solid fa-school"></i>
+                        </span>
+                        <span class="itemText">Internships Abroad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- start host cards -->
+
+    <section class="section-padding cards">
+        <div class="container">
+            <div class="head">
+                <h2 class="heading">Featured Stays</h2>
+                <a href="#" class="main-btn">all hosts</a>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header5.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header4.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header2.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header4.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header3.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6">
+                    <div href="#" class="myCard">
+                        <div class="cardImage">
+                            <img src="public/assets/imgs/home/header5.webp" alt="">
+                            <button class="love">
+                                <span>
+                                    <i class="fa-regular fa-heart"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="cardContent">
+                            <div class="cardCountry">
+                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                <span class="countryText">norway</span>
+                            </div>
+                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
+                            <div class="cardDetails">
+                                <a href="#" class="second-btn">view profile</a>
+                                <div class="rate">
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-solid fa-star"></i>
+                                    </span>
+                                    <span>
+                                        <i class="fa-regular fa-star"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <?php
 require base_path("views/partials/footer.view.php");
