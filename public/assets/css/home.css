@@ -3,5 +3,52 @@
 *****************************/
 
 header {
-    padding: 9rem 0 0;
+    padding: 14rem 0 12rem;
+    background: linear-gradient(to right,
+            rgba(8, 4, 41, 0.95) 10%,
+            rgba(240, 240, 240, 0.2) 70%),
+        url("../imgs/home/header3.webp") no-repeat;
+
+    background-position: center;
+    background-size: cover;
+}
+
+.headerContent {
+    width: 50%;
+}
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+header p {
+    margin: 2rem 0 3rem;
+    font-size: 1.8rem;
+    color: #dfdfdf;
+
+}
+
+.discoverBtn {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+.discoverBtn:hover {
+    display: flex;
+}
+
+.discoverIcon {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--h-color);
+    margin-right: 1rem;
 }

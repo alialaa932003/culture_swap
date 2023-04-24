@@ -22,7 +22,7 @@
           <a class="nav-link" href="#">favourites</a>
         </li>
         <li class="nav-item">
-          <a class=" navJoinBtn main-btn" href="#">join now</a>
+          <a class=" navJoinBtn second-btn" href="#">join now</a>
         </li>
 
 

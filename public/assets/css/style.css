@@ -131,7 +131,7 @@ a:hover {
 .main-btn,
 .second-btn {
 
-    padding: 1rem 2rem !important;
+    padding: 1rem 2rem;
     font-size: 1.6rem;
     color: #fff;
 }
@@ -163,12 +163,16 @@ a:hover {
     padding: 1rem 3rem !important;
     position: fixed;
     width: 100%;
+
+}
+
+.navbar.active {
     box-shadow: var(--shadow);
 
 }
 
 .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: var(--secondary);
 }

@@ -16,13 +16,18 @@ require base_path("views/partials/nav.view.php");
 ?>
 
 
-    <header class="section-padding">
+    <header class="">
         <div class="container">
             <div class="headerContent">
-            <h1>Travel differently, connect globally</h1>
-        <p> The largest and safest community for cultural exchange, working holidays and volunteering in 170 countries.
-        </p>
-        </div>
+                <h1>Travel differently, connect globally</h1>
+                <p>
+                    The largest and safest community for cultural exchange, working holidays and volunteering in 170 countries.
+                </p>
+            </div>
+            <a href="#" class="second-btn discoverBtn ">
+                <span class="discoverIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span class="discoverText ">Discover 50,000+ opportunities</span>
+            </a>
         </div>
 
     </header>
