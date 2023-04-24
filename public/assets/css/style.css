@@ -1,9 +1,12 @@
+/*********************************************
+******************[global system]*******************
+*********************************************/
 :root {
-    --primary: #fe6d60;
+    --primary: #ff5849;
     --secondary: #ffb400;
     --shadow: rgba(0, 0, 0, 0.12) 0px 0px 10px;
     --p-color: #a9a2a2;
-    --h-color: #091d3e;
+    --h-color: #092046;
     --main-bg: #fff;
     --second-bg: #f9f9f9;
 }
@@ -16,7 +19,7 @@
     outline: none;
     list-style: none;
     /* word-wrap: break-word; */
-
+    transition: .3s all ease;
     text-transform: capitalize;
 
     font-family: "poppins";
@@ -98,6 +101,15 @@ a:hover {
     padding: 8rem 0;
 }
 
+.myContainer {
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
 .ontop {
     position: relative;
     z-index: 4;
@@ -114,4 +126,93 @@ a:hover {
 
 .bg-fixed {
     background-attachment: fixed;
+}
+
+.main-btn,
+.second-btn {
+
+    padding: 1rem 2rem !important;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.main-btn {
+    background: var(--primary);
+}
+
+.second-btn {
+    background: var(--secondary);
+
+}
+
+.main-btn:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+.second-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/*********************************************
+******************[navbar]*******************
+*********************************************/
+
+.navbar {
+    padding: 1rem 3rem !important;
+    position: fixed;
+    width: 100%;
+    box-shadow: var(--shadow);
+
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    position: relative;
+    color: var(--h-color);
+}
+
+.nav-item:not(:last-of-type) .nav-link {
+    margin-right: 2rem !important;
+}
+
+.nav-link.active {
+    color: var(--secondary) !important;
+}
+
+.nav-link:hover {
+    color: var(--secondary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    transition: .3s all ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 30%;
+}
+
+.navJoinBtn {
+    margin-left: 1rem;
 }
