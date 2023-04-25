@@ -16,7 +16,7 @@
   require base_path("views/partials/nav.view.php");
   ?>
 
-  <header>
+  <header class="section-padding">
     <h2>Host Sign Up</h2>
     <section>
       <form action="#" method="post">

@@ -16,8 +16,8 @@
     ?>
 
     <header>	
-		<section>
-			<h2>Traveler Sign Up</h2>
+		<section class="section-padding">
+			<h2>Traveller Sign Up</h2>
 			<form>
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required><br>
