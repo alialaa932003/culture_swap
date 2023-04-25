@@ -365,8 +365,9 @@ footer {
 
 .copyRight {
     text-align: center;
-    background: var(--secondary);
+    background: #052e2e;
     padding: 3rem 2rem;
+    border-top: 1px solid;
 }
 
 .copyRight p {
