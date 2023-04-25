@@ -116,3 +116,43 @@ header p {
     position: relative;
     font-size: 2.9rem;
 } */
+
+
+/******************************
+***********[4-places]*********
+*****************************/
+
+.places {
+    background: var(--second-bg);
+}
+
+.placeItem {
+    position: relative;
+    margin: 2rem 1rem;
+}
+
+.placeImage {
+    position: relative;
+}
+
+.placeImage::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #5e4708;
+    opacity: .4;
+}
+
+.placeLink {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 2px solid #fff;
+    font-size: 1.8rem;
+
+}

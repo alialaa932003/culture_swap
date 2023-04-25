@@ -340,6 +340,107 @@ require base_path("views/partials/nav.view.php");
         </div>
     </section>
 
+
+    <!-- start popular places -->
+
+    <section class="section-padding places">
+        <div class="container">
+            <div class="head">
+                <h2 class="heading">popular places</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="placeItem">
+                        
+                        <div class="placeImage">
+                            <img src= <?= "${ASSET_URL}assets/imgs/home/header3.webp" ?>   alt="">
+                        </div>
+                        <a href="#" class='placeLink second-btn'>
+                            spain
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <?php
 require base_path("views/partials/footer.view.php");
 ?>

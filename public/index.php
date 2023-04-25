@@ -2,7 +2,6 @@
 // This part display the errors to browser
 ini_set('display_errors', 1);
 ini_set('error_reporting', 1);
-
 // echo __DIR__;
 const BASE_PATH =__DIR__ . '/../';
 require BASE_PATH.'core/functions.php';
