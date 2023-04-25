@@ -24,6 +24,7 @@
   background-image: url('../imgs/home/header5.webp');
   background-size: cover;
   background-position:center;
+  background-attachment: fixed;
 }
 
 .hero-section::before{
