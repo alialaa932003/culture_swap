@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg active ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">culture swap</a>
+    <a class="navbar-brand" href="./">culture swap</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,13 +10,13 @@
           <a class="nav-link active" aria-current="page" href="/culture_swap/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/culture_swap/about">how it is work</a>
+          <a class="nav-link" href="./about">how it is work</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">support</a>
+          <a class="nav-link" href="faq">support</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">community</a>
+          <a class="nav-link" href="./blog">blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">favourites</a>

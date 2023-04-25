@@ -5,7 +5,10 @@
     <?php
 require base_path("views/partials/head.view.php");
 ?>
-
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
     <link rel="stylesheet" href="/culture_swap/public/assets/css/home.css">
     <title>home</title>
 </head>
@@ -102,7 +105,7 @@ require base_path("views/partials/nav.view.php");
             </div>
             <div class="row">
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div  class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header5.webp" alt="">
                             <button class="love">
@@ -142,7 +145,7 @@ require base_path("views/partials/nav.view.php");
                 </div>
                 
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div  class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header4.webp" alt="">
                             <button class="love">
@@ -181,7 +184,7 @@ require base_path("views/partials/nav.view.php");
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div  class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header2.webp" alt="">
                             <button class="love">
@@ -220,7 +223,7 @@ require base_path("views/partials/nav.view.php");
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header4.webp" alt="">
                             <button class="love">
@@ -259,7 +262,7 @@ require base_path("views/partials/nav.view.php");
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div  class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header3.webp" alt="">
                             <button class="love">
@@ -298,7 +301,7 @@ require base_path("views/partials/nav.view.php");
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
-                    <div href="#" class="myCard">
+                    <div  class="myCard">
                         <div class="cardImage">
                             <img src="public/assets/imgs/home/header5.webp" alt="">
                             <button class="love">
@@ -441,13 +444,125 @@ require base_path("views/partials/nav.view.php");
         </div>
     </section>
 
+
+    <!-- start testimonials -->
+    <section class="section-padding testimonials">
+        <div class="container">
+            <div class="head">
+                <h2 class="heading">our testimonials</h2>
+
+            </div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide testiItem">
+                        <div class="testiHead">
+                            <div class="testiUser">
+                                <div class="userImg">
+                                    <img src=<?="${ASSET_URL}assets/imgs/home/header4.webp"?> alt="">
+                                </div>
+                                <div>
+                                    <h3>raul k.smith</h3>
+                                    <span>host</span>
+                                </div>
+                            </div>
+                            <div class="rate">
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, enim porro corporis dicta omnis id voluptatibus dolores optio nesciunt sapiente sunt dolorum nihil dolorem et officia. Iste eius dolorem amet.</p>
+                    </div>
+                    <div class="swiper-slide testiItem">
+                        <div class="testiHead">
+                            <div class="testiUser">
+                                <div class="userImg">
+                                    <img src=<?="${ASSET_URL}assets/imgs/home/header4.webp"?> alt="">
+                                </div>
+                                <div>
+                                    <h3>raul k.smith</h3>
+                                    <span>host</span>
+                                </div>
+                            </div>
+                            <div class="rate">
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, enim porro corporis dicta omnis id voluptatibus dolores optio nesciunt sapiente sunt dolorum nihil dolorem et officia. Iste eius dolorem amet.</p>
+                    </div>
+                    <div class="swiper-slide testiItem">
+                        <div class="testiHead">
+                            <div class="testiUser">
+                                <div class="userImg">
+                                    <img src=<?="${ASSET_URL}assets/imgs/home/header4.webp"?> alt="">
+                                </div>
+                                <div>
+                                    <h3>raul k.smith</h3>
+                                    <span>host</span>
+                                </div>
+                            </div>
+                            <div class="rate">
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, enim porro corporis dicta omnis id voluptatibus dolores optio nesciunt sapiente sunt dolorum nihil dolorem et officia. Iste eius dolorem amet.</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
     <?php
 require base_path("views/partials/footer.view.php");
 ?>
     <?php
 require base_path("views/partials/scripts.view.php");
 ?>
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="public/assets/js/home.js"></script>
 
     <!-- عشان عارف انك بهيم -->
     <!-- حط ملف الجافاسكربت بتاعك هنا -->
