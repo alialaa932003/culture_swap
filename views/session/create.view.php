@@ -16,7 +16,14 @@
   require base_path("views/partials/nav.view.php");
   ?>
 
-  <p>sadas</p>
+  
+  <div class="login-section section-padding">
+    <div class="container">
+      <div class="login-form">
+
+      </div>
+    </div>
+  </div>
 
 
 
