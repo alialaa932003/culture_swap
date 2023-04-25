@@ -6,6 +6,7 @@
     $router->get ('/culture_swap/signup/traveller','controller/signup/traveller.php');
     $router->get ('/culture_swap/signup/traveller_vip','controller/signup/traveller_vip.php');
     $router->get ('/culture_swap/signup/host','controller/signup/host.php');
+    $router->get ('/culture_swap/login','controller/session/create.php');
     $router->get ('/culture_swap/template','controller/template.php');
 
 
