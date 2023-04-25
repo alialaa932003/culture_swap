@@ -7,7 +7,7 @@
     ?>
     <!-- عشان عارف انك حمار -->
     <!--  put your css file here -->
-    <link rel="stylesheet" href="../public/assets/css/signup/traveller.css">
+    <link rel="stylesheet" href="/culture_swap/public/assets/css/signup/traveller.css">
     <title>signup</title>
 </head>
 <body>

@@ -6,7 +6,7 @@
 require base_path("views/partials/head.view.php");
 ?>
 
-    <link rel="stylesheet" href="public/assets/css/home.css">
+    <link rel="stylesheet" href="/culture_swap/public/assets/css/home.css">
     <title>home</title>
 </head>
 <body>
