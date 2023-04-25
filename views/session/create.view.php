@@ -5,22 +5,20 @@
   <?php
   require base_path("views/partials/head.view.php");
   ?>
-  <!-- عشان عارف انك حمار -->
-  <!--  put your css file here -->
+
   <link rel="stylesheet" href="/culture_swap/public/assets/css/login/login.css">
   <title>login</title>
 </head>
 
 <body>
-  <?php
-  require base_path("views/partials/nav.view.php");
-  ?>
+
 
 
   <div class="login-section section-padding">
     <div class="container">
       <div class="login-form">
 
+        <a href="/culture_swap" class="back-link"><img src="public/assets/imgs/login/left-arrow.png" class="back-icon"></a> 
         <div class="logo">
           <img src="public/assets/imgs/login/logo.png">
         </div>
@@ -42,15 +40,11 @@
 
 
 
-  <?php
-  require base_path("views/partials/footer.view.php");
-  ?>
+
   <?php
   require base_path("views/partials/scripts.view.php");
   ?>
 
-  <!-- عشان عارف انك بهيم -->
-  <!-- حط ملف الجافاسكربت بتاعك هنا -->
 </body>
 
 </html>
