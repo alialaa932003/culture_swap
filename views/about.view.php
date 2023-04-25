@@ -163,12 +163,37 @@
       <h1 class="section-header">How to join us as a Host</h1>
 
       <div class="all-content-container">
+
         <div class="content">
+
+          <div class="content-row c-row1">
+            <div class="content-circle c-c-row1">1</div>
+            <div class="content-information">
+              <h1 class="content-header">Create your profile</h1>
+              <p class="content-body">Register for free. Build a profile describing<br> your place and the help you need.</p>
+            </div>
+          </div>
+
+          <div class="content-row c-row2">
+            <div class="content-circle c-c-row2">2</div>
+            <div class="content-information">
+              <h1 class="content-header">Connect with Travellers</h1>
+              <p class="content-body">Travellers contact you through the site to offer their time and skills. You can also search and contact travellers whose profiles match your needs.</p>
+            </div>
+          </div>
+
+          <div class="content-row c-row3">
+            <div class="content-circle c-c-row3">3</div>
+            <div class="content-information">
+              <h1 class="content-header">Let the world come to you</h1>
+              <p class="content-body">Receive new friends from all over the world. Get the help you need and learn about one another's way of life.</p>
+            </div>
+          </div>
 
         </div>
 
         <div class="svg">
-          <img src="">
+          <img src="public/assets/imgs/about/join-host/host.svg">
         </div>
       </div> 
 
