@@ -5,6 +5,7 @@ class Middleware
 {
   public const MAP = [
     'guest' => GuestAuth::class,
+    'user' => UserAuth::class,
     'host' => HostAuth::class,
     'traveller' => TravellerAuth::class,
   ];
