@@ -10,8 +10,8 @@
     <?php
     require base_path("views/partials/head.view.php");
     ?>
-    <link rel="stylesheet" href="/culture_swap/public/assets/css/blog.css">
-    <title>blog</title>
+    <link rel="stylesheet" href="/culture_swap/public/assets/css/blogs.css">
+    <title>blogs</title>
 
     <?php
     require base_path("views/partials/nav.view.php");
@@ -76,6 +76,11 @@
                                     </div>
                                     <div class="article-image">
                                         <a href="#">
+                                            <button class="love">
+                                                <span>
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </span>
+                                            </button>
                                             <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                         </a>
 
@@ -87,10 +92,7 @@
                                                 read more
                                             </a>
                                             <div class="review">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    views
-                                                </a>
+
 
                                             </div>
                                         </div>
@@ -142,7 +144,11 @@
                                         <a href="#">
                                             <img src=<?= "${ASSET_URL}assets/imgs/home/header2.webp" ?> alt="">
                                         </a>
-
+                                        <button class="love">
+                                            <span>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </span>
+                                        </button>
                                     </div>
                                     <div class="article-content">
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
@@ -151,10 +157,6 @@
                                                 read more
                                             </a>
                                             <div class="review">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    views
-                                                </a>
 
                                             </div>
                                         </div>
@@ -203,7 +205,11 @@
                                         <a href="#">
                                             <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                         </a>
-
+                                        <button class="love">
+                                            <span>
+                                                <i class="fa-regular fa-heart"></i>
+                                            </span>
+                                        </button>
                                     </div>
                                     <div class="article-content">
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
@@ -212,10 +218,6 @@
                                                 read more
                                             </a>
                                             <div class="review">
-                                                <a href="#">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                    views
-                                                </a>
 
                                             </div>
                                         </div>
@@ -233,7 +235,12 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="right-blog">
-
+                        <div class="search">
+                            <h4>search</h4>
+                            <form action="">
+                                <input type="search" placeholder="search">
+                            </form>
+                        </div>
                         <div class="recent-posts">
                             <h4>recent posts</h4>
                             <div class="item">

@@ -1,6 +1,6 @@
 <?php
 $router->get('/culture_swap/', 'controller/index.php');
-$router->get('/culture_swap/blogs', 'controller/blog/blog.php');
+$router->get('/culture_swap/blogs', 'controller/blog/blogs.php');
 $router->get('/culture_swap/blog', 'controller/blog/show.php');
 $router->get('/culture_swap/faq', 'controller/faq.php');
 $router->get('/culture_swap/about', 'controller/about.php');

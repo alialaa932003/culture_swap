@@ -1,279 +1,116 @@
-.blog-content {
-    background: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, .8)), url(../imgs/home/header4.webp) no-repeat;
-    background-size: cover;
-    background-position: center;
+.blogDetails {
+    padding: 10rem 0 10rem;
 }
 
 .head {
     padding: 3rem 0 5rem;
 }
 
-.blog-content .left-blog .article {
-
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    border-radius: 1rem;
-    background: #fff;
-}
-
-.blog-content .left-blog .row>div {
-    margin-bottom: 50px;
-}
-
-.blog-content .left-blog .row>div:last-of-type {
-    margin-bottom: 0;
-}
-
-.blog-content .left-blog .article:hover img {
-    transform: rotate(2deg) scale(1.2);
-}
-
-.blog-content .left-blog .article .article-header {
-    display: flex;
-    align-items: center;
-    padding: 30px;
-}
-
-.blog-content .left-blog .article .article-header .date {
-    margin-right: 25px;
-    width: 10.5rem;
-    height: 10.5rem;
-    background-color: var(--secondary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--secondary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.blog-content .left-blog .article .article-header .date span {
-    display: block;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.blog-content .left-blog .article .article-header .date span:first-child {
-    font-weight: 400;
-    font-size: 38px;
-
-
-
-}
-
-.blog-content .left-blog .article .article-header .heading-header {
-    width: 70%;
-    align-self: center;
-}
-
-.blog-content .left-blog .article .article-header .heading-header h3 {
-    font-size: 30px;
-    color: var(--h-color);
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.blog-content .left-blog .article .article-header .heading-header h3 a:hover {
-    color: var(--secondary);
-}
-
-.blog-content .left-blog .article .article-header .heading-header .company-content {
-    display: flex;
-    color: var(--primary);
-
-}
-
-.blog-content .left-blog .article .article-header .heading-header .company-content .item {
-    margin-right: 20px;
-    font-size: 16px;
-
-}
-
-.blog-content .left-blog .article .article-header .heading-header .company-content a:hover {
-    color: var(--secondary);
-}
-
-.blog-content .left-blog .article .article-header .heading-header .company-content a:hover i {
-    color: var(--secondary);
-}
-
-.blog-content .left-blog .article .article-header .heading-header .company-content .item i {
-    margin-right: 5px;
-    color: var(--primary);
-}
-
-
-.blog-content .left-blog .article .article-image a {
-    width: 100%;
-    overflow: hidden;
-    margin: 10px 0;
-}
-
-.blog-content .left-blog .article .article-image img {
-
-    height: 480px;
-
-}
-
-.blog-content .left-blog .article .article-content {
-    padding: 30px;
-}
-
-.blog-content .left-blog .article .article-content p {
-    margin-bottom: 30px;
-    color: var(--p-color);
-    font-size: 16px;
-    width: 90%;
-}
-
-.blog-content .left-blog .article .article-content .details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.blog-content .left-blog .article .article-content .details a {
-    margin-right: 30px;
-    font-size: 16px;
-
-}
-
-.blog-content .left-blog .article .article-content .details i {
-    margin-right: 3px;
-    color: var(--primary);
-}
-
-/********************************************************************************************************* 03 right side of blog *******************************/
-
-.blog-content .right-blog,
-.movies .right-movies {
-    margin-left: 30px;
-    color: var(--h-color);
-}
-
-.blog-content .right-blog>div,
-.movies .right-movies>div {
+.recent-posts {
     padding: 40px 30px;
     border-radius: 1rem;
     box-shadow: var(--shadow);
-    border-radius: 5px;
+    border-radius: 1rem;
     margin-bottom: 30px;
     background: #fff;
+    margin-right: 5rem;
 }
 
-.blog-content .right-blog>div:last-of-type,
-.movies .right-movies>div:last-of-type {
-    margin-bottom: 0;
+.details .image {
+    position: relative;
 }
 
-.blog-content .right-blog h4,
-.movies .right-movies h4 {
+.recent-posts h4 {
     padding-bottom: 20px;
     margin-bottom: 30px;
     font-weight: 600;
-    border-bottom: 1px dashed var(--primary);
+    border-bottom: 2px dashed var(--primary);
     font-size: 24px;
 }
 
-.blog-content .right-blog .search input,
-.movies .right-movies .search input {
-    border: none;
-    background-color: #212733;
-    color: var(--h-color);
-    font-size: 16px;
-    width: 100%;
-    padding: 15px 80px 15px 25px;
-}
-
-.blog-content .right-blog .search input::placeholder,
-.movies .right-movies .search input::placeholder {
-    color: var(--p-color);
-}
-
-.blog-content .right-blog .recent-posts .item,
-.movies .right-movies .recent-posts .item {
+.recent-posts .item {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
 }
 
-.blog-content .right-blog .recent-posts .item:last-child,
-.movies .right-movies .recent-posts .item:last-child {
+.recent-posts .item:last-child {
     margin-bottom: 0;
 }
 
-.blog-content .right-blog .recent-posts .item .image img,
-.movies .right-movies .item .image img {
+.recent-posts .item .image img {
     border-radius: 4px;
     width: 100px;
     ;
     height: 67px;
 }
 
-.blog-content .right-blog .recent-posts .item .content,
-.movies .right-movies .recent-posts .item .content {
+.recent-posts .item .content {
     margin-left: 20px;
 }
 
-.blog-content .right-blog .recent-posts .item .content h5,
-.movies .right-movies .recent-posts .item .content h5 {
+.recent-posts .item .content h5 {
     font-size: 16px;
     line-height: 1.6;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-.blog-content .right-blog .recent-posts .item .content h5 a:hover,
-.movies .right-movies .recent-posts .item .content h5 a:hover {
+.recent-posts .item .content h5 a:hover {
     color: var(--primary);
 }
 
-.blog-content .right-blog .recent-posts .item .content span,
-.movies .right-movies .recent-posts .item .content span {
+.recent-posts .item .content span {
 
     font-size: 12px;
     font-weight: 500;
 }
 
-.blog-content .right-blog .recent-posts .item .content span i,
-.movies .right-movies .recent-posts .item .content span i {
+.recent-posts .item .content span i {
     margin-right: 4px;
     font-size: 14px;
     color: var(--primary);
 }
 
-.blog-content .right-blog .Categories li {
-    border-bottom: 1px dashed #59595c;
-    padding-bottom: 15px;
+.details {
+    box-shadow: var(--shadow);
+    background: var(--main-bg);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.detailsContent {
+    padding: 3rem;
+}
+
+.total {
     display: flex;
-}
-
-.blog-content .right-blog .Categories li,
-.blog-content .right-blog .recent-comments li {
-
-    margin-bottom: 20px;
-
-    font-size: 16px;
-    color: var(--p-color);
-    font-weight: 500;
+    align-items: center;
+    margin: 1rem 0 2rem 0;
 
 }
 
-.blog-content .right-blog .Categories li a i,
-.blog-content .right-blog .recent-comments li a i {
-    margin-right: 4px;
-    color: var(--main-color);
+.totalItem {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    gap: .5rem;
+    margin-right: 1.5rem;
+    color: var(--primary);
 }
 
-.blog-content .right-blog .Categories li a:hover,
-.blog-content .right-blog .recent-comments li a:hover {
-    color: var(--main-color);
+.totalIcon {
+    /* color: var(--primary); */
 }
 
-.blog-content .right-blog .Categories li span {
-    margin-left: auto;
-    display: inline-block;
+.details h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    width: 95%;
+    margin-top: 2rem;
+}
+
+.details p {
+    font-size: 1.8rem;
+    line-height: 1.8;
 }
