@@ -1,5 +1,5 @@
 .blogDetails {
-    padding: 10rem 0 10rem;
+    padding: 12rem 0 12rem;
 }
 
 .head {
@@ -113,4 +113,101 @@
 .details p {
     font-size: 1.8rem;
     line-height: 1.8;
+}
+
+
+.commentsSection {
+    background: var(--second-bg);
+    padding: 5rem 0;
+}
+
+
+
+.addComment {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.addComment textarea {
+    border: 5px solid rgba(222, 226, 230, .5);
+    color: var(--h-color);
+    font-size: 1.8rem;
+    padding: 1rem;
+
+
+}
+
+.addComment textarea:focus {
+    border-color: var(--secondary);
+}
+
+.addComment label {
+    font-size: 2.2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.addComment button {
+    border: none;
+    width: fit-content;
+    margin: 2rem auto 0;
+}
+
+.allComments {
+    padding: 2rem 0 5rem;
+    border-top: 5px solid rgba(222, 226, 230, .5);
+    background: var(--second-bg);
+}
+
+.comment {
+    align-items: center;
+    margin: 8rem 0;
+
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.userImg {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.userImg img {
+    height: 100%;
+}
+
+.comment p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.like {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.likeBtn {
+    background: none;
+    color: var(--p-color);
+    border: none;
+}
+
+.likeBtn.active,
+.likeBtn:hover i {
+    color: var(--primary);
 }

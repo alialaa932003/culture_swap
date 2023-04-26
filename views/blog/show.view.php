@@ -161,6 +161,63 @@
         </div>
     </section>
 
+    <section class="commentsSection">
+        <div class="container">
+            <div class="head">
+                <h2 class="heading">comments</h2>
+            </div>
+            <form class="addComment">
+                <label for="comment">add comment</label>
+                <textarea name="comment" id="" cols="30" rows="10"></textarea>
+                <button class="main-btn " type="submit">submit</button>
+            </form>
+
+        </div>
+    </section>
+    <div class="allComments">
+        <div class="container">
+            <div class="comment row">
+                <div class="col-lg-2">
+                    <div class="user">
+                        <div class="userImg">
+                            <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                        </div>
+                        <div class="userContent">
+                            <h3>ali alaa eldin</h3>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-10">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
+                    <div class="like">
+                        <button class="likeBtn active"><i class="fa fa-heart"></i></button>
+                        <span class="likeCounters">25</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment row">
+                <div class="col-lg-2">
+                    <div class="user">
+                        <div class="userImg">
+                            <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                        </div>
+                        <div class="userContent">
+                            <h3>ali alaa eldin</h3>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-10">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
+                    <div class="like">
+                        <button class="likeBtn"><i class="fa fa-heart"></i></button>
+                        <span class="likeCounters">25</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
     require base_path("views/partials/footer.view.php");
     ?>
