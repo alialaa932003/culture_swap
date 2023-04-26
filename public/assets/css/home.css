@@ -22,6 +22,7 @@ header h1 {
     font-size: 4rem;
     font-weight: 800;
     color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
 }
 
 header p {
@@ -94,6 +95,7 @@ header p {
     margin-bottom: 3rem;
     font-size: 5.2rem;
     color: var(--secondary);
+    text-shadow: 2px 2px 5px rgba(95, 71, 4, 0.5);
 }
 
 /*************************************
