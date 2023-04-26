@@ -568,8 +568,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="public/assets/js/home.js"></script>
 
-    <!-- عشان عارف انك بهيم -->
-    <!-- حط ملف الجافاسكربت بتاعك هنا -->
+
 </body>
 
 </html>
