@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>404 Error Page</title>
+  <title>403</title>
   <link rel="stylesheet" href="/culture_swap/public/assets/css/error.css">
 </head>
 
@@ -12,8 +12,8 @@
   <div class="container">
     <div class="error-message">
       <h1>Oops!</h1>
-      <h2>403 - Unaothurized</h2>
-      <p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+      <h2>403 - Forbidden</h2>
+      <p>You don't have permission to access this resource.</p>
       <a href="/culture_swap" class="button">Go Home</a>
     </div>
   </div>

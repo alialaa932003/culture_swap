@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>404 Error Page</title>
+    <title>404</title>
   <link rel="stylesheet" href="/culture_swap/public/assets/css/error.css">
 </head>
 <body>
