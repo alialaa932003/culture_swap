@@ -6,13 +6,13 @@
     <title>Document</title>
 </head>
 
-<body>
-    <?php
-    require base_path("views/partials/head.view.php");
-    ?>
-    <link rel="stylesheet" href="/culture_swap/public/assets/css/blogs.css">
-    <title>blogs</title>
+<?php
+require base_path("views/partials/head.view.php");
+?>
+<link rel="stylesheet" href="/culture_swap/public/assets/css/blogs.css">
+<title>blogs</title>
 
+<body>
     <?php
     require base_path("views/partials/nav.view.php");
     ?>
