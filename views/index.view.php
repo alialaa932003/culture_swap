@@ -100,7 +100,7 @@
         <div class="container">
             <div class="head">
                 <h2 class="heading">Featured Stays</h2>
-                <a href="#" class="main-btn">all hosts</a>
+                <a href="./hosts" class="main-btn">all hosts</a>
             </div>
             <div class="row">
                 <div class="col-xl-4 col-md-6">
