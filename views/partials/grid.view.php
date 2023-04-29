@@ -4,7 +4,7 @@
   <div class=<?= $rowContainerClass ?? "row" ?>>
       <?php 
         foreach ($cardsData as $cardData)
-          Components::createCard($cardData)
+          Components::createCard($cardData, $cardClasses)
       ?>
   </div>
 </div>
