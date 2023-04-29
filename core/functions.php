@@ -23,4 +23,119 @@ function authorize($condition,$status =Response::FORBIDDEN){
         abort($status);
     }
 }
+
+function fetchCardData($params) {
+    $cardsData = [
+        [
+            'img' => "public/assets/imgs/home/header5.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 4,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header4.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 5,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header2.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 1,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header2.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 3,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header5.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 0,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header4.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 4,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header4.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 5,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header2.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 2,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header5.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 3,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header2.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 4,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header4.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 1,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+        [
+            'img' => "public/assets/imgs/home/header5.webp",
+            'country' => "norway",
+            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
+            'rating' => 4,
+            'hostId' => 1,
+            'isFav' => true,
+            'toggleFav' => function () {},
+        ],
+    ];
+
+    return $cardsData;
+}
 ?>
