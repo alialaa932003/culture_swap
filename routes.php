@@ -11,3 +11,6 @@ $router->get('/culture_swap/signup/host', 'controller/signup/host.php')->only('g
 
 $router->get('/culture_swap/login', 'controller/session/create.php')->only('guest');
 $router->get('/culture_swap/template', 'controller/template.php');
+
+$router->get('/culture_swap/hosts', 'controller/hosts.php');
+$router->get('/culture_swap/travelers', 'controller/travelers.php');
