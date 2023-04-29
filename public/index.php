@@ -6,6 +6,7 @@ ini_set('error_reporting', 1);
 // echo __DIR__;
 const BASE_PATH =__DIR__ . '/../';
 require BASE_PATH.'core/functions.php';
+require BASE_PATH . 'Components.php';
 // require base_path('Database.php');
 // require base_path('Response.php');
 
