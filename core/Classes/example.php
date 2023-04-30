@@ -7,7 +7,7 @@ echo "Put your class here";
 
 // Notes
 
-// Multiple Constructors:
+//! Multiple Constructors:
 //----------------------
 
 // class MyClass
@@ -38,3 +38,37 @@ echo "Put your class here";
 // $obj->__construct2("value1", "value2", "value3");
 
 //-----------------------------------------------------
+
+//! Example for creating add , delete , setters methods
+
+// class post {
+//   private $id;
+//   private $name;
+//   private $age;
+
+//   public construct(){
+
+//   }
+//   public function add($data) { //! --> Data here will be sent as associative array
+//     $id = postDB::add($data);
+//     extract($data);
+//     $this->id = $id;
+//     $this->name = $name;
+//     $this->age = $age;
+//   }
+
+//   public static function delete($id) {
+//     postDB::delete($id);
+//   }
+//   public static function setTitle($title) { //! --> Your setters will be like this , the same idea
+//     postDB::updata($id, 'title', $title);
+//   }
+
+// }
+
+// //! when you create the object
+// $myPost = newPost();
+// $myPost->add([
+//     'name' => 'shehab',
+//     'age' => '20'
+//   ]);
