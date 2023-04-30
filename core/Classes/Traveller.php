@@ -83,7 +83,7 @@ class Traveller extends User
   }
 
   public function cancelReservation(){
-
+    
   }
 
   public function addFriend($friendId){
