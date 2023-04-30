@@ -58,11 +58,11 @@ class Traveller extends User
     return $this->friends;
   }
   public function addFavHost($host){
-    array_push($this->favHosts, $host);
+    array_push($this->favHosts, $host); //! database logic here
   }
   
   public function removeFavHostsId($hostId){
-    $index = array_search($hostId, $this->favHostsIds);
+    $index = array_search($hostId, $this->favHostsIds); //! database logic here
     if ($index !== false) {
       unset($this->favHostsIds[$index]);
       return true;
@@ -71,7 +71,7 @@ class Traveller extends User
   }
 
   public function makeReview($rate , $hostId){
-    $review = new Review($hostId, $this->id, $rate);
+    $review = new Review($hostId, $this->id, $rate); //! database logic here 
     $reviewId = ReviewDataBase::addReview($review); 
     return $review;
   }
@@ -79,24 +79,24 @@ class Traveller extends User
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservationId =  ReservationDataBase::addReservation($reservation);
+    $this->reservationId =  ReservationDataBase::addReservation($reservation); //! database logic here
     return $reservation;
   }
 
   public function cancelReservation(){
     $this->reservationId = null;
-    ReservationDataBase::deleteReseravtion($this->reservationId);
+    ReservationDataBase::deleteReseravtion($this->reservationId); //! database logic here
   }
 
   public function addFriend($friendId){
     array_push($this->friendsIds, $friendId);
-    $friend = new Friend($friendId, $this->id);
+    $friend = new Friend($friendId, $this->id); //! database logic here
     FriendDataBase::addFriend($friend);
     return $friend;
   }
 
   public function removeFriend($friendId){
-    $index = array_search($friendId, $this->friendsIds);
+    $index = array_search($friendId, $this->friendsIds); //! database logic here
     if ($index !== false) {
       unset($this->friendsIds[$index]);
       $friend = new Friend($friendId, $this->id);
