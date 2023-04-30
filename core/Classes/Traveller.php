@@ -71,13 +71,10 @@ class Traveller extends User
 
   public function makeReview($rate , $hostId){
     $review = new Review($hostId, $this->id, $rate);
-    $reviewId = ReviewDataBase::addReview($review); // ! May be deleted
+    $reviewId = ReviewDataBase::addReview($review); 
     return $review;
   }
 
-  public function removeReview($reviewId){
-    //! May be deleted
-  }
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
@@ -86,6 +83,7 @@ class Traveller extends User
   }
 
   public function cancelReservation(){
+    $this->reservationId = null;
     ReservationDataBase::deleteReseravtion($this->reservationId);
   }
 
