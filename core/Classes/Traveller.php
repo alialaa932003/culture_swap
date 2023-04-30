@@ -16,28 +16,28 @@ class Traveller extends User
   // Constructors
   public function __construct()
   {
-    // Default constructor
+    // Empty constructor
   }
   
-  public function __construct1($username, $password, $type)
-  {
-    // Constructor with three parameters
-    $this->username = $username;
-    $this->password = $password;
-    $this->type = $type;
-  }
   
-  public function __construct2($name, $username, $password, $type, $email, $phoneNumber, $country, $service)
+  public function add($data)
   {
-    // Constructor with eight parameters
-    $this->name = $name;
+    $id = travellerDB::add($data);
+    extract($data);
+    $this->id = $id;
+    $this->firstName = $f_name;
+    $this->lastName = $l_name;
     $this->username = $username;
     $this->password = $password;
     $this->type = $type;
     $this->email = $email;
-    $this->phoneNumber = $phoneNumber;
+    $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->service = $service;
+    $this->service = $service_name;
+  }
+
+  public function delete($id){
+    travellerDB::delete($id);
   }
   
   // Methods
@@ -46,6 +46,7 @@ class Traveller extends User
   }
   
   public function setService($service){
+    
     $this->service = $service;
   }
   
