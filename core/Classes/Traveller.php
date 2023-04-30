@@ -9,9 +9,9 @@ class Traveller extends User
   // Data fields
   
   private $service;
-  private $friendsIds = [];
-  private $favHostsIds = [];
-  private $reservationId;
+  private $friends = [];
+  private $favHosts = [];
+  private $reservation;
 
   // Constructors
   public function __construct()
@@ -46,19 +46,19 @@ class Traveller extends User
   }
   
   public function setService($service){
-    
+    travellerDB::update($this->id, 'service_name', $service);
     $this->service = $service;
   }
   
-  public function getFavHostsIds(){
-    return $this->favHostsIds;
+  public function getFavHosts(){
+    return $this->favHosts;
   }
   
-  public function getFriendsIds(){
-    return $this->friendsIds;
+  public function getFriends(){
+    return $this->friends;
   }
-  public function addFavHostId($hostId){
-    array_push($this->favHostsIds, $hostId);
+  public function addFavHost($host){
+    array_push($this->favHosts, $host);
   }
   
   public function removeFavHostsId($hostId){
