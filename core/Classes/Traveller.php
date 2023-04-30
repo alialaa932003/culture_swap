@@ -11,6 +11,7 @@ class Traveller extends User
   private $service;
   private $friendsIds = [];
   private $favHostsIds = [];
+  private $reservationId;
 
   // Constructors
   public function __construct()
@@ -70,25 +71,28 @@ class Traveller extends User
 
   public function makeReview($rate , $hostId){
     $review = new Review($hostId, $this->id, $rate);
+    $reviewId = ReviewDataBase::addReview($review); // ! May be deleted
     return $review;
   }
 
   public function removeReview($reviewId){
-
+    //! May be deleted
   }
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
+    $this->reservationId =  ReservationDataBase::addReservation($reservation);
     return $reservation;
   }
 
   public function cancelReservation(){
-    
+    ReservationDataBase::deleteReseravtion($this->reservationId);
   }
 
   public function addFriend($friendId){
     array_push($this->friendsIds, $friendId);
-    $friend = new Friend($friendId, $travellerId);
+    $friend = new Friend($friendId, $this->id);
+    FriendDataBase::addFriend($friend);
     return $friend;
   }
 
@@ -96,10 +100,11 @@ class Traveller extends User
     $index = array_search($friendId, $this->friendsIds);
     if ($index !== false) {
       unset($this->friendsIds[$index]);
+      $friend = new Friend($friendId, $this->id);
+      FriendDataBase::deleteFriend($friend);
       return true;
     }
     return false;
   }
-
 
 }
