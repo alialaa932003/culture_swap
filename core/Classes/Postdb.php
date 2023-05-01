@@ -5,9 +5,8 @@ namespace core\Classes;
 use core\Database;
 
 
-class Postdb extends Database
+class Postdb
 {
-
     // private $title;
     // private $content;
     // private $user;
@@ -18,6 +17,11 @@ class Postdb extends Database
     // private $comments_num;
     // private $img;
     // private $date;
+    private $dbref;
+    function __construct()
+    {
+        $this->dbref = Database::getInstance();
+    }
 
     public function add($data)
     {
