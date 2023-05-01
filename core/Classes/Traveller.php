@@ -72,14 +72,14 @@ class Traveller extends User
 
   public function makeReview($rate , $hostId){
     $review = new Review($hostId, $this->id, $rate); //! database logic here 
-    $reviewId = ReviewDataBase::addReview($review); 
+    $reviewId = ReviewDB::addReview($review); 
     return $review;
   }
 
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservationId =  ReservationDataBase::addReservation($reservation); //! database logic here
+    $this->reservationId =  ReservationDB::addReservation($reservation); //! database logic here
     return $reservation;
   }
 
@@ -99,11 +99,17 @@ class Traveller extends User
     $index = array_search($friendId, $this->friendsIds); //! database logic here
     if ($index !== false) {
       unset($this->friendsIds[$index]);
-      $friend = new Friend($friendId, $this->id);
-      FriendDataBase::deleteFriend($friend);
+      FriendDataBase::deleteFriend($friendId);
       return true;
     }
     return false;
   }
 
+  public function getOne(){
+
+  }
+
+  public function search($condition){
+
+  }
 }

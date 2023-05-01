@@ -11,28 +11,38 @@ class TravellerVip extends Traveller{
 
   }
 
-  public function __construct1($username, $password, $type,$cardNumber, $cvc, $expirationDate , $paymentOption){
-    parent::__construct1($username, $password, $type);
-    $this->cardNumber = $cardNumber;
+  public function add($data)
+  {
+    $id = travellerVipDB::add($data);
+    extract($data);
+    $this->id = $id;
+    $this->firstName = $f_name;
+    $this->lastName = $l_name;
+    $this->username = $username;
+    $this->password = $password;
+    $this->type = $type;
+    $this->email = $email;
+    $this->phoneNumber = $phone_num;
+    $this->country = $country;
+    $this->service = $service_name;
+    $this->cardNumber = $card_num;
     $this->cvc = $cvc;
-    $this->expirationDate = $expirationDate;
-    $this->paymentOption = $paymentOption;
+    $this->expirationDate = $expiration_date;
+    $this->paymentOption = $payment_option;
   }
 
-  public function __construct2($name, $username, $password, $type, $email, $phoneNumber, $country, $service,$cardNumber, $cvc, $expirationDate , $paymentOption){
-    parent::__construct2($name, $username, $password, $type, $email, $phoneNumber, $country, $service);
-    $this->cardNumber = $cardNumber; 
-    $this->cvc = $cvc;
-    $this->expirationDate = $expirationDate;
-    $this->paymentOption = $paymentOption;
+  public function delete($id)
+  {
+    travellerVipDB::delete($id);
   }
-
 
   public function getCardNumber(){
     return $this->cardNumber;
   }
 
   public function setCardNumber($cardNumber){
+    travellerVipDB::update($this->id, 'card_num', $cardNumber);
+    $this->service = $service;
     $this->cardNumber = $cardNumber;
   }
 
@@ -41,6 +51,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setCvc($cvc){
+    travellerVipDB::update($this->id, 'card_num', $cvc);
     $this->cvc = $cvc;
   }
 
@@ -49,6 +60,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setExpirationDate($date){
+    travellerVipDB::update($this->id, 'expiration_date', $date);
     $this->expirationDate = $date;
   }
 
@@ -57,6 +69,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setPaymentOption($paymentOption){
+    travellerVipDB::update($this->id, 'payment_option', $paymentOption);
     $this->paymentOption = $paymentOption;
   }
 
