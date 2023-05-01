@@ -54,20 +54,20 @@ require base_path("views/partials/head.view.php");
                                                 <div class="item">
                                                     <a href="#">
                                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                                        admin
+                                                        ali alaa
                                                     </a>
                                                 </div>
                                                 <div class="item">
                                                     <a href="#">
                                                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        Uncategorized
+                                                        host
                                                     </a>
 
                                                 </div>
                                                 <div class="item">
                                                     <a href="#">
-                                                        <i class="fa fa-tags" aria-hidden="true"></i>
-                                                        Presenter Movie
+                                                        <i class="fa fa-location" aria-hidden="true"></i>
+                                                        norway
                                                     </a>
                                                 </div>
 

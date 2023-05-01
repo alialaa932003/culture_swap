@@ -191,10 +191,7 @@ require base_path("views/partials/head.view.php");
                 </div>
                 <div class="col-lg-10">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
-                    <div class="like">
-                        <button class="likeBtn active"><i class="fa fa-heart"></i></button>
-                        <span class="likeCounters">25</span>
-                    </div>
+
                 </div>
             </div>
             <div class="comment row">
@@ -211,10 +208,7 @@ require base_path("views/partials/head.view.php");
                 </div>
                 <div class="col-lg-10">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
-                    <div class="like">
-                        <button class="likeBtn"><i class="fa fa-heart"></i></button>
-                        <span class="likeCounters">25</span>
-                    </div>
+
                 </div>
             </div>
         </div>
