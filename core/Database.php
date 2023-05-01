@@ -61,17 +61,17 @@ class Database
         }
         return Database::$instance;
     }
-    // function getLastRecordIdAdded($tableName)
-    // {
-    //     $query = "SELECT id FROM " . $tableName
-    //         . " ORDER BY id DESC"
-    //         . " OFFSET 0 ROWS FETCH FIRST 1 ROW ONLY";
+    public  function getLastRecordIdAdded($tableName)
+    {
+        $query = "SELECT id FROM " . $tableName
+            . " ORDER BY id DESC"
+            . " OFFSET 0 ROWS FETCH FIRST 1 ROW ONLY";
 
-    //     $res = DQLQuery($query);
-    //     $res->next();
+        $res = Database::$instance->query($query);
 
-    //     return $res->getInt("id");
-    // }
+
+        return $res["id"];
+    }
 
     function formatCondition($condition)
     {
