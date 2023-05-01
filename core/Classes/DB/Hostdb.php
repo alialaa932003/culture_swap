@@ -97,12 +97,16 @@ class Hostdb
     public function search($data, $offset, $limit)
     {
 
-        $needs = ['ssda', 'asdsa'];
+        $needs = ['egypt', 'turkey'];
         extract($data);
         return $this->dbref->query(
             "SELECT user_info.* , [status],[descriiption],rate,travellers_num , [location] from user_info 
             INNER JOIN host_profile 
             ON host_profile.User_id = user_info.id
+            INNER JOIN host_need
+            ON user_info.id = host_id
+            INNER JOIN [service]
+            ON [service].id = host_need.service_id
             WHERE (
                 first_name LIKE '%:fName%'
                 OR 
@@ -110,6 +114,7 @@ class Hostdb
             ) 
             AND country like '%:country%' 
             AND rate between :startRate and :endRate 
+            AND [service].name like '%egypt%'
             ORDER BY id desc  
             LIMIT :limit 
             OFFSET :offset 

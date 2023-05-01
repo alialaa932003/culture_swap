@@ -14,7 +14,7 @@ class Postdb
         $this->dbref = Database::getInstance();
     }
 
-    public function add($data)
+    public  function add($data)
     {
 
         $this->dbref->query(
