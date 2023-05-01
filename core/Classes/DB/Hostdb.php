@@ -9,6 +9,26 @@ class Hostdb
 {
 
     private $dbref;
+    private static $tableMap = [
+        'user_info' => [
+            'fName',
+            'lName',
+            'email',
+            'type',
+            'phoneNum',
+            'profilePic',
+            'country'
+        ],
+        'host_profile' => [
+            'id',
+            'status',
+            'description',
+            'rate',
+            'travelersNum',
+            'location',
+            'userId'
+        ]
+    ];
     function __construct()
     {
         $this->dbref = Database::getInstance();
@@ -16,24 +36,43 @@ class Hostdb
 
     public function add($data)
     {
-
         $this->dbref->query(
-            "INSERT INTO TABLE post (user_id,title,[content],img) 
-            
-            values(:user_id,:title,:contentt,:img)",
+            "INSERT INTO TABLE user_info (f_name, l_name,email,[type], phone_num, profile_picture, country) 
+                values(:fName,:lName,:email,:type, :phoneNum, :profilePic, :country)
+            ",
             [
-                'user_id' => $data['userId'],
-                'title' => $data['title'],
-                'contentt' => $data['content'],
-                'img' => $data['img'],
+                'fName' => $data['fName'],
+                'lName' => $data['lName'],
+                'email' => $data['email'],
+                'type' => $data['type'],
+                'phoneNum' => $data['phoneNum'],
+                'profilePic' => $data['profilePic'],
+                'country' => $data['country'],
             ]
         );
-        return $this->dbref->getLastRecordIdAdded("post");
+        $userId =  $this->dbref->getLastRecordIdAdded("user_info");
+
+        $this->dbref->query(
+            "INSERT INTO TABLE host_profile (id,[status], [description], rate, travelers_num, [location], user_id) 
+                values(:id,:status,:description,:rate, :travelersNum, :location, :userId)
+            ",
+            [
+                'id' => $userId,
+                'status' => $data['status'],
+                'description' => $data['description'],
+                'rate' => $data['rate'],
+                'travelersNum' => $data['travelersNum'],
+                'location' => $data['location'],
+                'userId' => $userId,
+            ]
+        );
+
+        return $this->dbref->getLastRecordIdAdded("host_profile");
     }
     public function delete($id)
     {
         $this->dbref->query(
-            "DELETE FROM post WHERE id=:id",
+            "DELETE FROM user_info WHERE id=:id",
             [
                 'id' => $id
             ]
@@ -43,26 +82,52 @@ class Hostdb
     {
         extract($data);
 
-        $this->dbref->query("UPDATE post SET $key = :value WHERE id = :id ", [
-            'value' => $value,
-            'id' => $id
-        ]);
+        if (in_array($key, HostDB::$tableMap['user_info'])) {
+            $this->dbref->query("UPDATE user_info SET $key = :value WHERE id = :id ", [
+                'value' => $value,
+                'id' => $id
+            ]);
+        } else if (in_array($key, HostDB::$tableMap['host_profile'])) {
+            $this->dbref->query("UPDATE host_profile SET $key = :value WHERE id = :id ", [
+                'value' => $value,
+                'id' => $id
+            ]);
+        }
     }
-    public function search($str, $offset, $limit)
+    public function search($data, $offset, $limit)
     {
+
+        $needs = ['ssda', 'asdsa'];
+        extract($data);
         return $this->dbref->query(
-            "SELECT * FROM post WHERE title LIKE '%:str%' OR [content] like '%:str%' ORDER BY id desc  LIMIT :limit OFFSET :offset ",
+            "SELECT user_info.* , [status],[descriiption],rate,travellers_num , [location] from user_info 
+            INNER JOIN host_profile 
+            ON host_profile.User_id = user_info.id
+            WHERE (
+                first_name LIKE '%:fName%'
+                OR 
+                last_name like '%:lName%'
+            ) 
+            AND country like '%:country%' 
+            AND rate between :startRate and :endRate 
+            ORDER BY id desc  
+            LIMIT :limit 
+            OFFSET :offset 
+            ",
             ['limit' => $limit, 'offset' => $offset, 'str' => $str]
         )->get();
     }
     public function getOne($id)
     {
-        $post = $this->dbref->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->findOrFail();
-        if (empty($post)) {
-            return [];
-        }
-        $comments = $this->dbref->query("SELECT [comment].* ,first_name,last_name ,country,profile_picture,type FROM [comment] INNER JOIN user_info on user_info.id = [comment].user_id  WHERE  post_id = :id ", ['id' => $post['id']])->findOrFail();
-        $post['comments'] = $comments;
-        return $post;
+        $host = $this->dbref->query(
+            "SELECT user_info.* , [status],[descriiption],rate,travellers_num , [location] from user_info 
+            INNER JOIN host_profile 
+            ON host_profile.User_id = user_info.id
+            WHERE user_info.id = :id
+            ",
+            ['id' => $id]
+        )->findOrFail();
+
+        return $host;
     }
 }
