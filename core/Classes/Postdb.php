@@ -25,6 +25,8 @@ class Postdb
 
     public function add($data)
     {
+
+        $this->dbref->query("");
     }
     public function delete($id)
     {

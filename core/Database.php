@@ -61,4 +61,20 @@ class Database
         }
         return Database::$instance;
     }
+    // function getLastRecordIdAdded($tableName)
+    // {
+    //     $query = "SELECT id FROM " . $tableName
+    //         . " ORDER BY id DESC"
+    //         . " OFFSET 0 ROWS FETCH FIRST 1 ROW ONLY";
+
+    //     $res = DQLQuery($query);
+    //     $res->next();
+
+    //     return $res->getInt("id");
+    // }
+
+    function formatCondition($condition)
+    {
+        return trim($condition) === "*" ? "id > -1" : $condition;
+    }
 }
