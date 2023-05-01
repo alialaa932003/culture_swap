@@ -58,11 +58,13 @@ class Traveller extends User
     return $this->friends;
   }
   public function addFavHost($host){
-    array_push($this->favHosts, $host); //! database logic here
+    //! Not completed
+    array_push($this->favHosts, $host); 
   }
   
   public function removeFavHostsId($hostId){
-    $index = array_search($hostId, $this->favHostsIds); //! database logic here
+    //! Not completed
+    $index = array_search($hostId, $this->favHostsIds); 
     if ($index !== false) {
       unset($this->favHostsIds[$index]);
       return true;
@@ -71,7 +73,7 @@ class Traveller extends User
   }
 
   public function makeReview($rate , $hostId){
-    $review = new Review($hostId, $this->id, $rate); //! database logic here 
+    $review = new Review($hostId, $this->id, $rate); 
     $reviewId = ReviewDB::addReview($review); 
     return $review;
   }
@@ -79,24 +81,24 @@ class Traveller extends User
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservationId =  ReservationDB::addReservation($reservation); //! database logic here
+    $this->reservationId =  ReservationDB::addReservation($reservation); 
     return $reservation;
   }
 
   public function cancelReservation(){
     $this->reservationId = null;
-    ReservationDataBase::deleteReseravtion($this->reservationId); //! database logic here
+    ReservationDataBase::deleteReseravtion($this->reservationId); 
   }
 
   public function addFriend($friendId){
     array_push($this->friendsIds, $friendId);
-    $friend = new Friend($friendId, $this->id); //! database logic here
+    $friend = new Friend($friendId, $this->id); 
     FriendDataBase::addFriend($friend);
     return $friend;
   }
 
   public function removeFriend($friendId){
-    $index = array_search($friendId, $this->friendsIds); //! database logic here
+    $index = array_search($friendId, $this->friendsIds); 
     if ($index !== false) {
       unset($this->friendsIds[$index]);
       FriendDataBase::deleteFriend($friendId);
@@ -105,11 +107,22 @@ class Traveller extends User
     return false;
   }
 
-  public function getOne(){
-
+  public function getOne($username){
+    $traveller = travelelrDB::search("user_name = {$username}", 0, 1); 
+    $this->id = $traveller->id;
+    $this->firstName = $traveller->f_name;
+    $this->lastName = $traveller->l_name;
+    $this->username = $traveller->username;
+    $this->password = $traveller->password;
+    $this->type = $traveller->type;
+    $this->email = $traveller->email;
+    $this->phoneNumber = $traveller->phone_num;
+    $this->country = $traveller->country;
+    $this->service = $traveller->service_name;
   }
 
-  public function search($condition){
-
+  public static function search($condition, $skip , $limit){
+    $travellers = travelelrDB::search("{$condition}", 0, 1); 
+    return $travellers;
   }
 }
