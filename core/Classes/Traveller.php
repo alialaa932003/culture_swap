@@ -8,7 +8,10 @@ class Traveller extends User
 {
   // Data fields
   
-  private $service;
+  private $service = [
+    'id' => '',
+    'name' => ''
+  ];
   private $friends = [];
   private $favHosts = [];
   private $reservation;
@@ -33,7 +36,9 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->service = $service_name;
+    $this->service['id'] = $service_id;
+    $this->service['name'] = $service_name;
+
   }
 
   public function delete($id){
@@ -41,12 +46,13 @@ class Traveller extends User
   }
   
   // Methods
-  public function getService(){
+  public function getService(){ // Will return associative array
     return $this->service;
   }
   
-  public function setService($service){
-    TravellerDB::update($this->id, 'service_name', $service);
+  public function setService($service){ // here you will send associative array 
+    TravellerDB::update($this->id, 'service_name', $service['name']);
+    TravellerDB::update($this->id, 'service_id', $service['id']);
     $this->service = $service;
   }
   
