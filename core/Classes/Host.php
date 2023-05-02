@@ -168,16 +168,16 @@ class Host extends User
         $this->country = $country;
 
       
-        $this->status = $status;
+        $this->status = $Status;
 
-        $this->description = $description;
+        $this->description = $Description;
 
-        $this->location = $location;
+        $this->location = $Location;
 
-        $this->rate  = $rate_average;
+        $this->rate  = $Rate_average;
 
-        $this->needs = $needs;
+        $this->needs = $Needs;
 
-        $this->Traveller_num = $traveller_num;
+        $this->Traveller_num = $Traveller_num;
     }
 }
