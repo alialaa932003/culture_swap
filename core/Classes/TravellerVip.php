@@ -97,4 +97,4 @@ class TravellerVip extends Traveller{
     $travellers = TravelelrVipDB::search("{$condition}", 0, 1);
     return $travellers;
   }
-}
+} 
