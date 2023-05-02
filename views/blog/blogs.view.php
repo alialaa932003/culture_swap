@@ -31,10 +31,39 @@ require base_path("views/partials/head.view.php");
                         <h2 class="heading">
                             news update
                         </h2>
+                        <button class="main-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">add post</button>
                     </div>
 
                 </div>
             </section>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <form class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title " id="exampleModalLabel">add post</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="postItem">
+                                <label for="title">title</label>
+                                <input placeholder="enter title" name="title" type="text">
+                            </div>
+                            <div class="postItem">
+                                <label for="content">content</label>
+                                <textarea placeholder="enter content" name="content" type="text"></textarea>
+                            </div>
+                            <div class="postItem">
+                                <label for="image">image</label>
+                                <input placeholder="enter image" name="image" type="file">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="second-btn">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="left-blog">
@@ -58,17 +87,17 @@ require base_path("views/partials/head.view.php");
                                                     </a>
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
+                                                    <span>
                                                         <i class="fa fa-folder-open" aria-hidden="true"></i>
                                                         host
-                                                    </a>
+                                                    </span>
 
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
+                                                    <span>
                                                         <i class="fa fa-location" aria-hidden="true"></i>
                                                         norway
-                                                    </a>
+                                                    </span>
                                                 </div>
 
                                             </div>
@@ -103,38 +132,36 @@ require base_path("views/partials/head.view.php");
 
 
 
-
                             <div class="col-12">
                                 <div class="article">
                                     <div class="article-header">
                                         <div class="date">
-                                            <span>21</span>
-                                            <span>sep 20</span>
+                                            <span>07</span>
+                                            <span>may 12</span>
                                         </div>
                                         <div class="heading-header">
                                             <h3>
-                                                <a href="#">Your Free Movie Streaming Purposes
-                                                </a>
+                                                <a href="#">Where watch English movies free?</a>
                                             </h3>
                                             <div class="company-content">
                                                 <div class="item">
                                                     <a href="#">
                                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                                        admin
+                                                        ali alaa
                                                     </a>
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
+                                                    <span>
                                                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        Uncategorized
-                                                    </a>
+                                                        host
+                                                    </span>
 
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
-                                                        <i class="fa fa-tags" aria-hidden="true"></i>
-                                                        Presenter Movie
-                                                    </a>
+                                                    <span>
+                                                        <i class="fa fa-location" aria-hidden="true"></i>
+                                                        norway
+                                                    </span>
                                                 </div>
 
                                             </div>
@@ -142,13 +169,14 @@ require base_path("views/partials/head.view.php");
                                     </div>
                                     <div class="article-image">
                                         <a href="#">
-                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header2.webp" ?> alt="">
+                                            <button class="love">
+                                                <span>
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </span>
+                                            </button>
+                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                         </a>
-                                        <button class="love">
-                                            <span>
-                                                <i class="fa-regular fa-heart"></i>
-                                            </span>
-                                        </button>
+
                                     </div>
                                     <div class="article-content">
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
@@ -157,6 +185,7 @@ require base_path("views/partials/head.view.php");
                                                 read more
                                             </a>
                                             <div class="review">
+
 
                                             </div>
                                         </div>
@@ -166,36 +195,37 @@ require base_path("views/partials/head.view.php");
 
 
 
+
                             <div class="col-12">
                                 <div class="article">
                                     <div class="article-header">
                                         <div class="date">
-                                            <span>26</span>
-                                            <span>june 19</span>
+                                            <span>07</span>
+                                            <span>may 12</span>
                                         </div>
                                         <div class="heading-header">
                                             <h3>
-                                                <a href="#">House movie to is streaming website?</a>
+                                                <a href="#">Where watch English movies free?</a>
                                             </h3>
                                             <div class="company-content">
                                                 <div class="item">
                                                     <a href="#">
                                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                                        admin
+                                                        ali alaa
                                                     </a>
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
+                                                    <span>
                                                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        Uncategorized
-                                                    </a>
+                                                        host
+                                                    </span>
 
                                                 </div>
                                                 <div class="item">
-                                                    <a href="#">
-                                                        <i class="fa fa-tags" aria-hidden="true"></i>
-                                                        Presenter Movie
-                                                    </a>
+                                                    <span>
+                                                        <i class="fa fa-location" aria-hidden="true"></i>
+                                                        norway
+                                                    </span>
                                                 </div>
 
                                             </div>
@@ -203,13 +233,14 @@ require base_path("views/partials/head.view.php");
                                     </div>
                                     <div class="article-image">
                                         <a href="#">
+                                            <button class="love">
+                                                <span>
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </span>
+                                            </button>
                                             <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                         </a>
-                                        <button class="love">
-                                            <span>
-                                                <i class="fa-regular fa-heart"></i>
-                                            </span>
-                                        </button>
+
                                     </div>
                                     <div class="article-content">
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
@@ -218,6 +249,7 @@ require base_path("views/partials/head.view.php");
                                                 read more
                                             </a>
                                             <div class="review">
+
 
                                             </div>
                                         </div>

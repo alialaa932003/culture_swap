@@ -6,6 +6,9 @@
 
 .head {
     padding: 3rem 0 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .blog-content .left-blog .article {

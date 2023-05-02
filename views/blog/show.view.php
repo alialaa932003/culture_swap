@@ -18,13 +18,42 @@ require base_path("views/partials/head.view.php");
     require base_path("views/partials/nav.view.php");
     ?>
 
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title " id="exampleModalLabel">edit post</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="postItem">
+                        <label for="title">title</label>
+                        <input placeholder="enter title" name="title" type="text">
+                    </div>
+                    <div class="postItem">
+                        <label for="content">content</label>
+                        <textarea placeholder="enter content" name="content" type="text"></textarea>
+                    </div>
+                    <div class="postItem">
+                        <label for="image">image</label>
+                        <input placeholder="enter image" name="image" type="file">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="second-btn">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <section class="blogDetails section-padding">
         <div class="container">
             <div class="head">
                 <h2 class="heading">
                     post details
                 </h2>
+                <button class="main-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">edit post</button>
+
             </div>
             <div class="row">
                 <div class="col-lg-4">
