@@ -54,8 +54,14 @@ class Host extends User
 
     public function setLocation($location)
     {
+
+        HostDB::update([
+            'id' => $this->id,
+            'key' => 'Location',
+            'value' => $location
+          ]);
     
-        HostDB::update($this->id, 'Location' , $location);           
+                  
 
         $this->location = $location;
     }
@@ -72,7 +78,12 @@ class Host extends User
 
     public function setStatus($status) 
     {
-        HostDB::update(this->id,'Status',$status );
+
+        HostDB::update([
+            'id' => $this->id,
+            'key' => 'Status',
+            'value' => $status
+          ]);
 
         $this->status = $status;
     }
@@ -88,7 +99,13 @@ class Host extends User
 
     public function setDescription($description)
     {
-        HostDB::update(this->id,'Description',$description);
+        HostDB::update([
+            'id' => $this->id,
+            'key' => 'Description',
+            'value' => $description
+          ]);
+        
+       
 
         
         $this->description = $description;
@@ -105,8 +122,11 @@ class Host extends User
 
     public function setneeds($needs)/////////////////////////////////
     {
-        HostDB::update(this->id,    );
-
+        HostDB::update([
+            'id' => $this->id,
+            'key' => '  ',
+            'value' => $needs
+          ]);
 
         $this->needs = $needs;
     }
@@ -120,8 +140,13 @@ class Host extends User
 
     public function setTraveller_num($Traveller_num)
     {
+        HostDB::update([
+            'id' => $this->id,
+            'key' => 'Traveller_num',
+            'value' => $Traveller_num
+          ]);
 
-        HostDB::update(this->id,'Traveller_num',$Traveller_num );
+       
 
         $this->Traveller_num = $Traveller_num;
     }
@@ -134,7 +159,12 @@ class Host extends User
 
     public function setrate($rate)
     {
-        HostDB::update(this->id,'$Rate_average',$rate);
+        HostDB::update([
+            'id' => $this->id,
+            'key' => 'Rate_average',
+            'value' => $rate
+          ]);
+       
 
         $this->rate = $rate;
     }
@@ -150,7 +180,11 @@ class Host extends User
     public function setReviews($reviews)///////////////////////////
     {
 
-        HostDB::update(this->id ,     );
+        HostDB::update([
+            'id' => $this->id,
+            'key' => '',
+            'value' => $reviews
+          ]);
 
 
         $this->reviews = $reviews;
