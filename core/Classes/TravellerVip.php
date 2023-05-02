@@ -73,22 +73,23 @@ class TravellerVip extends Traveller{
     $this->paymentOption = $paymentOption;
   }
 
-  public function getOne($username)
+  public function getOne($id)
   {
-    $travellerVip = TravelelrVipDB::search("user_name = {$username}", 0, 1); 
-    $this->id = $traveller->id;
-    $this->firstName = $travellerVip->f_name;
-    $this->lastName = $travellerVip->l_name;
-    $this->username = $travellerVip->username;
-    $this->password = $travellerVip->password;
-    $this->type = $travellerVip->type;
-    $this->email = $travellerVip->email;
-    $this->phoneNumber = $travellerVip->phone_num;
-    $this->country = $travellerVip->country;
-    $this->service = $travellerVip->service_name;
-    $this->cvc = $travellerVip->cvc;
-    $this->expirationDate = $travellerVip->expiration_date;
-    $this->paymentOption = $travellerVip->payment_option;
+    $travellerVip = TravelelrVipDB::getOne($id);
+    extract($travellerVip);
+    $this->id = $id;
+    $this->firstName = $f_name;
+    $this->lastName = $l_name;
+    $this->username = $username;
+    $this->password = $password;
+    $this->type = $type;
+    $this->email = $email;
+    $this->phoneNumber = $phone_num;
+    $this->country = $country;
+    $this->service = $service_name;
+    $this->cvc = $cvc;
+    $this->expirationDate = $expiration_date;
+    $this->paymentOption = $payment_option;
   }
 
   public static function search($condition, $skip, $limit)

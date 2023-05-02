@@ -117,15 +117,15 @@ class Traveller extends User
     $traveller = TravelelrDB::getOne($id);
     extract($traveller);
     $this->id = id;
-    $this->firstName = f_name;
-    $this->lastName = l_name;
-    $this->username = username;
-    $this->password = password;
-    $this->type = type;
-    $this->email = email;
-    $this->phoneNumber = phone_num;
-    $this->country = country;
-    $this->service = service_name;
+    $this->firstName = $f_name;
+    $this->lastName = $l_name;
+    $this->username = $username;
+    $this->password = $password;
+    $this->type = $type;
+    $this->email = $email;
+    $this->phoneNumber = $phone_num;
+    $this->country = $country;
+    $this->service = $service_name;
   }
 
   public static function search($condition, $skip , $limit){
