@@ -38,7 +38,11 @@ class Duration
 
   public function setParentId($id)
   {
-    DurationDB::update($this->id, 'parent_id', $id);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'parent_id',
+      'value' => $id
+    ]);
     $this->parentId = $id;
   }
 
@@ -49,7 +53,11 @@ class Duration
 
   public function setStartDate($startDate)
   {
-    DurationDB::update($this->id, 'start_date', $startDate);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'start_date',
+      'value' => $startDate
+    ]);
     $this->startDate = $startDate;
   }
 
