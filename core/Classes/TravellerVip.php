@@ -94,7 +94,7 @@ class TravellerVip extends Traveller{
 
   public static function search($condition, $skip, $limit)
   {
-    $travellers = TravelelrVipB::search("{$condition}", 0, 1);
+    $travellers = TravelelrVipDB::search("{$condition}", 0, 1);
     return $travellers;
   }
 }
