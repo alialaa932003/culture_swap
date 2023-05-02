@@ -22,7 +22,7 @@ class Traveller extends User
   
   public function add($data)
   {
-    $id = travellerDB::add($data);
+    $id = TravellerDB::add($data);
     extract($data);
     $this->id = $id;
     $this->firstName = $f_name;
@@ -37,7 +37,7 @@ class Traveller extends User
   }
 
   public function delete($id){
-    travellerDB::delete($id);
+    TravellerDB::delete($id);
   }
   
   // Methods
@@ -46,7 +46,7 @@ class Traveller extends User
   }
   
   public function setService($service){
-    travellerDB::update($this->id, 'service_name', $service);
+    TravellerDB::update($this->id, 'service_name', $service);
     $this->service = $service;
   }
   
@@ -108,7 +108,7 @@ class Traveller extends User
   }
 
   public function getOne($username){
-    $traveller = travelelrDB::search("user_name = {$username}", 0, 1); 
+    $traveller = TravelelrDB::search("user_name = {$username}", 0, 1); 
     $this->id = $traveller->id;
     $this->firstName = $traveller->f_name;
     $this->lastName = $traveller->l_name;
@@ -122,7 +122,7 @@ class Traveller extends User
   }
 
   public static function search($condition, $skip , $limit){
-    $travellers = travelelrDB::search("{$condition}", 0, 1); 
+    $travellers = TravelelrDB::search("{$condition}", 0, 1); 
     return $travellers;
   }
 }

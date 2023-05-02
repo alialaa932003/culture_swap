@@ -7,7 +7,7 @@ class HostAuth
 
   public function handle()
   {
-    if ($_SESSION['user'] !== 'host') {
+    if ($_SESSION['user']['type'] !== 'host') {
       header('location: /culture_swap/');
       exit();
     }

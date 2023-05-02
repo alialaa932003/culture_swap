@@ -13,7 +13,7 @@ class TravellerVip extends Traveller{
 
   public function add($data)
   {
-    $id = travellerVipDB::add($data);
+    $id = TravellerVipDB::add($data);
     extract($data);
     $this->id = $id;
     $this->firstName = $f_name;
@@ -33,7 +33,7 @@ class TravellerVip extends Traveller{
 
   public function delete($id)
   {
-    travellerVipDB::delete($id);
+    TravellerVipDB::delete($id);
   }
 
   public function getCardNumber(){
@@ -41,7 +41,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setCardNumber($cardNumber){
-    travellerVipDB::update($this->id, 'card_num', $cardNumber);
+    TravellerVipDB::update($this->id, 'card_num', $cardNumber);
     $this->service = $service;
     $this->cardNumber = $cardNumber;
   }
@@ -51,7 +51,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setCvc($cvc){
-    travellerVipDB::update($this->id, 'card_num', $cvc);
+    TravellerVipDB::update($this->id, 'card_num', $cvc);
     $this->cvc = $cvc;
   }
 
@@ -60,7 +60,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setExpirationDate($date){
-    travellerVipDB::update($this->id, 'expiration_date', $date);
+    TravellerVipDB::update($this->id, 'expiration_date', $date);
     $this->expirationDate = $date;
   }
 
@@ -69,13 +69,13 @@ class TravellerVip extends Traveller{
   }
 
   public function setPaymentOption($paymentOption){
-    travellerVipDB::update($this->id, 'payment_option', $paymentOption);
+    TravellerVipDB::update($this->id, 'payment_option', $paymentOption);
     $this->paymentOption = $paymentOption;
   }
 
   public function getOne($username)
   {
-    $travellerVip = travelelrVipDB::search("user_name = {$username}", 0, 1); 
+    $travellerVip = TravelelrVipDB::search("user_name = {$username}", 0, 1); 
     $this->id = $traveller->id;
     $this->firstName = $travellerVip->f_name;
     $this->lastName = $travellerVip->l_name;
@@ -93,7 +93,7 @@ class TravellerVip extends Traveller{
 
   public static function search($condition, $skip, $limit)
   {
-    $travellers = travelelrVipB::search("{$condition}", 0, 1);
+    $travellers = TravelelrVipB::search("{$condition}", 0, 1);
     return $travellers;
   }
 }
