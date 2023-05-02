@@ -10,7 +10,7 @@ class Hostdb
 
     private $dbref;
     private static $tableMap = [
-        'user_info' => [
+        'user' => [
             'fName',
             'lName',
             'email',
@@ -19,16 +19,18 @@ class Hostdb
             'profilePic',
             'country'
         ],
-        'host_profile' => [
-            'id',
+        'host' => [
             'status',
             'description',
             'rate',
             'travelersNum',
             'location',
-            'userId'
+        ],
+        'host_need' => [
+            'service_id'
         ]
     ];
+
     function __construct()
     {
         $this->dbref = Database::getInstance();
@@ -36,75 +38,77 @@ class Hostdb
 
     public function add($data)
     {
+        extract($data);
+
         $this->dbref->query(
-            "INSERT INTO TABLE user_info (f_name, l_name,email,[type], phone_num, profile_picture, country) 
+            "INSERT INTO _user (f_name, l_name,email,[type], phone_num, profile_picture, country) 
                 values(:fName,:lName,:email,:type, :phoneNum, :profilePic, :country)
             ",
             [
-                'fName' => $data['fName'],
-                'lName' => $data['lName'],
-                'email' => $data['email'],
-                'type' => $data['type'],
-                'phoneNum' => $data['phoneNum'],
-                'profilePic' => $data['profilePic'],
-                'country' => $data['country'],
+                'fName' => $fName,
+                'lName' => $lName,
+                'email' => $email,
+                'type' => $type,
+                'phoneNum' => $phoneNum,
+                'profilePic' => $profilePic,
+                'country' => $country,
             ]
         );
-        $userId =  $this->dbref->getLastRecordIdAdded("user_info");
 
+        $userId =  $this->dbref->getLastRecordIdAdded("_user");
         $this->dbref->query(
-            "INSERT INTO TABLE host_profile (id,[status], [description], rate, travelers_num, [location], user_id) 
-                values(:id,:status,:description,:rate, :travelersNum, :location, :userId)
+            "INSERT INTO host ([status], [description], rate, travelers_num, [location], user_id) 
+                values(:status,:description,:rate, :travelersNum, :location, :userId)
             ",
             [
-                'id' => $userId,
-                'status' => $data['status'],
-                'description' => $data['description'],
-                'rate' => $data['rate'],
-                'travelersNum' => $data['travelersNum'],
-                'location' => $data['location'],
+                'status' => $status,
+                'description' => $description,
+                'rate' => $rate,
+                'travelersNum' => $travelersNum,
+                'location' => $location,
                 'userId' => $userId,
             ]
         );
 
-        return $this->dbref->getLastRecordIdAdded("host_profile");
+        return $userId;
     }
+
     public function delete($id)
     {
         $this->dbref->query(
-            "DELETE FROM user_info WHERE id=:id",
+            "DELETE FROM _user WHERE id=:id",
             [
                 'id' => $id
             ]
         );
     }
+
     public function update($data)
     {
         extract($data);
 
-        if (in_array($key, HostDB::$tableMap['user_info'])) {
-            $this->dbref->query("UPDATE user_info SET $key = :value WHERE id = :id ", [
+        if (in_array($key, HostDB::$tableMap['_user'])) {
+            $this->dbref->query("UPDATE _user SET $key = :value WHERE id = :id ", [
                 'value' => $value,
                 'id' => $id
             ]);
-        } else if (in_array($key, HostDB::$tableMap['host_profile'])) {
-            $this->dbref->query("UPDATE host_profile SET $key = :value WHERE id = :id ", [
+        } else if (in_array($key, HostDB::$tableMap['host'])) {
+            $this->dbref->query("UPDATE host SET $key = :value WHERE id = :id ", [
                 'value' => $value,
                 'id' => $id
             ]);
         }
     }
+
     public function search($data, $offset, $limit)
     {
-
-        $needs = ['egypt', 'turkey'];
         extract($data);
         return $this->dbref->query(
-            "SELECT user_info.* , [status],[descriiption],rate,travellers_num , [location] from user_info 
-            INNER JOIN host_profile 
-            ON host_profile.User_id = user_info.id
+            "SELECT _user.* , [status],[descriiption],rate,travellers_num , [location] from _user 
+            INNER JOIN host 
+            ON host.User_id = _user.id
             INNER JOIN host_need
-            ON user_info.id = host_id
+            ON _user.id = host_id
             INNER JOIN [service]
             ON [service].id = host_need.service_id
             WHERE (
@@ -122,16 +126,27 @@ class Hostdb
             ['limit' => $limit, 'offset' => $offset, 'str' => $str]
         )->get();
     }
+
     public function getOne($id)
     {
         $host = $this->dbref->query(
-            "SELECT user_info.* , [status],[descriiption],rate,travellers_num , [location] from user_info 
-            INNER JOIN host_profile 
-            ON host_profile.User_id = user_info.id
-            WHERE user_info.id = :id
+            "SELECT _user.* , [status],[descriiption],rate,travellers_num , [location] from _user 
+            INNER JOIN host 
+            ON host.User_id = _user.id
+            WHERE _user.id = :id
             ",
             ['id' => $id]
         )->findOrFail();
+
+        $needs = $this->dbref->query(
+            "SELECT service.* from service
+                INNER JOIN host_need
+                ON service.id = host_need.service_id
+                WHERE host_need.traveler_id = :hostId
+            ",
+            ['hostId' => $host['id']]
+        );
+        $host['needs'] = $needs;
 
         return $host;
     }

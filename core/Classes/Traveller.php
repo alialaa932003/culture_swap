@@ -51,8 +51,16 @@ class Traveller extends User
   }
   
   public function setService($service){ // here you will send associative array 
-    TravellerDB::update($this->id, 'service_name', $service['name']);
-    TravellerDB::update($this->id, 'service_id', $service['id']);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'service_name',
+      'value' => $service['name']
+    ]);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'service_name',
+      'value' => $service['id']
+    ]);
     $this->service = $service;
   }
   
@@ -68,7 +76,7 @@ class Traveller extends User
     array_push($this->favHosts, $host); 
   }
   
-  public function removeFavHostsId($hostId){
+  public function removeFavHosts($hostId){
     //! Not completed
     $index = array_search($hostId, $this->favHostsIds); 
     if ($index !== false) {

@@ -32,10 +32,11 @@ class TravellerDB
     public function add($data)
     {
         extract($data);
+        $dbref = Database::getInstance();
 
-        $this->dbref->query(
-            "INSERT INTO _user (f_name, l_name,email,[type], phone_num, profile_picture, country) 
-                values(:fName,:lName,:email,:type, :phoneNum, :profilePic, :country)
+        $dbref->query(
+            "INSERT INTO _user (first_name, last_name,email,type, phone_num, profile_img, cover_img, country) 
+                values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country)
             ",
             [
                 'fName' => $fName,
@@ -43,33 +44,36 @@ class TravellerDB
                 'email' => $email,
                 'type' => $type,
                 'phoneNum' => $phoneNum,
-                'profilePic' => $profilePic,
+                'profileImg' => $profileImg,
+                'coverImg' => $coverImg,
                 'country' => $country,
             ]
         );
 
-        $userId =  $this->dbref->getLastRecordIdAdded("_user");
-        $values = [];
-        $params = [];
-        $params['userId'] = $params['travellerId'] = $userId;
+        $userId = $dbref->getLastRecordIdAdded("_user");
+        if (count($services)) {
 
-        for ($i = 0; $i < count($services); $i++) {
-            $values[] = "(:travellerId, :service$i)";
-            $params[":service$i"] = $service[$i];
+            $values = [];
+            $params = [];
+            $params['userId'] = $params['id'] = $params['travellerId'] = $userId;
+
+            for ($i = 0; $i < count($services); $i++) {
+                $values[] = "(:travellerId, :service$i)";
+                $params[":service$i"] = $services[$i];
+            }
+
+            $values_str = implode(',', $values);
+            $stmt = $dbref->connection->prepare(
+                "INSERT INTO traveller (Id, user_id) 
+                    values(:id,:userId);
+                INSERT INTO traveller_service (traveller_id, service_id)
+                    VALUES $values_str"
+            );
+
+            $stmt->execute($params);
         }
 
-        $values_str = implode(',', $values);
-        $stmt = $dbref->prepare(
-            "INSERT INTO traveller ( user_id) 
-                values(:id, :userId)
-            INSERT INTO traveller_service (traveller_id, service_id)
-                VALUES $values_str
-    "
-        );
-
-        $stmt->execute($params);
-
-        return $this->dbref->getLastRecordIdAdded("traveller");
+        return $userId;
     }
 
     public function delete($id)
@@ -136,22 +140,21 @@ class TravellerDB
     public function getOne($id)
     {
         $traveller = $this->dbref->query(
-            "SELECT _user.* , [status],[descriiption],rate,travellers_num , [location] from _user 
-                INNER JOIN traveller 
-                ON traveller.User_id = _user.id
-                WHERE _user.id = :id
+            "SELECT _user.* from _user 
+                WHERE id = :id
             ",
             ['id' => $id]
-        )->findOrFail();
+        )->find();
 
         $services = $this->dbref->query(
             "SELECT service.* from service
-        INNER JOIN traveller_service
-        ON service.id = traveller_service.service_id
-        WHERE traveller_service.traveller_id = :travellerId
-        ",
-            ['travellerId' => $traveller['id']]
-        );
+                INNER JOIN traveller_service
+                ON service.id = traveller_service.service_id
+                WHERE traveller_service.traveller_id = :travellerId
+            ",
+            ['travellerId' => $traveller['Id']]
+        )->find();
+
         $traveller['services'] = $services;
 
         return $traveller;

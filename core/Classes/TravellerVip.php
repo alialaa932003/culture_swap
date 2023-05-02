@@ -41,8 +41,11 @@ class TravellerVip extends Traveller{
   }
 
   public function setCardNumber($cardNumber){
-    TravellerVipDB::update($this->id, 'card_num', $cardNumber);
-    $this->service = $service;
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'card_number',
+      'value' => $cardNumber
+    ]);
     $this->cardNumber = $cardNumber;
   }
 
@@ -51,7 +54,11 @@ class TravellerVip extends Traveller{
   }
 
   public function setCvc($cvc){
-    TravellerVipDB::update($this->id, 'card_num', $cvc);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'cvc_number',
+      'value' => $cvc
+    ]);
     $this->cvc = $cvc;
   }
 
@@ -60,7 +67,11 @@ class TravellerVip extends Traveller{
   }
 
   public function setExpirationDate($date){
-    TravellerVipDB::update($this->id, 'expiration_date', $date);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'expiration_date',
+      'value' => $date
+    ]);
     $this->expirationDate = $date;
   }
 
@@ -69,7 +80,11 @@ class TravellerVip extends Traveller{
   }
 
   public function setPaymentOption($paymentOption){
-    TravellerVipDB::update($this->id, 'payment_option', $paymentOption);
+    TravellerDB::update([
+      'id' => $this->id,
+      'key' => 'payment_option',
+      'value' => $paymentOption
+    ]);
     $this->paymentOption = $paymentOption;
   }
 
@@ -94,7 +109,7 @@ class TravellerVip extends Traveller{
 
   public static function search($condition, $skip, $limit)
   {
-    $travellers = TravelelrVipB::search("{$condition}", 0, 1);
+    $travellers = TravelelrVipDB::search("{$condition}", 0, 1);
     return $travellers;
   }
-}
+} 

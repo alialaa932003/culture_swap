@@ -1,5 +1,9 @@
 <?php
 
+namespace core\Classes\DB;
+
+use core\Database;
+
 class Host extends User
 {
     private $location;
@@ -46,8 +50,13 @@ class Host extends User
         return $this->location;
     }
 
+
+
     public function setLocation($location)
     {
+    
+        HostDB::update($this->id, 'Location' , $location);           
+
         $this->location = $location;
     }
 
@@ -59,8 +68,12 @@ class Host extends User
         return $this->status;
     }
 
-    public function setStatus($status)
+
+
+    public function setStatus($status) 
     {
+        HostDB::update(this->id,'Status',$status );
+
         $this->status = $status;
     }
 
@@ -75,6 +88,9 @@ class Host extends User
 
     public function setDescription($description)
     {
+        HostDB::update(this->id,'Description',$description);
+
+        
         $this->description = $description;
     }
 
@@ -87,8 +103,11 @@ class Host extends User
         return $this->needs;
     }
 
-    public function setneeds($needs)
+    public function setneeds($needs)/////////////////////////////////
     {
+        HostDB::update(this->id,    );
+
+
         $this->needs = $needs;
     }
 
@@ -101,6 +120,9 @@ class Host extends User
 
     public function setTraveller_num($Traveller_num)
     {
+
+        HostDB::update(this->id,'Traveller_num',$Traveller_num );
+
         $this->Traveller_num = $Traveller_num;
     }
 
@@ -112,6 +134,8 @@ class Host extends User
 
     public function setrate($rate)
     {
+        HostDB::update(this->id,'$Rate_average',$rate);
+
         $this->rate = $rate;
     }
 
@@ -123,33 +147,24 @@ class Host extends User
         return $this->reviews;
     }
 
-    public function setReviews($reviews)
+    public function setReviews($reviews)///////////////////////////
     {
+
+        HostDB::update(this->id ,     );
+
+
         $this->reviews = $reviews;
     }
     
 
-
     
-    public function addpost(  )
+
+
+    public static function search($condition, $skip, $limit)
     {
-       
+      $host = HostDB::search("{$condition}", 0, 1);
+      return $host;
     }
-    
-    public function removePost()
-    {
-       
-    }
-
-
-
-    
-
-
-
-
-
-
 
 
 
