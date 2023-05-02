@@ -113,18 +113,19 @@ class Traveller extends User
     return false;
   }
 
-  public function getOne($username){
-    $traveller = TravelelrDB::search("user_name = {$username}", 0, 1); 
-    $this->id = $traveller->id;
-    $this->firstName = $traveller->f_name;
-    $this->lastName = $traveller->l_name;
-    $this->username = $traveller->username;
-    $this->password = $traveller->password;
-    $this->type = $traveller->type;
-    $this->email = $traveller->email;
-    $this->phoneNumber = $traveller->phone_num;
-    $this->country = $traveller->country;
-    $this->service = $traveller->service_name;
+  public function getOne($id){
+    $traveller = TravelelrDB::getOne($id);
+    extract($traveller);
+    $this->id = id;
+    $this->firstName = f_name;
+    $this->lastName = l_name;
+    $this->username = username;
+    $this->password = password;
+    $this->type = type;
+    $this->email = email;
+    $this->phoneNumber = phone_num;
+    $this->country = country;
+    $this->service = service_name;
   }
 
   public static function search($condition, $skip , $limit){
