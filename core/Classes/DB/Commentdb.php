@@ -1,51 +1,52 @@
 <?php
 
-namespace core\Classes;
+namespace core\Classes\DB;
 
 use core\Database;
 
 
-class Commentdb
+class CommentDB
 {
 
-    private $dbref;
+
     function __construct()
     {
-        $this->dbref = Database::getInstance();
     }
 
     public function add($data)
     {
-
-        $this->dbref->query(
-            "INSERT INTO TABLE [comment] (user_id,[content],post_id) 
+        extract($data);
+        Database::getInstance()->query(
+            "INSERT INTO  comment (user_id,content,post_id) 
             
-            values(:user_id,:contentt,:post_id)",
+            values(:user_id,:content,:post_id)",
             [
-                'user_id' => $data['userId'],
-                'post_id' => $data['postId'],
-                'contentt' => $data['content'],
+                'user_id' => $user_id,
+                'post_id' => $post_id,
+                'content' => $content,
 
             ]
         );
-        return $this->dbref->getLastRecordIdAdded("comment");
+        return Database::getInstance()->getLastRecordIdAdded("comment");
     }
-    public function delete($id)
+    public static function delete($id)
     {
-        $this->dbref->query(
-            "DELETE FROM [comment] WHERE id=:id",
+        Database::getInstance()->query(
+            "DELETE FROM comment WHERE id=:id",
             [
                 'id' => $id
             ]
         );
+        return true;
     }
-    public function update($data)
+    public static function update($data)
     {
         extract($data);
 
-        $this->dbref->query("UPDATE [comment] SET $key = :value WHERE id = :id ", [
+        Database::getInstance()->query("UPDATE comment SET $key = :value WHERE id = :id ", [
             'value' => $value,
             'id' => $id
         ]);
+        return $id;
     }
 }

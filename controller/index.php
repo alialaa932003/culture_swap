@@ -1,12 +1,12 @@
 <?php
 $ASSET_URL = "/culture_swap/public/";
 
-use core\Classes\DB\TravellerDB;
+// use core\Classes\DB\PostDB;
 
-dd((new TravellerDB())->search([
-    'first_name' => "ali",
-    'last_name' => "alaa",
-    'country' => "egypt",
+// dd((new PostDB())->add([
+//     'user_id' => 2,
+//     'title' => "lol",
+//     'content' => "hello ",
 
-], 0, 5));
+// ]));
 require base_path("views/index.view.php");

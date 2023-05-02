@@ -1,67 +1,66 @@
 <?php
 
-namespace core\Classes;
+namespace core\Classes\DB;
 
 use core\Database;
 
 
-class Postdb
+class PostDB
 {
 
-    private $dbref;
+
     function __construct()
     {
-        $this->dbref = Database::getInstance();
     }
 
     public  function add($data)
     {
 
-        $this->dbref->query(
-            "INSERT INTO TABLE post (user_id,title,[content],img) 
+        Database::getInstance()->query(
+            "INSERT INTO  post (user_id,title,content,img) 
             
-            values(:user_id,:title,:contentt,:img)",
+            values(:user_id,:title,:content,:img)",
             [
-                'user_id' => $data['userId'],
+                'user_id' => $data['user_id'],
                 'title' => $data['title'],
-                'contentt' => $data['content'],
+                'content' => $data['content'],
                 'img' => $data['img'],
             ]
         );
-        return $this->dbref->getLastRecordIdAdded("post");
+        return Database::getInstance()->getLastRecordIdAdded("post");
     }
-    public function delete($id)
+    public static function delete($id)
     {
-        $this->dbref->query(
+        Database::getInstance()->query(
             "DELETE FROM post WHERE id=:id",
             [
                 'id' => $id
             ]
         );
     }
-    public function update($data)
+    public static function update($data)
     {
         extract($data);
 
-        $this->dbref->query("UPDATE post SET $key = :value WHERE id = :id ", [
+        Database::getInstance()->query("UPDATE post SET $key = :value WHERE id = :id ", [
             'value' => $value,
             'id' => $id
         ]);
     }
-    public function search($str, $offset, $limit)
+    public static function search($str, $offset, $limit)
     {
-        return $this->dbref->query(
-            "SELECT * FROM post WHERE title LIKE '%:str%' OR [content] like '%:str%' ORDER BY id desc  LIMIT :limit OFFSET :offset ",
+        return Database::getInstance()->query(
+            "SELECT * FROM post WHERE title LIKE '%:str%' OR content like '%:str%' ORDER BY id desc  LIMIT :limit OFFSET :offset ",
             ['limit' => $limit, 'offset' => $offset, 'str' => $str]
         )->get();
     }
-    public function getOne($id)
+    public static function  getOne($id)
     {
-        $post = $this->dbref->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->findOrFail();
+        $post = Database::getInstance()->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->find();
         if (empty($post)) {
             return [];
         }
-        $comments = $this->dbref->query("SELECT [comment].* ,first_name,last_name ,country,profile_picture,type FROM [comment] INNER JOIN user_info on user_info.id = [comment].user_id  WHERE  post_id = :id ", ['id' => $post['id']])->findOrFail();
+        $comments = Database::getInstance()->query("SELECT comment.* ,first_name,last_name ,country,profile_img,type FROM comment INNER JOIN _user on _user.id = comment.user_id  WHERE  post_id = :id ", ['id' => $id])->find();
         $post['comments'] = $comments;
         return $post;
     }
