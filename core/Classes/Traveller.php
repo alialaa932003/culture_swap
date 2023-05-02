@@ -68,7 +68,7 @@ class Traveller extends User
     array_push($this->favHosts, $host); 
   }
   
-  public function removeFavHostsId($hostId){
+  public function removeFavHosts($hostId){
     //! Not completed
     $index = array_search($hostId, $this->favHostsIds); 
     if ($index !== false) {

@@ -67,10 +67,9 @@ class Database
     public  function getLastRecordIdAdded($tableName)
     {
         $query = "SELECT id FROM " . $tableName
-            . " ORDER BY id DESC"
-            . " OFFSET 0 ROWS FETCH FIRST 1 ROW ONLY";
+            . " ORDER BY id DESC";
 
-        $res = Database::$instance->query($query);
+        $res = Database::$instance->query($query)->findOrFail();
 
 
         return $res["id"];

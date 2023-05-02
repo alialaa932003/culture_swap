@@ -8,31 +8,30 @@ use core\Database;
 class NotificationDB
 {
 
-    private $dbref;
+
     function __construct()
     {
-        $this->dbref = Database::getInstance();
     }
 
     public  function add($data)
     {
 
-        $this->dbref->query(
-            "INSERT INTO TABLE notification (sender_id,reciever_id,content,action) 
+        Database::getInstance()->query(
+            "INSERT INTO  notification (sender_id,reciever_id,content,action) 
             
-            values(:sender_id,:reciever_id,:contentt,:actionn)",
+            values(:sender_id,:reciever_id,:content,:action)",
             [
-                'sender_id' => $data['userId'],
-                'reciever_id' => $data['title'],
-                'contentt' => $data['content'],
-                'actionn' => $data['img'],
+                'sender_id' => $data['sender_id'],
+                'reciever_id' => $data['reciever_id'],
+                'content' => $data['content'],
+                'action' => $data['action'],
             ]
         );
-        return $this->dbref->getLastRecordIdAdded("notification");
+        return Database::getInstance()->getLastRecordIdAdded("notification");
     }
-    public function delete($id)
+    public static function delete($id)
     {
-        $this->dbref->query(
+        Database::getInstance()->query(
             "DELETE FROM notification WHERE id=:id",
             [
 
@@ -40,22 +39,16 @@ class NotificationDB
             ]
         );
     }
-    public function getAll()
+    public static  function getAll()
     {
 
-        return $this->dbref->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.id ")->get();
+        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.id ")->get();
     }
-    public function search($str, $offset, $limit)
+
+    public static function  getOne($id)
     {
-        return $this->dbref->query(
-            "SELECT * FROM post WHERE title LIKE '%:str%' OR content like '%:str%' ORDER BY id desc  LIMIT :limit OFFSET :offset ",
-            ['limit' => $limit, 'offset' => $offset, 'str' => $str]
-        )->get();
-    }
-    public function getOne($id)
-    {
-        $notification = $this->dbref->query("SELECT * FROM notification WHERE id = :id", ['id' => $id])->findOrFail();
-        if (empty($post)) {
+        $notification = Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.id  WHERE notification.id = :id", ['id' => $id])->findOrFail();
+        if (empty($notification)) {
             return [];
         }
         return $notification;
