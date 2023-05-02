@@ -166,8 +166,40 @@ require base_path("views/partials/head.view.php");
                                 </span>
                             </button>
                         </div>
+                        <div class="article-header">
+                            <div class="date">
+                                <span>07</span>
+                                <span>may 12</span>
+                            </div>
+                            <div class="heading-header">
+                                <h3>
+                                    <a href="#">Where watch English movies free?</a>
+                                </h3>
+                                <div class="company-content">
+                                    <div class="item">
+                                        <a href="#">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            ali alaa
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <span>
+                                            <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                            host
+                                        </span>
+
+                                    </div>
+                                    <div class="item">
+                                        <span>
+                                            <i class="fa fa-location" aria-hidden="true"></i>
+                                            norway
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                         <div class="detailsContent">
-                            <h2>Your Free Movie Streaming Purposes</h2>
                             <div class="total">
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-heart" aria-hidden="true"></i></span>
