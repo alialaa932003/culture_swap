@@ -12,19 +12,30 @@ class Host extends User
 
 
 
-
-    public function __construct1($name, $age, $location, $status, $description, $hostLocation, $video, $photo, $rate, $reviews)
+    public function add($data)
     {
+      $id = HostDB::add($data);
+      extract($data);
+      $this->id = $id;
+      $this->firstName = $f_name;
+      $this->lastName = $l_name;
+      $this->username = $username;
+      $this->password = $password;
+      $this->type = $type;
+      $this->email = $email;
+      $this->phoneNumber = $phone_num;
+      $this->country = $country;
 
-        $this->location = $location;
-        $this->status = $status;
-        $this->description = $description;
-
-
-        $this->rate = $rate;
-        $this->reviews = $reviews;
+      $this->location  = $Location;
+      $this->status = $Status;
+     
+      $this->description = $Description;
+      $this->needs = $Needs;////////////////////////////////////////////////////////
+  
+      $this->Traveller_num = $Traveller_num;
+      $this->rate = $Rate_average;
+  
     }
-
 
 
 
@@ -180,4 +191,5 @@ class Host extends User
 
         $this->Traveller_num = $Traveller_num;
     }
+
 }
