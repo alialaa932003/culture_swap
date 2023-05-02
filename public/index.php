@@ -15,7 +15,6 @@ spl_autoload_register(function ($class) {
     require base_path($class . ".php");
 });
 
-dd(new core\Classes\DB\Hostdb());
 
 $router = new \core\Router();
 

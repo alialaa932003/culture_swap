@@ -10,17 +10,19 @@ class Database
     public $connection;
     public $statement;
     private static $instance;
-    private $configInfo = require base_path('config.php');
+    private $configInfo;
 
     private static $config;
     public function __construct($config, $username = "root", $password = "")
+
     {
-        $dsn = ('mysql:' . http_build_query($config, "", ';'));
+        $this->configInfo = require base_path('config.php');
+        $dsn = ('mysql:' . http_build_query($this->configInfo['database'], "", ';'));
         // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
         $this->connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
-    Database::$config = $this->configInfo;
+        Database::$config = $this->configInfo;
     }
 
 
