@@ -1,12 +1,23 @@
 <?php
 $ASSET_URL = "/culture_swap/public/";
 
-use core\Classes\DB\TravellerDB;
+// use core\Classes\DB\TravellerDB;
 
-dd((new TravellerDB())->search([
-    'first_name' => "ali",
-    'last_name' => "alaa",
-    'country' => "egypt",
-
-], 0, 5));
+// try {
+//     //code...
+//     dd((new TravellerDB())->add([
+//         'fName' => 'asfasg',
+//         'lName' => 'asgsag',
+//         'email' => 'asgsagasgsags@gmail,com',
+//         'type' => '2',
+//         'phoneNum' => '25447451211',
+//         'profileImg' => '',
+//         'coverImg' => '',
+//         'country' => 'saudi arabia',
+//         'services' => [1, 2, 3]
+//     ]));
+// } catch (\Throwable $th) {
+//     //throw $th;
+//     // echo $th->getMessage();
+// }
 require base_path("views/index.view.php");
