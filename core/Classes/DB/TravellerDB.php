@@ -7,8 +7,6 @@ use core\Database;
 
 class TravellerDB
 {
-
-    private $dbref;
     private static $tableMap = [
         '_user' => [
             'fName',
@@ -24,12 +22,7 @@ class TravellerDB
         ]
     ];
 
-    function __construct()
-    {
-        $this->dbref = Database::getInstance();
-    }
-
-    public function add($data)
+    public static function add($data)
     {
         extract($data);
         $dbref = Database::getInstance();
@@ -76,9 +69,9 @@ class TravellerDB
         return $userId;
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
-        $this->dbref->query(
+        Database::getInstance()->query(
             "DELETE FROM _user WHERE id=:id",
             [
                 'id' => $id
@@ -86,28 +79,29 @@ class TravellerDB
         );
     }
 
-    public function update($data)
+    public static function update($data)
     {
         extract($data);
+        $dbref = Database::getInstance();
 
         if (in_array($key, TravellerDB::$tableMap['_user'])) {
-            $this->dbref->query("UPDATE _user SET $key = :value WHERE id = :id ", [
+            $dbref->query("UPDATE _user SET $key = :value WHERE id = :id ", [
                 'value' => $value,
                 'id' => $id
             ]);
         } else if (in_array($key, TravellerDB::$tableMap['traveller_service'])) {
-            $this->dbref->query("UPDATE traveller_service SET $key = :value WHERE id = :id ", [
+            $dbref->query("UPDATE traveller_service SET $key = :value WHERE id = :id ", [
                 'value' => $value,
                 'id' => $id
             ]);
         }
     }
 
-    public function search($data, $offset, $limit)
+    public static function search($data, $offset, $limit)
     {
         extract($data);
 
-        $traveller = $this->dbref->query(
+        $traveller = Database::getInstance()->query(
             "SELECT _user.* ,  service.* from _user 
                 INNER JOIN traveller 
                 ON traveller.user_id = _user.id
@@ -137,16 +131,18 @@ class TravellerDB
         return $traveller;
     }
 
-    public function getOne($id)
+    public static function getOne($id)
     {
-        $traveller = $this->dbref->query(
+        $dbref = Database::getInstance();
+
+        $traveller = $dbref->query(
             "SELECT _user.* from _user 
                 WHERE id = :id
             ",
             ['id' => $id]
         )->find();
 
-        $services = $this->dbref->query(
+        $services = $dbref->query(
             "SELECT service.* from service
                 INNER JOIN traveller_service
                 ON service.id = traveller_service.service_id
