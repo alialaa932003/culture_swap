@@ -52,10 +52,10 @@ class Host extends User
 
 
 
-    public function setLocation($location)/////////////////////////////
+    public function setLocation($location)
     {
     
-        HostDB::update($this->id, 'Location' , $location);           // Location
+        HostDB::update($this->id, 'Location' , $location);           
 
         $this->location = $location;
     }
@@ -70,7 +70,7 @@ class Host extends User
 
 
 
-    public function setStatus($status)//////////////////////////////////
+    public function setStatus($status) 
     {
         HostDB::update(this->id,'Status',$status );
 
@@ -86,7 +86,7 @@ class Host extends User
         return $this->description;
     }
 
-    public function setDescription($description)////////////////////////////////////////
+    public function setDescription($description)
     {
         HostDB::update(this->id,'Description',$description);
 
@@ -118,7 +118,7 @@ class Host extends User
         return $this->Traveller_num;
     }
 
-    public function setTraveller_num($Traveller_num)///////////////////////////////
+    public function setTraveller_num($Traveller_num)
     {
 
         HostDB::update(this->id,'Traveller_num',$Traveller_num );
@@ -132,7 +132,7 @@ class Host extends User
         return $this->rate;
     }
 
-    public function setrate($rate)//////////////////////////////////////////
+    public function setrate($rate)
     {
         HostDB::update(this->id,'$Rate_average',$rate);
 
@@ -167,7 +167,7 @@ class Host extends User
     }
 
 
-    
+
 
     public function getOne($id)
     {
