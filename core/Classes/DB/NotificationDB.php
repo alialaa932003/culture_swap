@@ -42,7 +42,7 @@ class NotificationDB
     public function getAll()
     {
 
-        return $this->dbref->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.id ")->get();
+        return $this->dbref->query("SELECT * FROM post ")->get();
     }
     public function search($str, $offset, $limit)
     {
