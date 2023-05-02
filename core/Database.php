@@ -4,25 +4,23 @@ namespace core;
 
 use PDO;
 
-$config = require base_path('config.php');
-
 
 class Database
 {
     public $connection;
     public $statement;
     private static $instance;
+    private $configInfo = require base_path('config.php');
 
     private static $config;
     public function __construct($config, $username = "root", $password = "")
     {
-
         $dsn = ('mysql:' . http_build_query($config, "", ';'));
         $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
         $this->connection = new PDO($dsn, $username, $password, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
-        Database::$config = $config;
+    Database::$config = $this->configInfo;
     }
 
 
