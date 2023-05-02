@@ -52,11 +52,11 @@ class ReservationDB
     ]);
   }
 
-  public static function search($str, $offset, $limit)
+  public static function search($str, $offset= 0, $limit = 1)
   {
     return Database::getInstance()->query(
-      "SELECT * FROM reservation WHERE id LIKE '%:str%'  ORDER BY id desc  LIMIT :limit OFFSET :offset ",
-      ['limit' => $limit, 'offset' => $offset, 'str' => $str]
+      "SELECT * FROM reservation WHERE id LIKE :str ORDER BY id desc  LIMIT $limit OFFSET $offset ",
+      ['str' => '%' . $str . '%']
     )->get();
   }
 
@@ -68,7 +68,7 @@ class ReservationDB
 
   public static function getOne($id)
   {
-    $reservation = Database::getInstance()->query("SELECT * FROM Reservation WHERE reservation.id = :id", ['id' => $id])->findOrFail();
+    $reservation = Database::getInstance()->query("SELECT * FROM reservation WHERE reservation.id = :id", ['id' => $id])->findOrFail();
     if (empty($reservation)) {
       return [];
     }
