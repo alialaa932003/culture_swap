@@ -118,7 +118,7 @@ class TravellerDB
         ) 
         AND country like '%:country%' 
         ORDER BY _user.id desc   
-        LIMIT :limit t
+        LIMIT :limit 
         OFFSET :offset 
         ",
             [
