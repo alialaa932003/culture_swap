@@ -16,6 +16,9 @@ class Database
     public function __construct($config, $username = "root", $password = "")
 
     {
+
+
+
         $this->configInfo = require base_path('config.php');
         $dsn = ('mysql:' . http_build_query($this->configInfo['database'], "", ';'));
         // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
