@@ -63,7 +63,7 @@ class Duration
     $startDate = DateTime::createFromFormat('Y-m-d', $this->startDate);
     $endDate = DateTime::createFromFormat('Y-m-d', $this->endDate);
     $duration = $startDate->diff($endDate);
-    return $duration;
+    return $duration->days;
   }
 
   public function getOne($durationId)
