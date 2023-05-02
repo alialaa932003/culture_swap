@@ -1,6 +1,6 @@
 <?php
 
-namespace core\Classes;
+namespace core\Classes\DB;
 
 use core\Database;
 
