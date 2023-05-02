@@ -35,8 +35,8 @@ class TravellerDB
 
         $this->dbref->query(
             "INSERT INTO _user (f_name, l_name,email,[type], phone_num, profile_picture, country) 
-        values(:fName,:lName,:email,:type, :phoneNum, :profilePic, :country)
-      ",
+                values(:fName,:lName,:email,:type, :phoneNum, :profilePic, :country)
+            ",
             [
                 'fName' => $fName,
                 'lName' => $lName,
@@ -61,9 +61,9 @@ class TravellerDB
         $values_str = implode(',', $values);
         $stmt = $dbref->prepare(
             "INSERT INTO traveller ( user_id) 
-        values(:id, :userId)
-      INSERT INTO traveller_service (traveller_id, service_id)
-        VALUES $values_str
+                values(:id, :userId)
+            INSERT INTO traveller_service (traveller_id, service_id)
+                VALUES $values_str
     "
         );
 
@@ -105,28 +105,26 @@ class TravellerDB
 
         $traveller = $this->dbref->query(
             "SELECT _user.* ,  service.* from _user 
-        INNER JOIN traveller 
-        ON traveller.user_id = _user.id
-        INNER JOIN traveller_service
-        on traveller_service.traveller_id = traveller.id
-        INNER JOIN service
-        on traveller_service.service_id = service.id
-        WHERE (
-            first_name LIKE '%:first_name%'
-            OR 
-            last_name like '%:last_name%'
-        ) 
-        AND country like '%:country%' 
-        ORDER BY _user.id desc   
-        LIMIT :limit 
-        OFFSET :offset 
-        ",
+                INNER JOIN traveller 
+                ON traveller.user_id = _user.id
+                INNER JOIN traveller_service
+                on traveller_service.traveller_id = traveller.id
+                INNER JOIN service
+                on traveller_service.service_id = service.id
+                WHERE (
+                    first_name LIKE :first_name
+                    OR 
+                    last_name like :last_name
+                ) 
+                AND country like :country 
+                ORDER BY _user.id desc   
+                LIMIT $limit
+                OFFSET $offset 
+            ",
             [
-                'first_name' => $first_name ?? '',
-                'last_name' => $last_name ?? '',
-                'country' => $country ?? '',
-                'limit' => $limit ?? '',
-                'offset' => $offset ?? '',
+                'first_name' => '%' . $first_name . '%',
+                'last_name' => '%' . $last_name . '%',
+                'country' => '%' . $country . '%'
             ]
         )->get();
 
@@ -139,10 +137,10 @@ class TravellerDB
     {
         $traveller = $this->dbref->query(
             "SELECT _user.* , [status],[descriiption],rate,travellers_num , [location] from _user 
-        INNER JOIN traveller 
-        ON traveller.User_id = _user.id
-        WHERE _user.id = :id
-        ",
+                INNER JOIN traveller 
+                ON traveller.User_id = _user.id
+                WHERE _user.id = :id
+            ",
             ['id' => $id]
         )->findOrFail();
 
@@ -151,7 +149,7 @@ class TravellerDB
         INNER JOIN traveller_service
         ON service.id = traveller_service.service_id
         WHERE traveller_service.traveller_id = :travellerId
-      ",
+        ",
             ['travellerId' => $traveller['id']]
         );
         $traveller['services'] = $services;
