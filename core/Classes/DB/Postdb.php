@@ -47,11 +47,11 @@ class PostDB
             'id' => $id
         ]);
     }
-    public static function search($str, $offset, $limit)
+    public static function search($str, $offset = 0, $limit = 1)
     {
         return Database::getInstance()->query(
-            "SELECT * FROM post WHERE title LIKE '%:str%' OR content like '%:str%' ORDER BY id desc  LIMIT :limit OFFSET :offset ",
-            ['limit' => $limit, 'offset' => $offset, 'str' => $str]
+            "SELECT * FROM post WHERE title LIKE :str OR content like :str ORDER BY id desc  LIMIT $limit OFFSET $offset ",
+            ['str' => '%' . $str . '%']
         )->get();
     }
     public static function  getOne($id)
