@@ -2,6 +2,7 @@
 
 namespace core\Classes;
 
+use core\Classes\DB\TravellerDB;
 use DateTime;
 
 class Duration
