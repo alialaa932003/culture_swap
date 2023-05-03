@@ -136,8 +136,8 @@ class Traveller extends User
     $this->service = $service_name;
   }
 
-  public static function search($condition, $skip , $limit){
-    $travellers = TravelelrDB::search("{$condition}", 0, 1); 
+  public static function search($attributes, $skip , $limit){
+    $travellers = TravelelrDB::search($attributes, $skip, $limit); 
     return $travellers;
   }
 }

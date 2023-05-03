@@ -107,9 +107,9 @@ class TravellerVip extends Traveller{
     $this->paymentOption = $payment_option;
   }
 
-  public static function search($condition, $skip, $limit)
+  public static function search($attributes, $skip, $limit)
   {
-    $travellers = TravelelrVipDB::search("{$condition}", 0, 1);
+    $travellers = TravelelrVipDB::search($attributes, $skip, $limit);
     return $travellers;
   }
 } 

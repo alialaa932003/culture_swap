@@ -83,9 +83,9 @@ class Duration
     $this->endDate = $duration->end_date;
   }
 
-  public static function search($condition)
+  public static function search($attributes)
   {
-    $durations = DurationDB::search("{$condition}", 0, 1000);
+    $durations = DurationDB::search($attributes, 0, 1000);
     return $durations;
   }
 }

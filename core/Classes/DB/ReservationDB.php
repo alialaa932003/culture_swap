@@ -52,11 +52,34 @@ class ReservationDB
     ]);
   }
 
-  public static function search($str, $offset= 0, $limit = 1)
+  public static function search($data, $offset= 0, $limit = 1)
   {
+    extract($data);
     return Database::getInstance()->query(
-      "SELECT * FROM reservation WHERE id LIKE :str ORDER BY id desc  LIMIT $limit OFFSET $offset ",
-      ['str' => '%' . $str . '%']
+      "SELECT * FROM reservation 
+      WHERE (
+            id LIKE :id
+            OR 
+            host_id like :host_id
+            OR
+            traveller_id like :traveller_id
+            OR
+            status like :status
+            OR
+            start_date like :start_date
+            OR
+            end_date like :end_date
+
+        ) 
+        ORDER BY id desc  LIMIT $limit OFFSET $offset ",
+      [
+        'id' => '%' . $id . '%',
+        'host_id' => '%' . $host_id . '%',
+        'traveller_id' => '%' . $traveller_id . '%',
+        'status' => '%' . $status . '%',
+        'start_date' => '%' . $start_date . '%',
+        'end_date' => '%' . $end_date . '%',
+      ]
     )->get();
   }
 
