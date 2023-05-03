@@ -64,7 +64,7 @@ echo "Put your class here";
 //     TravellerDB::update([
     //   'id' => $this->id,
     //   'key' => 'service_name',
-    //   'value' => $service['id']
+    //   'value' => $service
     // ]);
 //     $this->title = $title;
 //   }
