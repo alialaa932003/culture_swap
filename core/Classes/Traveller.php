@@ -95,7 +95,13 @@ class Traveller extends User
 
   public function makeReservation($hostId){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservationId =  ReservationDB::add($reservation); 
+    $this->reservationId =  ReservationDB::add([
+      'host_id' => $host_id,
+      'travelelr_id' => $this->id,
+      'Status' => $reservation->getStatus(),
+      'Start_date' => $reservation->getStartDate(),
+      'end_date' => $reservation->getEndDate()
+    ]); 
     return $reservation;
   }
 
