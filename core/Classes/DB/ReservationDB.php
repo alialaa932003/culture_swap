@@ -15,17 +15,17 @@ class ReservationDB
 
   public static function add($data)
   {
-
+    extract($data);
     Database::getInstance()->query(
-      "INSERT INTO  reservation (host_id,traveller_id,status,Start_date, end_date) 
+      "INSERT INTO  reservation (host_id,traveller_id,Status,Start_date, end_date) 
             
-            values(:host_id,:traveller_id,:status,:start_date,:end_date)",
+            values(:host_id,:traveller_id,:Status,:Start_date,:end_date)",
       [
-        'host_id' => $data['host_id'],
-        'traveller_id' => $data['traveller_id'],
-        'status' => $data['status'],
-        'start_date' => '0000-00-00 00:00:00',
-        'end_date' => '0000-00-00 00:00:00'
+        'host_id' => $host_id,
+        'traveller_id' => $traveller_id,
+        'Status' => $Status,
+        'Start_date' => $Start_date,
+        'end_date' => $end_date
       ]
     );
     return Database::getInstance()->getLastRecordIdAdded("reservation");
