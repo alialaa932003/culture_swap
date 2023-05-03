@@ -58,26 +58,26 @@ class ReservationDB
     return Database::getInstance()->query(
       "SELECT * FROM reservation 
       WHERE (
-            id LIKE :id
-            OR 
+            Id LIKE :Id
+            AND 
             host_id like :host_id
-            OR
+            AND
             traveller_id like :traveller_id
-            OR
-            status like :status
-            OR
-            start_date like :start_date
-            OR
+            AND
+            Status like :Status
+            AND
+            Start_date like :Start_date
+            AND
             end_date like :end_date
 
         ) 
         ORDER BY id desc  LIMIT $limit OFFSET $offset ",
       [
-        'id' => '%' . $id . '%',
+        'Id' => '%' . $Id . '%',
         'host_id' => '%' . $host_id . '%',
         'traveller_id' => '%' . $traveller_id . '%',
-        'status' => '%' . $status . '%',
-        'start_date' => '%' . $start_date . '%',
+        'Status' => '%' . $Status . '%',
+        'Start_date' => '%' . $Start_date . '%',
         'end_date' => '%' . $end_date . '%',
       ]
     )->get();

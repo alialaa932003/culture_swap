@@ -1,7 +1,6 @@
 <?php
 $ASSET_URL = "/culture_swap/public/";
 
-// use core\Classes\DB\TravellerDB;
 
 // try {
 //     //code...
@@ -20,4 +19,6 @@ $ASSET_URL = "/culture_swap/public/";
 //     //throw $th;
 //     // echo $th->getMessage();
 // }
+
+
 require base_path("views/index.view.php");
