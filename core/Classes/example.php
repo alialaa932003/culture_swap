@@ -61,7 +61,11 @@ echo "Put your class here";
 //     postDB::delete($id);
 //   }
 //   public static function setTitle($title) { //! --> Your setters will be like this , the same idea
-//     postDB::updata($this->id, 'title', $title);
+//     TravellerDB::update([
+    //   'id' => $this->id,
+    //   'key' => 'service_name',
+    //   'value' => $service['id']
+    // ]);
 //     $this->title = $title;
 //   }
 
