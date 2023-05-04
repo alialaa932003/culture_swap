@@ -1,6 +1,7 @@
 <?php
 
 namespace core\Classes;
+
 use core\Classes\DB\ReservationDB;
 use core\Classes\DB\ReviewDB;
 use core\Classes\DB\TravellerDB;
@@ -10,7 +11,7 @@ use core\Classes\DB\TravellerDB;
 class Traveller extends User
 {
   // Data fields
-  
+
   private $service = [
     'id' => '',
     'name' => ''
@@ -24,8 +25,8 @@ class Traveller extends User
   {
     // Empty constructor
   }
-  
-  
+
+
   public function add($data)
   {
     $id = TravellerDB::add($data);
@@ -46,16 +47,19 @@ class Traveller extends User
     //! favHosts, travelelrFriendIds
   }
 
-  public function delete($id){
+  public function delete($id)
+  {
     TravellerDB::delete($id);
   }
-  
+
   // Methods
-  public function getService(){ // Will return associative array
+  public function getService()
+  { // Will return associative array
     return $this->service;
   }
-  
-  public function setService($service){ // here you will send associative array 
+
+  public function setService($service)
+  { // here you will send associative array 
     TravellerDB::update([
       'id' => $this->id,
       'key' => 'service_name',
@@ -68,22 +72,26 @@ class Traveller extends User
     ]);
     $this->service = $service;
   }
-  
-  public function getFavHosts(){
+
+  public function getFavHosts()
+  {
     return $this->favHostsIds;
   }
-  
-  public function getFriends(){
+
+  public function getFriends()
+  {
     return $this->friendsIds;
   }
-  public function addFavHost($hostId){
+  public function addFavHost($hostId)
+  {
     //! Not completed
-    array_push($this->favHostsIds, $hostId); 
+    array_push($this->favHostsIds, $hostId);
   }
-  
-  public function removeFavHosts($hostId){
+
+  public function removeFavHosts($hostId)
+  {
     //! Not completed
-    $index = array_search($hostId, $this->favHostsIds); 
+    $index = array_search($hostId, $this->favHostsIds);
     if ($index !== false) {
       unset($this->favHostsIds[$index]);
       return true;
@@ -91,39 +99,44 @@ class Traveller extends User
     return false;
   }
 
-  public function makeReview($rate , $hostId){
+  public function makeReview($rate, $hostId)
+  {
     $review = new Review();
     $review->__construct3($hostId, $this->id, $rate);
     return $review;
   }
 
 
-  public function makeReservation($hostId){
+  public function makeReservation($hostId)
+  {
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservation->getId() =  ReservationDB::add([
+    $this->reservation->getId() = ReservationDB::add([
       'host_id' => $hostId,
       'travelelr_id' => $this->id,
       'Status' => $reservation->getStatus(),
       'Start_date' => $reservation->getStartDate(),
       'end_date' => $reservation->getEndDate()
-    ]); 
+    ]);
     return $reservation;
   }
 
-  public function cancelReservation(){
+  public function cancelReservation()
+  {
     $this->reservation->getId() = null;
-    ReservationDB::delete($this->reservation->getId()); 
+    ReservationDB::delete($this->reservation->getId());
   }
 
-  public function addFriend($friendId){
+  public function addFriend($friendId)
+  {
     $friend = new Traveller();
-    $friend->getOne($friendId); 
+    $friend->getOne($friendId);
     array_push($this->friendsIds, $friendId);
     //! addFriend function from salah
   }
 
-  public function removeFriend($friendId){
-    $index = array_search($friendId, $this->friendsIds); 
+  public function removeFriend($friendId)
+  {
+    $index = array_search($friendId, $this->friendsIds);
     if ($index !== false) {
       unset($this->friendsIds[$index]);
       FriendDB::delete($friendId);
@@ -133,7 +146,8 @@ class Traveller extends User
     //! removeFriend function from salah
   }
 
-  public function getOne($id){
+  public function getOne($id)
+  {
     $traveller = TravellerDB::getOne($id);
     extract($traveller);
     $this->id = $id;
@@ -152,8 +166,17 @@ class Traveller extends User
     //! favHosts, travellerFriendIds
   }
 
-  public static function search($attributes, $skip , $limit){
-    $travellers = TravellerDB::search($attributes, $skip, $limit); 
+  public static function search($attributes, $skip, $limit)
+  {
+    $travellers = TravellerDB::search($attributes, $skip, $limit);
     return $travellers;
+  }
+
+  public function makeNotification($travellerId, $hostId, $travellerName, $actionId)
+  {
+    $content = "{$travellerName} comment at your post";
+    $action = 2;
+
+    Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
   }
 }
