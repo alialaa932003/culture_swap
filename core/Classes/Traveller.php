@@ -39,6 +39,8 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phoneNum;
     $this->country = $country;
+    $this->profilePhoto = $profilePhoto;
+    $this->coverPhoto = $coverPhoto;
     $this->service['id'] = $services['Id'];
     $this->service['name'] = $services['name'];
     //! favHosts, travelelrFriendIds
@@ -143,6 +145,8 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phone_num;
     $this->country = $country;
+    $this->profilePhoto = $profilePhoto;
+    $this->coverPhoto = $coverPhoto;
     $this->service['id'] = $services['Id'];
     $this->service['name'] = $services['name'];
     //! favHosts, travellerFriendIds
