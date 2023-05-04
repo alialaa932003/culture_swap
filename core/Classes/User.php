@@ -1,9 +1,11 @@
 <?php
 
 namespace core\Classes;
+
+use core\Classes\DB\comment;
 use core\Classes\DB\PostDB;
 use core\Classes\DB\NotificationDB;
-
+use core\Classes\DB\post;
 
 // db classes host && traveler && notifcation &&post 
 
@@ -19,14 +21,15 @@ abstract class User{
     private string $profilePhoto;
     private string $coverPhoto;
     private string $country;
-    private array $notifications = [];
-    private array $notificationsId =[];
+    private array $notification = [];
     private int $type;
+
 
     //! first Constructors:
     public function __construct1() {
         
     }
+    
     //! sconde Constructors:
     public function __construct2(string $name, string $username, string $pass, string $email, int $phoneNumber, string $profilePhoto, string $country, int $type) {
       $this->firstName = $name;
@@ -38,7 +41,11 @@ abstract class User{
       $this->country = $country;
       $this->type = $type;
     }
-  
+
+    abstract public function  getNotification(); 
+   abstract public function  addNotification($notification);
+   abstract public  function getOne( $username) ; 
+   abstract   public  function search ( $condition); 
    abstract public function add(array $data) ;
   
    abstract public function delete(int $id);
@@ -123,34 +130,16 @@ abstract class User{
       return $this->type;
     }
   
-    public function  getNotification() {
-      $this->notifications[]=Notification::getAll($this->$id);
-      
-      return $this->notifications;
-
-    }
-    public function  addNotification( $notificationId) {
-      $this->notificationsId[] = $notificationId;
-
-    }
   
     public function addPost( $content,$photos,$videos) {
-      $post=new Post();
-      $id=PostDB::add(
-        ['content'=>$content,
-      'photos'=>$photos,
-      'videos'=>$videos]
-      );
-      
-      post->add( ['content'=>$content,
-      'photos'=>$photos,
-      'videos'=>$videos]);
-
+     $post = new Post();
+      $data= ['content'=>$content,'photos'=>$photos,'videos'=>$videos];
+      $post->add($data);
       return $post;
     }
     public function removePost( $postId) {
 
-      PostDB::delete($postId);
+      Post::delete($postId);
     }
    
     public static function login(string $username, string $password) {
@@ -162,12 +151,18 @@ abstract class User{
     }
   
     public static function logout(): void {
-      // implementation details
+     
     }
+    public function addComment ( $content,$postId) {
+      $data= ['content'=>$content,'postId'=>$postId];
+      $c=new comment();
+       $c->add($data );
   
-    // abstract mathpds 
-    abstract public  function getOne( $username) ;
-  
-   abstract   public  function search ( $condition); 
+    }
     
+
+
+
+
+
 }
