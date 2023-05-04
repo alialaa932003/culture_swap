@@ -47,17 +47,17 @@ class Reservation
      $content = "the traveller $tvname want to join to you";
      $action = 1 ; //reservation 
         
-     ReservationDB::add([
+     
+     Notification::makeNoti($travelelr_id,$host_id,$content,$action,$action_id);
+     
+     
+    return ReservationDB::add([
       'host_id' => $host_id,
       'travelelr_id' => $travelelr_id,
       'Status' => $status,
       'Start_date' => $startDate,
       'end_date' => $endDate
     ]);
-
-      Notification::makeNoti($travelelr_id,$host_id,$content,$action,$action_id);
-
-
     }
 
     
