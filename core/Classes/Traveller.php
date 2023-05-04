@@ -95,9 +95,9 @@ class Traveller extends User
   }
 
 
-  public function makeReservation($hostId){
+  public function makeReservation($host_id){
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservationId =  ReservationDB::add([
+    $this->reservation->getId() =  ReservationDB::add([
       'host_id' => $host_id,
       'travelelr_id' => $this->id,
       'Status' => $reservation->getStatus(),
@@ -108,8 +108,8 @@ class Traveller extends User
   }
 
   public function cancelReservation(){
-    $this->reservationId = null;
-    ReservationDB::delete($this->reservationId); 
+    $this->reservation->getId() = null;
+    ReservationDB::delete($this->reservation->getId()); 
   }
 
   public function addFriend($friendId){
@@ -132,7 +132,7 @@ class Traveller extends User
   public function getOne($id){
     $traveller = TravellerDB::getOne($id);
     extract($traveller);
-    $this->id = id;
+    $this->id = $id;
     $this->firstName = $f_name;
     $this->lastName = $l_name;
     $this->username = $username;
