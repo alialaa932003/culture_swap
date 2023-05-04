@@ -115,8 +115,8 @@ class Traveller extends User
 
   public function addFriend($friendId){
     $friend = new Traveller();
-    $friend->getOne($friendId);
-    array_push($this->friendsIds, $friend); //! Assoc array
+    $friend->getOne($friendId); 
+    array_push($this->friendsIds, $friendId);
     //! addFriend function from salah
   }
 
