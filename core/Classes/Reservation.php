@@ -82,7 +82,6 @@ class Reservation
 
       Notification::makeNoti($res['host_id'],$res['travelelr_id'],$content,$action, $action_id);   
   
-        
     }  
 
     
