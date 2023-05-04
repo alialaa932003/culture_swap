@@ -160,6 +160,10 @@ abstract class User{
   
     }
     
+    public function DeleteComment ( $comentId) {
+       Comment::delete($comentId );
+  
+    }
 
 
 
