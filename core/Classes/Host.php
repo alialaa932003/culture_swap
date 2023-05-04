@@ -191,15 +191,14 @@ class Host extends User
     }
     
 
-    
 
-
-    public static function search($condition, $skip, $limit)
+    public static function search($attributes, $skip, $limit)
     {
-      $host = HostDB::search("{$condition}", 0, 1);
-      return $host;
+      $host = HostDB::search($attributes, $skip, $limit);
+      return $host;    
     }
 
+  
 
 
 
