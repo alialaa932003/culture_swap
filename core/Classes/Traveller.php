@@ -108,7 +108,7 @@ class Traveller extends User
 
 
   public function makeReservation($hostId)
-  {
+  {   
     $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
     $this->reservation->getId() = ReservationDB::add([
       'host_id' => $hostId,
@@ -188,7 +188,9 @@ class Traveller extends User
     Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
   }
 
-
+  public function getNotification(){
+    return Notification::getAll($this->id);
+  }
 
 
 }
