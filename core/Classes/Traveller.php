@@ -111,7 +111,6 @@ class Traveller extends User
 
   public function makeReservation($hostId, $actionId, $status, $startDate, $endDate)
   {   
-    $reservation = new Reservation();
     $this->reservationId = Reservation::makeReservation($this->id, $hostId, $status, $startDate, $endDate, $this->firstName, $actionId);
   }
 
