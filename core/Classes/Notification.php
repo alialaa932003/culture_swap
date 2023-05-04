@@ -12,8 +12,8 @@ class Notification
 {
 
   private $id;
-  private $senderId;
-  private $recieverId;
+  private  $sender_id;
+  private $reciever_id;
   private $action;   
   private $content; 
   private $status;
@@ -35,8 +35,8 @@ class Notification
     extract($key);
 
     $this->id = $id;
-    $this->senderId = $senderId;
-    $this->recieverId = $recieverId;
+    $this->sender_id = $sender_id;
+    $this->reciever_id = $reciever_id;
     $this->content = $content;
     $this->action = $action;
     
@@ -50,7 +50,7 @@ class Notification
 
   //make Notification 
 
-  public static function makeNoti($senderId,$recieverId,$content,$action,$action_id){
+  public static function makeNoti($sender_id,$reciever_id,$content,$action,$action_id){
      // action
     // 1 -> resevation
     // 2 -> comment post
@@ -60,8 +60,8 @@ class Notification
     $noti =   new Notification();
     $id = $noti -> Add(
     [
-     'sender_id'=>$senderId,
-     'reciever_id'=>$recieverId,
+     'sender_id'=>$sender_id,
+     'reciever_id'=>$reciever_id,
      'content'=>$content,
      'action'=>$action,
      'action_id'=>$action_id

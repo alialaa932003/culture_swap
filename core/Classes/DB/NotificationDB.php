@@ -24,7 +24,7 @@ class NotificationDB
                 'sender_id' => $data['sender_id'],
                 'reciever_id' => $data['reciever_id'],
                 'content' => $data['content'],
-                'action' => $data['action'],
+                'action' => $data['action'],//action id
             ]
         );
         return Database::getInstance()->getLastRecordIdAdded("notification");
