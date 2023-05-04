@@ -43,7 +43,6 @@ abstract class User{
     }
 
     abstract public function  getNotification(); 
-   abstract public function  addNotification($notification);
    abstract public  function getOne( $username) ; 
    abstract   public  function search ( $condition); 
    abstract public function add(array $data) ;
