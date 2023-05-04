@@ -5,7 +5,7 @@ namespace core\Classes\DB;
 use core\Database;
 
 
-class ReservationDB
+class ReviewDB
 {
 
 
