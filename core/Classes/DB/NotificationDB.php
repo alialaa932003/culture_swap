@@ -29,6 +29,8 @@ class NotificationDB
         );
         return Database::getInstance()->getLastRecordIdAdded("notification");
     }
+
+    
     public static function delete($id, $user_id)
     {
         Database::getInstance()->query(

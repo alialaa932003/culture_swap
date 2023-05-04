@@ -68,11 +68,7 @@ class Notification
     ]
   );
   
-  if (isset($id))
-  return $id; 
-  else
-  return -1;
-   
+
 
   }
 
