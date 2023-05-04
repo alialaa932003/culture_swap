@@ -2,6 +2,7 @@
 
 namespace core\Classes;
 use core\Classes\DB\ReservationDB;
+use core\Classes\DB\ReviewDB;
 use core\Classes\DB\TravellerDB;
 
 //! The class is not copleted yet
@@ -89,8 +90,8 @@ class Traveller extends User
   }
 
   public function makeReview($rate , $hostId){
-    $review = new Review($hostId, $this->id, $rate); 
-    $reviewId = ReviewDB::add($review); 
+    $review = new Review();
+    $review->__construct3($hostId, $this->id, $rate);
     return $review;
   }
 
