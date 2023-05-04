@@ -172,11 +172,23 @@ class Traveller extends User
     return $travellers;
   }
 
-  public function makeNotification($travellerId, $hostId, $travellerName, $actionId)
+  public function makeComment($travellerId, $hostId, $travellerName, $actionId)
   {
     $content = "{$travellerName} comment at your post";
     $action = 2;
 
     Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
   }
+
+  public function makeLove($travellerId, $hostId, $travellerName, $actionId)
+  {
+    $content = "{$travellerName} love your post";
+    $action = 3;
+
+    Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
+  }
+
+
+
+
 }
