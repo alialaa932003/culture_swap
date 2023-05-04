@@ -5,8 +5,7 @@
     <?php
         require base_path("views/partials/head.view.php");
     ?>
-    <!-- عشان عارف انك حمار -->
-    <!--  put your css file here -->
+  
     <link rel="stylesheet" href="/culture_swap/public/assets/css/signup/traveller_vip.css">
     <title>signup</title>
 </head>
@@ -18,7 +17,7 @@
     <header>	
 		<section class="section-padding">
 			<h2>Traveller Sign Up</h2>
-			<form>
+			<form action="#" method="post">
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required><br>
 
@@ -38,13 +37,13 @@
 				<input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat your password" required><br>
 
 				<label for="phone-number">Phone Number:</label>
-				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number"><br>
+				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
 
 				<label for="profile-photo">Profile Photo:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
 				<label for="services">Services:</label><br>
-				<input type="radio" id="service1" name="services" value="service1">
+				<input type="radio" id="service1" name="services" value="service1" required>
 				<label for="service1">Farmstay help</label><br>
 
 				<input type="radio" id="service2" name="services" value="service2">
@@ -64,7 +63,7 @@
 
 				<fieldset>
 					<legend>Payment Options:</legend>
-					<input type="radio" id="paypal" name="payment" value="paypal">
+					<input type="radio" id="paypal" name="payment" value="paypal" required>
 					<label for="paypal">PayPal</label><br>
 
 					<input type="radio" id="visa" name="payment" value="visa">
@@ -78,13 +77,13 @@
 				</fieldset>
 
 				<label for="card-number">Card Number:</label>
-				<input type="text" id="card-number" name="card-number" placeholder="Enter your card number"><br>
+				<input type="text" id="card-number" name="card-number" placeholder="Enter your card number"required><br>
 
 				<label for="expiration-date">Expiration Date:</label>
-				<input type="month" id="expiration-date" name="expiration-date" placeholder="MM/YY"><br>
+				<input type="month" id="expiration-date" name="expiration-date" placeholder="MM/YY" required><br>
 
 				<label for="cvc">CVC:</label>
-				<input type="text" id="cvc" name="cvc" placeholder="Enter your CVC"><br>
+				<input type="text" id="cvc" name="cvc" placeholder="Enter your CVC"required><br>
 
 				<button type="submit" class="main-btn">Sign Up</button>
 			</form>
@@ -101,7 +100,6 @@
         require base_path("views/partials/scripts.view.php");
     ?>
 
-    <!-- عشان عارف انك بهيم -->
-    <!-- حط ملف الجافاسكربت بتاعك هنا -->
+ 
 </body>
 </html>

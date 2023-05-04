@@ -5,8 +5,6 @@
     <?php
         require base_path("views/partials/head.view.php");
     ?>
-    <!-- عشان عارف انك حمار -->
-    <!--  put your css file here -->
     <link rel="stylesheet" href="/culture_swap/public/assets/css/signup/traveller.css">
     <title>signup</title>
 </head>
@@ -17,7 +15,7 @@
 
     <header class="section-padding">
 			<h2>Traveler Sign Up for free </h2>
-			<form>
+			<form action="#" method="post">
 			
 				<label for="user-name">user Name:</label>
 				<input type="text" id="user-name" name="user-name" placeholder="Enter your user name" required><br>
@@ -38,13 +36,13 @@
 				<input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat your password" required><br>
 
 				<label for="phone-number">Phone Number:</label>
-				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number"><br>
+				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
 
 				<label for="profile-photo">Profile Photo:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
 				<label for="services">Services:</label><br>
-				<input type="radio" id="service1" name="services" value="service1">
+				<input type="radio" id="service1" name="services" value="service1"required>
 				<label for="service1">Farmstay help</label><br>
 
 				<input type="radio" id="service2" name="services" value="service2">
@@ -75,7 +73,6 @@
         require base_path("views/partials/scripts.view.php");
     ?>
 
-    <!-- عشان عارف انك بهيم -->
-    <!-- حط ملف الجافاسكربت بتاعك هنا -->
+    
 </body>
 </html>

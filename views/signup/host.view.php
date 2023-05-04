@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +6,7 @@
   <?php
   require base_path("views/partials/head.view.php");
   ?>
-  <!-- عشان عارف انك حمار -->
-  <!--  put your css file here -->
+
 
   <link rel="stylesheet" href="/culture_swap/public/assets/css/signup/host.css">
   <title>signup</title>
@@ -54,14 +54,14 @@
 
         <label for="about_family">Tell Us About You and Your Family:</label>
         <textarea id="about_family" name="about_family" placeholder="for example: your experance "
-          rows="10"></textarea><br>
+          rows="10" required></textarea><br>
 
         <label for="help_with">What Are You Looking for Help With?</label><br>
         <input type="checkbox" id="help_none" name="help_with[]" value="none" checked>
         <label for="help_none">Farmstay help</label><br>
         <input type="checkbox" id="help_one" name="help_with[]" value="one">
         <label for="help_one">Creating/ Cooking family meals</label><br>
-        <input type="checkbox" id="help_two" name="help_with[]" value="two">
+        <input type="checkbox" id="help_two" name="help_with[]" value="two" required>
         <label for="help_two">Art Projects</label><br>
         <input type="checkbox" id="help_three" name="help_with[]" value="three">
         <label for="help_three">Animal Care</label><br>
@@ -77,7 +77,7 @@
         <label for="info_one">Is your internet access limited? </label><br>
         <input type="checkbox" id="info_two" name="more_info[]" value="two">
         <label for="info_two">Do you have animals/pets</label><br>
-        <input type="checkbox" id="info_three" name="more_info[]" value="three">
+        <input type="checkbox" id="info_three" name="more_info[]" value="three" required>
         <label for="info_three">Are you smokers?</label><br>
 
         <button type="submit" class="main-btn">Sign Up</button>
@@ -93,9 +93,7 @@
   <?php
   require base_path("views/partials/scripts.view.php");
   ?>
-
-  <!-- عشان عارف انك بهيم -->
-  <!-- حط ملف الجافاسكربت بتاعك هنا -->
+  
 </body>
 
 </html>
