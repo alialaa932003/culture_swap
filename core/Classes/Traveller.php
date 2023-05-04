@@ -1,6 +1,7 @@
 <?php
 
 namespace core\Classes;
+use core\Classes\DB\ReservationDB;
 use core\Classes\DB\TravellerDB;
 
 //! The class is not copleted yet
@@ -108,13 +109,13 @@ class Traveller extends User
 
   public function cancelReservation(){
     $this->reservationId = null;
-    ReservationDataBase::delete($this->reservationId); 
+    ReservationDB::delete($this->reservationId); 
   }
 
   public function addFriend($friendId){
     array_push($this->friendsIds, $friendId);
     $friend = new Friend($friendId, $this->id); 
-    FriendDataBase::add($friend);
+    FriendDB::add($friend);
     return $friend;
   }
 
@@ -122,7 +123,7 @@ class Traveller extends User
     $index = array_search($friendId, $this->friendsIds); 
     if ($index !== false) {
       unset($this->friendsIds[$index]);
-      FriendDataBase::delete($friendId);
+      FriendDB::delete($friendId);
       return true;
     }
     return false;
