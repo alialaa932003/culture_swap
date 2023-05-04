@@ -29,14 +29,14 @@ class Traveller extends User
   {
     $id = TravellerDB::add($data);
     extract($data);
-    $this->id = $Id;
-    $this->firstName = $first_name;
-    $this->lastName = $last_name;
+    $this->id = $id;
+    $this->firstName = $fName;
+    $this->lastName = $lName;
     $this->username = $username;
     $this->password = $password;
     $this->type = $type;
     $this->email = $email;
-    $this->phoneNumber = $phone_num;
+    $this->phoneNumber = $phoneNum;
     $this->country = $country;
     $this->service['id'] = $service_id;
     $this->service['name'] = $service_name;
