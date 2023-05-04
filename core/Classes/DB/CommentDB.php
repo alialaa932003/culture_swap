@@ -13,7 +13,7 @@ class CommentDB
     {
     }
 
-    public function add($data)
+    public static function add($data)
     {
         extract($data);
         Database::getInstance()->query(

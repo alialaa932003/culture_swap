@@ -39,7 +39,7 @@ class post
 
   }
 
-  public function delete($id)
+  public static function  delete($id)
   {
     PostDB::delete($id);
   }
