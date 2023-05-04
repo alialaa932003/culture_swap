@@ -126,8 +126,6 @@ class TravellerDB
             ]
         )->get();
 
-        // $services = $this->dbref->query("");
-
         return $traveller;
     }
 
@@ -150,8 +148,17 @@ class TravellerDB
             ",
             ['travellerId' => $traveller['Id']]
         )->find();
+        $traveller['services'] = $services ?? [];
 
-        $traveller['services'] = $services;
+        $notifications = $dbref->query(
+            "SELECT notification.id from notification
+                INNER JOIN travellere
+                ON notification.reciever_id = traveller.id
+                WHERE traveller_service.traveller_id = :travellerId
+            ",
+            ['travellerId' => $traveller['Id']]
+        )->find();
+        $traveller['notifications'] = $notifications ?? [];
 
         return $traveller;
     }
