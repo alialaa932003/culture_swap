@@ -28,4 +28,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);*/
 
-echo Reservation::duration("","5-5-2023");
+echo Reservation::duration("","6-5-2023");
