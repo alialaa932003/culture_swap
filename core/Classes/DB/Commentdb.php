@@ -49,4 +49,6 @@ class CommentDB
         ]);
         return $id;
     }
+
+    // function get post id 
 }
