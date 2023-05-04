@@ -1,8 +1,8 @@
 <?php
 
-namespace core\Classes\DB;
-
+namespace core\Classes;
 use core\Database;
+use core\Classes\DB\HostDB;
 
 class Host extends User
 {
@@ -14,32 +14,6 @@ class Host extends User
     private $rate;
     private $reviews;
 
-
-
-    public function add($data)
-    {
-      $id = HostDB::add($data);
-      extract($data);
-      $this->id = $id;
-      $this->firstName = $f_name;
-      $this->lastName = $l_name;
-      $this->username = $username;
-      $this->password = $password;
-      $this->type = $type;
-      $this->email = $email;
-      $this->phoneNumber = $phone_num;
-      $this->country = $country;
-
-      $this->location  = $Location;
-      $this->status = $Status;
-     
-      $this->description = $Description;
-      $this->needs = $Needs;////////////////////////////////////////////////////////
-  
-      $this->Traveller_num = $Traveller_num;
-      $this->rate = $Rate_average;
-  
-    }
 
 
 
@@ -192,6 +166,53 @@ class Host extends User
     
 
 
+
+
+
+    public function add($data)
+    {
+      $id = HostDB::add($data);
+      extract($data);
+      $this->id = $id;
+      $this->firstName = $f_name;
+      $this->lastName = $l_name;
+      $this->username = $username;
+      $this->password = $password;
+      $this->type = $type;
+      $this->email = $email;
+      $this->phoneNumber = $phone_num;
+      $this->country = $country;
+
+      $this->location  = $Location;
+      $this->status = $Status;
+     
+      $this->description = $Description;
+      $this->needs = $Needs;////////////////////////////////////////////////////////
+  
+      $this->Traveller_num = $Traveller_num;
+      $this->rate = $Rate_average;
+  
+    }
+
+
+
+
+  
+    public function delete($id){
+        HostDB::delete($id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public static function search($attributes, $skip, $limit)
     {
       $host = HostDB::search($attributes, $skip, $limit);
@@ -235,7 +256,7 @@ class Host extends User
 
         $this->rate  = $Rate_average;
 
-        $this->needs = $Needs;
+        $this->needs = $Needs;///////////////////////////////////////
 
         $this->Traveller_num = $Traveller_num;
     }
