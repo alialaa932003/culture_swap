@@ -42,7 +42,7 @@ class comment
 
         public function setContent($content)
             { 
-                CommentDB::update($this->id, 'content' , $content);           
+                CommentDB::update(['id' => $this -> id , 'key' =>'content' ,'value'=> $content]);           
 
                 $this->content = $content;
             }
@@ -59,7 +59,7 @@ class comment
 
             public function setdate($date)
             { 
-                CommentDB::update($this->id, 'date' , $date);           
+                CommentDB::update(['id' => $this -> id, 'key' => 'date' , 'value'=> $date]);           
 
                 $date = $this->CalculateCommentTime() ;
 
@@ -91,9 +91,6 @@ class comment
             {
                 return $this->date;
             }
-
-
-
 
     }
 
