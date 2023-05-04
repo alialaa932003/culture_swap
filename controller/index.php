@@ -2,6 +2,8 @@
 $ASSET_URL = "/culture_swap/public/";
 
 
+
+
 // try {
 //     //code...
 //     dd((new TravellerDB())->add([
