@@ -39,9 +39,9 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phoneNum;
     $this->country = $country;
-    $this->service['id'] = $service_id;
-    $this->service['name'] = $service_name;
-
+    $this->service['id'] = $services['Id'];
+    $this->service['name'] = $services['name'];
+    //! favHosts, travelelrFriendIds
   }
 
   public function delete($id){
@@ -61,7 +61,7 @@ class Traveller extends User
     ]);
     TravellerDB::update([
       'id' => $this->id,
-      'key' => 'service_name',
+      'key' => 'service_id',
       'value' => $service['id']
     ]);
     $this->service = $service;
@@ -116,8 +116,8 @@ class Traveller extends User
   public function addFriend($friendId){
     $friend = new Traveller();
     $friend->getOne($friendId);
-    array_push($this->friendsIds, $friend);
-    //! ناقص لوجيك الداتابيز
+    array_push($this->friendsIds, $friend); //! Assoc array
+    //! addFriend function from salah
   }
 
   public function removeFriend($friendId){
@@ -128,6 +128,7 @@ class Traveller extends User
       return true;
     }
     return false;
+    //! removeFriend function from salah
   }
 
   public function getOne($id){
@@ -142,8 +143,9 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->service = $service_name;
-    $this->friendsIds = $favHosts;
+    $this->service['id'] = $services['Id'];
+    $this->service['name'] = $services['name'];
+    //! favHosts, travellerFriendIds
   }
 
   public static function search($attributes, $skip , $limit){
