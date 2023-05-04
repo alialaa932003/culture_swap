@@ -1,6 +1,7 @@
 <?php
 
 namespace core\Classes;
+use core\Classes\DB\TravellerDB;
 
 //! The class is not copleted yet
 
@@ -78,9 +79,9 @@ class Traveller extends User
   
   public function removeFavHosts($hostId){
     //! Not completed
-    $index = array_search($hostId, $this->favHostsIds); 
+    $index = array_search($hostId, $this->favHosts); 
     if ($index !== false) {
-      unset($this->favHostsIds[$index]);
+      unset($this->favHosts[$index]);
       return true;
     }
     return false;
@@ -128,7 +129,7 @@ class Traveller extends User
   }
 
   public function getOne($id){
-    $traveller = TravelelrDB::getOne($id);
+    $traveller = TravellerDB::getOne($id);
     extract($traveller);
     $this->id = id;
     $this->firstName = $f_name;
@@ -143,7 +144,7 @@ class Traveller extends User
   }
 
   public static function search($attributes, $skip , $limit){
-    $travellers = TravelelrDB::search($attributes, $skip, $limit); 
+    $travellers = TravellerDB::search($attributes, $skip, $limit); 
     return $travellers;
   }
 }

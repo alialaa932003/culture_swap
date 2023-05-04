@@ -41,7 +41,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setCardNumber($cardNumber){
-    TravellerDB::update([
+    TravellerVipDB::update([
       'id' => $this->id,
       'key' => 'card_number',
       'value' => $cardNumber
@@ -54,7 +54,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setCvc($cvc){
-    TravellerDB::update([
+    TravellerVipDB::update([
       'id' => $this->id,
       'key' => 'cvc_number',
       'value' => $cvc
@@ -67,7 +67,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setExpirationDate($date){
-    TravellerDB::update([
+    TravellerVipDB::update([
       'id' => $this->id,
       'key' => 'expiration_date',
       'value' => $date
@@ -80,7 +80,7 @@ class TravellerVip extends Traveller{
   }
 
   public function setPaymentOption($paymentOption){
-    TravellerDB::update([
+    TravellerVipDB::update([
       'id' => $this->id,
       'key' => 'payment_option',
       'value' => $paymentOption
