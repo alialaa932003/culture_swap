@@ -47,7 +47,7 @@ class Reservation
      $content = "the traveller $tvname want to join to you";
      $action = 1 ; //reservation 
         
-     ReservationDB::add([
+     $rv_id =  ReservationDB::add([
       'host_id' => $host_id,
       'travelelr_id' => $travelelr_id,
       'Status' => $status,
@@ -55,9 +55,11 @@ class Reservation
       'end_date' => $endDate
     ]);
 
+   
+
       Notification::makeNoti($travelelr_id,$host_id,$content,$action,$action_id);
 
-
+        return $rv_id;
     }
 
     
@@ -96,7 +98,14 @@ class Reservation
     }
 
 
-    public static function duration(){
+    public static function duration($stDate,$endDate){
+
+         $now = new \DateTime("$stDate");
+         $date = new \DateTime("$endDate");
+         $diff = $now->diff($date);
+         $str = $diff->format('%a Days and %h Hours')." remain ";
+          
+          return $str ;
 
     }
 

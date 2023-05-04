@@ -1,6 +1,9 @@
 <?php
 
 // This part display the errors to browser
+
+use core\Classes\Reservation;
+
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 // echo __DIR__;
@@ -16,11 +19,13 @@ spl_autoload_register(function ($class) {
 });
 
 
-$router = new \core\Router();
+/*$router = new \core\Router();
 
 $routes = require(base_path('routes.php'));
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
-$router->route($uri, $method);
+$router->route($uri, $method);*/
+
+echo Reservation::duration("","5-5-2023");
