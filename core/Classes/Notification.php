@@ -14,7 +14,7 @@ class Notification
   private $id;
   private $senderId;
   private $recieverId;
-  private $action;  // reservation && comment 
+  private $action;   
   private $content; 
   private $status;
 
@@ -28,9 +28,9 @@ class Notification
   //// add fun 
   public  function Add($key)
   { 
-              // to make anotification
+            
     $db  = new NotificationDB();
-    $id =   $db->add($key); // call static method add in class NotificationDB
+    $id =   $db->add($key); 
 
     extract($key);
 
@@ -42,7 +42,7 @@ class Notification
     
 
     if (isset($id))
-      return $id; // obj from class 
+      return $id; 
     else
       return -1;
 
@@ -67,63 +67,66 @@ class Notification
      'action_id'=>$action_id
     ]
   );
+  
+  if (isset($id))
+  return $id; 
+  else
+  return -1;
    
 
   }
 
-  public static function getAll($user_id) 
-  {
-
-    return $allNotifications  = NotificationDB::getAll($user_id);
-
-
-  }
 
 
   // delete fun
 
-  public static function delete($user_id)
+  public static function delete($id, $user_id)
   {
    
-   return  NotificationDB::delete($user_id);
+   return  NotificationDB::delete($id, $user_id);
 
   }
 
 
  
+  // Getters 
+  public static function getAll($user_id) 
+  {
+    return $allNotifications  = NotificationDB::getAll($user_id);
+  }
 
-  public static function getSenderId($id)
+  public static function getSenderId($id,$user_id)
   {
 
-    $noti = Notification::get_Detailed_Noti($id);
+    $noti = Notification::get_Detailed_Noti($id,$user_id);
     return  $noti['sender_id'];
   }
 
-  public static function getRecieverId($id)
+  public static function getRecieverId($id,$user_id)
   {
 
-    $noti = Notification::get_Detailed_Noti($id);
+    $noti = Notification::get_Detailed_Noti($id,$user_id);
     return  $noti['reciever_id'];
   }
 
-  public static function getContent($id)
+  public static function getContent($id,$user_id)
   {
-    $noti = Notification::get_Detailed_Noti($id);
+    $noti = Notification::get_Detailed_Noti($id,$user_id);
     return  $noti['content'];
   }
 
 
-  public static function getAction($id)
+  public static function getAction($id,$user_id)
   {
-    $noti = Notification::get_Detailed_Noti($id);
+    $noti = Notification::get_Detailed_Noti($id,$user_id);
     return  $noti['action'];
   }
 
 
-  public static function get_Detailed_Noti ($id)
+  public static function get_Detailed_Noti($id,$user_id)
   {
 
-    return $detailedNotification  = NotificationDB::getOne($id);
+    return $detailedNotification  = NotificationDB::getOne($id,$user_id);
   }
 
 
