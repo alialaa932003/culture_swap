@@ -107,11 +107,11 @@ class Traveller extends User
     return $review;
   }
 
+  //! Adding updateReservation Fucntion
 
-  public function makeReservation($hostId, $actionId)
+  public function makeReservation($hostId, $actionId, $status, $startDate, $endDate)
   {   
-    $reservation = new Reservation();
-    $this->reservationId = Reservation::makeReservation($this->id, $hostId, $this->firstName, $actionId);
+    $this->reservationId = Reservation::makeReservation($this->id, $hostId, $status, $startDate, $endDate, $this->firstName, $actionId);
   }
 
   public function cancelReservation()
