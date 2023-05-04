@@ -175,19 +175,21 @@ class Host extends User
       $id = HostDB::add($data);
       extract($data);
       $this->id = $id;
-      $this->firstName = $f_name;
-      $this->lastName = $l_name;
-      $this->username = $username;
-      $this->password = $password;
+      $this->setFirstName($f_name) ;
+      $this->setLastName($l_name) ;
+      $this->setPassword($password);
       $this->type = $type;
-      $this->email = $email;
-      $this->phoneNumber = $phone_num;
-      $this->country = $country;
 
-      $this->location  = $Location;
-      $this->status = $Status;
+      $this->setEmail($email) ;
+      $this->setPhoneNumber($phone_num) ;
+      $this->setCountry($country) ;
+
+      $this->setLocation($Location) ;
+      $this->setStatus($Status) ;
+    
      
-      $this->description = $Description;
+      $this->setDescription($Description);
+     
       $this->needs = $Needs;////////////////////////////////////////////////////////
   
       $this->Traveller_num = $Traveller_num;
@@ -208,10 +210,25 @@ class Host extends User
 
 
 
+/*
+
+d ckkmkmkddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
+*/
 
 
+    public static function getNAme($hostId)
+    {
+      $host = HostDB::getOne($hostId);
+      
+      $firstname = $host['f_name'];
+      $lastname = $host['l_name'];
+      $Name = $firstname . $lastname;
 
+      return $Name;
 
+    }
 
 
     public static function search($attributes, $skip, $limit)
@@ -230,23 +247,17 @@ class Host extends User
        
         extract($host);
 
-        $this->id = id;
-
-        $this->firstname = $f_name;
-
-        $this->LastName = $l_name;
-
-        $this->username = $username;
-
-        $this->password = $password;
-
+        $this->id = $id;
+        $this->setFirstName($f_name) ;
+        $this->setLastName($l_name) ;
+        $this->setPassword($password);
         $this->type = $type;
-
-        $this->email = $email;
-
-        $this->phoneNumber = $phone_num;
-
-        $this->country = $country;
+  
+        $this->setEmail($email) ;
+        $this->setPhoneNumber($phone_num) ;
+        $this->setCountry($country) ;
+  
+        $this->setLocation($Location) ;
 
         $this->status = $Status;
 
