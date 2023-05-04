@@ -15,8 +15,8 @@ class Traveller extends User
     'id' => '',
     'name' => ''
   ];
-  private $friends = [];
-  private $favHosts = [];
+  private $friendsIds = [];
+  private $favHostsIds = [];
   private $reservation;
 
   // Constructors
@@ -68,22 +68,22 @@ class Traveller extends User
   }
   
   public function getFavHosts(){
-    return $this->favHosts;
+    return $this->favHostsIds;
   }
   
   public function getFriends(){
-    return $this->friends;
+    return $this->friendsIds;
   }
-  public function addFavHost($host){
+  public function addFavHost($hostId){
     //! Not completed
-    array_push($this->favHosts, $host); 
+    array_push($this->favHostsIds, $hostId); 
   }
   
   public function removeFavHosts($hostId){
     //! Not completed
-    $index = array_search($hostId, $this->favHosts); 
+    $index = array_search($hostId, $this->favHostsIds); 
     if ($index !== false) {
-      unset($this->favHosts[$index]);
+      unset($this->favHostsIds[$index]);
       return true;
     }
     return false;
@@ -116,7 +116,7 @@ class Traveller extends User
   public function addFriend($friendId){
     $friend = new Traveller();
     $friend->getOne($friendId);
-    array_push($this->friends, $friend);
+    array_push($this->friendsIds, $friend);
     //! ناقص لوجيك الداتابيز
   }
 
@@ -143,6 +143,7 @@ class Traveller extends User
     $this->phoneNumber = $phone_num;
     $this->country = $country;
     $this->service = $service_name;
+    $this->friendsIds = $favHosts;
   }
 
   public static function search($attributes, $skip , $limit){
