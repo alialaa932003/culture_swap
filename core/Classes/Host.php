@@ -192,8 +192,8 @@ class Host extends User
      
       $this->needs = $Needs;////////////////////////////////////////////////////////
   
-      $this->Traveller_num = $Traveller_num;
-      $this->rate = $Rate_average;
+      $this->setTraveller_num($Traveller_num);
+      $this->setrate($Rate_average);
   
     }
 
@@ -231,6 +231,14 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     }
 
 
+/*
+
+d ckkmkmkddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
+*/
+
+
     public static function search($attributes, $skip, $limit)
     {
       $host = HostDB::search($attributes, $skip, $limit);
@@ -256,20 +264,17 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         $this->setEmail($email) ;
         $this->setPhoneNumber($phone_num) ;
         $this->setCountry($country) ;
+
+      $this->setLocation($Location) ;
+      $this->setStatus($Status) ;
+    
+     
+      $this->setDescription($Description);
+     
+      $this->needs = $Needs;////////////////////////////////////////////////////////
   
-        $this->setLocation($Location) ;
-
-        $this->status = $Status;
-
-        $this->description = $Description;
-
-        $this->location = $Location;
-
-        $this->rate  = $Rate_average;
-
-        $this->needs = $Needs;///////////////////////////////////////
-
-        $this->Traveller_num = $Traveller_num;
+      $this->setTraveller_num($Traveller_num);
+      $this->setrate($Rate_average);
     }
 
 
@@ -291,8 +296,32 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     }
 
 
+
+
+
     public function getNotification(){
-        return Notification::getAll($this->id);
+        return Notification::getAll($this->getId());
       }
+
+
+
+
+
+
+      public static function takeAction($id , $actionValue , $actionId )
+      {
+        Reservation::updateStatus($id,$actionValue,$actionId);
+      }
+
+
+
+
+
+
+
+
+
+
+
 
 }
