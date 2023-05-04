@@ -113,10 +113,10 @@ class Traveller extends User
   }
 
   public function addFriend($friendId){
-    array_push($this->friendsIds, $friendId);
-    $friend = new Friend($friendId, $this->id); 
-    FriendDB::add($friend);
-    return $friend;
+    $friend = new Traveller();
+    $friend->getOne($friendId);
+    array_push($this->friends, $friend);
+    //! ناقص لوجيك الداتابيز
   }
 
   public function removeFriend($friendId){

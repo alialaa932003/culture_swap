@@ -5,7 +5,7 @@ namespace core\Classes\DB;
 use core\Database;
 
 
-class Hostdb
+class HostDB
 {
 
     private $dbref;
