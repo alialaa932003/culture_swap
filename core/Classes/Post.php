@@ -9,157 +9,152 @@ use core\Database;
 class post
 {
 
-  //data fields
+    //data fields
 
-  private $id;
-  private $user_id;
-  private $content;
-  private $title;
-  private $img;
-  private $love_num;
-  private $date;
-
-
-  public function __construct()
-  {
-    // Empty constructor
-  }
-
-  public function add($data)
-  {
-    $id = PostDB::add($data);
-    extract($data);
-    $this->id = $id;
-    $this->user_id = $user_id;
-    $this->title = $title;
-    $this->content = $content;
-    $this->img = $img;
-    $this->love_num = $love_num;
-    $this->date = $date;
-
-  }
-
-  public static function  delete($id)
-  {
-    PostDB::delete($id);
-  }
-
-  public function setContent($content)
-  {
-    PostDB::update($this->id, 'content', $content);
-
-    $this->content = $content;
-  }
+    private $id;
+    private $user_id;
+    private $content;
+    private $title;
+    private $img;
+    private $love_num;
+    private $date;
 
 
+    public function __construct()
+    {
+        // Empty constructor
+    }
 
+    public function add($data)
+    {
+        $id = PostDB::add($data);
+        extract($data);
+        $this->id = $id;
+        $this->user_id = $user_id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->img = $img;
+        $this->love_num = $love_num;
+        $this->date = $date;
+    }
 
-  public function setTitle($title)
-  {
-    PostDB::update($this->id, 'title', $title);
+    public function delete($id)
+    {
+        PostDB::delete($id);
+    }
 
-    $this->title = $title;
-  }
+    public function setContent($content)
+    {
+        PostDB::update($this->id, 'content', $content);
+
+        $this->content = $content;
+    }
 
 
 
 
-  public function setImg($img)
-  {
-    PostDB::update($this->id, 'img', $img);
+    public function setTitle($title)
+    {
+        PostDB::update($this->id, 'title', $title);
 
-    $this->img = $img;
-  }
-
-
-  public function setLoveNum($love_num)
-  {
-    PostDB::update($this->id, 'love_num', $love_num);
-
-    $this->love_num = $love_num;
-  }
-
-
-  private function CalculatePostTime()
-  {
-    $current_time = time();
-    $date_time = date("Y-m-d H:i:s", $current_time);
-    return $date_time;
-  }
-
-
-  public function setdate($date)
-  {
-    PostDB::update($this->id, 'date', $date);
-
-    $date = $this->CalculatePostTime();
-
-    $this->date = $date;
-  }
+        $this->title = $title;
+    }
 
 
 
-  public function getId()
-  {
-    return $this->id;
-  }
+
+    public function setImg($img)
+    {
+        PostDB::update($this->id, 'img', $img);
+
+        $this->img = $img;
+    }
 
 
-  public function getUserId()
-  {
-    return $this->user_id;
-  }
+    public function setLoveNum($love_num)
+    {
+        PostDB::update($this->id, 'love_num', $love_num);
+
+        $this->love_num = $love_num;
+    }
 
 
-  public function getContent()
-  {
-    return $this->content;
-  }
+    private function CalculatePostTime()
+    {
+        $current_time = time();
+        $date_time = date("Y-m-d H:i:s", $current_time);
+        return $date_time;
+    }
 
 
-  public function getTitle()
-  {
-    return $this->title;
-  }
+    public function setdate($date)
+    {
+        PostDB::update($this->id, 'date', $date);
 
-  public function getImg()
-  {
-    return $this->img;
-  }
+        $date = $this->CalculatePostTime();
 
-
-  public function getLoveNum()
-  {
-    return $this->love_num;
-  }
+        $this->date = $date;
+    }
 
 
-  public function getDate()
-  {
-    return $this->date;
-  }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
-  public function getOne($id)
-  {
-    $post = PostDB::getOne($id);
-    extract($post);
-    $this->id = $id;
-    $this->user_id = $user_id;
-    $this->title = $title;
-    $this->content = $content;
-    $this->img = $img;
-    $this->love_num = $love_num;
-    $this->date = $date;
-  }
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
 
 
-  public function search($str, $offset, $limit)
-  {
-    PostDB::search($str, $offset, $limit);
-  }
+    public function getContent()
+    {
+        return $this->content;
+    }
 
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+
+    public function getLoveNum()
+    {
+        return $this->love_num;
+    }
+
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+
+    public function getOne($id)
+    {
+        $post = PostDB::getOne($id);
+        extract($post);
+        $this->id = $id;
+        $this->user_id = $user_id;
+        $this->title = $title;
+        $this->content = $content;
+        $this->img = $img;
+        $this->love_num = $love_num;
+        $this->date = $date;
+    }
+
+
+    public static function search($str, $offset, $limit)
+    {
+        PostDB::search($str, $offset, $limit);
+    }
 }
-
-?>
