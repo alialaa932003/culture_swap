@@ -69,19 +69,20 @@ class Reservation
       $action = 1; // reservation
       $hst_id =  $res['host_id'];
 
-         // need host name 
+         // need host name
+       $name = Host::getNAme($hst_id) ;
 
       if($act_val == 1){
              
-        $content = " $hst_id Accept your reservation"; //accept
+        $content = " $name Accept your reservation "; //accept
       } 
       if($act_val == -1)
-         $content = " $hst_id Reject your reservation"; //reject
+         $content = " $name Reject your reservation "; //reject
 
 
       Notification::makeNoti($res['host_id'],$res['travelelr_id'],$content,$action, $action_id);   
   
-
+        
     }  
 
     
