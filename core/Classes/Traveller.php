@@ -15,8 +15,8 @@ class Traveller extends User
     'id' => '',
     'name' => ''
   ];
-  private $friends = [];
-  private $favHosts = [];
+  private $friendsIds = [];
+  private $favHostsIds = [];
   private $reservation;
 
   // Constructors
@@ -39,9 +39,11 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phoneNum;
     $this->country = $country;
-    $this->service['id'] = $service_id;
-    $this->service['name'] = $service_name;
-
+    $this->profilePhoto = $profilePhoto;
+    $this->coverPhoto = $coverPhoto;
+    $this->service['id'] = $services['Id'];
+    $this->service['name'] = $services['name'];
+    //! favHosts, travelelrFriendIds
   }
 
   public function delete($id){
@@ -61,29 +63,29 @@ class Traveller extends User
     ]);
     TravellerDB::update([
       'id' => $this->id,
-      'key' => 'service_name',
+      'key' => 'service_id',
       'value' => $service['id']
     ]);
     $this->service = $service;
   }
   
   public function getFavHosts(){
-    return $this->favHosts;
+    return $this->favHostsIds;
   }
   
   public function getFriends(){
-    return $this->friends;
+    return $this->friendsIds;
   }
-  public function addFavHost($host){
+  public function addFavHost($hostId){
     //! Not completed
-    array_push($this->favHosts, $host); 
+    array_push($this->favHostsIds, $hostId); 
   }
   
   public function removeFavHosts($hostId){
     //! Not completed
-    $index = array_search($hostId, $this->favHosts); 
+    $index = array_search($hostId, $this->favHostsIds); 
     if ($index !== false) {
-      unset($this->favHosts[$index]);
+      unset($this->favHostsIds[$index]);
       return true;
     }
     return false;
@@ -115,9 +117,9 @@ class Traveller extends User
 
   public function addFriend($friendId){
     $friend = new Traveller();
-    $friend->getOne($friendId);
-    array_push($this->friends, $friend);
-    //! ناقص لوجيك الداتابيز
+    $friend->getOne($friendId); 
+    array_push($this->friendsIds, $friendId);
+    //! addFriend function from salah
   }
 
   public function removeFriend($friendId){
@@ -128,6 +130,7 @@ class Traveller extends User
       return true;
     }
     return false;
+    //! removeFriend function from salah
   }
 
   public function getOne($id){
@@ -142,7 +145,11 @@ class Traveller extends User
     $this->email = $email;
     $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->service = $service_name;
+    $this->profilePhoto = $profilePhoto;
+    $this->coverPhoto = $coverPhoto;
+    $this->service['id'] = $services['Id'];
+    $this->service['name'] = $services['name'];
+    //! favHosts, travellerFriendIds
   }
 
   public static function search($attributes, $skip , $limit){
