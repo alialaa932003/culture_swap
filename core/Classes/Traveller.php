@@ -18,7 +18,7 @@ class Traveller extends User
   ];
   private $friendsIds = [];
   private $favHostsIds = [];
-  private $reservation;
+  private $reservationId;
 
   // Constructors
   public function __construct()
@@ -42,6 +42,7 @@ class Traveller extends User
     $this->country = $country;
     $this->profilePhoto = $profilePhoto;
     $this->coverPhoto = $coverPhoto;
+    $this->reservationId = $reservationId;
     $this->service['id'] = $services['Id'];
     $this->service['name'] = $services['name'];
     //! favHosts, travelelrFriendIds
@@ -107,23 +108,16 @@ class Traveller extends User
   }
 
 
-  public function makeReservation($hostId)
+  public function makeReservation($hostId, $actionId)
   {   
-    $reservation = new Reservation($this->id, $hostId, 0); // 0 here is pending
-    $this->reservation->getId() = ReservationDB::add([
-      'host_id' => $hostId,
-      'travelelr_id' => $this->id,
-      'Status' => $reservation->getStatus(),
-      'Start_date' => $reservation->getStartDate(),
-      'end_date' => $reservation->getEndDate()
-    ]);
-    return $reservation;
+    $reservation = new Reservation();
+    $this->reservationId = Reservation::makeReservation($this->id, $hostId, $this->firstName, $actionId);
   }
 
   public function cancelReservation()
   {
-    $this->reservation->getId() = null;
-    ReservationDB::delete($this->reservation->getId());
+    $this->reservationId = null;
+    ReservationDB::delete($this->reservationId);
   }
 
   public function addFriend($friendId)
