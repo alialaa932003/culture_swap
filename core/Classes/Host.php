@@ -157,7 +157,7 @@ class Host extends User
 
         HostDB::update([
             'id' => $this->id,
-            'key' => '',
+            'key' => 'needs name',
             'value' => $reviews
           ]);
 
@@ -248,7 +248,6 @@ class Host extends User
 
         $this->country = $country;
 
-      
         $this->status = $Status;
 
         $this->description = $Description;
@@ -261,5 +260,28 @@ class Host extends User
 
         $this->Traveller_num = $Traveller_num;
     }
+
+
+
+    public function makeComment($travellerId, $hostId, $hostName, $actionId)
+    {
+      $content = "{$hostName} comment at your post";
+      $action = 2;
+  
+      Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
+    }
+  
+    public function makeLove($travellerId, $hostId, $hostName, $actionId)
+    {
+      $content = "{$hostName} love your post";
+      $action = 3;
+  
+      Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
+    }
+
+
+    public function getNotification(){
+        return Notification::getAll($this->id);
+      }
 
 }
