@@ -9,7 +9,6 @@ class ReviewDB
 {
 
 
-
     public static function add($data)
     {
       extract($data);
@@ -96,16 +95,6 @@ write code sql here
     }
     return $host_review;
   }
-
-
-
-
-
-
-
-
-
-
 
 }
 

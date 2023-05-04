@@ -13,7 +13,7 @@ class Reservation
     private $start_date ;
     private $end_date ;
     private $noti ;
-    private $status ;
+    private $status ;  // 0->pending , 1 -> accept , -1 -> reject
 
 
 
@@ -47,38 +47,58 @@ class Reservation
      $content = "the traveller $tvname want to join to you";
      $action = 1 ; //reservation 
         
-<<<<<<< HEAD
+
      $rv_id =  ReservationDB::add([
-=======
-     
-     Notification::makeNoti($travelelr_id,$host_id,$content,$action,$action_id);
-     
-     
-    return ReservationDB::add([
->>>>>>> deea6f672e733eed35b12ef303507ee9d4ec23b4
       'host_id' => $host_id,
       'travelelr_id' => $travelelr_id,
       'Status' => $status,
       'Start_date' => $startDate,
       'end_date' => $endDate
     ]);
-<<<<<<< HEAD
-
-   
 
       Notification::makeNoti($travelelr_id,$host_id,$content,$action,$action_id);
 
         return $rv_id;
-=======
->>>>>>> deea6f672e733eed35b12ef303507ee9d4ec23b4
     }
+
+    public static function updateStatus($id,$act_val,$action_id){
+
+      $res = Reservation::get_Detailed_Res($id);
+      $res['status'] = $act_val ;
+
+      $action = 1; // reservation
+      $hst_id =  $res['host_id'];
+
+         // need host name 
+
+      if($act_val == 1){
+             
+        $content = " $hst_id Accept your reservation"; //accept
+      } 
+      if($act_val == -1)
+         $content = " $hst_id Reject your reservation"; //reject
+
+
+      Notification::makeNoti($res['host_id'],$res['travelelr_id'],$content,$action, $action_id);   
+  
+
+    }  
 
     
 
-   /* public static updateStatus(){
 
 
-    }  */
+    public function getStDate(){
+      
+      return $this->start_date;
+    }
+
+    public function getEndDate(){
+
+      return $this->end_date;
+      
+    }
+
 
     public static function getId($id)
     {
@@ -86,19 +106,19 @@ class Reservation
       return  $res['Id'];
     }
 
-    public static function getTravellerId($travellerId)
+    public static function getTravellerId($id)
     {
-      $res = Reservation::get_Detailed_Res($travellerId);
+      $res = Reservation::get_Detailed_Res($id);
       return  $res['traveller_id'];
     }
-    public static function getHostId($hostId)
+    public static function getHostId($id)
     {
-      $res = Reservation::get_Detailed_Res($hostId);
+      $res = Reservation::get_Detailed_Res($id);
       return  $res['host_id'];
     }
-    public static function getStatus($status)
+    public static function getStatus($id)
     {
-      $res = Reservation::get_Detailed_Res($status);
+      $res = Reservation::get_Detailed_Res($id);
       return  $res['status'];
     }
 
@@ -109,7 +129,7 @@ class Reservation
     }
 
 
-    public static function duration($stDate,$endDate){
+    public static  function duration($stDate,$endDate){
 
          $now = new \DateTime("$stDate");
          $date = new \DateTime("$endDate");
@@ -117,8 +137,6 @@ class Reservation
          $str = $diff->format('%a Days and %h Hours')." remain ";
           
           return $str ;
-
     }
-
 
 }
