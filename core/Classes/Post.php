@@ -6,7 +6,7 @@ use core\Database;
 
 
 
-class post
+class Post
 {
 
     //data fields

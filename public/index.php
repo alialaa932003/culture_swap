@@ -27,7 +27,3 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);
-<<<<<<< HEAD
-
-=======
->>>>>>> 7923b47d4edd6c37bb76a8bcca389eef7b7470a5
