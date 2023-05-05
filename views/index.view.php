@@ -217,7 +217,8 @@
                     </div>
                 </div>
                 <?php endforeach ?>
-             
+                         <!----------------------------------  end popularplaces           --------------------->
+
             </div>
         </div>
     </section>
