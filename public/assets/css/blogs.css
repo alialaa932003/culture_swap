@@ -274,15 +274,17 @@
 
 }
 
+
+
 .blog-content .right-blog .Categories li a i,
 .blog-content .right-blog .recent-comments li a i {
     margin-right: 4px;
-    color: var(--main-color);
+    color: var(--secondary);
 }
 
 .blog-content .right-blog .Categories li a:hover,
 .blog-content .right-blog .recent-comments li a:hover {
-    color: var(--main-color);
+    color: var(--secondary);
 }
 
 .blog-content .right-blog .Categories li span {
@@ -301,7 +303,7 @@
 
 .pagiItem {
     background: #fff;
-    border: 1px solid #59595c;
+    border: 1px solid var(--primary);
     font-size: 1.6rem;
     padding: 1rem 1.5rem;
     color: var(--h-color);

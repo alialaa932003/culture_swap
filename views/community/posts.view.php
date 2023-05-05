@@ -77,31 +77,35 @@ require base_path("views/partials/head.view.php");
                                     <div class="article">
                                         <div class="article-header">
                                             <div class="date">
-                                                <span>07</span>
-                                                <span>may 12</span>
+
+                                                <span>
+                                                    <?= (new DateTime($post['date']))->format('d') ?>
+                                                </span>
+                                                <span><?= (new DateTime($post['date']))->format('M') ?> <?= (new DateTime($post['date']))->format('y') ?></span>
                                             </div>
                                             <div class="heading-header">
                                                 <h3>
-                                                    <a href="#"><?= $post['title'] ?></a>
+                                                    <a href="./post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
                                                 </h3>
                                                 <div class="company-content">
                                                     <div class="item">
                                                         <a href="#">
                                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                                            ali alaa
+                                                            <?= $post['first_name'] ?>
+                                                            <?= $post['last_name'] ?>
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
                                                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                            host
+                                                            <?= $post['type'] == 1 ? "host" : "traveller" ?>
                                                         </span>
 
                                                     </div>
                                                     <div class="item">
                                                         <span>
                                                             <i class="fa fa-location" aria-hidden="true"></i>
-                                                            norway
+                                                            <?= $post['country'] ?>
                                                         </span>
                                                     </div>
 
@@ -109,7 +113,7 @@ require base_path("views/partials/head.view.php");
                                             </div>
                                         </div>
                                         <div class="article-image">
-                                            <a href="#">
+                                            <a href="./post?id=<?= $post['post_id'] ?>">
                                                 <button class="love">
                                                     <span>
                                                         <i class="fa-regular fa-heart"></i>
@@ -120,9 +124,9 @@ require base_path("views/partials/head.view.php");
 
                                         </div>
                                         <div class="article-content">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
+                                            <p><?= $post['content'] ?></p>
                                             <div class="details">
-                                                <a href="#" class="second-btn">
+                                                <a href="./post?id=<?= $post['post_id'] ?>" class="second-btn">
                                                     read more
                                                 </a>
                                                 <div class="review">
@@ -265,36 +269,14 @@ require base_path("views/partials/head.view.php");
                         <div class="recent-comments">
                             <h4>recent comments</h4>
                             <ul>
-
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        admin on Love In 21st
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        admin on My Generation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        nilofer on the giant ship
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        imran on Gnome Alone
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-comment" aria-hidden="true"></i>
-                                        imran on Kimozy-The Dragon </a>
-                                </li>
+                                <?php foreach ($recentComments as $comment) : ?>
+                                    <li>
+                                        <a href="./post?id=<?= $comment['post_id'] ?>">
+                                            <i class="fa fa-comment" aria-hidden="true"></i>
+                                            <?= $comment['content'] ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
                             </ul>
 
                         </div>
@@ -302,9 +284,10 @@ require base_path("views/partials/head.view.php");
                 </div>
                 <div class="postsPagination">
 
-                    <?= implode(' ', $paginationLinks) ?>
+                    <?php if (count($paginationLinks) != 1) : ?>
+                        <?= implode(' ', $paginationLinks) ?>
 
-
+                    <?php endif; ?>
 
                 </div>
             </div>

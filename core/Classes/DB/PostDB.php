@@ -50,7 +50,7 @@ class PostDB
     public static function search($str = "", $offset, $limit)
     {
         return Database::getInstance()->query(
-            "SELECT * FROM post WHERE title LIKE :str OR content like :str ORDER BY id desc  LIMIT $limit OFFSET $offset ",
+            "SELECT post.Id as post_id  , content , title , love_num , date , img ,_user.* FROM post INNER JOIN _user ON post.user_id = _user.Id  WHERE title LIKE :str OR content like :str ORDER BY post.id desc  LIMIT $limit OFFSET $offset ",
             ['str' => '%' . $str . '%']
         )->get();
     }
@@ -62,7 +62,7 @@ class PostDB
 
         )->find();
     }
-    
+
     public static function  getOne($id)
     {
         $post = Database::getInstance()->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->find();

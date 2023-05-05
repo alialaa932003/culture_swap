@@ -2,6 +2,7 @@
 $ASSET_URL = "/culture_swap/public/";
 
 use core\Classes\Post;
+use core\Classes\Comment;
 
 // $posts = new Post();
 // $postsCount = Post::count()['count'];
@@ -30,7 +31,7 @@ $offset = ($pageNumber - 1) * $postsPerPage;
 // This is just an example and will depend on your specific application
 if (!empty($searchQuery)) {
     $results = Post::search($searchQuery, $offset, $postsPerPage);
-    
+
     $totalResults = Post::count_posts($searchQuery)['count'];
 } else {
     $results = Post::search($searchQuery, $offset, $postsPerPage);
@@ -46,6 +47,10 @@ for ($i = 1; $i <= $totalPages; $i++) {
         $params['search'] = $searchQuery;
     }
     $queryString = http_build_query($params);
-    $paginationLinks[] = '<a href="./posts?' . $queryString . '" class="pagiItem">' . $i . '</a>';
+
+    $paginationLinks[] = '<a href="./posts?' . $queryString . ' " class="pagiItem ' . ($pageNumber == $i ? "active" : "") . ' "  >' . $i . '</a>';
 }
+
+$recentComments = Comment::recentComments(6);
+// dd($recentComments);
 require base_path("views/community/posts.view.php");
