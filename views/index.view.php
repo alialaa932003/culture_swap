@@ -86,7 +86,7 @@
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
-                            <i class="fa-solid fa-seedling"></i>
+                                  <i class="fa-solid fa-hammer"></i>
                         </span>
                         <span class="itemText" name="animals">
                             <?= $service["name"] ?>
@@ -129,7 +129,7 @@
 
 
 
-                < </div>
+                 </div>
             </div>
     </section>
 
@@ -146,10 +146,6 @@
 
                 <?php foreach ($cards as $card): ?>
                     <div class="col-xl-4 col-md-6">
-
-
-
-
                         <div class="myCard">
                             <div class="cardImage">
                                 <img src="public/assets/imgs/home/header5.webp" alt="">
@@ -207,94 +203,21 @@
                 <h2 class="heading">popular places</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="placeItem">
 
+            <!----------------------------------  popularplaces           --------------------->
+                    <?php foreach ($popularPlaces as $popularPlace): ?>
+            <div class="col-lg-3">
+                    <div class="placeItem">
                         <div class="placeImage">
                             <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                         </div>
                         <a href="#" class='placeLink second-btn'>
-                            spain
+                        <?=$popularPlace["Location"]?>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
+                <?php endforeach ?>
+             
             </div>
         </div>
     </section>

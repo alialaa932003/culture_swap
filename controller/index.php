@@ -15,11 +15,15 @@ $ASSET_URL = "/culture_swap/public/";
 
 
 
-//services 
+///////services 
 $services = Database::getInstance()->query("SELECT Id, name FROM service")->get();
 
 
-
+/////end services
+$popularPlaces = Database::getInstance()->query("SELECT Location,
+ COUNT(*) AS host_count  FROM host GROUP BY Location
+ORDER BY host_count DESC
+LIMIT 8 ")->get();
 
 
 
