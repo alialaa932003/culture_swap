@@ -1,7 +1,7 @@
 <?php
 $router->get('/culture_swap/', 'controller/index.php');
-$router->get('/culture_swap/blogs', 'controller/community/posts.php');
-$router->get('/culture_swap/blog', 'controller/community/show.php');
+$router->get('/culture_swap/posts', 'controller/community/posts.php');
+$router->get('/culture_swap/post', 'controller/community/show.php');
 $router->get('/culture_swap/faq', 'controller/faq.php');
 $router->get('/culture_swap/about', 'controller/about.php');
 

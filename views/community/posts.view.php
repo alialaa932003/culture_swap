@@ -271,6 +271,7 @@ require base_path("views/partials/head.view.php");
                             <h4>search</h4>
                             <form action="">
                                 <input type="search" placeholder="search">
+                                <button class="second-btn subSearch" type="submit">submit</button>
                             </form>
                         </div>
                         <div class="recent-posts">
@@ -409,6 +410,12 @@ require base_path("views/partials/head.view.php");
 
                         </div>
                     </div>
+                </div>
+                <div class="postsPagination">
+                    <a href="./posts?page=1" class="pagiItem">1</a>
+                    <a href="./posts?page=2" class="pagiItem">2</a>
+                    <a href="" class="pagiItem">3</a>
+                    <a href="#" class="pagiItem">4</a>
                 </div>
             </div>
         </div>
