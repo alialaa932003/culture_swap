@@ -5,7 +5,7 @@
 use core\Classes\Reservation;
 
 ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', 1);
 // echo __DIR__;
 const BASE_PATH = __DIR__ . '/../';
 require BASE_PATH . 'core/functions.php';
@@ -27,4 +27,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7923b47d4edd6c37bb76a8bcca389eef7b7470a5

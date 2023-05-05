@@ -11,18 +11,18 @@ use core\Classes\DB\post;
 
 abstract class User{
 
-    private int $id;
-    private string $firstName;
-    private string $lastName;
-    private string $username;
-    private string $password;
-    private string $email;
-    private int $phoneNumber;
-    private string $profilePhoto;
-    private string $coverPhoto;
-    private string $country;
-    private array $notification = [];
-    private int $type;
+    protected int $id;
+    protected string $firstName;
+    protected string $lastName;
+    protected string $username;
+    protected string $password;
+    protected string $email;
+    protected int $phoneNumber;
+    protected string $profilePhoto;
+    protected string $coverPhoto;
+    protected string $country;
+    protected array $notification = [];
+    protected int $type;
 
 
     //! first Constructors:
