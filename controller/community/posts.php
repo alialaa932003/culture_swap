@@ -26,11 +26,11 @@ $pageNumber = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
 // Calculate the offset for the results based on the page number
 $offset = ($pageNumber - 1) * $postsPerPage;
-
 // Perform the search query and retrieve the results
 // This is just an example and will depend on your specific application
 if (!empty($searchQuery)) {
     $results = Post::search($searchQuery, $offset, $postsPerPage);
+    
     $totalResults = Post::count_posts($searchQuery)['count'];
 } else {
     $results = Post::search($searchQuery, $offset, $postsPerPage);
@@ -38,7 +38,6 @@ if (!empty($searchQuery)) {
 }
 // Calculate the total number of pages
 $totalPages = ceil($totalResults / $postsPerPage);
-
 // Generate the pagination links
 $paginationLinks = array();
 for ($i = 1; $i <= $totalPages; $i++) {

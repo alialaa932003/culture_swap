@@ -313,3 +313,10 @@
     background: var(--primary);
     color: #fff;
 }
+
+.searchNot {
+    font-size: 3.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 9rem;
+}

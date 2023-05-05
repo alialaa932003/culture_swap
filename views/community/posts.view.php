@@ -133,7 +133,14 @@ require base_path("views/partials/head.view.php");
                                         </div>
                                     </div>
                                 </div>
+
                             <?php endforeach; ?>
+                            <?php if (!$totalResults) : ?>
+                                <p class="searchNot">
+                                    search not found
+                                </p>
+
+                            <?php endif; ?>
 
 
 
