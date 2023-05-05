@@ -19,13 +19,11 @@ spl_autoload_register(function ($class) {
 });
 
 
-/*$router = new \core\Router();
+$router = new \core\Router();
 
 $routes = require(base_path('routes.php'));
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
-$router->route($uri, $method);*/
-
-echo Reservation::duration("","6-5-2023");
+$router->route($uri, $method);
