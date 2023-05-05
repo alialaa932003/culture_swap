@@ -30,9 +30,12 @@ class Reservation
      extract($data);
 
     $this->id = $id;
-    $this->travellerId = $travellerId;
-    $this->hostId = $hostId;
-    $this->status = $status;
+
+    $this->travellerId = $traveller_id;
+    $this->hostId = $host_id;
+    $this->status = $Status;
+    $this->start_date = $Start_date;
+    $this->end_date = $end_date;
    
 
     if (isset($id))
