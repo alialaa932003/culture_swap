@@ -68,194 +68,76 @@ require base_path("views/partials/head.view.php");
                 <div class="col-lg-8">
                     <div class="left-blog">
                         <div class="row">
-                            <div class="col-12">
-                                <div class="article">
-                                    <div class="article-header">
-                                        <div class="date">
-                                            <span>07</span>
-                                            <span>may 12</span>
-                                        </div>
-                                        <div class="heading-header">
-                                            <h3>
-                                                <a href="#">Where watch English movies free?</a>
-                                            </h3>
-                                            <div class="company-content">
-                                                <div class="item">
-                                                    <a href="#">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                                        ali alaa
-                                                    </a>
-                                                </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        host
-                                                    </span>
+
+
+
+
+                            <?php foreach ($results as $post) : ?>
+                                <div class="col-12">
+                                    <div class="article">
+                                        <div class="article-header">
+                                            <div class="date">
+                                                <span>07</span>
+                                                <span>may 12</span>
+                                            </div>
+                                            <div class="heading-header">
+                                                <h3>
+                                                    <a href="#"><?= $post['title'] ?></a>
+                                                </h3>
+                                                <div class="company-content">
+                                                    <div class="item">
+                                                        <a href="#">
+                                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                                            ali alaa
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <span>
+                                                            <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                                            host
+                                                        </span>
+
+                                                    </div>
+                                                    <div class="item">
+                                                        <span>
+                                                            <i class="fa fa-location" aria-hidden="true"></i>
+                                                            norway
+                                                        </span>
+                                                    </div>
 
                                                 </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-location" aria-hidden="true"></i>
-                                                        norway
-                                                    </span>
-                                                </div>
-
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="article-image">
-                                        <a href="#">
-                                            <button class="love">
-                                                <span>
-                                                    <i class="fa-regular fa-heart"></i>
-                                                </span>
-                                            </button>
-                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                        </a>
-
-                                    </div>
-                                    <div class="article-content">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
-                                        <div class="details">
-                                            <a href="#" class="second-btn">
-                                                read more
+                                        <div class="article-image">
+                                            <a href="#">
+                                                <button class="love">
+                                                    <span>
+                                                        <i class="fa-regular fa-heart"></i>
+                                                    </span>
+                                                </button>
+                                                <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                             </a>
-                                            <div class="review">
+
+                                        </div>
+                                        <div class="article-content">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
+                                            <div class="details">
+                                                <a href="#" class="second-btn">
+                                                    read more
+                                                </a>
+                                                <div class="review">
 
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
 
 
 
 
-                            <div class="col-12">
-                                <div class="article">
-                                    <div class="article-header">
-                                        <div class="date">
-                                            <span>07</span>
-                                            <span>may 12</span>
-                                        </div>
-                                        <div class="heading-header">
-                                            <h3>
-                                                <a href="#">Where watch English movies free?</a>
-                                            </h3>
-                                            <div class="company-content">
-                                                <div class="item">
-                                                    <a href="#">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                                        ali alaa
-                                                    </a>
-                                                </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        host
-                                                    </span>
-
-                                                </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-location" aria-hidden="true"></i>
-                                                        norway
-                                                    </span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article-image">
-                                        <a href="#">
-                                            <button class="love">
-                                                <span>
-                                                    <i class="fa-regular fa-heart"></i>
-                                                </span>
-                                            </button>
-                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                        </a>
-
-                                    </div>
-                                    <div class="article-content">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
-                                        <div class="details">
-                                            <a href="#" class="second-btn">
-                                                read more
-                                            </a>
-                                            <div class="review">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="col-12">
-                                <div class="article">
-                                    <div class="article-header">
-                                        <div class="date">
-                                            <span>07</span>
-                                            <span>may 12</span>
-                                        </div>
-                                        <div class="heading-header">
-                                            <h3>
-                                                <a href="#">Where watch English movies free?</a>
-                                            </h3>
-                                            <div class="company-content">
-                                                <div class="item">
-                                                    <a href="#">
-                                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                                        ali alaa
-                                                    </a>
-                                                </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                        host
-                                                    </span>
-
-                                                </div>
-                                                <div class="item">
-                                                    <span>
-                                                        <i class="fa fa-location" aria-hidden="true"></i>
-                                                        norway
-                                                    </span>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="article-image">
-                                        <a href="#">
-                                            <button class="love">
-                                                <span>
-                                                    <i class="fa-regular fa-heart"></i>
-                                                </span>
-                                            </button>
-                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                        </a>
-
-                                    </div>
-                                    <div class="article-content">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque quibusdam saepe deleniti a eaque laborum, minima aliquid provident ipsa tempora iure, in vero itaque eum molestiae eveniet totam voluptas neque.</p>
-                                        <div class="details">
-                                            <a href="#" class="second-btn">
-                                                read more
-                                            </a>
-                                            <div class="review">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
 
@@ -269,8 +151,8 @@ require base_path("views/partials/head.view.php");
                     <div class="right-blog">
                         <div class="search">
                             <h4>search</h4>
-                            <form action="">
-                                <input type="search" placeholder="search">
+                            <form action="" method="GET">
+                                <input name="search" type="search" placeholder="search">
                                 <button class="second-btn subSearch" type="submit">submit</button>
                             </form>
                         </div>
@@ -412,10 +294,11 @@ require base_path("views/partials/head.view.php");
                     </div>
                 </div>
                 <div class="postsPagination">
-                    <a href="./posts?page=1" class="pagiItem">1</a>
-                    <a href="./posts?page=2" class="pagiItem">2</a>
-                    <a href="" class="pagiItem">3</a>
-                    <a href="#" class="pagiItem">4</a>
+
+                    <?= implode(' ', $paginationLinks) ?>
+
+
+
                 </div>
             </div>
         </div>

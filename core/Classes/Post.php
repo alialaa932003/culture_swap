@@ -155,6 +155,10 @@ class Post
 
     public static function search($str, $offset, $limit)
     {
-        PostDB::search($str, $offset, $limit);
+        return PostDB::search($str, $offset, $limit);
+    }
+    public static function count_posts($searchQuery)
+    {
+        return PostDB::count_posts($searchQuery);
     }
 }
