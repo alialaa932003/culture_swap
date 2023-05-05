@@ -57,7 +57,7 @@ class PostDB
     public static function count_posts($searchQuery)
     {
         return Database::getInstance()->query(
-            "SELECT COUNT(*) FROM post WHERE title LIKE :searchQuery ",
+            "SELECT COUNT(*) FROM post WHERE title LIKE :searchQuery OR content like :searchQuery ",
             [':searchQuery' => '%' . $searchQuery . '%']
 
         )->find();
