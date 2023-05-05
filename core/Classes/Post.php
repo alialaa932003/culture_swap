@@ -1,8 +1,8 @@
 <?php
 
-namespace core\Classes\DB;
+namespace core\Classes;
 
-use core\Database;
+use core\Classes\DB\PostDB;
 
 
 
