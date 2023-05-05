@@ -155,6 +155,6 @@ class Post
 
     public static function search($str, $offset, $limit)
     {
-        PostDB::search($str, $offset, $limit);
+        return PostDB::search($str, $offset, $limit);
     }
 }
