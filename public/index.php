@@ -5,7 +5,7 @@
 use core\Classes\Reservation;
 
 ini_set('display_errors', 1);
-ini_set('error_reporting', E_ALL);
+ini_set('error_reporting', 1);
 // echo __DIR__;
 const BASE_PATH = __DIR__ . '/../';
 require BASE_PATH . 'core/functions.php';
