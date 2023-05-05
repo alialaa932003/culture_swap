@@ -49,6 +49,11 @@ class CommentDB
         ]);
         return $id;
     }
+    public static function recentComments($limit)
+    {
+
+        return Database::getInstance()->query("SELECT * from comment ORDER BY id desc LIMIT $limit  ")->get();
+    }
 
     // function get post id 
 }
