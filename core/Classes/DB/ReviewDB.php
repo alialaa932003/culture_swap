@@ -54,7 +54,7 @@ class ReviewDB
     ]);
   }
 
-
+/*
 
   public static function search($data, $offset= 0, $limit = 1)
   {
@@ -73,7 +73,7 @@ write code sql here
   }
 
 
-
+*/
 
 
   public static function getAll()
