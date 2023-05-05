@@ -1,4 +1,8 @@
 <?php
+use core\Classes\Reservation;
 
 
-dd("This is a test page , test your code in this page only");
+echo "This is a test page , test your code in this page only";
+
+
+
