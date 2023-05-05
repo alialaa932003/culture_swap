@@ -90,23 +90,20 @@ class Reservation
 
 
 
-    public function getStDate(){
-      
-      return $this->start_date;
-    }
-
-    public function getEndDate(){
-
-      return $this->end_date;
-      
-    }
-
-
-    public static function getId($id)
-    {
+    public static function getStDate($id){
       $res = Reservation::get_Detailed_Res($id);
-      return  $res['Id'];
+      return $res['Start_date'];
     }
+
+    public static function getEndDate($id){
+
+      $res = Reservation::get_Detailed_Res($id);
+      return $res['end_date'];
+      
+    }
+
+
+    
 
     public static function getTravellerId($id)
     {
