@@ -196,7 +196,7 @@ class Traveller extends User
   {
     //! Not completed
     TravellerDB::addService($this->id, $serviceId);
-    array_push($this->services, );
+    // array_push($this->services, );
   }
 
   public function removeService($serviceId)
@@ -208,7 +208,7 @@ class Traveller extends User
       }
     }
   }
-  public function getNotifications()
+  public function getNotification()
   {
     return Notification::getAll($this->id);
   }
