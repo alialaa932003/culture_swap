@@ -121,11 +121,11 @@ require base_path("views/partials/head.view.php");
                                                             <i class="fa-regular fa-heart"></i>
                                                         </span>
                                                     </button>
-                                                    <img src=" <?= $config['ASSET_URL'] ?>/imgs/posts/<?= $post['img'] ?>  " alt="">
+                                                    <img src="<?= $post['img'] ?> " alt="">
                                                 </a>
 
                                             </div>
-                                            <div class="article-content">
+                                            <div class=" article-content">
                                                 <p><?= $post['content'] ?></p>
                                                 <div class="details">
                                                     <a href="./post?id=<?= $post['post_id'] ?>" class="second-btn">

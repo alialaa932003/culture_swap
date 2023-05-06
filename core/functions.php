@@ -139,8 +139,9 @@ function fetchCardData($params) {
     return $cardsData;
 }
 //////////////////////////////////////////////////////////////
-function login($user)
+ function  login($user)
 {
+    session_start();
   $_SESSION['user'] = [
     'type' => $user['type'],
     'email' => $user['email'],
@@ -150,9 +151,16 @@ function login($user)
 }
 
 
-function logout(){
+function  logout(){
   $_SESSION = []; // create our session super global
-  session_destroy();
+ 
+ if (session_start()){
+    session_destroy();
+ }
+ else{
+    $er=" text";
+    return $er;
+ }
 }
 
 
