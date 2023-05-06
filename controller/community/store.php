@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
                     'img' => $fileNameNew,
                 ]);
 
-                header('location: ' .  '/culture_swap/posts?message=upload-success');
+                header('location: ' .  "/culture_swap/posts?message=upload-success");
             } else {
                 header('location: ' .  '/culture_swap/posts?message=your-file-is-too-big');
             }
