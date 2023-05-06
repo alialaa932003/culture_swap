@@ -95,13 +95,38 @@ class TravellerVip extends Traveller
 
   public function getOne($id)
   {
-    $travellerVip = TravellerVipDB::getOne($id);
-    parent::add($travellerVip);
+git    $travellerVip = TravellerVipDB::getOne($id);
     extract($travellerVip);
+    $this->id = $Id ?? "";
+    $this->firstName = $first_name ?? "";
+    $this->lastName = $last_name ?? "";
+    $this->type = $type ?? "";
+    $this->email = $email ?? "";
+    $this->phoneNumber = $phone_num ?? "";
+    $this->country = $country ?? "";
+    $this->profilePhoto = $profile_img ?? "";
+    $this->coverPhoto = $cover_img ?? "";
     $this->cardNumber = $card_number ?? "";
     $this->cvc = $cvc_number ?? "";
     $this->expirationDate = $exp_date ?? "";
     $this->paymentOption = $payment_option ?? "";
+    if ($services) {
+      foreach ($services as $i => $service) {
+        $this->services[$i]['id'] = $service['Id'];
+        $this->services[$i]['name'] = $service['name'];
+      }
+    }
+    if ($notificationIds) {
+      foreach ($notificationIds as $i => $notification) {
+        $this->notificationIds[$i] = $notification['id'];
+      }
+    }
+    if ($favHostsIds) {
+      foreach ($favHostsIds as $i => $favHost) {
+        $this->favHostsIds[$i] = $favHost['fav_host_id'];
+      }
+    }
+    
   }
 
   public static function search($attributes, $skip, $limit)
