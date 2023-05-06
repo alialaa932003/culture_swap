@@ -143,9 +143,12 @@ abstract class User{
    
     public static function login(string $username, string $password) {
       // implementation details
+      //$this->username=$username;
+     // $this->password=$password;
     }
   
     public static function signUp(User $user) {
+
       // implementation details
     }
   
