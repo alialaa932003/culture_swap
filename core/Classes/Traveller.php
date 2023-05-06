@@ -29,26 +29,21 @@ class Traveller extends User
   {
     $id = TravellerDB::add($data);
     extract($data);
-    $this->id = $Id;
-    $this->firstName = $first_name;
-    $this->lastName = $last_name;
-    $this->username = $username;
-    $this->password = $password;
-    $this->type = $type;
-    $this->email = $email;
-    $this->phoneNumber = $phone_num;
-    $this->country = $country;
-    $this->profilePhoto = $profile_img;
-    $this->coverPhoto = $cover_img;
-    foreach ($services as $i => $service) {
-      $this->services[$i]['id'] = $service['Id'];
-      $this->services[$i]['name'] = $service['name'];
-    }
-    foreach ($notificationIds as $i => $notification) {
-      $this->notificationIds[$i] = $notification['id'];
-    }
-    foreach ($favHostsIds as $i => $favHost) {
-      $this->favHostsIds[$i] = $favHost['fav_host_id'];
+    $this->id = $id ?? "";
+    $this->firstName = $first_name ?? "";
+    $this->lastName = $last_name ?? "";
+    $this->password = $password ?? "";
+    $this->type = $type ?? "";
+    $this->email = $email ?? "";
+    $this->phoneNumber = $phone_num ?? "";
+    $this->country = $country ?? "";
+    $this->profilePhoto = $profile_img ?? "";
+    $this->coverPhoto = $cover_img ?? "";
+    if ($services) {
+      foreach ($services as $i => $service) {
+        $this->services[$i]['id'] = $service['Id'];
+        $this->services[$i]['name'] = $service['name'];
+      }
     }
   }
 
@@ -147,26 +142,30 @@ class Traveller extends User
   {
     $traveller = TravellerDB::getOne($id);
     extract($traveller);
-    $this->id = $Id;
-    $this->firstName = $first_name;
-    $this->lastName = $last_name;
-    $this->username = $username;
-    $this->password = $password;
-    $this->type = $type;
-    $this->email = $email;
-    $this->phoneNumber = $phone_num;
-    $this->country = $country;
-    $this->profilePhoto = $profile_img;
-    $this->coverPhoto = $cover_img;
-    foreach ($services as $i => $service) {
-      $this->services[$i]['id'] = $service['Id'];
-      $this->services[$i]['name'] = $service['name'];
+    $this->id = $Id ?? "";
+    $this->firstName = $first_name ?? "";
+    $this->lastName = $last_name ?? "";
+    $this->type = $type ?? "";
+    $this->email = $email ?? "";
+    $this->phoneNumber = $phone_num ?? "";
+    $this->country = $country ?? "";
+    $this->profilePhoto = $profile_img ?? "";
+    $this->coverPhoto = $cover_img ?? "";
+    if ($services) {
+      foreach ($services as $i => $service) {
+        $this->services[$i]['id'] = $service['Id'];
+        $this->services[$i]['name'] = $service['name'];
+      }
     }
-    foreach ($notificationIds as $i => $notification) {
-      $this->notificationIds[$i] = $notification['id'];
+    if ($notificationIds) {
+      foreach ($notificationIds as $i => $notification) {
+        $this->notificationIds[$i] = $notification['id'];
+      }
     }
-    foreach ($favHostsIds as $i => $favHost) {
-      $this->favHostsIds[$i] = $favHost['fav_host_id'];
+    if ($favHostsIds) {
+      foreach ($favHostsIds as $i => $favHost) {
+        $this->favHostsIds[$i] = $favHost['fav_host_id'];
+      }
     }
   }
 
