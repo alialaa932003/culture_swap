@@ -20,10 +20,10 @@ class TravellerVipDB extends TravellerDB
             values(:id,:payment_option,:card_number,:cvc_number,:exp_date)
         ", [
             'id' => $id,
-            'payment_option' => 'payment_option',
-            'card_number' => 'card_number',
-            'cvc_number' => 'cvc_number',
-            'exp_date' => 'exp_date',
+            'payment_option' => $payment_option,
+            'card_number' => $card_number,
+            'cvc_number' => $cvc_number,
+            'exp_date' => $exp_date,
         ]);
         return Database::getInstance()->getLastRecordIdAdded("traveller");
     }
@@ -31,7 +31,7 @@ class TravellerVipDB extends TravellerDB
     {
         extract($data);
 
-        Database::getInstance()->query("UPDATE traveller_vip SET $key = :value WHERE id = :id ", [
+        Database::getInstance()->query("UPDATE traveller_vip SET $key = :value WHERE traveller_id = :id ", [
             'value' => $value,
             'id' => $id
         ]);
