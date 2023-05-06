@@ -140,7 +140,7 @@ class TravellerDB
                     break;
 
                 $traveller['services'][] = [
-                    'id' => $service['Id'],
+                    'Id' => $service['Id'],
                     'name' => $service['name']
                 ];
 
