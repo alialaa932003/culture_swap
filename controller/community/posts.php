@@ -52,5 +52,6 @@ for ($i = 1; $i <= $totalPages; $i++) {
 }
 
 $recentComments = Comment::recentComments(6);
+$recentPosts = Post::search("", 0, 6);
 // dd($recentComments);
 require base_path("views/community/posts.view.php");

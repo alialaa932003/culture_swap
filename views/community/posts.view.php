@@ -169,101 +169,29 @@ require base_path("views/partials/head.view.php");
                         </div>
                         <div class="recent-posts">
                             <h4>recent posts</h4>
-                            <div class="item">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h5>
+                            <?php foreach ($recentPosts as $post) : ?>
+                                <div class="item">
+                                    <div class="image">
                                         <a href="#">
-                                            Where Watch English Movies Free?
+                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
                                         </a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="content">
+                                        <h5>
+                                            <a href="#">
+                                                <?= $post['title'] ?>
+                                            </a>
+                                        </h5>
+                                        <span>
+                                            <i class="fa fa-clock" aria-hidden="true"></i>
+                                            <?= (new DateTime($post['date']))->format('d') ?>
+                                            <?= (new DateTime($post['date']))->format('M') ?>
+                                            <?= (new DateTime($post['date']))->format('Y') ?>
+                                        </span>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
 
-                                        12 mar 2020
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h5>
-                                        <a href="#">
-                                            Where Watch English Movies Free?
-                                        </a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                        12 mar 2020
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h5>
-                                        <a href="#">
-                                            Where Watch English Movies Free?
-                                        </a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                        12 mar 2020
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h5>
-                                        <a href="#">
-                                            Where Watch English Movies Free?
-                                        </a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                        12 mar 2020
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="image">
-                                    <a href="#">
-                                        <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <h5>
-                                        <a href="#">
-                                            Where Watch English Movies Free?
-                                        </a>
-                                    </h5>
-                                    <span>
-                                        <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                        12 mar 2020
-                                    </span>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="recent-comments">
