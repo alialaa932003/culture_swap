@@ -95,14 +95,14 @@ class TravellerVip extends Traveller
 
   public function getOne($id)
   {
-git    $travellerVip = TravellerVipDB::getOne($id);
-    extract($travellerVip);
+    $traveller = TravellerVipDB::getOne($id);
+    extract($traveller);
     $this->id = $Id ?? "";
     $this->firstName = $first_name ?? "";
     $this->lastName = $last_name ?? "";
     $this->type = $type ?? "";
     $this->email = $email ?? "";
-    $this->phoneNumber = $phone_num ?? "";
+    $this->phoneNumber = $phone_num ?? " ";
     $this->country = $country ?? "";
     $this->profilePhoto = $profile_img ?? "";
     $this->coverPhoto = $cover_img ?? "";
