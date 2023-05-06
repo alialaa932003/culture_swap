@@ -138,4 +138,24 @@ function fetchCardData($params) {
 
     return $cardsData;
 }
+//////////////////////////////////////////////////////////////
+function login($user)
+{
+  $_SESSION['user'] = [
+    'type' => $user['type'],
+    'email' => $user['email'],
+    'username' => $user['username'],
+  ];
+  session_regenerate_id(true); // To have a high security
+}
+
+
+function logout(){
+  $_SESSION = []; // create our session super global
+  session_destroy();
+}
+
+
+
+
 ?>

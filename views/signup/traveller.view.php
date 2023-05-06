@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 
     <header class="section-padding">
 			<h2>Traveler Sign Up for free </h2>
-			<form action="#" method="post">
+			<form  method="post">
 			
 				<label for="user-name">user Name:</label>
 				<input type="text" id="user-name" name="user-name" placeholder="Enter your user name" required><br>
@@ -27,7 +28,11 @@
 				<input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required><br>
 
 				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+				<input type="email" id="email" name="email" placeholder="Enter your email"  required><br>
+
+				<label for="country">country:</label>
+				<input type="text" id="country" name="country" placeholder="Enter your country" required><br>
+
 
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" placeholder="Enter your password" required><br>

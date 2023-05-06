@@ -44,7 +44,7 @@ abstract class User{
 
     abstract public function  getNotification(); 
    abstract public  function getOne( $username) ; 
-   abstract   public  function search ( $condition); 
+   abstract   public static function search ( $attributes, $skip, $limit); 
    abstract public function add(array $data) ;
   
    abstract public function delete(int $id);
