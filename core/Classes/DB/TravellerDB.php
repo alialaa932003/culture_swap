@@ -140,7 +140,7 @@ class TravellerDB
                     break;
 
                 $traveller['services'][] = [
-                    'id' => $service['Id'],
+                    'Id' => $service['Id'],
                     'name' => $service['name']
                 ];
 
@@ -171,7 +171,7 @@ class TravellerDB
                 WHERE traveller_service.traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['services'] = $services ? $services : [];
 
         $notificationIds = $dbref->query(
@@ -179,15 +179,15 @@ class TravellerDB
                 WHERE reciever_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['notificationIds'] = $notificationIds ? $notificationIds : [];
-        /////////////////////////////
+
         $favHostIds = $dbref->query(
             "SELECT fav_host_id from traveller_fav_hosts
                 WHERE traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['favHostIds'] = $favHostIds ? $favHostIds : [];
 
         $friendIds = $dbref->query(
@@ -195,88 +195,88 @@ class TravellerDB
                 WHERE traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['friendIds'] = $friendIds ? $friendIds : [];
 
         return $traveller;
     }
 
-    public static function addService($userId, $serviceId)
+    public static function addService($travellerId, $serviceId)
     {
         Database::getInstance()->query(
             "INSERT INTO traveller_service (traveller_id, service_id)
-                VALUES (:userId, :serviceId);
+                VALUES (:travellerId, :serviceId);
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'serviceId' => $serviceId
             ]
         );
     }
 
-    public static function removeService($userId, $serviceId)
+    public static function removeService($travellerId, $serviceId)
     {
         Database::getInstance()->query(
             "DELETE FROM traveller_service 
-                WHERE traveller_id = :userId
+                WHERE traveller_id = :travellerId
                     AND service_id = :serviceId;
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'serviceId' => $serviceId
             ]
         );
     }
 
-    public static function addFavHost($userId, $favHostId)
+    public static function addFavHost($travellerId, $favHostId)
     {
         Database::getInstance()->query(
             "INSERT INTO traveller_fav_hosts (traveller_id, fav_host_id)
-                VALUES (:userId, :favHostId);
+                VALUES (:travellerId, :favHostId);
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'favHostId' => $favHostId
             ]
         );
     }
 
-    public static function removeFavHost($userId, $favHostId)
+    public static function removeFavHost($travellerId, $favHostId)
     {
         Database::getInstance()->query(
             "DELETE FROM traveller_fav_hosts 
-                WHERE traveller_id = :userId
+                WHERE traveller_id = :travellerId
                     AND fav_host_id = :favHostId;
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'favHostId' => $favHostId
             ]
         );
     }
 
-    public static function addFriend($userId, $friendId)
+    public static function addFriend($travellerId, $friendId)
     {
         Database::getInstance()->query(
             "INSERT INTO traveller_friend (traveller_id, friend_id)
-                VALUES (:userId, :friendId);
+                VALUES (:travellerId, :friendId);
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'friendId' => $friendId
             ]
         );
     }
 
-    public static function removeFriend($userId, $friendId)
+    public static function removeFriend($travellerId, $friendId)
     {
         Database::getInstance()->query(
             "DELETE FROM traveller_friend 
-                WHERE traveller_id = :userId
+                WHERE traveller_id = :travellerId
                     AND friend_id = :friendId;
             ",
             [
-                'userId' => $userId,
+                'travellerId' => $travellerId,
                 'friendId' => $friendId
             ]
         );
