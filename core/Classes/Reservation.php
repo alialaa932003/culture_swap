@@ -30,9 +30,12 @@ class Reservation
      extract($data);
 
     $this->id = $id;
-    $this->travellerId = $travellerId;
-    $this->hostId = $hostId;
-    $this->status = $status;
+
+    $this->travellerId = $traveller_id;
+    $this->hostId = $host_id;
+    $this->status = $Status;
+    $this->start_date = $Start_date;
+    $this->end_date = $end_date;
    
 
     if (isset($id))
@@ -87,23 +90,20 @@ class Reservation
 
 
 
-    public function getStDate(){
-      
-      return $this->start_date;
-    }
-
-    public function getEndDate(){
-
-      return $this->end_date;
-      
-    }
-
-
-    public static function getId($id)
-    {
+    public static function getStDate($id){
       $res = Reservation::get_Detailed_Res($id);
-      return  $res['Id'];
+      return $res['Start_date'];
     }
+
+    public static function getEndDate($id){
+
+      $res = Reservation::get_Detailed_Res($id);
+      return $res['end_date'];
+      
+    }
+
+
+    
 
     public static function getTravellerId($id)
     {

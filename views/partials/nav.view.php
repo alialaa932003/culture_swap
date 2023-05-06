@@ -16,7 +16,7 @@
                     <a class="nav-link" href="faq">support</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./blogs">blog</a>
+                    <a class="nav-link" href="./posts">community</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">favourites</a>

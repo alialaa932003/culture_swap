@@ -1,12 +1,12 @@
 <?php
 
-namespace core\Classes\DB;
+namespace core\Classes;
 
-use core\Database;
+use core\Classes\DB\PostDB;
 
 
 
-class post
+class Post
 {
 
     //data fields
@@ -155,6 +155,13 @@ class post
 
     public static function search($str, $offset, $limit)
     {
-        PostDB::search($str, $offset, $limit);
+        return PostDB::search($str, $offset, $limit);
+<<<<<<< HEAD
+=======
+    }
+    public static function count_posts($searchQuery)
+    {
+        return PostDB::count_posts($searchQuery);
+>>>>>>> ed12184c675dc48f127b0e5aa22e9db20decb580
     }
 }

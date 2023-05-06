@@ -47,13 +47,22 @@ class PostDB
             'id' => $id
         ]);
     }
-    public static function search($str, $offset = 0, $limit = 1)
+    public static function search($str = "", $offset, $limit)
     {
         return Database::getInstance()->query(
-            "SELECT * FROM post WHERE title LIKE :str OR content like :str ORDER BY id desc  LIMIT $limit OFFSET $offset ",
+            "SELECT post.Id as post_id  , content , title , love_num , date , img ,_user.* FROM post INNER JOIN _user ON post.user_id = _user.Id  WHERE title LIKE :str OR content like :str ORDER BY post.id desc  LIMIT $limit OFFSET $offset ",
             ['str' => '%' . $str . '%']
         )->get();
     }
+    public static function count_posts($searchQuery)
+    {
+        return Database::getInstance()->query(
+            "SELECT COUNT(*) as count FROM post WHERE title LIKE :searchQuery OR content like :searchQuery ",
+            [':searchQuery' => '%' . $searchQuery . '%']
+
+        )->find();
+    }
+
     public static function  getOne($id)
     {
         $post = Database::getInstance()->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->find();

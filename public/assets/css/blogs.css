@@ -196,6 +196,10 @@
     padding: 15px 20px 15px 20px;
 }
 
+.subSearch {
+    margin-top: 1.5rem;
+}
+
 .blog-content .right-blog .search input::placeholder,
 .movies .right-movies .search input::placeholder {
     color: var(--p-color);
@@ -270,18 +274,51 @@
 
 }
 
+
+
 .blog-content .right-blog .Categories li a i,
 .blog-content .right-blog .recent-comments li a i {
     margin-right: 4px;
-    color: var(--main-color);
+    color: var(--secondary);
 }
 
 .blog-content .right-blog .Categories li a:hover,
 .blog-content .right-blog .recent-comments li a:hover {
-    color: var(--main-color);
+    color: var(--secondary);
 }
 
 .blog-content .right-blog .Categories li span {
     margin-left: auto;
     display: inline-block;
+}
+
+.postsPagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.pagiItem {
+    background: #fff;
+    border: 1px solid var(--primary);
+    font-size: 1.6rem;
+    padding: 1rem 1.5rem;
+    color: var(--h-color);
+    transition: .3s all ease;
+}
+
+.pagiItem.active,
+.pagiItem:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.searchNot {
+    font-size: 3.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 9rem;
 }
