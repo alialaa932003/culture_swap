@@ -2,6 +2,8 @@
 
 use core\Classes\Post;
 
+$config = require base_path('config.php');
+
 if (isset($_POST['submit'])) {
 
 
@@ -28,7 +30,7 @@ if (isset($_POST['submit'])) {
                     'user_id' => 1,
                     'title' => $_POST['title'],
                     'content' => $_POST['content'],
-                    'img' => $fileNameNew,
+                    'img' => "{$config['base_urll']}/public/assets/imgs/posts/{$fileNameNew}",
                 ]);
 
                 header('location: ' .  "/culture_swap/posts?message=upload-success");
