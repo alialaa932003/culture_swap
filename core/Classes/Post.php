@@ -156,12 +156,9 @@ class Post
     public static function search($str, $offset, $limit)
     {
         return PostDB::search($str, $offset, $limit);
-<<<<<<< HEAD
-=======
     }
     public static function count_posts($searchQuery)
     {
         return PostDB::count_posts($searchQuery);
->>>>>>> ed12184c675dc48f127b0e5aa22e9db20decb580
     }
 }

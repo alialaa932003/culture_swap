@@ -38,7 +38,7 @@ require base_path("views/partials/head.view.php");
             </section>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form class="modal-content">
+                    <form class="modal-content" action="./posts/store" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                             <h2 class="modal-title " id="exampleModalLabel">add post</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -59,7 +59,7 @@ require base_path("views/partials/head.view.php");
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="second-btn">Save changes</button>
+                            <button type="submit" name="submit" class="second-btn">Save changes</button>
                         </div>
                     </form>
                 </div>
