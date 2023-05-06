@@ -39,59 +39,98 @@
     <section class=" categories">
         <div class="container">
             <div class="row">
+
+                <!---------------------- services --------------------->
+                <?php foreach ($services as $service): ?>
+
+                <?php if ($service["name"] === "Animals & Farming"): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                    <a href="#">
+                    <a href="#" >
                         <span class="itemIcon">
                             <i class="fa-solid fa-seedling"></i>
                         </span>
-                        <span class="itemText">Animals & Environment</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+                <?php if ($service["name"] == "packpaker Hotels &hospitality"): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
-
                             <i class="fa-regular fa-hospital"></i>
-
-
                         </span>
-                        <span class="itemText">Backpacker Hostels & Hospitality</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+                <?php if ($service["name"] == "Farming & Homesteads"): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
                             <i class="fa-solid fa-tractor"></i>
                         </span>
-                        <span class="itemText">Farming & Homesteads</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+                <?php if ($service["name"] == "Building & Restoration "): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
-                            <i class="fa-solid fa-hammer"></i>
+                                  <i class="fa-solid fa-hammer"></i>
                         </span>
-                        <span class="itemText">Building & Restoration Projects</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+                <?php if ($service["name"] == "Teaching & language"): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </span>
-                        <span class="itemText">Teaching & Language</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+
+                <?php if ($service["name"] == "intenships Abroad"): ?>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
                     <a href="#">
                         <span class="itemIcon">
                             <i class="fa-solid fa-school"></i>
                         </span>
-                        <span class="itemText">Internships Abroad</span>
+                        <span class="itemText" name="animals">
+                            <?= $service["name"] ?>
+                        </span>
                     </a>
                 </div>
+                <?php endif ?>
+
+
+                <?php endforeach ?>
+                <!----------------------  end services --------------------->
+
+
+
+
+                 </div>
             </div>
-        </div>
     </section>
 
     <!-- start host cards -->
@@ -103,246 +142,59 @@
                 <a href="./hosts" class="main-btn">all hosts</a>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header5.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
-                            </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- -------------------------------------#cards---------------------------------------------->
 
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header4.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
+                <?php foreach ($cards as $card): ?>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="myCard">
+                            <div class="cardImage">
+                                <img src="public/assets/imgs/home/header5.webp" alt="">
+                                <button class="love">
+                                    <span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </span>
+                                </button>
                             </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
+                            <div class="cardContent">
+                                <div class="cardCountry">
+                                    <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                    <span class="countryText">norway</span>
+                                </div>
+                                <h3>
+                                    <?= $card["descriptions"] ?>
+                                </h3>
+                                <div class="cardDetails">
+                                    <a href="#" class="second-btn">view profile</a>
+                                    <div class="rate">
+                                        <span>
+                                            <i class="fa-solid fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa-solid fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa-solid fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa-solid fa-star"></i>
+                                        </span>
+                                        <span>
+                                            <i class="fa-regular fa-star"></i>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
+
+
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header2.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
-                            </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header4.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
-                            </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header3.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
-                            </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="myCard">
-                        <div class="cardImage">
-                            <img src="public/assets/imgs/home/header5.webp" alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="cardContent">
-                            <div class="cardCountry">
-                                <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                <span class="countryText">norway</span>
-                            </div>
-                            <h3>Beautiful smallholding on the island of Engeløya, Norway</h3>
-                            <div class="cardDetails">
-                                <a href="#" class="second-btn">view profile</a>
-                                <div class="rate">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>
-                                    <span>
-                                        <i class="fa-regular fa-star"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
-        </div>
     </section>
 
-
+    <!-------------------------------------     end  cards        -------------------------------------------->
     <!-- start popular places -->
 
     <section class="section-padding places">
@@ -351,94 +203,22 @@
                 <h2 class="heading">popular places</h2>
             </div>
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="placeItem">
 
+            <!----------------------------------  popularplaces           --------------------->
+                    <?php foreach ($popularPlaces as $popularPlace): ?>
+            <div class="col-lg-3">
+                    <div class="placeItem">
                         <div class="placeImage">
                             <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                         </div>
                         <a href="#" class='placeLink second-btn'>
-                            spain
+                        <?=$popularPlace["Location"]?>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
+                <?php endforeach ?>
+                         <!----------------------------------  end popularplaces           --------------------->
 
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                        </div>
-                        <a href="#" class='placeLink second-btn'>
-                            spain
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

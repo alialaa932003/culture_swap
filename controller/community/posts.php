@@ -12,6 +12,9 @@ use core\Classes\Comment;
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 $searchQuery = trim(filter_var($searchQuery, FILTER_SANITIZE_STRING));
 
+
+
+
 // dd($posts);
 
 $postsPerPage = 3;
@@ -50,8 +53,12 @@ for ($i = 1; $i <= $totalPages; $i++) {
 
     $paginationLinks[] = '<a href="./posts?' . $queryString . ' " class="pagiItem ' . ($pageNumber == $i ? "active" : "") . ' "  >' . $i . '</a>';
 }
+<<<<<<< HEAD
+>>>>>>> ed12184c675dc48f127b0e5aa22e9db20decb580
+=======
 
 $recentComments = Comment::recentComments(6);
 $recentPosts = Post::search("", 0, 6);
 // dd($recentComments);
+>>>>>>> b4de592589e56ccb1134fb85138a21fc6a8ed384
 require base_path("views/community/posts.view.php");
