@@ -12,12 +12,10 @@ class Traveller extends User
 {
   // Data fields
 
-  private $service = [
-    'id' => '',
-    'name' => ''
-  ];
+  private $services = [];
   private $friendsIds = [];
   private $favHostsIds = [];
+  private $notificationIds = [];
   private $reservationId;
 
   // Constructors
@@ -31,21 +29,27 @@ class Traveller extends User
   {
     $id = TravellerDB::add($data);
     extract($data);
-    $this->id = $id;
-    $this->firstName = $fName;
-    $this->lastName = $lName;
+    $this->id = $Id;
+    $this->firstName = $first_name;
+    $this->lastName = $last_name;
     $this->username = $username;
     $this->password = $password;
     $this->type = $type;
     $this->email = $email;
-    $this->phoneNumber = $phoneNum;
+    $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->profilePhoto = $profilePhoto;
-    $this->coverPhoto = $coverPhoto;
-    $this->reservationId = $reservationId;
-    $this->service['id'] = $services['Id'];
-    $this->service['name'] = $services['name'];
-    //! favHosts, travelelrFriendIds
+    $this->profilePhoto = $profile_img;
+    $this->coverPhoto = $cover_img;
+    foreach ($services as $i => $service) {
+      $this->services[$i]['id'] = $service['Id'];
+      $this->services[$i]['name'] = $service['name'];
+    }
+    foreach ($notificationIds as $i => $notification) {
+      $this->notificationIds[$i] = $notification['id'];
+    }
+    foreach ($favHostsIds as $i => $favHost) {
+      $this->favHostsIds[$i] = $favHost['fav_host_id'];
+    }
   }
 
   public function delete($id)
@@ -56,7 +60,7 @@ class Traveller extends User
   // Methods
   public function getService()
   { // Will return associative array
-    return $this->service;
+    return $this->services;
   }
 
   public function setService($service)
@@ -71,7 +75,8 @@ class Traveller extends User
       'key' => 'service_id',
       'value' => $service['id']
     ]);
-    $this->service = $service;
+    $this->services[]['name'] = $service['name'];
+    $this->services[]['id'] = $service['id'];
   }
 
   public function getFavHosts()
@@ -85,16 +90,16 @@ class Traveller extends User
   }
   public function addFavHost($hostId)
   {
-    //! Not completed
+    TravellerDB::addFavHost($this->id, $hostId);
     array_push($this->favHostsIds, $hostId);
   }
 
   public function removeFavHosts($hostId)
   {
-    //! Not completed
     $index = array_search($hostId, $this->favHostsIds);
     if ($index !== false) {
       unset($this->favHostsIds[$index]);
+      TravellerDB::removeFavHost($this->id, $hostId);
       return true;
     }
     return false;
@@ -107,10 +112,9 @@ class Traveller extends User
     return $review;
   }
 
-  //! Adding updateReservation Fucntion
 
   public function makeReservation($hostId, $actionId, $status, $startDate, $endDate)
-  {   
+  {
     $this->reservationId = Reservation::makeReservation($this->id, $hostId, $status, $startDate, $endDate, $this->firstName, $actionId);
   }
 
@@ -125,7 +129,7 @@ class Traveller extends User
     $friend = new Traveller();
     $friend->getOne($friendId);
     array_push($this->friendsIds, $friendId);
-    //! addFriend function from salah
+    TravellerDB::addFriend($this->id, $friendId);
   }
 
   public function removeFriend($friendId)
@@ -133,31 +137,37 @@ class Traveller extends User
     $index = array_search($friendId, $this->friendsIds);
     if ($index !== false) {
       unset($this->friendsIds[$index]);
-      FriendDB::delete($friendId);
+      TravellerDB::removeFriend($this->id, $friendId);
       return true;
     }
     return false;
-    //! removeFriend function from salah
   }
 
   public function getOne($id)
   {
     $traveller = TravellerDB::getOne($id);
     extract($traveller);
-    $this->id = $id;
-    $this->firstName = $f_name;
-    $this->lastName = $l_name;
+    $this->id = $Id;
+    $this->firstName = $first_name;
+    $this->lastName = $last_name;
     $this->username = $username;
     $this->password = $password;
     $this->type = $type;
     $this->email = $email;
     $this->phoneNumber = $phone_num;
     $this->country = $country;
-    $this->profilePhoto = $profilePhoto;
-    $this->coverPhoto = $coverPhoto;
-    $this->service['id'] = $services['Id'];
-    $this->service['name'] = $services['name'];
-    //! favHosts, travellerFriendIds
+    $this->profilePhoto = $profile_img;
+    $this->coverPhoto = $cover_img;
+    foreach ($services as $i => $service) {
+      $this->services[$i]['id'] = $service['Id'];
+      $this->services[$i]['name'] = $service['name'];
+    }
+    foreach ($notificationIds as $i => $notification) {
+      $this->notificationIds[$i] = $notification['id'];
+    }
+    foreach ($favHostsIds as $i => $favHost) {
+      $this->favHostsIds[$i] = $favHost['fav_host_id'];
+    }
   }
 
   public static function search($attributes, $skip, $limit)
@@ -182,7 +192,25 @@ class Traveller extends User
     Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
   }
 
-  public function getNotification(){
+  public function addService($serviceId)
+  {
+    //! Not completed
+    TravellerDB::addService($this->id, $serviceId);
+    array_push($this->services, );
+  }
+
+  public function removeService($serviceId)
+  {
+    //! Not completed
+    TravellerDB::removeService($this->id, $serviceId);
+    foreach ($this->services as $i => $service) {
+      if ($service['id'] == $serviceId) {
+        unset($services[$i]);
+      }
+    }
+  }
+  public function getNotifications()
+  {
     return Notification::getAll($this->id);
   }
 
