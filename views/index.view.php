@@ -127,7 +127,7 @@
                                 </h3>
                                 <div class="cardDetails">
                                     <a href="#" class="second-btn">view profile</a>
-
+<!----------------------------------------------        Rate   ------------------------------------>
                                     <div class="rate">
 
                                         <?php $rate = $card["max_rating"]; ?>
@@ -154,6 +154,7 @@
                                             <?php $regStar-- ?>
                                         <?php endwhile ?>
                                     </div>
+<!----------------------------------------------     end   Rate   ------------------------------------>
 
 
                                 </div>
