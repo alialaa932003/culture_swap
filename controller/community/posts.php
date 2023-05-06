@@ -11,7 +11,6 @@ use core\Classes\Comment;
 // $str = "";
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 $searchQuery = trim(filter_var($searchQuery, FILTER_SANITIZE_STRING));
-
 // dd($posts);
 
 $postsPerPage = 3;
@@ -30,10 +29,12 @@ $offset = ($pageNumber - 1) * $postsPerPage;
 // Perform the search query and retrieve the results
 // This is just an example and will depend on your specific application
 if (!empty($searchQuery)) {
+    echo ("lol");
     $results = Post::search($searchQuery, $offset, $postsPerPage);
 
     $totalResults = Post::count_posts($searchQuery)['count'];
 } else {
+    echo ("ASd");
     $results = Post::search($searchQuery, $offset, $postsPerPage);
     $totalResults = Post::count_posts($searchQuery)['count'];
 }

@@ -153,7 +153,7 @@ class Post
     }
 
 
-    public static function search($str, $offset, $limit)
+    public static function search($str, $offset = 0, $limit = 3)
     {
         return PostDB::search($str, $offset, $limit);
     }
