@@ -56,6 +56,7 @@ require base_path("views/partials/head.view.php");
                                 <label for="image">image</label>
                                 <input class="postImg" placeholder="enter image" name="image" type="file">
                             </div>
+                            <span class="error"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
