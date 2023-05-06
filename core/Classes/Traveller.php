@@ -201,7 +201,6 @@ class Traveller extends User
 
   public function removeService($serviceId)
   {
-    //! Not completed
     TravellerDB::removeService($this->id, $serviceId);
     foreach ($this->services as $i => $service) {
       if ($service['id'] == $serviceId) {
