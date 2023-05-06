@@ -20,7 +20,7 @@
   <header class="section-padding">
     <h2>Host Sign Up</h2>
     <section>
-      <form action="#" method="post">
+      <form action="/culture_swap/signup/host" method="POST">
         <label for="user-name">User Name:</label>
         <input type="text" id="user-name" name="user-name" placeholder="Enter your user name" required><br>
 

@@ -17,7 +17,7 @@
     <header>	
 		<section class="section-padding">
 			<h2>Traveller Sign Up</h2>
-			<form action="#" method="post">
+			<form action="/culture_swap/signup/traveller_vip" method="POST">
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required><br>
 
