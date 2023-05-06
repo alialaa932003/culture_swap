@@ -14,17 +14,8 @@ class TravellerVip extends Traveller{
   public function add($data)
   {
     $id = TravellerVipDB::add($data);
+    parent::add($data);
     extract($data);
-    $this->id = $id;
-    $this->firstName = $f_name;
-    $this->lastName = $l_name;
-    $this->username = $username;
-    $this->password = $password;
-    $this->type = $type;
-    $this->email = $email;
-    $this->phoneNumber = $phone_num;
-    $this->country = $country;
-    $this->service = $service_name;
     $this->cardNumber = $card_num;
     $this->cvc = $cvc;
     $this->expirationDate = $expiration_date;
@@ -91,17 +82,8 @@ class TravellerVip extends Traveller{
   public function getOne($id)
   {
     $travellerVip = TravelelrVipDB::getOne($id);
+    parent::add($travellerVip);
     extract($travellerVip);
-    $this->id = $id;
-    $this->firstName = $f_name;
-    $this->lastName = $l_name;
-    $this->username = $username;
-    $this->password = $password;
-    $this->type = $type;
-    $this->email = $email;
-    $this->phoneNumber = $phone_num;
-    $this->country = $country;
-    $this->service = $service_name;
     $this->cvc = $cvc;
     $this->expirationDate = $expiration_date;
     $this->paymentOption = $payment_option;

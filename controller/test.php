@@ -9,7 +9,7 @@ use core\Classes\Traveller;
 $traveller = new Traveller();
 // $traveller->add([
 //   'first_name' => 'shehab',
-//   'last_name' => 'waleed',
+//   'me' => 'waleed',
 //   'username'=> 'shehab2211',
 //   'password' => '1234',
 //   'email' =>'shehab2222@gmail.com',
