@@ -36,4 +36,8 @@ class TravellerVipDB extends TravellerDB
             'id' => $id
         ]);
     }
+    public static function  getOne($id)
+    {
+        return Database::getInstance()->query("SELECT * FROM _user INNER JOIN traveller_vip ON traveller_vip.traveller_id = _user.id   WHERE _user.id = :id", ['id' => $id])->find();
+    }
 }
