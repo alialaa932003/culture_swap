@@ -12,7 +12,7 @@ $router->get('/culture_swap/signup/traveller_vip', 'controller/signup/traveller/
 $router->post('/culture_swap/signup/traveller_vip', 'controller/signup/traveller/storeTravellerVip.php');
 
 $router->get('/culture_swap/signup/host', 'controller/signup/host/createHost.php')->only('guest');
-$router->post('/culture_swap/signup/host', 'controller/signup/traveller/storeHost.php');
+$router->post('/culture_swap/signup/host', 'controller/signup/host/storeHost.php');
 
 $router->get('/culture_swap/login', 'controller/session/create.php')->only('guest');
 $router->get('/culture_swap/template', 'controller/template.php');
