@@ -4,6 +4,7 @@ $ASSET_URL = "/culture_swap/public/";
 use core\Classes\Post;
 use core\Classes\Comment;
 
+$config = require base_path('config.php');
 // $posts = new Post();
 // $postsCount = Post::count()['count'];
 // $limit = 3;

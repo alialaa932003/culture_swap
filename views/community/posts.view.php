@@ -121,7 +121,7 @@ require base_path("views/partials/head.view.php");
                                                             <i class="fa-regular fa-heart"></i>
                                                         </span>
                                                     </button>
-                                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                                                    <img src=" <?= $config['ASSET_URL'] ?>/imgs/posts/<?= $post['img'] ?>  " alt="">
                                                 </a>
 
                                             </div>
