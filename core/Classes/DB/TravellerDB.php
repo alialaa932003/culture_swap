@@ -171,7 +171,7 @@ class TravellerDB
                 WHERE traveller_service.traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['services'] = $services ? $services : [];
 
         $notificationIds = $dbref->query(
@@ -179,7 +179,7 @@ class TravellerDB
                 WHERE reciever_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['notificationIds'] = $notificationIds ? $notificationIds : [];
         /////////////////////////////
         $favHostIds = $dbref->query(
@@ -187,7 +187,7 @@ class TravellerDB
                 WHERE traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['favHostIds'] = $favHostIds ? $favHostIds : [];
 
         $friendIds = $dbref->query(
@@ -195,7 +195,7 @@ class TravellerDB
                 WHERE traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
-        )->find();
+        )->get();
         $traveller['friendIds'] = $friendIds ? $friendIds : [];
 
         return $traveller;
