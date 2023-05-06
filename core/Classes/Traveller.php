@@ -6,7 +6,6 @@ use core\Classes\DB\ReservationDB;
 use core\Classes\DB\ReviewDB;
 use core\Classes\DB\TravellerDB;
 
-//! The class is not copleted yet
 
 class Traveller extends User
 {
