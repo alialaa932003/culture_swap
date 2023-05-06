@@ -146,6 +146,8 @@ function fetchCardData($params) {
     'type' => $user['type'],
     'email' => $user['email'],
     'username' => $user['username'],
+    'id' => $user['id'],
+    'country' => $user['country'],
   ];
   session_regenerate_id(true); // To have a high security
 }
