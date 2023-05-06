@@ -13,13 +13,13 @@ class TravellerVipDB extends TravellerDB
 
     public static function add($data)
     {
-        parent::add($data);
+        $id = parent::add($data);
         extract($data);
 
         Database::getInstance()->query("INSERT INTO traveller_vip  (traveller_id,payment_option,card_number,cvc_number,exp_date)
             values(:id,:payment_option,:card_number,:cvc_number,:exp_date)
         ", [
-            'id' => 'traveller_id',
+            'id' => $id,
             'payment_option' => 'payment_option',
             'card_number' => 'card_number',
             'cvc_number' => 'cvc_number',
