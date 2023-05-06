@@ -11,7 +11,6 @@ use core\Classes\Comment;
 // $str = "";
 $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
 $searchQuery = trim(filter_var($searchQuery, FILTER_SANITIZE_STRING));
-
 // dd($posts);
 
 $postsPerPage = 3;

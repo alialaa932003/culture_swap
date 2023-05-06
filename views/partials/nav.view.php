@@ -10,13 +10,13 @@
                     <a class="nav-link active" aria-current="page" href="/culture_swap/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./about">how it is work</a>
+                    <a class="nav-link" href="/culture_swap/about">how it is work</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="faq">support</a>
+                    <a class="nav-link" href="/culture_swap/faq">support</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./posts">community</a>
+                    <a class="nav-link" href="/culture_swap/posts">community</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">favourites</a>

@@ -36,9 +36,9 @@ require base_path("views/partials/head.view.php");
 
                 </div>
             </section>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="addPost modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form class="modal-content" action="./posts/store" method="POST" enctype="multipart/form-data">
+                    <form class="modal-content" action="/culture_swap/posts" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                             <h2 class="modal-title " id="exampleModalLabel">add post</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -46,16 +46,17 @@ require base_path("views/partials/head.view.php");
                         <div class="modal-body">
                             <div class="postItem">
                                 <label for="title">title</label>
-                                <input placeholder="enter title" name="title" type="text">
+                                <input class="title" placeholder="enter title" name="title" type="text">
                             </div>
                             <div class="postItem">
                                 <label for="content">content</label>
-                                <textarea placeholder="enter content" name="content" type="text"></textarea>
+                                <textarea class="postContent" placeholder="enter content" name="content" type="text"></textarea>
                             </div>
                             <div class="postItem">
                                 <label for="image">image</label>
-                                <input placeholder="enter image" name="image" type="file">
+                                <input class="postImg" placeholder="enter image" name="image" type="file">
                             </div>
+                            <span class="error"></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
@@ -71,75 +72,77 @@ require base_path("views/partials/head.view.php");
 
 
 
-
+                            <?= $error['body'] ?>
                             <?php foreach ($results as $post) : ?>
-                                <div class="col-12">
-                                    <div class="article">
-                                        <div class="article-header">
-                                            <div class="date">
+                                <?php if (isset($post)) : ?>
+                                    <div class="col-12">
+                                        <div class="article">
+                                            <div class="article-header">
+                                                <div class="date">
 
-                                                <span>
-                                                    <?= (new DateTime($post['date']))->format('d') ?>
-                                                </span>
-                                                <span><?= (new DateTime($post['date']))->format('M') ?> <?= (new DateTime($post['date']))->format('y') ?></span>
-                                            </div>
-                                            <div class="heading-header">
-                                                <h3>
-                                                    <a href="./post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
-                                                </h3>
-                                                <div class="company-content">
-                                                    <div class="item">
-                                                        <a href="#">
-                                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                                            <?= $post['first_name'] ?>
-                                                            <?= $post['last_name'] ?>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item">
-                                                        <span>
-                                                            <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                                            <?= $post['type'] == 1 ? "host" : "traveller" ?>
-                                                        </span>
+                                                    <span>
+                                                        <?= (new DateTime($post['date']))->format('d') ?>
+                                                    </span>
+                                                    <span><?= (new DateTime($post['date']))->format('M') ?> <?= (new DateTime($post['date']))->format('y') ?></span>
+                                                </div>
+                                                <div class="heading-header">
+                                                    <h3>
+                                                        <a href="./post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
+                                                    </h3>
+                                                    <div class="company-content">
+                                                        <div class="item">
+                                                            <a href="#">
+                                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                                <?= $post['first_name'] ?>
+                                                                <?= $post['last_name'] ?>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item">
+                                                            <span>
+                                                                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                                                <?= $post['type'] == 1 ? "host" : "traveller" ?>
+                                                            </span>
+
+                                                        </div>
+                                                        <div class="item">
+                                                            <span>
+                                                                <i class="fa fa-location" aria-hidden="true"></i>
+                                                                <?= $post['country'] ?>
+                                                            </span>
+                                                        </div>
 
                                                     </div>
-                                                    <div class="item">
-                                                        <span>
-                                                            <i class="fa fa-location" aria-hidden="true"></i>
-                                                            <?= $post['country'] ?>
-                                                        </span>
-                                                    </div>
-
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="article-image">
-                                            <a href="./post?id=<?= $post['post_id'] ?>">
-                                                <button class="love">
-                                                    <span>
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </span>
-                                                </button>
-                                                <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                            </a>
-
-                                        </div>
-                                        <div class="article-content">
-                                            <p><?= $post['content'] ?></p>
-                                            <div class="details">
-                                                <a href="./post?id=<?= $post['post_id'] ?>" class="second-btn">
-                                                    read more
+                                            <div class="article-image">
+                                                <a href="./post?id=<?= $post['post_id'] ?>">
+                                                    <button class="love">
+                                                        <span>
+                                                            <i class="fa-regular fa-heart"></i>
+                                                        </span>
+                                                    </button>
+                                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
                                                 </a>
-                                                <div class="review">
+
+                                            </div>
+                                            <div class="article-content">
+                                                <p><?= $post['content'] ?></p>
+                                                <div class="details">
+                                                    <a href="./post?id=<?= $post['post_id'] ?>" class="second-btn">
+                                                        read more
+                                                    </a>
+                                                    <div class="review">
 
 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                <?php endif; ?>
 
                             <?php endforeach; ?>
-                            <?php if (!$totalResults) : ?>
+                            <?php if (!$totalResults && $post['search']) : ?>
                                 <p class="searchNot">
                                     search not found
                                 </p>
@@ -212,7 +215,7 @@ require base_path("views/partials/head.view.php");
                 </div>
                 <div class="postsPagination">
 
-                    <?php if (count($paginationLinks) != 1) : ?>
+                    <?php if (isset($paginationLinks)  &&  count($paginationLinks) != 1) : ?>
                         <?= implode(' ', $paginationLinks) ?>
 
                     <?php endif; ?>
@@ -244,6 +247,7 @@ require base_path("views/partials/head.view.php");
     <?php
     require base_path("views/partials/scripts.view.php");
     ?>
+    <script src="public/assets/js/posts.js"></script>
 </body>
 
 </html>
