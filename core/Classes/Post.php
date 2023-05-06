@@ -150,6 +150,8 @@ class Post
         $this->img = $img;
         $this->love_num = $love_num;
         $this->date = $date;
+
+        return $post;
     }
 
 

@@ -56,6 +56,9 @@ require base_path("views/partials/head.view.php");
 
             </div>
             <div class="row">
+                
+                 <!------------------------ Recent posts -------------------------------------->
+
                 <div class="col-lg-4">
                     <div class="recent-posts">
                         <h4>recent posts</h4>
@@ -65,6 +68,8 @@ require base_path("views/partials/head.view.php");
                                     <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
                                 </a>
                             </div>
+
+
                             <div class="content">
                                 <h5>
                                     <a href="#">
@@ -156,6 +161,9 @@ require base_path("views/partials/head.view.php");
                         </div>
                     </div>
                 </div>
+
+                 <!------------------------ end  Recent posts -------------------------------------->
+
                 <div class="col-lg-8">
                     <div class="details">
                         <div class="image">
@@ -173,7 +181,7 @@ require base_path("views/partials/head.view.php");
                             </div>
                             <div class="heading-header">
                                 <h3>
-                                    <a href="#">Where watch English movies free?</a>
+                                    <a href="#"><?= $postdet["title"]  ?></a>
                                 </h3>
                                 <div class="company-content">
                                     <div class="item">
@@ -211,9 +219,8 @@ require base_path("views/partials/head.view.php");
                                 </div>
                             </div>
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque assumenda sequi repudiandae magni quisquam rerum inventore quas ullam iste, suscipit fuga enim deserunt at maiores, sed excepturi ratione error culpa.
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta nihil non nisi maxime amet voluptate culpa rem porro explicabo sit, ex adipisci molestiae, debitis possimus illum fugiat quaerat harum sed?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita ullam nulla cum! Dignissimos eius nobis quos velit? Veniam repudiandae corporis esse iusto obcaecati nesciunt accusantium excepturi est? Nesciunt, ad?
+                            <p>
+                                <?= $postdet["content"] ?> 
                             </p>
                         </div>
                     </div>
@@ -238,40 +245,54 @@ require base_path("views/partials/head.view.php");
     </section>
     <div class="allComments">
         <div class="container">
-            <div class="comment row">
-                <div class="col-lg-2">
+            <!-----------------------------   comments             ----------------------------------->
+           <?php if(isset($comments)) :?>
+
+            <?php $cnt = 0; ?> 
+            <?php while($cnt < $num_comments )  :?> 
+            <div class="comment row"> 
+
+            <?php $name = $comments[$cnt]["first_name"] ." ". $comments[$cnt]["last_name"] ?>
+            <div class="col-lg-2">
                     <div class="user">
                         <div class="userImg">
                             <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
                         </div>
+
                         <div class="userContent">
-                            <h3>ali alaa eldin</h3>
+                            <h3><?=$name?></h3>
                         </div>
+
                     </div>
 
                 </div>
+                
                 <div class="col-lg-10">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
+                    
+                    <p><?=$comments[$cnt]["content"]?></p>
 
+                    <?php $cnt++ ?>
+                  
+            
                 </div>
+
+               
             </div>
-            <div class="comment row">
-                <div class="col-lg-2">
-                    <div class="user">
-                        <div class="userImg">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
-                        </div>
-                        <div class="userContent">
-                            <h3>ali alaa eldin</h3>
-                        </div>
-                    </div>
+            <?php endwhile ?>
+            <?php endif ?>
 
-                </div>
-                <div class="col-lg-10">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit rem accusantium nostrum aliquid. Explicabo odit soluta itaque obcaecati provident optio maiores totam aperiam asperiores rerum repudiandae, vel esse saepe non.</p>
+            <?php if(empty($comments)) :?>
+                
+                      <p style="font-size: 20px;"> No comments found </p>
+                
+              
+                <?php endif ?>
 
-                </div>
-            </div>
+                
+            
+     <!--------------------------------------- end  comments   ----------------------------------->
+
+
         </div>
     </div>
     <?php
