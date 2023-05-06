@@ -192,11 +192,11 @@ class Traveller extends User
     Notification::makeNoti($travellerId, $hostId, $content, $action, $actionId);
   }
 
-  public function addService($serviceId)
+  public function addService($serviceId, $serviceName)
   {
-    //! Not completed
     TravellerDB::addService($this->id, $serviceId);
-    // array_push($this->services, );
+    $this->services[]['id'] = $serviceId;
+    $this->services[]['name'] = $serviceName;
   }
 
   public function removeService($serviceId)
