@@ -43,8 +43,12 @@
 				<label for="phone-number">Phone Number:</label>
 				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
 
-				<label for="profile-photo">Profile Photo:</label>
+				<label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
+
+				<label for="profile-photo">cover image:</label>
+				<input type="file" id="profile-photo" name="cover-img" accept="image/*" required><br>
+
 
 				<label for="services">Services:</label><br>
 				<input type="radio" id="service1" name="services" value="service1"required>

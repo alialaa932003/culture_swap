@@ -156,10 +156,7 @@ function fetchCardData($params) {
 function  logout(){
   $_SESSION = []; // create our session super global
  
- if ($_SESSION['user']){
     session_destroy();
- }
- 
 }
 
 
