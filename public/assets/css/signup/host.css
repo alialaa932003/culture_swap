@@ -46,6 +46,7 @@ form input[type="text"],
 form input[type="tel"],
 form input[type="email"],
 form input[type="password"],
+form input[type="file"]
 form textarea {
     border: 2px solid #ccc;
     border-radius: 5px;

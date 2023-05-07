@@ -4,11 +4,10 @@ use core\Classes\Traveller;
 use core\Validator;
 $email = $_POST['email'];
 $password = $_POST['password'];
-$repeatPassword=$_POST['repeat-password'];
 $type=1;
 $errors = [];
 
- if ($password === $repeatPassword) {
+
  
 if(Validator::string($password,  8, 55) && Validator::email($email))
 {
@@ -26,7 +25,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
        'password' => $_POST['password'],
        'type' => $type
      ];
-     
+     dd($data);
     $user->add($data);
      login($user);
     header("location: /culture_swap");
@@ -42,6 +41,4 @@ else if (!Validator::email($email)) {
  
  
  
- 
-}
 

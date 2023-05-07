@@ -2,15 +2,14 @@
 
 
 
+// header will change
 use core\Classes\Host;
 use core\Validator;
 $email = $_POST['email'];
 $password = $_POST['password'];
-$repeatPassword=$_POST['repeat-password'];
 $type=2;
 $errors = [];
 
- if ($password === $repeatPassword) {
  
 if(Validator::string($password,  8, 55) && Validator::email($email))
 {
@@ -34,7 +33,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
          'location' => $_POST['location'],
          'more_info' => $_POST['more-info']
        ];
-      
+   
     $user->add($data);
      login($user);
     header("location: /culture_swap");
@@ -45,8 +44,8 @@ elseif (!Validator::string($password, 8, 255)) {
  }
 else if (!Validator::email($email)) {
     $errors['email'] = 'Please provide a valid email address.';
-     }
  
 }
 
+ 
 // image input only

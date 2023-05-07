@@ -37,9 +37,7 @@
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-				<label for="repeat-password">Repeat Password:</label>
-				<input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat your password" required><br>
-
+				
 				<label for="phone-number">Phone Number:</label>
 				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
 

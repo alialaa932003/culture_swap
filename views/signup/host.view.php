@@ -39,10 +39,7 @@
         <label for="password">Choose Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-        <label for="confirm_password">Repeat Password:</label>
-        <input type="password" id="confirm_password" name="confirm-password" placeholder="confirm your password"
-          required><br>
-
+       
           <label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
