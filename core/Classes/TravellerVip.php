@@ -22,7 +22,6 @@ class TravellerVip extends Traveller
   {
     $this->id = TravellerVipDB::add($data);
     extract($data);
-    $this->id = $id ?? "";
     $this->username = $username ?? "";
     $this->password = $password ?? "";
     $this->firstName = $first_name ?? "";
