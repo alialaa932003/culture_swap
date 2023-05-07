@@ -56,14 +56,8 @@ require base_path("views/partials/head.view.php");
 
             </div>
             <div class="row">
-<<<<<<< HEAD
-                
-                 <!------------------------ Recent posts -------------------------------------->
-=======
 
                 <!------------------------ Recent posts -------------------------------------->
-
->>>>>>> bce9efecc872d9e5b48f03323ec4051c55ba062c
                 <div class="col-lg-4">
                     <div class="recent-posts">
                         <h4>recent posts</h4>
@@ -110,7 +104,7 @@ require base_path("views/partials/head.view.php");
                             </button>
                         </div>
 
-<!------------------------------------------------- post info  --------------------------------------------->
+                        <!------------------------------------------------- post info  --------------------------------------------->
 
                         <div class="article-header">
                             <div class="date">
@@ -148,7 +142,7 @@ require base_path("views/partials/head.view.php");
                                 </div>
                             </div>
                         </div>
-<!------------------------------------------------- post info  --------------------------------------------->
+                        <!------------------------------------------------- post info  --------------------------------------------->
 
 
                         <div class="detailsContent">
@@ -222,43 +216,39 @@ require base_path("views/partials/head.view.php");
 
 
                     </div>
-<<<<<<< HEAD
-
-                </div>
-                
-                <div class="col-lg-10">
-                    
-                    <p><?=$comments[$cnt]["content"]?></p>
-
-                    <?php $cnt++ ?>
-                </div>
-            </div>
-            <?php endwhile ?>
-=======
-                <?php endwhile ?>
->>>>>>> bce9efecc872d9e5b48f03323ec4051c55ba062c
-            <?php endif ?>
-
-            <?php if (empty($comments)) : ?>
-
-                <p style="font-size: 20px;"> No comments found </p>
-
-
-            <?php endif ?>
-
-
-
-            <!--------------------------------------- end  comments   ----------------------------------->
-
 
         </div>
+
+        <div class="col-lg-10">
+
+            <p><?= $comments[$cnt]["content"] ?></p>
+
+            <?php $cnt++ ?>
+        </div>
     </div>
-    <?php
-    require base_path("views/partials/footer.view.php");
-    ?>
-    <?php
-    require base_path("views/partials/scripts.view.php");
-    ?>
+<?php endwhile ?>
+<?php endif ?>
+
+<?php if (empty($comments)) : ?>
+
+    <p style="font-size: 20px;"> No comments found </p>
+
+
+<?php endif ?>
+
+
+
+<!--------------------------------------- end  comments   ----------------------------------->
+
+
+</div>
+</div>
+<?php
+require base_path("views/partials/footer.view.php");
+?>
+<?php
+require base_path("views/partials/scripts.view.php");
+?>
 </body>
 
 </html>

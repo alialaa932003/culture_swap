@@ -41,47 +41,30 @@
             <div class="row">
 
                 <!---------------------- services --------------------->
-                <?php foreach ($services as $service): ?>
+                <?php foreach ($services as $service) : ?>
 
 
-                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                    <a href="#">
+                    <?php foreach ($services as $service) : ?>
+                        <?php if ($service["name"] === "Animals & Farming") : ?>
+                            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                                <a href="#">
 
-                        <span class="itemIcon">
+                                    <span class="itemIcon">
 
-                            <?php if ($service["name"] === "Animals & Farming"): ?>
-                            <i class="fa-solid fa-seedling"></i>
-                            <?php endif ?>
-
-                            <?php if ($service["name"] == "packpaker Hotels &hospitality"): ?>
-                            <i class="fa-regular fa-hospital"></i>
-                            <?php endif ?>
+                                        <i class="fa-solid fa-seedling"></i>
 
 
-                            <?php if ($service["name"] == "Farming & Homesteads"): ?>
-                            <i class="fa-solid fa-tractor"></i>
-                            <?php endif ?>
-
-                            <?php if ($service["name"] == "Building & Restoration"): ?>
-                            <i class="fa-solid fa-hammer"></i>
-                            <?php endif ?>
 
 
-                            <?php if ($service["name"] == "Teaching & language"): ?>
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            <?php endif ?>
+                                    </span>
 
-                            <?php if ($service["name"] == "intenships Abroad"): ?>
-                            <i class="fa-solid fa-school"></i>
-                            <?php endif ?>
-
-                        </span>
-
-                        <span class="itemText" name="animals">
-                            <?= $service["name"] ?>
-                        </span>
-                    </a>
-                </div>
+                                    <span class="itemText" name="animals">
+                                        <?= $service["name"] ?>
+                                    </span>
+                                </a>
+                            </div>
+                        <?php endif ?>
+                    <?php endforeach; ?>
 
 
 
@@ -106,7 +89,7 @@
             <div class="row">
                 <!-- -------------------------------------#cards---------------------------------------------->
 
-                <?php foreach ($cards as $card): ?>
+                <?php foreach ($cards as $card) : ?>
                     <div class="col-xl-4 col-md-6">
                         <div class="myCard">
                             <div class="cardImage">
@@ -127,13 +110,13 @@
                                 </h3>
                                 <div class="cardDetails">
                                     <a href="#" class="second-btn">view profile</a>
-<!----------------------------------------------        Rate   ------------------------------------>
+                                    <!----------------------------------------------        Rate   ------------------------------------>
                                     <div class="rate">
 
                                         <?php $rate = $card["max_rating"]; ?>
                                         <?php $goldstar = $rate ?>
 
-                                        <?php while ($goldstar): ?>
+                                        <?php while ($goldstar) : ?>
 
                                             <span>
                                                 <i class="fa-solid fa-star"></i>
@@ -145,7 +128,7 @@
 
                                         <?php $regStar = 5 - $rate ?>
 
-                                        <?php while ($regStar): ?>
+                                        <?php while ($regStar) : ?>
 
                                             <span>
                                                 <i class="fa-regular fa-star"></i>
@@ -154,8 +137,8 @@
                                             <?php $regStar-- ?>
                                         <?php endwhile ?>
                                     </div>
-                                    
-<!----------------------------------------------     end   Rate   ------------------------------------>
+
+                                    <!----------------------------------------------     end   Rate   ------------------------------------>
 
                                 </div>
                             </div>
@@ -177,17 +160,17 @@
             <div class="row">
 
                 <!----------------------------------  popularplaces           --------------------->
-                <?php foreach ($popularPlaces as $popularPlace): ?>
-                <div class="col-lg-3">
-                    <div class="placeItem">
-                        <div class="placeImage">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                <?php foreach ($popularPlaces as $popularPlace) : ?>
+                    <div class="col-lg-3">
+                        <div class="placeItem">
+                            <div class="placeImage">
+                                <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                            </div>
+                            <a href="#" class='placeLink second-btn'>
+                                <?= $popularPlace["Location"] ?>
+                            </a>
                         </div>
-                        <a href="#" class='placeLink second-btn'>
-                            <?= $popularPlace["Location"] ?>
-                        </a>
                     </div>
-                </div>
                 <?php endforeach ?>
                 <!----------------------------------  end popularplaces           --------------------->
 
