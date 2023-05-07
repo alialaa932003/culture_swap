@@ -69,7 +69,7 @@ class PostDB
         if (empty($post)) {
             return [];
         }
-        $comments = Database::getInstance()->query("SELECT comment.* ,first_name,last_name ,country,profile_img,type FROM comment INNER JOIN _user on _user.id = comment.user_id  WHERE  post_id = :id ", ['id' => $id])->get();
+        $comments = Database::getInstance()->query("SELECT comment.* ,first_name,last_name ,country,profile_img,type FROM comment INNER JOIN _user on _user.id = comment.user_id  WHERE  post_id = :id ORDER BY comment.id desc", ['id' => $id])->get();
         $post['comments'] = $comments;
         return $post;
     }

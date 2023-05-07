@@ -173,7 +173,7 @@ require base_path("views/partials/head.view.php");
             <div class="head">
                 <h2 class="heading">comments</h2>
             </div>
-            <form class="addComment">
+            <form class="addComment" action="/culture_swap/post?id=<?= $_GET['id'] ?>" method="POST">
                 <label for="comment">add comment</label>
                 <textarea name="comment" id="" cols="30" rows="10"></textarea>
                 <button class="main-btn " type="submit">submit</button>
