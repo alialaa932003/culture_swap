@@ -1,9 +1,12 @@
 <?php
 $router->get('/culture_swap/', 'controller/index.php');
+//! community
 $router->get('/culture_swap/posts', 'controller/community/posts.php');
 $router->get('/culture_swap/post', 'controller/community/show.php');
 $router->post('/culture_swap/posts', 'controller/community/store.php');
 
+
+$router->get('/culture_swap/favourites', 'controller/favourites.php');
 $router->get('/culture_swap/faq', 'controller/faq.php');
 $router->get('/culture_swap/about', 'controller/about.php');
 
@@ -16,6 +19,7 @@ $router->get('/culture_swap/signup/host', 'controller/signup/host/createHost.php
 $router->post('/culture_swap/signup/host', 'controller/signup/host/storeHost.php');
 //! Login Requests
 $router->get('/culture_swap/login', 'controller/session/create.php')->only('guest');
+$router->post('/culture_swap/login', 'controller/session/store.php')->only('guest');
 
 $router->get('/culture_swap/test', 'controller/test.php');
 

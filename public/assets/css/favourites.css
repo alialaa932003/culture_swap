@@ -1,0 +1,22 @@
+main {
+    min-height: 57vh;
+
+}
+
+header {
+    padding: 20rem 0 15rem;
+    background: linear-gradient(to right,
+            /* rgba(8, 4, 41, 0.95) 10%, */
+            rgba(4, 29, 41, 0.96) 10%,
+            rgba(240, 240, 240, 0.4) 100%),
+        url("../imgs/signup/pexels-asad-photo-maldives-3601422.webp") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+header h2 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}

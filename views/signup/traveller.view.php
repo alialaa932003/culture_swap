@@ -37,32 +37,31 @@
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-				<label for="repeat-password">Repeat Password:</label>
-				<input type="password" id="repeat-password" name="repeat-password" placeholder="Repeat your password" required><br>
-
+				
 				<label for="phone-number">Phone Number:</label>
 				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
 
-				<label for="profile-photo">Profile Photo:</label>
+				<label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
+
 				<label for="services">Services:</label><br>
-				<input type="radio" id="service1" name="services" value="service1"required>
+				<input type="radio" id="service1" name="services" value="Farmstay help"required>
 				<label for="service1">Farmstay help</label><br>
 
-				<input type="radio" id="service2" name="services" value="service2">
+				<input type="radio" id="service2" name="services" value="Creating/ Cooking family meals">
 				<label for="service2">Creating/ Cooking family meals</label><br>
 
-				<input type="radio" id="service3" name="services" value="service3">
+				<input type="radio" id="service3" name="services" value="Art Projects">
 				<label for="service3">Art Projects</label><br>
 
-				<input type="radio" id="service4" name="services" value="service4">
+				<input type="radio" id="service4" name="services" value="Animal Care">
 				<label for="service4">Animal Care</label><br>
 
-				<input type="radio" id="service5" name="services" value="service5">
+				<input type="radio" id="service5" name="services" value="Teaching">
 				<label for="service5">Teaching </label><br>
 
-				<input type="radio" id="service6" name="services" value="service6">
+				<input type="radio" id="service6" name="services" value="Language practice">
 				<label for="service6">Language practice</label><br>
 
 				<button type="submit" class="main-btn">Sign Up</button>

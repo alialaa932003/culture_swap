@@ -65,7 +65,7 @@ class PostDB
 
     public static function  getOne($id)
     {
-        $post = Database::getInstance()->query("SELECT * FROM post WHERE id = :id", ['id' => $id])->find();
+        $post = Database::getInstance()->query("SELECT post.*,first_name,last_name,country,type FROM post INNER JOIN _user ON post.user_id = _user.id  WHERE post.id = :id", ['id' => $id])->find();
         if (empty($post)) {
             return [];
         }

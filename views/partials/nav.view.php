@@ -19,7 +19,7 @@
                     <a class="nav-link" href="/culture_swap/posts">community</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">favourites</a>
+                    <a class="nav-link" href="/culture_swap/favourites">favourites</a>
                 </li>
 
                 <li class="nav-item">
@@ -41,7 +41,7 @@
                     <ul class="dropdown-menu">
                         <li class="noti-item ">
                             <span class="noti-icon red-noti">
-                                <i class="fa-regular fa-circle-xmark"></i>
+                                <i class="fa-regular fa-heart"></i>
                             </span>
                             <div>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit est rem quaerat doloremque ab error voluptates ex, aperiam eaque odit! Perspiciatis sequi, magni suscipit nihil optio dolorem ducimus maiores consequuntur.</p>

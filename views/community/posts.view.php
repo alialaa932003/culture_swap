@@ -87,7 +87,7 @@ require base_path("views/partials/head.view.php");
                                                 </div>
                                                 <div class="heading-header">
                                                     <h3>
-                                                        <a href="./post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
+                                                        <a href="/culture_swap/post?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
                                                     </h3>
                                                     <div class="company-content">
                                                         <div class="item">
@@ -115,7 +115,7 @@ require base_path("views/partials/head.view.php");
                                                 </div>
                                             </div>
                                             <div class="article-image">
-                                                <a href="./post?id=<?= $post['post_id'] ?>">
+                                                <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
                                                     <button class="love">
                                                         <span>
                                                             <i class="fa-regular fa-heart"></i>
@@ -128,7 +128,7 @@ require base_path("views/partials/head.view.php");
                                             <div class=" article-content">
                                                 <p><?= $post['content'] ?></p>
                                                 <div class="details">
-                                                    <a href="./post?id=<?= $post['post_id'] ?>" class="second-btn">
+                                                    <a href="/culture_swap/post?id=<?= $post['post_id'] ?>" class="second-btn">
                                                         read more
                                                     </a>
                                                     <div class="review">
@@ -175,13 +175,13 @@ require base_path("views/partials/head.view.php");
                             <?php foreach ($recentPosts as $post) : ?>
                                 <div class="item">
                                     <div class="image">
-                                        <a href="#">
-                                            <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
+                                        <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
+                                            <img src=<?= $post['img'] ?> alt="">
                                         </a>
                                     </div>
                                     <div class="content">
                                         <h5>
-                                            <a href="#">
+                                            <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
                                                 <?= $post['title'] ?>
                                             </a>
                                         </h5>

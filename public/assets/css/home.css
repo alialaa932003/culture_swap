@@ -8,7 +8,7 @@ header {
             /* rgba(8, 4, 41, 0.95) 10%, */
             rgba(4, 29, 41, 0.96) 10%,
             rgba(240, 240, 240, 0.2) 70%),
-        url("../imgs/home/header3.webp") no-repeat;
+        url("../imgs/signup/pexels-pok-rie-130879.webp") no-repeat;
 
     background-position: center;
     background-size: cover;
@@ -19,7 +19,7 @@ header {
 }
 
 header h1 {
-    font-size: 4rem;
+    font-size: 4.4rem;
     font-weight: 800;
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
@@ -156,6 +156,8 @@ header p {
     background: transparent;
     border: 2px solid #fff;
     font-size: 1.8rem;
+    text-align: center;
+    width: 65%;
 
 }
 

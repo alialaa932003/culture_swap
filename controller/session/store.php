@@ -1,16 +1,30 @@
 <?php
 
 use core\function ;
+use core\Classes\DB\user;
 
-$username=$_POST[];
-$password=$_POST[];
+$username=$_POST['username'];
+$password=$_POST['password'];
+$errors ;
+/*
+Qure  
+$username=$_POST['username'];
+$password=$_POST['password'];
 
-if ( ){
+*/
 
-    
+
+
+
+$user =user::cheick($username,$password) ;
+
+if ($user){
     login($user);
 
 }
-
+else{
+    $errors ="user name or password invaild " ;
+}
 
 //// route
+// imag && Query && error masage && header in host && vip

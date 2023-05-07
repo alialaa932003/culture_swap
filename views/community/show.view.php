@@ -56,112 +56,44 @@ require base_path("views/partials/head.view.php");
 
             </div>
             <div class="row">
+<<<<<<< HEAD
                 
                  <!------------------------ Recent posts -------------------------------------->
+=======
+
+                <!------------------------ Recent posts -------------------------------------->
+
+>>>>>>> bce9efecc872d9e5b48f03323ec4051c55ba062c
                 <div class="col-lg-4">
                     <div class="recent-posts">
                         <h4>recent posts</h4>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                </a>
-                            </div>
-
-
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
+                        <?php foreach ($recentPosts as $post) : ?>
+                            <div class="item">
+                                <div class="image">
+                                    <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
+                                        <img src=<?= $post['img'] ?> alt="">
                                     </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>
+                                        <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
+                                            <?= $post['title'] ?>
+                                        </a>
+                                    </h5>
+                                    <span>
+                                        <i class="fa fa-clock" aria-hidden="true"></i>
+                                        <?= (new DateTime($post['date']))->format('d') ?>
+                                        <?= (new DateTime($post['date']))->format('M') ?>
+                                        <?= (new DateTime($post['date']))->format('Y') ?>
+                                    </span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
 
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                 <!------------------------ end  Recent posts -------------------------------------->
+                <!------------------------ end  Recent posts -------------------------------------->
 
 
 
@@ -170,7 +102,7 @@ require base_path("views/partials/head.view.php");
                 <div class="col-lg-8">
                     <div class="details">
                         <div class="image">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                            <img src=<?= $postdet['img'] ?> alt="">
                             <button class="love">
                                 <span>
                                     <i class="fa-regular fa-heart"></i>
@@ -182,8 +114,11 @@ require base_path("views/partials/head.view.php");
 
                         <div class="article-header">
                             <div class="date">
-                                <span>07</span>
-                                <span>may 12</span>
+
+                                <span>
+                                    <?= (new DateTime($postdet['date']))->format('d') ?>
+                                </span>
+                                <span><?= (new DateTime($postdet['date']))->format('M') ?> <?= (new DateTime($postdet['date']))->format('y') ?></span>
                             </div>
                             <div class="heading-header">
                                 <h3>
@@ -193,20 +128,20 @@ require base_path("views/partials/head.view.php");
                                     <div class="item">
                                         <a href="#">
                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                            ali alaa
+                                            <?= $postdet['first_name'] . " " . $postdet['last_name'] ?>
                                         </a>
                                     </div>
                                     <div class="item">
                                         <span>
                                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                            host
+                                            <?= $postdet['type'] == 1 ? "host" : "traveller" ?>
                                         </span>
 
                                     </div>
                                     <div class="item">
                                         <span>
                                             <i class="fa fa-location" aria-hidden="true"></i>
-                                            norway
+                                            <?= $postdet['country'] ?>
                                         </span>
                                     </div>
 
@@ -220,16 +155,16 @@ require base_path("views/partials/head.view.php");
                             <div class="total">
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                                    <span class="totalCount">20</span>
+                                    <span class="totalCount"><?= $postdet['love_num'] ?></span>
                                 </div>
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-                                    <span class="totalCount">20</span>
+                                    <span class="totalCount"><?= $num_comments ?></span>
                                 </div>
                             </div>
 
                             <p>
-                                <?= $postdet["content"] ?> 
+                                <?= $postdet["content"] ?>
                             </p>
                         </div>
                     </div>
@@ -255,24 +190,39 @@ require base_path("views/partials/head.view.php");
     <div class="allComments">
         <div class="container">
             <!-----------------------------   comments             ----------------------------------->
-           <?php if(isset($comments)) :?>
+            <?php if (isset($comments)) : ?>
 
-            <?php $cnt = 0; ?> 
-            <?php while($cnt < $num_comments )  :?> 
-            <div class="comment row"> 
+                <?php $cnt = 0; ?>
+                <?php while ($cnt < $num_comments) : ?>
+                    <div class="comment row">
 
-            <?php $name = $comments[$cnt]["first_name"] ." ". $comments[$cnt]["last_name"] ?>
-            <div class="col-lg-2">
-                    <div class="user">
-                        <div class="userImg">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                        <?php $name = $comments[$cnt]["first_name"] . " " . $comments[$cnt]["last_name"] ?>
+                        <div class="col-lg-2">
+                            <div class="user">
+                                <div class="userImg">
+                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                                </div>
+
+                                <div class="userContent">
+                                    <h3><?= $name ?></h3>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <div class="userContent">
-                            <h3><?=$name?></h3>
+                        <div class="col-lg-10">
+
+                            <p><?= $comments[$cnt]["content"] ?></p>
+
+                            <?php $cnt++ ?>
+
+
                         </div>
+
 
                     </div>
+<<<<<<< HEAD
 
                 </div>
                 
@@ -284,18 +234,21 @@ require base_path("views/partials/head.view.php");
                 </div>
             </div>
             <?php endwhile ?>
+=======
+                <?php endwhile ?>
+>>>>>>> bce9efecc872d9e5b48f03323ec4051c55ba062c
             <?php endif ?>
 
-            <?php if(empty($comments)) :?>
-                
-                      <p style="font-size: 20px;"> No comments found </p>
-                
-              
-                <?php endif ?>
+            <?php if (empty($comments)) : ?>
 
-                
-            
-     <!--------------------------------------- end  comments   ----------------------------------->
+                <p style="font-size: 20px;"> No comments found </p>
+
+
+            <?php endif ?>
+
+
+
+            <!--------------------------------------- end  comments   ----------------------------------->
 
 
         </div>

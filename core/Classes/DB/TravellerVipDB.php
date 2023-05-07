@@ -13,17 +13,17 @@ class TravellerVipDB extends TravellerDB
 
     public static function add($data)
     {
-        parent::add($data);
+        $id = parent::add($data);
         extract($data);
 
         Database::getInstance()->query("INSERT INTO traveller_vip  (traveller_id,payment_option,card_number,cvc_number,exp_date)
             values(:id,:payment_option,:card_number,:cvc_number,:exp_date)
         ", [
-            'id' => 'traveller_id',
-            'payment_option' => 'payment_option',
-            'card_number' => 'card_number',
-            'cvc_number' => 'cvc_number',
-            'exp_date' => 'exp_date',
+            'id' => $id,
+            'payment_option' => $payment_option,
+            'card_number' => $card_number,
+            'cvc_number' => $cvc_number,
+            'exp_date' => $exp_date,
         ]);
         return Database::getInstance()->getLastRecordIdAdded("traveller");
     }
@@ -31,7 +31,7 @@ class TravellerVipDB extends TravellerDB
     {
         extract($data);
 
-        Database::getInstance()->query("UPDATE traveller_vip SET $key = :value WHERE id = :id ", [
+        Database::getInstance()->query("UPDATE traveller_vip SET $key = :value WHERE traveller_id = :id ", [
             'value' => $value,
             'id' => $id
         ]);
