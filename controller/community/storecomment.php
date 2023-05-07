@@ -5,7 +5,7 @@ use core\Classes\Comment;
 $config = require base_path('config.php');
 
 $comment = $_POST['comment'];
-$comment = trim($comment, " ");
+$comment = trim($comment, "");
 if (!empty($comment)) {
     (new Comment)->add(
         [
