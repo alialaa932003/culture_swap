@@ -9,7 +9,7 @@ header {
             /* rgba(8, 4, 41, 0.95) 10%, */
             rgba(4, 29, 41, 0.96) 10%,
             rgba(240, 240, 240, 0.4) 100%),
-        url("../imgs/home/header2.webp") no-repeat;
+        url("../img/home/header2.webp") no-repeat;
     background-position: center;
     background-size: cover;
 }
