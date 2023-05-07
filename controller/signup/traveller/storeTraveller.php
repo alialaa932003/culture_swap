@@ -19,13 +19,12 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
        'email' => $_POST['email'],
        'phone_num' => $_POST['phone-number'],
        'profile_img' => $_POST['profile-photo'],
-       'cover_img'=> $_POST['cover-img'],
        'country' => $_POST['country'],
        'services' => $_POST['services'],
        'password' => $_POST['password'],
        'type' => $type
      ];
-     dd($data);
+     
     $user->add($data);
      login($user);
     header("location: /culture_swap");

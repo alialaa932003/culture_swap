@@ -52,7 +52,7 @@ class HostDB
 
         $userId =  $dbref->getLastRecordIdAdded("_user");
 
-        if (count($needs)) {
+        if (isset($needs)&& count($needs)) {
             $values = [];
             $params = [
                 'id' => $userId,
