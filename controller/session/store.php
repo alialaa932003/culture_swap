@@ -1,6 +1,7 @@
 <?php
 
 use core\function ;
+use core\Classes\DB\user;
 
 $username=$_POST['username'];
 $password=$_POST['password'];
@@ -10,11 +11,14 @@ Qure
 $username=$_POST['username'];
 $password=$_POST['password'];
 
-
 */
-$user;// = query
 
-if (true){
+
+
+
+$user =user::cheick($username,$password) ;
+
+if ($user){
     login($user);
 
 }
@@ -23,3 +27,4 @@ else{
 }
 
 //// route
+// imag && Query && error masage && header in host && vip

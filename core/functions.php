@@ -1,4 +1,6 @@
 <?php
+
+
 use core\Response;
 function dd($value){
     echo "<pre>";
@@ -141,13 +143,14 @@ function fetchCardData($params) {
 //////////////////////////////////////////////////////////////
  function  login($user)
 {
+    
     session_start();
   $_SESSION['user'] = [
-    'type' => $user['type'],
-    'email' => $user['email'],
-    'username' => $user['username'],
-    'id' => $user['id'],
-    'country' => $user['country'],
+    'type' => $user->getType(),
+    'email' => $user->getEmail(),
+    'username' => $user->getUserName(),
+    'id' => $user->getId(),
+    'country' => $user->getCountry(),
   ];
   session_regenerate_id(true); // To have a high security
 }

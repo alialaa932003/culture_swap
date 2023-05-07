@@ -20,7 +20,7 @@
   <header class="section-padding">
     <h2>Host Sign Up</h2>
     <section>
-      <form action="/culture_swap/signup/host" method="POST">
+      <form action="/culture_swap/signup/host" method="POST" enctype="multipart/form-data">
         <label for="user-name">User Name:</label>
         <input type="text" id="user-name" name="user-name" placeholder="Enter your user name" required><br>
 
@@ -43,9 +43,6 @@
           <label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
-				<label for="profile-photo">cover image:</label>
-				<input type="file" id="profile-photo" name="cover-img" accept="image/*" required><br>
-
         <label for="country">Country:</label>
         <input type="text" id="country" name="country" placeholder="Enter your country" required><br>
 
@@ -53,7 +50,7 @@
         <input type="text" id="city" name="location" placeholder="Enter your location" required><br>
 
         <label for="about_family">Tell Us About You :</label>
-        <textarea id="about_family" name="Description" placeholder="for example: your experance "
+        <textarea id="about_family" type ="" name="Description" placeholder="for example: your experance "
           rows="10" required></textarea><br>
 
         <label for="help_with">What Are You Looking for Help With?</label><br>
@@ -80,7 +77,7 @@
         <input type="checkbox" id="info_three" name="more-info[]" value="smoker" >
         <label for="info_three">Are you smokers?</label><br>
 
-        <button type="submit" class="main-btn">Sign Up</button>
+        <button type="submit" name="submit" class="main-btn">Sign Up</button>
       </form>
 
     </section>

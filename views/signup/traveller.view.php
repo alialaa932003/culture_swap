@@ -44,9 +44,6 @@
 				<label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>
 
-				<label for="profile-photo">cover image:</label>
-				<input type="file" id="profile-photo" name="cover-img" accept="image/*" required><br>
-
 
 				<label for="services">Services:</label><br>
 				<input type="radio" id="service1" name="services" value="Farmstay help"required>
