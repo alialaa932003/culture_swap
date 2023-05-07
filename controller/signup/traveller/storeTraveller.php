@@ -20,7 +20,12 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
        'phone_num' => $_POST['phone-number'],
        'profile_img' => $_POST['profile-photo'],
        'country' => $_POST['country'],
-       'services' => $_POST['services'],
+       'services' => [
+        [
+          'Id' => '1',
+          'name' => $_POST['services']
+        ]
+       ],
        'password' => $_POST['password'],
        'type' => $type
      ];
