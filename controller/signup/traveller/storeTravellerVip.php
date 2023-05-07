@@ -27,6 +27,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
            'service_id' => '1',
            'service' => $_POST['services']
          ],
+      ],
        'password' => $_POST['password'],
        'country' => $_POST['country'],
        'type' => 1,
