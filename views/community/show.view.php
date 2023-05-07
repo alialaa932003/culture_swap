@@ -217,42 +217,30 @@ require base_path("views/partials/head.view.php");
 
                     </div>
 
-        </div>
 
-        <div class="col-lg-10">
+                <?php endwhile ?>
+            <?php endif ?>
+
+            <?php if (empty($comments)) : ?>
+
+                <p style="font-size: 20px;"> No comments found </p>
+
+
+            <?php endif ?>
 
 
 
+            <!--------------------------------------- end  comments   ----------------------------------->
 
 
-            <p><?= $comments[$cnt]["content"] ?></p>
-
-            <?php $cnt++ ?>
         </div>
     </div>
-<?php endwhile ?>
-<?php endif ?>
-
-<?php if (empty($comments)) : ?>
-
-    <p style="font-size: 20px;"> No comments found </p>
-
-
-<?php endif ?>
-
-
-
-<!--------------------------------------- end  comments   ----------------------------------->
-
-
-</div>
-</div>
-<?php
-require base_path("views/partials/footer.view.php");
-?>
-<?php
-require base_path("views/partials/scripts.view.php");
-?>
+    <?php
+    require base_path("views/partials/footer.view.php");
+    ?>
+    <?php
+    require base_path("views/partials/scripts.view.php");
+    ?>
 </body>
 
 </html>
