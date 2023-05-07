@@ -11,7 +11,7 @@ $post = new Post();
 $postdet = $post->getOne($req);
 
 $comments = $postdet['comments'];
-$num_comments = count($comments);
+//$num_comments = count($comments);
 $recentPosts = Post::search("", 0, 6);
 
 /// extract day from date
@@ -21,7 +21,6 @@ $date = '2023-05-07';
 $day = date('d', strtotime($date));
 //echo $day; 
 ///end date
-
 
 
 
