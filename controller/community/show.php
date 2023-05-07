@@ -11,8 +11,8 @@ $post = new Post();
 $postdet = $post->getOne($req);
 
 $comments = $postdet['comments'];
-dd($postdet);
 $num_comments = count($comments);
+$recentPosts = Post::search("", 0, 6);
 
 
 

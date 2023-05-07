@@ -62,103 +62,29 @@ require base_path("views/partials/head.view.php");
                 <div class="col-lg-4">
                     <div class="recent-posts">
                         <h4>recent posts</h4>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                </a>
-                            </div>
-
-
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
+                        <?php foreach ($recentPosts as $post) : ?>
+                            <div class="item">
+                                <div class="image">
+                                    <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
+                                        <img src=<?= $post['img'] ?> alt="">
                                     </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>
+                                        <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
+                                            <?= $post['title'] ?>
+                                        </a>
+                                    </h5>
+                                    <span>
+                                        <i class="fa fa-clock" aria-hidden="true"></i>
+                                        <?= (new DateTime($post['date']))->format('d') ?>
+                                        <?= (new DateTime($post['date']))->format('M') ?>
+                                        <?= (new DateTime($post['date']))->format('Y') ?>
+                                    </span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
 
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="image">
-                                <a href="#">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header5.webp" ?> alt="">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h5>
-                                    <a href="#">
-                                        Where Watch English Movies Free?
-                                    </a>
-                                </h5>
-                                <span>
-                                    <i class="fa fa-clock" aria-hidden="true"></i>
-
-                                    12 mar 2020
-                                </span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -167,7 +93,7 @@ require base_path("views/partials/head.view.php");
                 <div class="col-lg-8">
                     <div class="details">
                         <div class="image">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                            <img src=<?= $postdet['img'] ?> alt="">
                             <button class="love">
                                 <span>
                                     <i class="fa-regular fa-heart"></i>
@@ -176,8 +102,11 @@ require base_path("views/partials/head.view.php");
                         </div>
                         <div class="article-header">
                             <div class="date">
-                                <span>07</span>
-                                <span>may 12</span>
+
+                                <span>
+                                    <?= (new DateTime($postdet['date']))->format('d') ?>
+                                </span>
+                                <span><?= (new DateTime($postdet['date']))->format('M') ?> <?= (new DateTime($postdet['date']))->format('y') ?></span>
                             </div>
                             <div class="heading-header">
                                 <h3>
@@ -187,20 +116,20 @@ require base_path("views/partials/head.view.php");
                                     <div class="item">
                                         <a href="#">
                                             <i class="fa fa-user" aria-hidden="true"></i>
-                                            ali alaa
+                                            <?= $postdet['first_name'] . " " . $postdet['last_name'] ?>
                                         </a>
                                     </div>
                                     <div class="item">
                                         <span>
                                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                                            host
+                                            <?= $postdet['type'] == 1 ? "host" : "traveller" ?>
                                         </span>
 
                                     </div>
                                     <div class="item">
                                         <span>
                                             <i class="fa fa-location" aria-hidden="true"></i>
-                                            norway
+                                            <?= $postdet['country'] ?>
                                         </span>
                                     </div>
 
@@ -211,7 +140,7 @@ require base_path("views/partials/head.view.php");
                             <div class="total">
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                                    <span class="totalCount">20</span>
+                                    <span class="totalCount"><?= $postdet['love_num'] ?></span>
                                 </div>
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-comment" aria-hidden="true"></i></span>
