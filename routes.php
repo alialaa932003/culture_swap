@@ -19,6 +19,7 @@ $router->get('/culture_swap/signup/host', 'controller/signup/host/createHost.php
 $router->post('/culture_swap/signup/host', 'controller/signup/host/storeHost.php');
 //! Login Requests
 $router->get('/culture_swap/login', 'controller/session/create.php')->only('guest');
+$router->post('/culture_swap/login', 'controller/session/store.php')->only('guest');
 
 $router->get('/culture_swap/test', 'controller/test.php');
 
