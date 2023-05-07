@@ -38,7 +38,7 @@ class Post
         $this->date = $date;
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         PostDB::delete($id);
     }

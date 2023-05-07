@@ -34,7 +34,7 @@ class Comment
         $this->date = $date;
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         CommentDB::delete($id);
     }

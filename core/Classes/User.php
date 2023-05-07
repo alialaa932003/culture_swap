@@ -2,10 +2,10 @@
 
 namespace core\Classes;
 
-use core\Classes\DB\comment;
-use core\Classes\DB\PostDB;
-use core\Classes\DB\NotificationDB;
-use core\Classes\DB\post;
+use core\Classes\comment;
+//use core\Classes\DB\PostDB;
+//use core\Classes\DB\NotificationDB;
+use core\Classes\post;
 
 // db classes host && traveler && notifcation &&post 
 
