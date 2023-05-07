@@ -5,7 +5,7 @@ use core\Classes\TravellerVip;
 use core\Validator;
 $email = $_POST['email'];
 $password = $_POST['password'];
-$type=1;
+$type="1";
 $errors = [];
 $cvc=$_POST['cvc'];
 $card_num=$_POST['card-number'];
@@ -22,9 +22,15 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
        'phone_num' => $_POST['phone-number'],
        'profile_img' => $_POST['profile-photo'],
        'cover_img'=> $_POST['cover-img'],
-       'services' => $_POST['services'],
+       'services' => [
+         [
+           'service_id' => '1',
+           'service' => $_POST['services']
+         ],
+      ],
        'password' => $_POST['password'],
-       'type' => $type,
+       'country' => $_POST['country'],
+       'type' => 1,
         'payment_option' =>  $_POST['payment'],
         'card_number' =>  $_POST['card-number'],
         'cvc_number' =>  $_POST['cvc'],
@@ -32,7 +38,8 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
         ];
     $user->add($data);
      login($user);
-    header("location: /culture_swap");
+     header("location: /culture_swap");
+      exit();
 }
 elseif (!Validator::string($password, 8, 255)) {
      $errors['password'] = 'Please provide a password of at least 8 characters.';

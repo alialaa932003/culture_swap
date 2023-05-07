@@ -22,8 +22,8 @@ $traveller->add([
   'country' => 'Egypt',
   'services' => [
     [
-      'service' => '1',
-      'service_id' => 'cooking'
+      'service' => 'Web Development',
+      'service_id' => 1
     ]
   ],
   'payment_option' => 'Visa',

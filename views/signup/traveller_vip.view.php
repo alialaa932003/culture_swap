@@ -43,22 +43,22 @@
 
 
 				<label for="services">Services:</label><br>
-				<input type="radio" id="service1" name="services[]" value="Farmstay help" required>
+				<input type="radio" id="service1" name="services" value="Farmstay help" required>
 				<label for="service1">Farmstay help</label><br>
 
-				<input type="radio" id="service2" name="services[]" value="Creating/ Cooking family meals">
+				<input type="radio" id="service2" name="services" value="Creating/ Cooking family meals">
 				<label for="service2">Creating/ Cooking family meals</label><br>
 
-				<input type="radio" id="service3" name="services[]" value="Art Projects">
+				<input type="radio" id="service3" name="services" value="Art Projects">
 				<label for="service3">Art Projects</label><br>
 
-				<input type="radio" id="service4" name="services[]" value="Animal Care">
+				<input type="radio" id="service4" name="services" value="Animal Care">
 				<label for="service4">Animal Care</label><br>
 
-				<input type="radio" id="service5" name="services[]" value="Teaching">
+				<input type="radio" id="service5" name="services" value="Teaching">
 				<label for="service5">Teaching </label><br>
 
-				<input type="radio" id="service6" name="services[]" value="Language practice">
+				<input type="radio" id="service6" name="services" value="Language practice">
 				<label for="service6">Language practice</label><br>
 
 				<fieldset>
