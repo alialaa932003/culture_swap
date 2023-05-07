@@ -22,7 +22,7 @@ abstract class User{
     protected string $coverPhoto;
     protected string $country;
     protected array $notification = [];
-    protected int $type;
+    protected  $type;
 
 
     //! first Constructors:
@@ -97,7 +97,7 @@ abstract class User{
       return $this->phoneNumber;
     }
   
-    public function setPhoneNumber(int $phoneNumber) {
+    public function setPhoneNumber($phoneNumber) {
       $this->phoneNumber = $phoneNumber;
     }
   
@@ -128,7 +128,7 @@ abstract class User{
     public function getType(){
       return $this->type;
     }
-  
+    
   
     public function addPost( $content,$photos,$videos) {
      $post = new Post();

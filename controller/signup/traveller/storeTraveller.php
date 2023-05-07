@@ -32,6 +32,7 @@ if (Validator::string($password, 8, 55) && Validator::email($email)) {
   $user->add($data);
   login($user);
   header("location: /culture_swap");
+  exit();
 } elseif (!Validator::string($password, 8, 255)) {
   $errors['password'] = 'Please provide a password of at least 8 characters.';
 
