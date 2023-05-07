@@ -22,6 +22,24 @@ class TravellerVip extends Traveller
   {
     $this->id = TravellerVipDB::add($data);
     extract($data);
+    $this->id = $id ?? "";
+    $this->username = $username ?? "";
+    $this->password = $password ?? "";
+    $this->firstName = $first_name ?? "";
+    $this->lastName = $last_name ?? "";
+    $this->password = $password ?? "";
+    $this->type = $type ?? "";
+    $this->email = $email ?? "";
+    $this->phoneNumber = $phone_num ?? "";
+    $this->country = $country ?? "";
+    $this->profilePhoto = $profile_img ?? "";
+    $this->coverPhoto = $cover_img ?? "";
+    if (count($services) != 0) {
+      foreach ($services as $i => $service) {
+        $this->services[$i]['id'] = $service['service_id'];
+        $this->services[$i]['name'] = $service['service'];
+      }
+    }
     $this->cardNumber = $card_number ?? "";
     $this->cvc = $cvc_number ?? "";
     $this->expirationDate = $exp_date ?? "";
@@ -126,7 +144,7 @@ class TravellerVip extends Traveller
         $this->favHostsIds[$i] = $favHost['fav_host_id'];
       }
     }
-    
+
   }
 
   public static function search($attributes, $skip, $limit)
