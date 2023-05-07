@@ -44,27 +44,27 @@
                 <?php foreach ($services as $service) : ?>
 
 
-                    <?php foreach ($services as $service) : ?>
-                        <?php if ($service["name"] === "Animals & Farming") : ?>
-                            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                                <a href="#">
-
-                                    <span class="itemIcon">
-
-                                        <i class="fa-solid fa-seedling"></i>
 
 
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
+                        <a href="#">
+
+                            <span class="itemIcon">
+
+                                <?= $icons[$service["name"]] ?>
 
 
-                                    </span>
 
-                                    <span class="itemText" name="animals">
-                                        <?= $service["name"] ?>
-                                    </span>
-                                </a>
-                            </div>
-                        <?php endif ?>
-                    <?php endforeach; ?>
+
+                            </span>
+
+                            <span class="itemText" name="animals">
+                                <?= $service["name"] ?>
+                            </span>
+                        </a>
+                    </div>
+
+
 
 
 

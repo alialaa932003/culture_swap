@@ -1,10 +1,13 @@
 <?php
+
 use core\Classes\DB\HostDB;
 use core\Database;
+
 $ASSET_URL = "/culture_swap/public/";
 
 //   cards
- $cards= Database::getInstance()->query("SELECT id, MAX(Rate_average) AS max_rating, GROUP_CONCAT(Description SEPARATOR ', ') AS descriptions
+$cards = Database::getInstance()->query(
+    "SELECT id, MAX(Rate_average) AS max_rating, GROUP_CONCAT(Description SEPARATOR ', ') AS descriptions
  FROM host
  GROUP BY id
  ORDER BY max_rating DESC
@@ -13,7 +16,14 @@ $ASSET_URL = "/culture_swap/public/";
 
 //end cards
 
-
+$icons = [
+    "Animals & Farming" => '<i class="fa-solid fa-seedling"></i>',
+    "packpaker Hotels &hospitality" => '<i class="fa-regular fa-hospital"></i>',
+    "Farming & Homesteads" => '<i class="fa-solid fa-tractor"></i>',
+    "Building & Restoration" => '<i class="fa-solid fa-hammer"></i>',
+    "Teaching & language" => '<i class="fa-solid fa-graduation-cap"></i>',
+    "intenships Abroad" => '<i class="fa-solid fa-school"></i>',
+];
 
 
 ///////services 
@@ -30,6 +40,6 @@ LIMIT 8 ")->get();
 
 
 
- 
-   
+
+
 require base_path("views/index.view.php");

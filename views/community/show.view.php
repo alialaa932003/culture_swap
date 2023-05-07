@@ -221,6 +221,10 @@ require base_path("views/partials/head.view.php");
 
         <div class="col-lg-10">
 
+
+
+
+
             <p><?= $comments[$cnt]["content"] ?></p>
 
             <?php $cnt++ ?>
