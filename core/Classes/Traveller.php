@@ -40,10 +40,10 @@ class Traveller extends User
     $this->country = $country ?? "";
     $this->profilePhoto = $profile_img ?? "";
     $this->coverPhoto = $cover_img ?? "";
-    if ($services) {
+    if (count($services) != 0) {
       foreach ($services as $i => $service) {
-        $this->services[$i]['id'] = $service['Id'];
-        $this->services[$i]['name'] = $service['name'];
+        $this->services[$i]['id'] = $service['service_id'];
+        $this->services[$i]['name'] = $service['service'];
       }
     }
   }
