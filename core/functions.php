@@ -143,6 +143,7 @@ function fetchCardData($params) {
 //////////////////////////////////////////////////////////////
  function  login($user)
 {
+    
     session_start();
   $_SESSION['user'] = [
     'type' => $user['type'],
