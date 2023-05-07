@@ -56,8 +56,8 @@ require base_path("views/partials/head.view.php");
 
             </div>
             <div class="row">
-                
-                 <!------------------------ Recent posts -------------------------------------->
+
+                <!------------------------ Recent posts -------------------------------------->
 
                 <div class="col-lg-4">
                     <div class="recent-posts">
@@ -162,7 +162,7 @@ require base_path("views/partials/head.view.php");
                     </div>
                 </div>
 
-                 <!------------------------ end  Recent posts -------------------------------------->
+                <!------------------------ end  Recent posts -------------------------------------->
 
                 <div class="col-lg-8">
                     <div class="details">
@@ -215,12 +215,12 @@ require base_path("views/partials/head.view.php");
                                 </div>
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-comment" aria-hidden="true"></i></span>
-                                    <span class="totalCount">20</span>
+                                    <span class="totalCount"><?= $num_comments ?></span>
                                 </div>
                             </div>
 
                             <p>
-                                <?= $postdet["content"] ?> 
+                                <?= $postdet["content"] ?>
                             </p>
                         </div>
                     </div>
@@ -246,51 +246,51 @@ require base_path("views/partials/head.view.php");
     <div class="allComments">
         <div class="container">
             <!-----------------------------   comments             ----------------------------------->
-           <?php if(isset($comments)) :?>
+            <?php if (isset($comments)) : ?>
 
-            <?php $cnt = 0; ?> 
-            <?php while($cnt < $num_comments )  :?> 
-            <div class="comment row"> 
+                <?php $cnt = 0; ?>
+                <?php while ($cnt < $num_comments) : ?>
+                    <div class="comment row">
 
-            <?php $name = $comments[$cnt]["first_name"] ." ". $comments[$cnt]["last_name"] ?>
-            <div class="col-lg-2">
-                    <div class="user">
-                        <div class="userImg">
-                            <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                        <?php $name = $comments[$cnt]["first_name"] . " " . $comments[$cnt]["last_name"] ?>
+                        <div class="col-lg-2">
+                            <div class="user">
+                                <div class="userImg">
+                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                                </div>
+
+                                <div class="userContent">
+                                    <h3><?= $name ?></h3>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <div class="userContent">
-                            <h3><?=$name?></h3>
+                        <div class="col-lg-10">
+
+                            <p><?= $comments[$cnt]["content"] ?></p>
+
+                            <?php $cnt++ ?>
+
+
                         </div>
+
 
                     </div>
-
-                </div>
-                
-                <div class="col-lg-10">
-                    
-                    <p><?=$comments[$cnt]["content"]?></p>
-
-                    <?php $cnt++ ?>
-                  
-            
-                </div>
-
-               
-            </div>
-            <?php endwhile ?>
+                <?php endwhile ?>
             <?php endif ?>
 
-            <?php if(empty($comments)) :?>
-                
-                      <p style="font-size: 20px;"> No comments found </p>
-                
-              
-                <?php endif ?>
+            <?php if (empty($comments)) : ?>
 
-                
-            
-     <!--------------------------------------- end  comments   ----------------------------------->
+                <p style="font-size: 20px;"> No comments found </p>
+
+
+            <?php endif ?>
+
+
+
+            <!--------------------------------------- end  comments   ----------------------------------->
 
 
         </div>

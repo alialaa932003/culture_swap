@@ -11,7 +11,7 @@ $post = new Post();
 $postdet = $post->getOne($req);
 
 $comments = $postdet['comments'];
-
+dd($postdet);
 $num_comments = count($comments);
 
 
