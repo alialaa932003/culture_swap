@@ -14,7 +14,13 @@ $comments = $postdet['comments'];
 
 $num_comments = count($comments);
 
+/// extract day from date
 
+//$postdet["date"];
+$date = '2023-05-07';
+$day = date('d', strtotime($date));
+//echo $day; 
+///end date
 
 
 

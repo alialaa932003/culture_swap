@@ -58,7 +58,6 @@ require base_path("views/partials/head.view.php");
             <div class="row">
                 
                  <!------------------------ Recent posts -------------------------------------->
-
                 <div class="col-lg-4">
                     <div class="recent-posts">
                         <h4>recent posts</h4>
@@ -164,6 +163,10 @@ require base_path("views/partials/head.view.php");
 
                  <!------------------------ end  Recent posts -------------------------------------->
 
+
+
+
+
                 <div class="col-lg-8">
                     <div class="details">
                         <div class="image">
@@ -174,6 +177,9 @@ require base_path("views/partials/head.view.php");
                                 </span>
                             </button>
                         </div>
+
+<!------------------------------------------------- post info  --------------------------------------------->
+
                         <div class="article-header">
                             <div class="date">
                                 <span>07</span>
@@ -207,6 +213,9 @@ require base_path("views/partials/head.view.php");
                                 </div>
                             </div>
                         </div>
+<!------------------------------------------------- post info  --------------------------------------------->
+
+
                         <div class="detailsContent">
                             <div class="total">
                                 <div class="totalItem">
@@ -272,11 +281,7 @@ require base_path("views/partials/head.view.php");
                     <p><?=$comments[$cnt]["content"]?></p>
 
                     <?php $cnt++ ?>
-                  
-            
                 </div>
-
-               
             </div>
             <?php endwhile ?>
             <?php endif ?>
