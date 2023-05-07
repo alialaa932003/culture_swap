@@ -24,7 +24,6 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
        'password' => $_POST['password'],
        'type' => $type
      ];
-     
     $user->add($data);
      login($user);
     header("location: /culture_swap");
