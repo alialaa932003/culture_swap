@@ -24,5 +24,6 @@ $router->post('/culture_swap/login', 'controller/session/store.php')->only('gues
 
 $router->get('/culture_swap/test', 'controller/test.php');
 
+//! Search
 $router->get('/culture_swap/hosts', 'controller/hosts.php');
 $router->get('/culture_swap/travelers', 'controller/travelers.php');
