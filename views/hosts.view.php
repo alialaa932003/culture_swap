@@ -19,7 +19,6 @@
 	<div class="container">
 		<div class="mt-5 py-5 d-flex justify-content-between" style="gap:4.2rem">
 			<?php
-			$isHost = true;
 			require base_path("views/partials/filters.view.php");
 			?>
 
