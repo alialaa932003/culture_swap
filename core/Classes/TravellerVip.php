@@ -36,7 +36,7 @@ class TravellerVip extends Traveller
     if (count($services) != 0) {
       foreach ($services as $i => $service) {
         $this->services[$i]['id'] = $service['id'];
-        $this->services[$i]['name'] = $service['service'];
+        $this->services[$i]['service'] = $service['service'];
       }
     }
     $this->cardNumber = $card_number ?? "";
@@ -130,7 +130,7 @@ class TravellerVip extends Traveller
     if ($services) {
       foreach ($services as $i => $service) {
         $this->services[$i]['id'] = $service['id'];
-        $this->services[$i]['name'] = $service['name'];
+        $this->services[$i]['service'] = $service['service'];
       }
     }
     if ($notificationIds) {

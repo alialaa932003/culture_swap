@@ -43,7 +43,7 @@ class Traveller extends User
     if (count($services) != 0) {
       foreach ($services as $i => $service) {
         $this->services[$i]['id'] = $service['id'];
-        $this->services[$i]['name'] = $service['service'];
+        $this->services[$i]['service'] = $service['service'];
       }
     }
   }
@@ -196,7 +196,7 @@ class Traveller extends User
   {
     TravellerDB::addService($this->id, $serviceId);
     $this->services[]['id'] = $serviceId;
-    $this->services[]['name'] = $serviceName;
+    $this->services[]['service'] = $serviceName;
   }
 
   public function removeService($serviceId)

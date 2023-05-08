@@ -2,7 +2,7 @@
 
 // This part display the errors to browser
 
-
+session_start();
 ini_set('display_errors', 1);
 ini_set('error_reporting', 1);
 // echo __DIR__;
@@ -11,7 +11,6 @@ require BASE_PATH . 'core/functions.php';
 require BASE_PATH . 'Components.php';
 // require base_path('Database.php');
 // require base_path('Response.php');
-
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
     require base_path($class . ".php");
