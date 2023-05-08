@@ -95,7 +95,6 @@ class TravellerDB
         $dbref =  Database::getInstance();
         extract($data);
 
-        $serviceIds = implode(',', $serviceIds);
         $servicesCondtion = $serviceIds ? "AND service_id IN ($serviceIds)" : '';
 
         $travellers = $dbref->query(
@@ -108,8 +107,9 @@ class TravellerDB
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
+                    OR
+                    country like :country 
                 ) 
-                AND country like :country 
                 {$servicesCondtion}
                 ORDER BY _user.id desc   
                 LIMIT $limit
@@ -121,6 +121,9 @@ class TravellerDB
                 'country' => '%' . $country . '%'
             ]
         )->get();
+
+        if (empty($travellers))
+            return [];
 
         $travellerIds = implode(
             ',',

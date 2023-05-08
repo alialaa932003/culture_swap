@@ -119,7 +119,6 @@ class HostDB
         $dbref = Database::getInstance();
         extract($data);
 
-        $needIds = implode(',', $needIds);
         $needssCondtion = $needIds ? "AND Need_id IN ({$needIds})" : '';
 
         $hosts = $dbref->query(
@@ -132,8 +131,9 @@ class HostDB
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
+                    OR
+                    country like :country 
                 ) 
-                AND country like :country 
                 AND Rate_average between :startRate and :endRate 
                 {$needssCondtion}
                 ORDER BY _user.id desc   
@@ -148,6 +148,9 @@ class HostDB
                 'endRate' => $endRate
             ]
         )->get();
+
+        if (empty($hosts))
+            return [];
 
         $hostIds = implode(
             ',',
