@@ -68,7 +68,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
        'profile_img' => "{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
        'services' => [
          [
-           'service_id' => '1',
+           'id' => '1',
            'service' => $_POST['services']
          ],
       ],

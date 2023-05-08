@@ -42,7 +42,7 @@ class Traveller extends User
     $this->coverPhoto = $cover_img ?? "";
     if (count($services) != 0) {
       foreach ($services as $i => $service) {
-        $this->services[$i]['id'] = $service['service_id'];
+        $this->services[$i]['id'] = $service['id'];
         $this->services[$i]['name'] = $service['service'];
       }
     }
