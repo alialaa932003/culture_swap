@@ -17,7 +17,7 @@
     <header>	
 		<section class="section-padding">
 			<h2>Traveller Sign Up</h2>
-			<form action="/culture_swap/signup/traveller_vip" method="POST">
+			<form action="/culture_swap/signup/traveller_vip" method="POST" enctype="multipart/form-data">
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" placeholder="Enter your username" required><br>
 
@@ -85,7 +85,7 @@
 				<label for="cvc">CVC:</label>
 				<input type="text" id="cvc" name="cvc" placeholder="Enter your CVC"required><br>
 
-				<button type="submit" class="main-btn">Sign Up</button>
+				<button type="submit" name="submit" class="main-btn">Sign Up</button>
 			</form>
 		</section>	
 	</header>

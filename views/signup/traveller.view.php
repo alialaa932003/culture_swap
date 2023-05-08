@@ -16,7 +16,7 @@
 
     <header class="section-padding">
 			<h2>Traveler Sign Up for free </h2>
-			<form action="/culture_swap/signup/traveller" method="POST">
+			<form action="/culture_swap/signup/traveller" method="POST" enctype="multipart/form-data">
 				
 				<label for="user-name">user Name:</label>
 				<input type="text" id="user-name" name="user-name" placeholder="Enter your user name" required><br>
@@ -64,7 +64,7 @@
 				<input type="radio" id="service6" name="services" value="Language practice">
 				<label for="service6">Language practice</label><br>
 
-				<button type="submit" class="main-btn">Sign Up</button>
+				<button type="submit" name="submit" class="main-btn">Sign Up</button>
 			</form>
 
 

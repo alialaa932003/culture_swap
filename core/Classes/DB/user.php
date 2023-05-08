@@ -13,7 +13,7 @@ class user{
     public static function cheick($username,$password){
 
         $dbref =  Database::getInstance();
-        $user=$dbref->query("select * from _user where email='$username' and password ='$password'");
+        $user=$dbref->query("select * from _user where username='$username' and password ='$password'");
         return $user;
     }
 

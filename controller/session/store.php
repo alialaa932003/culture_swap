@@ -25,6 +25,3 @@ if ($user){
 else{
     $errors ="user name or password invaild " ;
 }
-
-//// route
-// imag && Query && error masage && header in host && vip
