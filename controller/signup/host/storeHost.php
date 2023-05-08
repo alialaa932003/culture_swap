@@ -48,13 +48,24 @@ if (isset($_POST['submit'])) {
     }
 }
 
+/*
 
+
+// Get the user's password from a form
+$password = $_POST['password'];
+
+// Hash the password
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
+*/
 
 
 
 ///
 if(Validator::string($password,  8, 55) && Validator::email($email))
 {
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $user = new Host();
      $data = [
         'username'=>$_POST['user-name'],
@@ -65,7 +76,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
          'profile_img' => "{$config['base_urll']}/public/assets/imgs/profile/{$fileNameNew}",
          'country' => $_POST['country'],
          'services' => $_POST['help-with'],
-         'password' => $_POST['password'],
+         'password' => $hashedPassword ,
          'type' => $type,
          'Description' => $_POST['Description'],
          'Traveller_num' => 0,
@@ -79,7 +90,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
 }
 elseif (!Validator::string($password, 8, 255)) {
      $errors['password'] = 'Please provide a password of at least 8 characters.';
-    
+
  }
 else if (!Validator::email($email)) {
     $errors['email'] = 'Please provide a valid email address.';

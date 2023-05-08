@@ -28,10 +28,10 @@
 				<input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required><br>
 
 				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+				<input type="email" id="email" name="email" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"><br>
 
 				<label for="password">Password:</label>
-				<input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+				<input type="password" id="password" name="password" placeholder="Enter your password" required pattern=".{8,}" title="Password must be at least 8 characters long"><br>
 
 				<label for="phone-number">Phone Number:</label>
 				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
@@ -77,13 +77,13 @@
 				</fieldset>
 
 				<label for="card-number">Card Number:</label>
-				<input type="text" id="card-number" name="card-number" placeholder="Enter your card number"required><br>
+				<input type="text" id="card-number" name="card-number" placeholder="Enter your card number"required pattern=".{16}" title="Password must be  16 characters long" ><br>
 
 				<label for="expiration-date">Expiration Date:</label>
 				<input type="month" id="expiration-date" name="expiration-date" placeholder="MM/YY" required><br>
 
 				<label for="cvc">CVC:</label>
-				<input type="text" id="cvc" name="cvc" placeholder="Enter your CVC"required><br>
+				<input type="text" id="cvc" name="cvc" placeholder="Enter your CVC" required pattern=".{3}" title="Password must be 3 characters long"><br>
 
 				<button type="submit" name="submit" class="main-btn">Sign Up</button>
 			</form>
