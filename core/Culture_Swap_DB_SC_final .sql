@@ -3,13 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 02, 2023 at 07:32 PM
+-- Generation Time: May 08, 2023 at 06:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `culture_swap`
@@ -26,7 +32,7 @@ CREATE TABLE `comment` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `content` varchar(500) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -36,10 +42,7 @@ CREATE TABLE `comment` (
 INSERT INTO `comment` (`Id`, `post_id`, `user_id`, `content`, `date`) VALUES
 (1, 1, 1, 'Great post, thanks for sharing!', '2023-05-02 14:00:00'),
 (2, 2, 2, 'Great post, thanks for sharing!', '2023-05-02 14:00:00'),
-(3, 2, 2, 'Great post, thanks for sharing!', '2023-05-02 14:00:00'),
-(4, 1, 5, 'Great post, thanks for sharing!', '2023-05-02 14:00:00'),
-(5, 2, 6, 'Great post, thanks for sharing!', '2023-05-02 14:00:00'),
-(6, 3, 5, 'Great post, thanks for sharing!', '2023-05-02 14:00:00');
+(3, 2, 2, 'Great post, thanks for sharing!', '2023-05-02 14:00:00');
 
 -- --------------------------------------------------------
 
@@ -78,19 +81,6 @@ CREATE TABLE `host_need` (
   `Need_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `host_need`
---
-
-INSERT INTO `host_need` (`Host_id`, `Need_id`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(2, 1),
-(2, 2),
-(2, 3),
-(2, 8);
-
 -- --------------------------------------------------------
 
 --
@@ -102,18 +92,6 @@ CREATE TABLE `host_rate` (
   `traveller_id` int(11) NOT NULL,
   `rate` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `host_rate`
---
-
-INSERT INTO `host_rate` (`host_id`, `traveller_id`, `rate`) VALUES
-(1, 5, 4),
-(1, 6, 4),
-(2, 5, 1),
-(2, 6, 2),
-(3, 5, 3),
-(3, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -127,16 +105,6 @@ CREATE TABLE `host_review` (
   `review` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `host_review`
---
-
-INSERT INTO `host_review` (`host_id`, `reviewer_id`, `review`) VALUES
-(1, 5, 'This host was amazing! They provided excellent service and made my stay very comfortable.'),
-(1, 6, 'This host was amazing! They provided excellent service and made my stay very comfortable.'),
-(2, 6, 'This host was amazing! They provided excellent service and made my stay very comfortable.'),
-(4, 5, 'This host was amazing! They provided excellent service and made my stay very comfortable.');
-
 -- --------------------------------------------------------
 
 --
@@ -147,20 +115,6 @@ CREATE TABLE `host_traveller` (
   `traveller_id` int(11) NOT NULL,
   `host_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `host_traveller`
---
-
-INSERT INTO `host_traveller` (`traveller_id`, `host_id`) VALUES
-(5, 1),
-(5, 2),
-(5, 3),
-(5, 4),
-(6, 1),
-(6, 2),
-(6, 3),
-(6, 4);
 
 -- --------------------------------------------------------
 
@@ -190,52 +144,29 @@ INSERT INTO `interaction` (`code`, `action_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `User_id` int(11) DEFAULT NULL,
-  `Email` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`User_id`, `Email`, `password`) VALUES
-(5, 'ali.adel@ali.adel', '12345678'),
-(2, 'ali.alaa@ali.alaa', '12345678'),
-(3, 'halem.ashraf@halem.ashraf', '12345678'),
-(1, 'omar.osama@omar.osama', '12345678'),
-(4, 'salah.mohamed@salah.mohamed', '12345678'),
-(6, 'shehab.waleed@shehab.waleed', '12345678');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `notification`
 --
 
 CREATE TABLE `notification` (
   `Id` int(11) NOT NULL,
-  `Sender_id` int(11) DEFAULT NULL,
-  `reciever_id` int(11) DEFAULT NULL,
-  `content` varchar(100) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
-  `action` int(11) DEFAULT NULL
+  `sender_id` int(11) NOT NULL,
+  `reciever_id` int(11) NOT NULL,
+  `content` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `action` int(11) NOT NULL,
+  `action_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`Id`, `Sender_id`, `reciever_id`, `content`, `status`, `action`) VALUES
-(1, 1, 2, 'You have a new message!', 0, 1),
-(2, 3, 1, 'Your post has been liked!', 1, 2),
-(3, 2, 1, 'Your reservation request has been approved!', 0, 3),
-(4, 4, 1, 'You have a new follower!', 1, 4),
-(5, 1, 3, 'You have been invited to join a group!', 0, 5);
+INSERT INTO `notification` (`Id`, `sender_id`, `reciever_id`, `content`, `status`, `action`, `action_id`) VALUES
+(1, 1, 2, 'You have a new message!', 0, 1, 0),
+(2, 3, 1, 'Your post has been liked!', 1, 2, 0),
+(3, 2, 1, 'Your reservation request has been approved!', 0, 3, 0),
+(4, 4, 1, 'You have a new follower!', 1, 4, 0),
+(5, 1, 3, 'You have been invited to join a group!', 0, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -249,7 +180,7 @@ CREATE TABLE `post` (
   `content` varchar(1000) NOT NULL,
   `title` varchar(50) NOT NULL,
   `love_num` int(11) NOT NULL,
-  `date` datetime NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
   `img` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -259,9 +190,7 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`Id`, `user_id`, `content`, `title`, `love_num`, `date`, `img`) VALUES
 (1, 1, 'This is the content of my first post.', 'My First Post', 5, '2023-05-02 12:00:00', NULL),
-(2, 2, 'This is the content of my first post.', 'My First Post', 0, '2023-05-02 12:00:00', NULL),
-(3, 5, 'This is the content of my first post.', 'My First Post', 5, '2023-05-02 12:00:00', NULL),
-(4, 6, 'This is the content of my first post.', 'My First Post', 5, '2023-05-02 12:00:00', NULL);
+(2, 2, 'This is the content of my first post.', 'My First Post', 0, '2023-05-02 12:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,20 +202,10 @@ CREATE TABLE `reservation` (
   `Id` int(11) NOT NULL,
   `traveller_id` int(11) NOT NULL,
   `host_id` int(11) NOT NULL,
-  `Status` varchar(15) NOT NULL,
+  `Status` int(11) NOT NULL,
   `Start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`Id`, `traveller_id`, `host_id`, `Status`, `Start_date`, `end_date`) VALUES
-(1, 5, 2, 'Pending', '2022-06-01 00:00:00', '2023-06-05 00:00:00'),
-(2, 5, 4, 'Pending', '2023-06-01 00:00:00', '2023-09-20 00:00:00'),
-(3, 6, 2, 'Pending', '2022-06-01 00:00:00', '2023-06-05 00:00:00'),
-(4, 6, 3, 'Pending', '2023-06-01 00:00:00', '2023-06-05 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -296,7 +215,7 @@ INSERT INTO `reservation` (`Id`, `traveller_id`, `host_id`, `Status`, `Start_dat
 
 CREATE TABLE `service` (
   `Id` int(11) NOT NULL,
-  `name` varchar(30) DEFAULT NULL
+  `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -304,16 +223,12 @@ CREATE TABLE `service` (
 --
 
 INSERT INTO `service` (`Id`, `name`) VALUES
-(1, 'Web Development'),
-(2, 'Mobile App Development'),
-(3, 'UI/UX Design'),
-(4, 'Digital Marketing'),
-(5, 'Search Engine Optimization (SE'),
-(6, 'Social Media Marketing'),
-(7, 'Content Writing'),
-(8, 'Graphic Design'),
-(9, 'Video Editing'),
-(10, 'Photography');
+(1, 'Animals & Farming'),
+(2, 'packpaker Hotels &hospitality'),
+(3, 'Farming & Homesteads'),
+(4, 'Building & Restoration'),
+(5, 'Teaching & language'),
+(6, 'intenships Abroad');
 
 -- --------------------------------------------------------
 
@@ -326,14 +241,6 @@ CREATE TABLE `traveller` (
   `User_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `traveller`
---
-
-INSERT INTO `traveller` (`Id`, `User_id`) VALUES
-(5, 5),
-(6, 6);
-
 -- --------------------------------------------------------
 
 --
@@ -344,17 +251,6 @@ CREATE TABLE `traveller_fav_hosts` (
   `traveller_id` int(11) NOT NULL,
   `fav_host_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `traveller_fav_hosts`
---
-
-INSERT INTO `traveller_fav_hosts` (`traveller_id`, `fav_host_id`) VALUES
-(5, 2),
-(5, 3),
-(5, 4),
-(6, 1),
-(6, 2);
 
 -- --------------------------------------------------------
 
@@ -367,14 +263,6 @@ CREATE TABLE `traveller_friend` (
   `friend_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `traveller_friend`
---
-
-INSERT INTO `traveller_friend` (`traveller_id`, `friend_id`) VALUES
-(5, 6),
-(6, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -385,18 +273,6 @@ CREATE TABLE `traveller_service` (
   `traveller_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `traveller_service`
---
-
-INSERT INTO `traveller_service` (`traveller_id`, `service_id`) VALUES
-(5, 2),
-(5, 3),
-(5, 5),
-(6, 7),
-(6, 9),
-(6, 10);
 
 -- --------------------------------------------------------
 
@@ -411,14 +287,6 @@ CREATE TABLE `traveller_vip` (
   `cvc_number` varchar(3) NOT NULL,
   `exp_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `traveller_vip`
---
-
-INSERT INTO `traveller_vip` (`traveller_id`, `payment_option`, `card_number`, `cvc_number`, `exp_date`) VALUES
-(5, 'visa', '1234567890123456', '123', '2024-05-01 00:00:00'),
-(6, 'master card', '1234567120123456', '156', '2025-05-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -437,20 +305,9 @@ CREATE TABLE `user_post_love` (
 
 INSERT INTO `user_post_love` (`user_id`, `post_id`) VALUES
 (1, 1),
-(1, 3),
-(1, 4),
 (2, 1),
-(2, 3),
-(2, 4),
 (3, 1),
-(3, 3),
-(3, 4),
-(4, 1),
-(4, 3),
-(4, 4),
-(5, 1),
-(5, 3),
-(5, 4);
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -469,8 +326,7 @@ CREATE TABLE `user_type` (
 
 INSERT INTO `user_type` (`Id`, `usertype`) VALUES
 (1, 'host'),
-(2, 'host'),
-(3, 'traveller');
+(2, 'traveller');
 
 -- --------------------------------------------------------
 
@@ -483,24 +339,23 @@ CREATE TABLE `_user` (
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `type` int(11) DEFAULT NULL,
+  `type` int(11) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
   `profile_img` blob NOT NULL,
-  `cover_img` blob DEFAULT NULL,
-  `country` varchar(15) NOT NULL
+  `cover_img` blob NOT NULL,
+  `country` varchar(15) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `_user`
 --
 
-INSERT INTO `_user` (`Id`, `first_name`, `last_name`, `email`, `type`, `phone_num`, `profile_img`, `cover_img`, `country`) VALUES
-(1, 'omar', 'osama', 'omar.osama@omar.osama', 1, '1234567890', 0x3c62696e6172792d646174613e, NULL, 'USA'),
-(2, 'ali', 'alaa', 'ali.alaa@ali.alaa', 1, '1234567889', 0x3c62696e6172792d646174613e, NULL, 'Uk'),
-(3, 'halem', 'ashraf', 'halem.ashraf@halem.ashraf', 1, '1245567890', 0x3c62696e6172792d646174613e, NULL, 'egypt'),
-(4, 'salah', 'mohamed', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, NULL, 'sudia'),
-(5, 'ali', 'adel', 'ali.adel@ali.adel', 2, '4545567890', 0x3c62696e6172792d646174613e, NULL, 'egypt'),
-(6, 'shehab', 'waleed', 'shehab.waleed@shehab.waleed', 2, '12178957890', 0x3c62696e6172792d646174613e, NULL, 'moracoo');
+INSERT INTO `_user` (`Id`, `first_name`, `last_name`, `email`, `type`, `phone_num`, `profile_img`, `cover_img`, `country`, `password`) VALUES
+(1, 'omar', 'osama', 'omar.osama@omar.osama', 1, '1234567890', 0x3c62696e6172792d646174613e, '', 'USA', ''),
+(2, 'ali', 'alaa', 'ali.alaa@ali.alaa', 1, '1234567889', 0x3c62696e6172792d646174613e, '', 'Uk', ''),
+(3, 'halem', 'ashraf', 'halem.ashraf@halem.ashraf', 1, '1245567890', 0x3c62696e6172792d646174613e, '', 'egypt', ''),
+(4, 'salah', 'mohamed', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, '', 'sudia', '');
 
 --
 -- Indexes for dumped tables
@@ -554,13 +409,6 @@ ALTER TABLE `host_traveller`
 --
 ALTER TABLE `interaction`
   ADD PRIMARY KEY (`code`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD UNIQUE KEY `Email` (`Email`),
-  ADD KEY `User_id` (`User_id`);
 
 --
 -- Indexes for table `notification`
@@ -743,12 +591,6 @@ ALTER TABLE `host_traveller`
   ADD CONSTRAINT `host_traveller_ibfk_2` FOREIGN KEY (`host_id`) REFERENCES `host` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `login`
---
-ALTER TABLE `login`
-  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`User_id`) REFERENCES `_user` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `notification`
 --
 ALTER TABLE `notification`
@@ -812,3 +654,7 @@ ALTER TABLE `user_post_love`
 ALTER TABLE `_user`
   ADD CONSTRAINT `_user_ibfk_1` FOREIGN KEY (`type`) REFERENCES `user_type` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
