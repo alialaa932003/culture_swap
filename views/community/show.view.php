@@ -98,11 +98,19 @@ require base_path("views/partials/head.view.php");
                     <div class="details">
                         <div class="image">
                             <img src=<?= $postdet['img'] ?> alt="">
-                            <button class="love">
-                                <span>
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                            </button>
+                            <form action="" method="POST">
+                                <input type="hidden" name="loveVal" value=<?= $_GET['id'] ?>>
+                                <button class="love" type="submit" name="subLove">
+                                    <span>
+                                        <?php if (in_array($_GET['id'], $user_loves)) :  ?>
+                                            <i class="fa-solid fa-heart"></i>
+                                        <?php endif;  ?>
+                                        <?php if (!in_array($_GET['id'], $user_loves)) :  ?>
+                                            <i class="fa-regular fa-heart"></i>
+                                        <?php endif;  ?>
+                                    </span>
+                                </button>
+                            </form>
                         </div>
 
                         <!------------------------------------------------- post info  --------------------------------------------->

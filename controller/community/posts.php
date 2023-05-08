@@ -3,6 +3,7 @@ $ASSET_URL = "/culture_swap/public/";
 
 use core\Classes\Post;
 use core\Classes\Comment;
+use core\Classes\DB\PostDB;
 
 $config = require base_path('config.php');
 // $posts = new Post();
@@ -29,6 +30,8 @@ $pageNumber = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($pageNumber - 1) * $postsPerPage;
 // Perform the search query and retrieve the results
 // This is just an example and will depend on your specific application
+$current_user_id = 1;
+$user_loves = Post::get_user_loves($current_user_id);
 if (!empty($searchQuery)) {
     $results = Post::search($searchQuery, $offset, $postsPerPage);
 

@@ -72,7 +72,7 @@ require base_path("views/partials/head.view.php");
 
 
 
-                            <?= $error['body'] ?>
+
                             <?php foreach ($results as $post) : ?>
                                 <?php if (isset($post)) : ?>
                                     <div class="col-12">
@@ -116,11 +116,19 @@ require base_path("views/partials/head.view.php");
                                             </div>
                                             <div class="article-image">
                                                 <a href="/culture_swap/post?id=<?= $post['post_id'] ?>">
-                                                    <button class="love">
-                                                        <span>
-                                                            <i class="fa-regular fa-heart"></i>
-                                                        </span>
-                                                    </button>
+                                                    <form action="/culture_swap/posts" method="POST">
+                                                        <input type="hidden" name="loveVal" value=<?= $post['post_id'] ?>>
+                                                        <button class="love" type="submit" name="subLove">
+                                                            <span>
+                                                                <?php if (in_array($post['post_id'], $user_loves)) :  ?>
+                                                                    <i class="fa-solid fa-heart"></i>
+                                                                <?php endif;  ?>
+                                                                <?php if (!in_array($post['post_id'], $user_loves)) :  ?>
+                                                                    <i class="fa-regular fa-heart"></i>
+                                                                <?php endif;  ?>
+                                                            </span>
+                                                        </button>
+                                                    </form>
                                                     <img src="<?= $post['img'] ?> " alt="">
                                                 </a>
 

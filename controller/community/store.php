@@ -3,7 +3,10 @@
 use core\Classes\Post;
 
 $config = require base_path('config.php');
-
+$current_user_id = 1;
+if (isset($_POST['subLove'])) {
+    Post::makeLove($current_user_id, $_POST['loveVal']);
+}
 if (isset($_POST['submit'])) {
 
 
@@ -34,13 +37,18 @@ if (isset($_POST['submit'])) {
                 ]);
 
                 header('location: ' .  "/culture_swap/posts?message=upload-success");
+                die();
             } else {
                 header('location: ' .  '/culture_swap/posts?message=your-file-is-too-big');
+                die();
             }
         } else {
             header('location: ' .  '/culture_swap/posts?message=there-was-an-error-uploading-your-file');
+            die();
         }
     } else {
         header('location: ' .  '/culture_swap/posts?message=you-can-not-upload-file-of-this-type');
+        die();
     }
 }
+header('Location: ' . $_SERVER['HTTP_REFERER']);

@@ -163,4 +163,17 @@ class Post
     {
         return PostDB::count_posts($searchQuery);
     }
+    public static function get_user_loves($id)
+    {
+        return PostDB::get_user_loves($id);
+    }
+    public static function makeLove($user_id, $post_id)
+    {
+        $val = PostDB::checkLove($user_id, $post_id);
+        if (!empty($val)) {
+            PostDB::removeLove($user_id, $post_id);
+            return;
+        }
+        PostDB::makeLove($user_id, $post_id);
+    }
 }

@@ -72,4 +72,40 @@ class PostDB
         $post['comments'] = $comments;
         return $post;
     }
+    public static function  get_user_loves($id)
+    {
+        $arr = Database::getInstance()->query("SELECT post_id FROM user_post_love WHERE user_id = :id", ['id' => $id])->get();
+        $flat_array = array_column($arr, "post_id");
+        return $flat_array;
+    }
+    public static function  makeLove($user_id, $post_id)
+    {
+        Database::getInstance()->query(
+            "INSERT INTO user_post_love (user_id,post_id) VALUES (:user_id,:post_id) ",
+            [
+                'user_id' => $user_id,
+                'post_id' => $post_id,
+            ]
+        );
+    }
+    public static function  removeLove($user_id, $post_id)
+    {
+        Database::getInstance()->query(
+            "DELETE FROM  user_post_love WHERE user_id = :user_id AND post_id =  :post_id ",
+            [
+                'user_id' => $user_id,
+                'post_id' => $post_id,
+            ]
+        );
+    }
+    public static function  checkLove($user_id, $post_id)
+    {
+        return Database::getInstance()->query(
+            "SELECT user_id FROM user_post_love WHERE user_id = :user_id AND post_id = :post_id ",
+            [
+                'user_id' => $user_id,
+                'post_id' => $post_id,
+            ]
+        )->get();
+    }
 }
