@@ -22,7 +22,7 @@ $icons = [
     "Farming & Homesteads" => '<i class="fa-solid fa-tractor"></i>',
     "Building & Restoration" => '<i class="fa-solid fa-hammer"></i>',
     "Teaching & language" => '<i class="fa-solid fa-graduation-cap"></i>',
-    "intenships Abroad" => '<i class="fa-solid fa-school"></i>',
+    "intenships Abroad" => '<i class="fa-solid fa-school"></i>',
 ];
 
 
