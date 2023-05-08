@@ -1,14 +1,23 @@
 <?php
 
-class Components {
-  static public function createCard($cardData, $cardClasses)
+class Components
+{
+  private static $CARDS_PER_PAGE = 30;
+
+  public static function getCardsPerPageLimit()
+  {
+    return Components::$CARDS_PER_PAGE;
+  }
+
+  public static function createCard($cardData, $cardClasses)
   {
     extract($cardData);
     extract($cardClasses);
     require base_path("views/partials/card.view.php");
   }
 
-  static public function createCardsGrid($cardsData, $gridClasses = [], $cardClasses = [], $createHead = null){
+  public static function createCardsGrid($cardsData, $gridClasses = [], $cardClasses = [], $createHead = null)
+  {
     extract($gridClasses);
     require base_path("views/partials/grid.view.php");
   }
