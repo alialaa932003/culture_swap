@@ -12,9 +12,9 @@ ini_set('error_reporting', 1);
 use core\Classes\TravellerVip;
 
 dd(HostDB::search([
-  'needIds' => [8, 3],
+  'needIds' => "8,2",
   'startRate' => 0,
-  'endRate' => 5
+  'endRate' => 4
 ], 0, 30));
 
 
