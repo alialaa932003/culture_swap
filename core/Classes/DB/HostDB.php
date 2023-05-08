@@ -52,7 +52,7 @@ class HostDB
 
         $userId =  $dbref->getLastRecordIdAdded("_user");
 
-        if (isset($needs)&& count($needs)) {
+        if (isset($needs) && count($needs)) {
             $values = [];
             $params = [
                 'id' => $userId,
@@ -73,7 +73,7 @@ class HostDB
 
             $values_str = implode(',', $values);
             $stmt = $dbref->connection->prepare(
-                "INSERT INTO host (id,status, Description, Rate_average, travelers_num, location, user_id) 
+                "INSERT INTO host (id,status, Description, Rate_average, Traveller_num, location, user_id) 
                     values(:id,:status,:description,:rate, :travelersNum, :location, :userId);
                 INSERT INTO host_need (Host_id, Need_id)
                     VALUES $values_str;
@@ -119,18 +119,23 @@ class HostDB
         $dbref = Database::getInstance();
         extract($data);
 
+        $needssCondtion = $needIds ? "AND Need_id IN ({$needIds})" : '';
+
         $hosts = $dbref->query(
-            "SELECT _user.* , [status],[descriiption],rate,travellers_num , [location] from _user 
+            "SELECT DISTINCT _user.* , status, Description, Rate_average, Traveller_num, location from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.id
+                INNER JOIn host_need
+                ON host_need.Host_id = _user.id
                 WHERE (
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
+                    OR
+                    country like :country 
                 ) 
-                AND country like :country 
-                AND rate between :startRate and :endRate 
-                AND [service].name like '%:service%'
+                AND Rate_average between :startRate and :endRate 
+                {$needssCondtion}
                 ORDER BY _user.id desc   
                 LIMIT $limit
                 OFFSET $offset 
@@ -139,8 +144,13 @@ class HostDB
                 'first_name' => '%' . $first_name . '%',
                 'last_name' => '%' . $last_name . '%',
                 'country' => '%' . $country . '%',
+                'startRate' => $startRate,
+                'endRate' => $endRate
             ]
         )->get();
+
+        if (empty($hosts))
+            return [];
 
         $hostIds = implode(
             ',',
@@ -150,7 +160,7 @@ class HostDB
         );
 
         $hostNeeds = $dbref->query(
-            "SELECT need.*, host_need.Host_id from host_need
+            "SELECT service.*, host_need.Host_id from host_need
                 INNER JOIN service
                 on host_need.Need_id = service.id
                 WHERE host_need.Host_id IN ({$hostIds})

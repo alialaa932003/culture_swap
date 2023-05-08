@@ -35,8 +35,8 @@ class TravellerVip extends Traveller
     $this->coverPhoto = $cover_img ?? "";
     if (count($services) != 0) {
       foreach ($services as $i => $service) {
-        $this->services[$i]['id'] = $service['service_id'];
-        $this->services[$i]['name'] = $service['service'];
+        $this->services[$i]['id'] = $service['id'];
+        $this->services[$i]['service'] = $service['service'];
       }
     }
     $this->cardNumber = $card_number ?? "";
@@ -129,8 +129,8 @@ class TravellerVip extends Traveller
     $this->paymentOption = $payment_option ?? "";
     if ($services) {
       foreach ($services as $i => $service) {
-        $this->services[$i]['id'] = $service['Id'];
-        $this->services[$i]['name'] = $service['name'];
+        $this->services[$i]['id'] = $service['id'];
+        $this->services[$i]['service'] = $service['service'];
       }
     }
     if ($notificationIds) {

@@ -66,7 +66,7 @@ if (Validator::string($password, 8, 55) && Validator::email($email)) {
     'country' => $_POST['country'],
     'services' => [
       [
-        'service_id' => '1',
+        'id' => '1',
         'service' => $_POST['services']
       ]
     ],

@@ -95,16 +95,22 @@ class TravellerDB
         $dbref =  Database::getInstance();
         extract($data);
 
+        $servicesCondtion = $serviceIds ? "AND service_id IN ($serviceIds)" : '';
+
         $travellers = $dbref->query(
-            "SELECT _user.*  from _user 
+            "SELECT DISTINCT _user.*  from _user 
                 INNER JOIN traveller 
                 ON traveller.user_id = _user.id
+                INNER JOIn traveller_service
+                ON traveller_service.traveller_id = _user.id
                 WHERE (
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
+                    OR
+                    country like :country 
                 ) 
-                AND country like :country 
+                {$servicesCondtion}
                 ORDER BY _user.id desc   
                 LIMIT $limit
                 OFFSET $offset 
@@ -115,6 +121,9 @@ class TravellerDB
                 'country' => '%' . $country . '%'
             ]
         )->get();
+
+        if (empty($travellers))
+            return [];
 
         $travellerIds = implode(
             ',',

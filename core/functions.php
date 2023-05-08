@@ -1,176 +1,85 @@
 <?php
 
-
+use core\Classes\Host;
+use core\Classes\Traveller;
 use core\Response;
-function dd($value){
+
+function dd($value)
+{
     echo "<pre>";
     var_dump($value);
 
     echo "</pre>";
     die();
 }
-function base_path($path){
+function base_path($path)
+{
     return BASE_PATH . $path;
 }
 
-function abort($code=404){
+function abort($code = 404)
+{
     http_response_code($code);
 
-        require base_path("views/error$code.php");
-        die();
+    require base_path("views/error$code.php");
+    die();
 }
 
-function authorize($condition,$status =Response::FORBIDDEN){
-    if(!$condition){
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if (!$condition) {
         abort($status);
     }
 }
 
-function fetchCardData($params) {
-    $cardsData = [
-        [
-            'img' => "public/assets/imgs/home/header5.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 4,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header4.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 5,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header2.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 1,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header2.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 3,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header5.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 0,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header4.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 4,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header4.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 5,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header2.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 2,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header5.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 3,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header2.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 4,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header4.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 1,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
-        [
-            'img' => "public/assets/imgs/home/header5.webp",
-            'country' => "norway",
-            'title' => "Beautiful smallholding on the island of Engeløya, Norway",
-            'rating' => 4,
-            'hostId' => 1,
-            'isFav' => true,
-            'toggleFav' => function () {},
-        ],
+function fetchHostsCardData($params, $page)
+{
+    $filters = [
+        'first_name' => $params['searchQ'] ?? '',
+        'last_name' => $params['searchQ'] ?? '',
+        'country' => $params['searchQ'] ?? '',
+        'needIds' => $params['needIds'],
+        'startRate' => $params['startRate'] ?? 0,
+        'endRate' => $params['endRate'] ?? 5
     ];
+    $limit = Components::getCardsPerPageLimit();
+    $cardsData = Host::search($filters, $page, $limit);
+
+    return $cardsData;
+}
+
+function fetchTravelersCardData($params, $page)
+{
+    $filters = [
+        'first_name' => $params['searchQ'] ?? '',
+        'last_name' => $params['searchQ'] ?? '',
+        'country' => $params['searchQ'] ?? '',
+        'serviceIds' => $params['serviceIds'],
+    ];
+    $limit = Components::getCardsPerPageLimit();
+    $cardsData = Traveller::search($filters, $page, $limit);
 
     return $cardsData;
 }
 //////////////////////////////////////////////////////////////
- function  login($user)
+function  login($user)
 {
-    
+
     session_start();
   $_SESSION['user'] = [
-    //'type' => $user->getType(),
+    'type' => $user->getType(),
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
   ];
-  if ($user->getType()==1)
-  {
-    $_SESSION['user']['type']="traveller ";
-  }
-  else {
-    $_SESSION['user']['type']="host";
-
-  }
   session_regenerate_id(true); // To have a high security
 }
 
 
-function  logout(){
-  $_SESSION = []; // create our session super global
- 
+function  logout()
+{
+    $_SESSION = []; // create our session super global
+
     session_destroy();
 }
-
-
-
-
-?>
