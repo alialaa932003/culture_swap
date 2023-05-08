@@ -6,7 +6,7 @@ use core\Classes\Post;
 $current_user_id = 1;
 $user_loves = Post::get_user_loves($current_user_id);
 $req = $_GET['id'];
-
+$lovesNum = Post::get_loves_num($_GET['id'])['lovesNum'];
 $post = new Post();
 
 $postdet = $post->getOne($req);

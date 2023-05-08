@@ -167,6 +167,10 @@ class Post
     {
         return PostDB::get_user_loves($id);
     }
+    public static function get_loves_num($post_id)
+    {
+        return PostDB::get_loves_num($post_id);
+    }
     public static function makeLove($user_id, $post_id)
     {
         $val = PostDB::checkLove($user_id, $post_id);

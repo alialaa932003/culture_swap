@@ -158,7 +158,7 @@ require base_path("views/partials/head.view.php");
                             <div class="total">
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                                    <span class="totalCount"><?= $postdet['love_num'] ?></span>
+                                    <span class="totalCount"><?= $lovesNum ?></span>
                                 </div>
                                 <div class="totalItem">
                                     <span class="totalIcon"><i class="fa fa-comment" aria-hidden="true"></i></span>
