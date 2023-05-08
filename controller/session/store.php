@@ -3,8 +3,9 @@
 use core\function ;
 use core\Classes\DB\user;
 
-$username=$_POST['username'];
-$password=$_POST['password'];
+$username=$_POST['Username'];
+$password=$_POST['Password'];
+
 $errors ;
 /*
 Qure  
@@ -19,7 +20,13 @@ $password=$_POST['password'];
 $user =user::cheick($username,$password) ;
 
 if ($user){
-    login($user);
+
+    if (password_verify($password,$user['password'])) {
+    login($user);    
+}
+ else {
+    $errors =" password invaild " ;
+}
 
 }
 else{

@@ -53,6 +53,8 @@ if (isset($_POST['submit'])) {
 
 
 if (Validator::string($password, 8, 55) && Validator::email($email)) {
+  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
   $user = new Traveller();
   $data = [
     'username' => $_POST['user-name'],
@@ -68,7 +70,7 @@ if (Validator::string($password, 8, 55) && Validator::email($email)) {
         'service' => $_POST['services']
       ]
     ],
-    'password' => $_POST['password'],
+    'password' => $hashedPassword ,
     'type' => $type
   ];
   $user->add($data);

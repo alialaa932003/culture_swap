@@ -34,10 +34,10 @@
         <input type="tel" id="telephone" name="phone-number" placeholder="Enter your telephone number" required><br>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"><br>
 
         <label for="password">Choose Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required  pattern=".{8,}" title="Password must be at least 8 characters long"><br>
 
        
           <label for="profile-photo">Profile image:</label>

@@ -20,7 +20,8 @@ require base_path("views/partials/head.view.php");
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="modal-content">
+            <form class="modal-content" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_method" value="PATCH">
                 <div class="modal-header">
                     <h2 class="modal-title " id="exampleModalLabel">edit post</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -28,11 +29,11 @@ require base_path("views/partials/head.view.php");
                 <div class="modal-body">
                     <div class="postItem">
                         <label for="title">title</label>
-                        <input placeholder="enter title" name="title" type="text">
+                        <input placeholder="enter title" name="title" type="text" value=<?= $postdet["title"]  ?>>
                     </div>
                     <div class="postItem">
                         <label for="content">content</label>
-                        <textarea placeholder="enter content" name="content" type="text"></textarea>
+                        <textarea placeholder="enter content" name="content" type="text" value=><?= $postdet["content"]  ?></textarea>
                     </div>
                     <div class="postItem">
                         <label for="image">image</label>

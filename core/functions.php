@@ -66,14 +66,14 @@ function  login($user)
 {
 
     session_start();
-    $_SESSION['user'] = [
-        'type' => $user->getType(),
-        'email' => $user->getEmail(),
-        'username' => $user->getUserName(),
-        'id' => $user->getId(),
-        'country' => $user->getCountry(),
-    ];
-    session_regenerate_id(true); // To have a high security
+  $_SESSION['user'] = [
+    'type' => $user->getType(),
+    'email' => $user->getEmail(),
+    'username' => $user->getUserName(),
+    'id' => $user->getId(),
+    'country' => $user->getCountry(),
+  ];
+  session_regenerate_id(true); // To have a high security
 }
 
 

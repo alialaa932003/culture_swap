@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
  
 if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::string($card_num,  16, 16) &&Validator::string($cvc,  3, 3))
 {
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $user = new TravellerVip();
      $data = [
         'username'=>$_POST['username'],
@@ -72,7 +73,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
            'service' => $_POST['services']
          ],
       ],
-       'password' => $_POST['password'],
+       'password' => $hashedPassword ,
        'country' => $_POST['country'],
        'type' => 1,
         'payment_option' =>  $_POST['payment'],

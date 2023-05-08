@@ -38,9 +38,8 @@ class PostDB
             ]
         );
     }
-    public static function update($data)
+    public static function update($id, $key, $value)
     {
-        extract($data);
 
         Database::getInstance()->query("UPDATE post SET $key = :value WHERE id = :id ", [
             'value' => $value,

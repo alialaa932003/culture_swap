@@ -5,6 +5,7 @@ $router->get('/culture_swap/posts', 'controller/community/posts.php');
 $router->get('/culture_swap/post', 'controller/community/show.php');
 $router->post('/culture_swap/posts', 'controller/community/store.php');
 $router->post('/culture_swap/post', 'controller/community/storecomment.php');
+$router->patch('/culture_swap/post', 'controller/community/update.php');
 
 
 $router->get('/culture_swap/favourites', 'controller/favourites.php');
