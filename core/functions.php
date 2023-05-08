@@ -1,6 +1,7 @@
 <?php
 
 use core\Classes\Host;
+use core\Classes\Traveller;
 use core\Response;
 
 function dd($value)
@@ -43,6 +44,20 @@ function fetchHostsCardData($params, $page)
     ];
     $limit = Components::getCardsPerPageLimit();
     $cardsData = Host::search($filters, $page, $limit);
+
+    return $cardsData;
+}
+
+function fetchTravelersCardData($params, $page)
+{
+    $filters = [
+        'first_name' => $params['searchQ'] ?? '',
+        'last_name' => $params['searchQ'] ?? '',
+        'country' => $params['searchQ'] ?? '',
+        'serviceIds' => $params['serviceIds'],
+    ];
+    $limit = Components::getCardsPerPageLimit();
+    $cardsData = Traveller::search($filters, $page, $limit);
 
     return $cardsData;
 }
