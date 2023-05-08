@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 08, 2023 at 06:26 PM
+-- Generation Time: May 08, 2023 at 10:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -338,6 +338,7 @@ CREATE TABLE `_user` (
   `Id` int(11) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
+  `user_name` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `type` int(11) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
@@ -351,11 +352,11 @@ CREATE TABLE `_user` (
 -- Dumping data for table `_user`
 --
 
-INSERT INTO `_user` (`Id`, `first_name`, `last_name`, `email`, `type`, `phone_num`, `profile_img`, `cover_img`, `country`, `password`) VALUES
-(1, 'omar', 'osama', 'omar.osama@omar.osama', 1, '1234567890', 0x3c62696e6172792d646174613e, '', 'USA', ''),
-(2, 'ali', 'alaa', 'ali.alaa@ali.alaa', 1, '1234567889', 0x3c62696e6172792d646174613e, '', 'Uk', ''),
-(3, 'halem', 'ashraf', 'halem.ashraf@halem.ashraf', 1, '1245567890', 0x3c62696e6172792d646174613e, '', 'egypt', ''),
-(4, 'salah', 'mohamed', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, '', 'sudia', '');
+INSERT INTO `_user` (`Id`, `first_name`, `last_name`, `user_name`, `email`, `type`, `phone_num`, `profile_img`, `cover_img`, `country`, `password`) VALUES
+(1, 'omar', 'osama', '', 'omar.osama@omar.osama', 1, '1234567890', 0x3c62696e6172792d646174613e, '', 'USA', ''),
+(2, 'ali', 'alaa', '', 'ali.alaa@ali.alaa', 1, '1234567889', 0x3c62696e6172792d646174613e, '', 'Uk', ''),
+(3, 'halem', 'ashraf', '', 'halem.ashraf@halem.ashraf', 1, '1245567890', 0x3c62696e6172792d646174613e, '', 'egypt', ''),
+(4, 'salah', 'mohamed', '', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, '', 'sudia', '');
 
 --
 -- Indexes for dumped tables
