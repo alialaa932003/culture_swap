@@ -72,6 +72,13 @@ class Reservation
         $res = Reservation::get_Detailed_Res($id);
         $res['Status'] = $act_val;
 
+        ReservationDB::update([
+          'key' => 'Status',
+           'value' => $act_val,
+           'id' => $id
+        ]);
+            
+
   
 
         $action = 1; // reservation
@@ -121,6 +128,7 @@ class Reservation
         $res = Reservation::get_Detailed_Res($id);
         return  $res['host_id'];
     }
+    
     public static function getStatus($id)
     {
         $res = Reservation::get_Detailed_Res($id);
