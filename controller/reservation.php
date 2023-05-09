@@ -3,6 +3,8 @@
 use core\Classes\Reservation;
 use core\Classes\Notification;
 
+$userData = $_SESSION['user'];
+
 if ($_POST['acceptNoti'] == 1) {
 
     Reservation::updateStatus($_POST['action_id'], 1);
