@@ -114,15 +114,14 @@ class PostDB
         return (Database::getInstance()->query(
             "SELECT COUNT(post_id) as lovesNum FROM user_post_love WHERE  post_id = :post_id ",
             [
-
                 'post_id' => $post_id,
             ]
         )->find());
     }
-    public static function getUserPostIds($id)
+    public static function getUserPostIdsAndTitle($id)
     {
         return (Database::getInstance()->query(
-            "SELECT Id FROM post WHERE user_id = :id",
+            "SELECT Id,title FROM post WHERE user_id = :id",
             [':id' => $id]
         )->get());
     }
