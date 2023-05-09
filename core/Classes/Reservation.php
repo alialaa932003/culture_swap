@@ -69,7 +69,6 @@ class Reservation
     public static function updateStatus($id, $act_val)
     {
 
-<<<<<<< HEAD
       $res = Reservation::get_Detailed_Res($id);
       $res['status'] = $act_val ;
 
@@ -87,10 +86,6 @@ class Reservation
       } 
       if($act_val == -1)
          $content = " $name Reject your reservation "; //reject
-=======
-        $res = Reservation::get_Detailed_Res($id);
-        $res['status'] = $act_val;
->>>>>>> adef9db21adb8d458e9859c09f45fb131891e616
 
 
         $action = 1; // reservation
