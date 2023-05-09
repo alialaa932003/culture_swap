@@ -187,14 +187,14 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-house-user"></i></span>
-                        <span class="num" data-stat="510">0</span>
+                        <span class="num" data-stat="<?= $num_hst[0]['num_hosts'] ?>">0</span>
                         <span class="boxTitle">total hosts</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
-                        <span class="num" data-stat="623">0</span>
+                        <span class="num" data-stat="<?=$avg_hst_rating[0]['avg_rate'];?>">0</span>
                         <span class="boxTitle">Average host rating
                         </span>
                     </div>
