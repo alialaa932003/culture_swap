@@ -38,7 +38,7 @@ class HostDB
 
         $dbref->query(
             "INSERT INTO _user (first_name, last_name,user_name,email,type, phone_num, profile_img, cover_img, country,password) 
-                values(:fName,:lName,:user_name,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
+                values(:fName,:lName,:userName,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
             ",
             [
                 'fName' => $first_name,
@@ -68,7 +68,7 @@ class HostDB
                 'userId' => $userId,
                 'hostId' => $userId
             ];
-            $params['userId'] = $params['id'] = $params['travellerId'] = $userId;
+            $params['userId'] = $params['id'] = $userId;
 
             for ($i = 0; $i < count($needs); $i++) {
                 $values[] = "(:hostId, :need$i)";
