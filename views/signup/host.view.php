@@ -56,7 +56,7 @@
         <label for="help_with">What Are You Looking for Help With?</label><br>
         <input type="checkbox" id="help_none" name="help-with[]" value="Animals & Farming" checked>
         <label for="help_none">Animals & Farming</label><br>
-        <input type="checkbox" id="help_one" name="help-with[]" value=" 	packpaker Hotels &hospitality">
+        <input type="checkbox" id="help_one" name="help-with[]" value="packpaker Hotels &hospitality">
         <label for="help_one"> 	packpaker Hotels &hospitality</label><br>
         <input type="checkbox" id="help_two" name="help-with[]" value="Farming & Homesteads" >
         <label for="help_two">Farming & Homesteads</label><br>

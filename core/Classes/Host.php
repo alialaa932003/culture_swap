@@ -94,7 +94,7 @@ class Host extends User
         return $this->needs;
     }
 
-    /*  public function setneeds($needs)/////////////////////////////////
+  /*    public function setneeds($needs)/////////////////////////////////
     {
       
         HostDB::update([
@@ -188,8 +188,9 @@ class Host extends User
         $this->status =$Status;
         $this->description = $Description;
         $this->location = $location;
-        $this->Traveller_num = $Traveller_num;
+        $this->Traveller_num = $Traveller_num ;
         $this->rate =$Rate_average ;
+        $this->needs[] =$needs;
     }
 
 

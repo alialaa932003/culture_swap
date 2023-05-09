@@ -60,10 +60,10 @@ class HostDB
             $values = [];
             $params = [
                 'id' => $userId,
-                'status' => $status,
+                'status' => $Status,
                 'description' => $Description,
                 'rate' => $Rate_average,
-                'travelersNum' => $travelers_num,
+                'travelersNum' => $Traveller_num,
                 'location' => $location,
                 'userId' => $userId,
                 'hostId' => $userId
