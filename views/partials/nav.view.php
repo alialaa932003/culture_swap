@@ -1,5 +1,7 @@
 <?php
-$userData = $_SESSION['user'];
+// $userData = $_SESSION['user'];
+require base_path('controller/nav.php');
+
 // echo "<br>";
 // echo "<pre>";
 // var_dump($userData);
@@ -53,44 +55,47 @@ $userData = $_SESSION['user'];
                             <i class="fa-solid fa-bell"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="noti-item ">
-                                <span class="noti-icon red-noti">
-                                    <i class="fa-regular fa-heart"></i>
-                                </span>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit est rem quaerat doloremque ab error voluptates ex, aperiam eaque odit! Perspiciatis sequi, magni suscipit nihil optio dolorem ducimus maiores consequuntur.</p>
-                                    <form class="noti-actions">
-                                        <button class="second-btn" type="submit">accept</button>
-                                        <button class="main-btn" type="submit">cancel</button>
+                            <?php foreach ($notifications as $noti) : ?>
+                                <li class="noti-item ">
 
-                                    </form>
-                                </div>
-                            </li>
-                            <li class="noti-item ">
-                                <span class="noti-icon green-noti">
-                                    <i class="fa-regular fa-bell"></i>
-                                </span>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit est rem quaerat doloremque ab error voluptates ex, aperiam eaque odit! Perspiciatis sequi, magni suscipit nihil optio dolorem ducimus maiores consequuntur.</p>
-                                    <form class="noti-actions">
-                                        <button class="second-btn" type="submit">accept</button>
-                                        <button class="main-btn" type="submit">cancel</button>
+                                    <?php if ($noti['action'] == 2) : ?>
+                                        <span class="noti-icon purple-noti">
+                                            <i class="fa-regular fa-comment"></i>
+                                        </span>
+                                    <?php elseif ($noti['action'] == 1) : ?>
+                                        <span class="noti-icon green-noti">
+                                            <i class="fa-regular fa-bell"></i>
+                                        </span>
+                                    <?php else : ?>
+                                        <span class="noti-icon red-noti">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </span>
+                                    <?php endif; ?>
 
-                                    </form>
-                                </div>
-                            </li>
-                            <li class="noti-item ">
-                                <span class="noti-icon purple-noti">
-                                    <i class="fa-regular fa-comment"></i>
-                                </span>
-                                <div>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit est rem quaerat doloremque ab error voluptates ex, aperiam eaque odit! Perspiciatis sequi, magni suscipit nihil optio dolorem ducimus maiores consequuntur.</p>
-                                    <div class="noti-actions">
-                                        <a href="#" class="second-btn" type="submit">view post</a>
+                                    <div>
+                                        <p><?= $noti['content'] ?></p>
 
+
+                                        <div class="noti-actions">
+                                            <?php if ($noti['action'] == 2) : ?>
+                                                <a class="second-btn" href="/culture_swap/post?id=<?= $noti['action_id'] ?>">view post</a>
+
+                                            <?php elseif ($noti['action'] == 1) : ?>
+                                                <?php if ($noti['status'] == 0) : ?>
+                                                    <form action="/culture_swap/reservation" class="noti-actions" method="POST">
+                                                        <input type="hidden" name="action_id" value=<?= $noti['action_id'] ?>>
+                                                        <button class="second-btn" name="acceptNoti" value="1" type="submit">accept</button>
+                                                        <button class="main-btn" name="cancelNoti" value="0" type="submit">cancel</button>
+                                                    </form>
+                                                <?php endif; ?>
+                                            <?php else : ?>
+
+                                                <a class="second-btn" href="/culture_swap/post?id=<?= $noti['action_id'] ?>">view post</a>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            <?php endforeach; ?>
 
                         </ul>
                     </div>

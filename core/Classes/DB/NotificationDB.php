@@ -19,18 +19,19 @@ class NotificationDB
         Database::getInstance()->query(
             "INSERT INTO  notification (sender_id,reciever_id,content,action) 
             
-            values(:sender_id,:reciever_id,:content,:action)",
+            values(:sender_id,:reciever_id,:content,:action,:action_id)",
             [
                 'sender_id' => $data['sender_id'],
                 'reciever_id' => $data['reciever_id'],
                 'content' => $data['content'],
-                'action' => $data['action'],//action id
+                'action' => $data['action'], //action id
+                'action_id' => $data['action_id'], //action id
             ]
         );
         return Database::getInstance()->getLastRecordIdAdded("notification");
     }
 
-    
+
     public static function delete($id, $user_id)
     {
         Database::getInstance()->query(
@@ -45,7 +46,7 @@ class NotificationDB
     public static  function getAll($user_id)
     {
 
-        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.id WHERE reciever_id = :user_id ", ['user_id' => $user_id])->get();
+        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.action WHERE reciever_id = :user_id ", ['user_id' => $user_id])->get();
     }
 
     public static function  getOne($id, $user_id)
