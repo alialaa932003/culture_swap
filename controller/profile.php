@@ -5,6 +5,12 @@ use core\Classes\{
   Host
 };
 
+use core\Classes\DB\{
+  PostDB,
+  CommentDB,
+  TravellerDB,
+};
+
 $userType = $_SESSION['user']['type'];
 $userId = $_SESSION['user']['id'];
 $isHost = $userType == 'host' ? True : false;
@@ -15,7 +21,14 @@ $email = $_SESSION['user']['email'];
 if ($userType == 'traveller') {
   $traveller = new Traveller();
   $traveller->getOne($userId);
-  $services = $traveller->getService();
+  $services = [];
+  foreach($traveller->getService() as $service){
+    array_push($services, $service['name']);
+  }
+  $posts = PostDB::getUserPostIdsAndTitle($userId);
+  $postsCount = count($posts);
+  $hostsCount = TravellerDB::getHostNums($userId);
+  $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
   $host->getOne($userId);
@@ -25,21 +38,11 @@ if ($userType == 'traveller') {
   $location = $host->getLocation();
   $rate = $host->getrate();
   $status = $host->getStatus();
-};
+  $posts = PostDB::getUserPostIdsAndTitle($userId);
+  $postsCount = count($posts);
+  $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 
-
-$posts = [
-  [
-    'id' => 1,
-    'title' => 'My last journy'
-  ]
-];
-$postsCount = 5;
-$commentsCount = 7;
-
-//Traveller
-$hostsCount = 10; // Need query
-//Host
+}
 
 
 

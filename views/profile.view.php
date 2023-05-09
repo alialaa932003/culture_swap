@@ -8,8 +8,6 @@
   <title>Profile</title>
 </head>
 
-
-
 <body>
   <?php
   require base_path("views/partials/nav.view.php");
