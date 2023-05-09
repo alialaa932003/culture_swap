@@ -11,16 +11,22 @@ use core\Classes\DB\{
   TravellerDB,
 };
 
-$userType = $_SESSION['user']['type'];
 $userId = $_SESSION['user']['id'];
+$idFromQuery = $_GET['id'];
+
+$userType = $traveller->getType() == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
-$userName = $_SESSION['user']['username'];
-$country = $_SESSION['user']['country'];
-$email = $_SESSION['user']['email'];
+
+if ($userId == $idFromQuery) {
+  //! Auth Login
+}
 
 if ($userType == 'traveller') {
   $traveller = new Traveller();
-  $traveller->getOne($userId);
+  $traveller->getOne($idFromQuery);
+  $userName = $traveller->getUserName();
+  $country = $traveller->getCountry();
+  $email = $traveller->getEmail();
   $services = [];
   foreach ($traveller->getService() as $service) {
     array_push($services, $service['name']);
@@ -31,7 +37,10 @@ if ($userType == 'traveller') {
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
-  $host->getOne($userId);
+  $host->getOne($idFromQuery);
+  $userName = $host->getUserName();
+  $country = $host->getCountry();
+  $email = $host->getEmail();
   $services = $host->getneeds();
   $description = $hots->getDescription();
   $travellersCount = $host->getTraveller_num();
