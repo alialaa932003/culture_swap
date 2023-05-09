@@ -46,7 +46,7 @@ class NotificationDB
     public static  function getAll($user_id)
     {
 
-        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.action WHERE reciever_id = :user_id ", ['user_id' => $user_id])->get();
+        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code INNER JOIN reservation ON action_id = reservation.Id = notification.action WHERE reciever_id = :user_id ", ['user_id' => $user_id])->get();
     }
 
     public static function  getOne($id, $user_id)
