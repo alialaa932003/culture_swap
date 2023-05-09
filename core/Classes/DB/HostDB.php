@@ -129,7 +129,7 @@ class HostDB
             "SELECT DISTINCT _user.* , Status, Description, Rate_average, Traveller_num, Location from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.id
-                INNER JOIn host_need
+                LEFt JOIn host_need
                 ON host_need.Host_id = _user.id
                 WHERE (
                     first_name LIKE :first_name
