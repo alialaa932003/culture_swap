@@ -4,7 +4,7 @@ use core\Classes\DB\user;
 use core\Classes\Host;
 use core\Classes\Traveller;
 use core\Response;
-
+use core\Database;
 function dd($value)
 {
   echo "<pre>";
@@ -101,4 +101,10 @@ function logout()
   $_SESSION = []; // create our session super global
 
   session_destroy();
+}
+
+
+function getCountries(){
+  $db = Database::getInstance();
+  return $db->query('SELECT DISTINCT country FROM _user')->get();
 }

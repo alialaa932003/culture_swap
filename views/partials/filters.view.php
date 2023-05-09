@@ -26,22 +26,13 @@
     <div style=<?= $isHost ? "display: none;" : '' ?>>
       <h4 class='mb-3'>Countries</h4>
 
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
+      <?php foreach ($allCountries as $i => $country): ?>
+
+        <div class='form-check'>
+          <input type='checkbox' class='form-check-input' id='<?= $i ?>' name='countries[]' value='<?= $country['country'] ?>' />
+          <label class='form-check-label' for='<?= $i ?>'><?= $country['country'] ?></label>
+        </div>
+      <?php endforeach; ?>
     </div>
 
 
