@@ -137,10 +137,10 @@ abstract class User{
       $post->add($data);
       return $post;
     }
-    public function removePost( $postId) {
+   /* public function removePost( $postId) {
 
       PostDB::delete($postId);
-    }
+    }*/
    
     
     public function addComment ( $content,$postId) {
