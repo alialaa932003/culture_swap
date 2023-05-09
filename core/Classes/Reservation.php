@@ -63,7 +63,7 @@ class Reservation
         return $rv_id;
     }
 
-    public static function updateStatus($id,$act_val,$action_id){
+    public static function updateStatus($id,$act_val){
 
       $res = Reservation::get_Detailed_Res($id);
       $res['status'] = $act_val ;
