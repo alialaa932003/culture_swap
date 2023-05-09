@@ -28,7 +28,7 @@ if ($userType == 'traveller') {
   }
   $posts = PostDB::getUserPostIdsAndTitle($userId);
   $postsCount = count($posts);
-  $hostsCount = TravellerDB::getHostNums($userId);
+  $hostsCount = TravellerDB::getHostNums($userId)['COUNT(traveller_id'] ?? 0;
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
