@@ -112,8 +112,6 @@ class TravellerDB
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
-                    OR
-                    country like :country 
                 ) 
                 {$countryCondition}
                 {$servicesCondtion}
@@ -123,8 +121,7 @@ class TravellerDB
             ",
             [
                 'first_name' => '%' . $first_name . '%',
-                'last_name' => '%' . $last_name . '%',
-                'country' => '%' . $country . '%'
+                'last_name' => '%' . $last_name . '%'
             ]
         )->get();
 

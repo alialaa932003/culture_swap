@@ -7,6 +7,7 @@ $router->post('/culture_swap/posts', 'controller/community/store.php')->only('us
 $router->post('/culture_swap/post', 'controller/community/storecomment.php')->only('user');
 $router->patch('/culture_swap/post', 'controller/community/update.php')->only('user');
 $router->delete('/culture_swap/post', 'controller/community/danger.php')->only('user');
+$router->post('/culture_swap/reservation', 'controller/reservation.php');
 
 
 $router->get('/culture_swap/favourites', 'controller/favourites.php');
