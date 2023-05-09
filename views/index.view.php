@@ -24,6 +24,7 @@
                 <p>
                     The largest and safest community for cultural exchange, working holidays and volunteering in 170
                     countries.
+
                 </p>
             </div>
             <a href="#" class="second-btn discoverBtn ">
