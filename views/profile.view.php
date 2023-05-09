@@ -45,8 +45,10 @@
             <i class="fa-solid fa-pen-to-square fa-2xl"></i>
           </button>
         <?php endif;?>
+        <?php if(!$canEditProfile): ?>
           <a href="mailto:<?= $email ?>" class="main-btn">Contact</a>
           <button class="second-btn" style="<?= !$isHost ? "display:none" : '' ?>">Join</button>
+        <?php endif; ?>
         </div>
       </div>
 

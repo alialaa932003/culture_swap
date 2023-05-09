@@ -16,12 +16,11 @@ $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
 $canEditProfile = $userId == $idFromQuery ? True : False;
 
-if(!getUserType($idFromQuery))
+if (!getUserType($idFromQuery))
   abort();
 
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
-
 
 if ($userType == 'traveller') {
   $traveller = new Traveller();
@@ -46,9 +45,10 @@ if ($userType == 'traveller') {
   $needs = [];
   foreach ($host->getneeds() as $need) {
     array_push($needs, $need['name']);
-  }  
+  }
+  ;
   $description = $host->getDescription();
-  $travellersCount = $host->getTraveller_num();
+  $travellersCount = $host->getTraveller_num() ?? 0;
   $location = $host->getLocation();
   $rate = $host->getrate();
   $status = $host->getStatus();
