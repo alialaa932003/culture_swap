@@ -19,6 +19,7 @@
     <!-- start header -->
     <header class="">
         <div class="container">
+
             <div class="headerContent">
                 <h1>Travel differently, connect globally</h1>
                 <p>
