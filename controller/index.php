@@ -39,6 +39,14 @@ LIMIT 8 ")->get();
 //////end popular places
 
 
+// statistics 
+
+$num_trv =  Database::getInstance()->query("SELECT COUNT(id) AS num_travelers FROM traveller")->get();
+
+
+// end  statistics 
+
+
 
 
 
