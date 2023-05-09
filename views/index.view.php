@@ -103,11 +103,7 @@
                         <div class="myCard">
                             <div class="cardImage">
                                 <img src="<?= $card['cover-img'] ?>" alt="">
-                                <button class="love">
-                                    <span>
-                                        <i class="fa-regular fa-heart"></i>
-                                    </span>
-                                </button>
+
                                 <div class="userCardImg">
                                     <img src="<?= $card['profile-img'] ?>" alt="">
                                 </div>
