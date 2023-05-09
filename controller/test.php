@@ -11,21 +11,16 @@ ini_set('error_reporting', 1);
 
 use core\Classes\TravellerVip;
 
-dd(HostDB::add([
-  'first_name' => 'asfaf',
-  'last_name' => 'asfwfasfsaf',
-  'user_name' => 'asfsaf5477',
-  'email' => '5asf4as@g.com',
+dd(TravellerDB::add([
+  'first_name' => 'aswefwfwffsafsf',
+  'last_name' => 'afsaweweffwefsfwefsf',
+  'user_name' => 'safsweweffafwef4578',
+  'email' => 'asfsafaswweffewfaweffw@g.com',
   'type' => 1,
-  'phone_num' => '5454112',
+  'phone_num' => '815weweffw5184',
   'profile_img' => '',
   'cover_img' => '',
-  'country' => 'USA',
-  'password' => '451412',
-  'status' => 'Active',
-  'Description' => '452154',
-  'Rate_average' => 3,
-  'travelers_num' => 9,
-  'location' => 'los815',
-  'needs' => [1, 2]
+  'country' => 'UK',
+  'password' => '564215451',
+  'services' => [1, 2,3]
 ]));
