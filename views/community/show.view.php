@@ -56,9 +56,10 @@ require base_path("views/partials/head.view.php");
                     post details
                 </h2>
                 <?php if ($postdet['user_id'] == $userData['id']) : ?>
-                    <div class="postActions">
+                    <div class="postActions" style="display: flex;">
                         <button class="second-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">edit post</button>
-                        <form action="">
+                        <form action="" method="POST" style="margin-left: 1rem;">
+                            <input type="hidden" name="_method" value="DELETE">
                             <button class="main-btn"> delete post</button>
                         </form>
                     </div>

@@ -1,9 +1,9 @@
 <?php
 $userData = $_SESSION['user'];
-// echo "<br>";
-// echo "<pre>";
-// var_dump($userData);
-// echo "</pre>";
+echo "<br>";
+echo "<pre>";
+var_dump($userData);
+echo "</pre>";
 
 ?>
 <nav class="navbar navbar-expand-lg active ">
@@ -35,7 +35,7 @@ $userData = $_SESSION['user'];
                     <li class="nav-item">
                         <a class="nav-link userInfo" href="#">
                             <div class="user_img">
-                                <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                                <img src=<?= $userData['profileImg'] ?> alt="">
 
                             </div>
                             <h4><?= $userData['name'] ?></h4>
