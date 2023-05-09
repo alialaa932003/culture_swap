@@ -68,7 +68,8 @@ class Reservation
       $res = Reservation::get_Detailed_Res($id);
       $res['status'] = $act_val ;
 
-   
+
+
       $action = 1; // reservation
       $hst_id =  $res['host_id'];
 
