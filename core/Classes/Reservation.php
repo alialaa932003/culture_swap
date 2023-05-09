@@ -70,17 +70,16 @@ class Reservation
 
     public static function updateStatus($id, $act_val)
     {
-
+   
         $res = Reservation::get_Detailed_Res($id);
         $res['Status'] = $act_val;
 
         ReservationDB::update([
           'key' => 'Status',
            'value' => $act_val,
-           'id' => $id
+           'Id' => $id
         ]);
-            
-
+        
         $action = 1; // reservation
         $hst_id =  $res['host_id'];
 
@@ -94,7 +93,7 @@ class Reservation
         if ($act_val == 2)
             $content = " $name Reject your reservation "; //reject
 
-
+           
         Notification::makeNoti($res['host_id'], $res['traveller_id'], $content, $action, $id);
     }
 

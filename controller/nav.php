@@ -7,22 +7,6 @@ use core\Classes\Reservation;
 
 $notifications = Notification::getAll($userData['id']);
 $notificationsRes = NotificationDB::getAllRes($userData['id']);
-
 $notimerge = array_merge($notificationsRes, $notifications);
 
-if (!empty($_POST)) {
-    dd($_POST['noti_id']);
-}
-if ($_POST['acceptNoti'] == 1) {
-    Reservation::updateStatus($_POST['action_id'], 1);
 
-    Notification::delete($_POST['noti_id'], $userData['id']);
-} else if ($_POST['cancelNoti'] == 2) {
-    Reservation::updateStatus($_POST['action_id'], 2);
-    Notification::delete($_POST['noti_id'], $userData['id']);
-}
-// if (!empty($_POST['action_id'])) {
-
-//     var_dump($_POST);
-//     die();
-// }

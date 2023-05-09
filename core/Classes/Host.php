@@ -219,8 +219,8 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     {
         $host = HostDB::getOne($hostId);
 
-        $firstname = $host['f_name'];
-        $lastname = $host['l_name'];
+        $firstname = $host['first_name'];
+        $lastname = $host['last_name'];
         $Name = $firstname . " " . $lastname;
 
         return $Name;

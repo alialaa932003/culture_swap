@@ -14,16 +14,13 @@ use core\Classes\DB\{
 
 $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
+$canEditProfile = $userId == $idFromQuery ? True : False;
 
-if(!getUserType($idFromQuery))
+if (!getUserType($idFromQuery))
   abort();
 
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
-
-if ($userId == $idFromQuery) {
-  //! Auth Login
-}
 
 if ($userType == 'traveller') {
   $traveller = new Traveller();
@@ -42,10 +39,15 @@ if ($userType == 'traveller') {
 } elseif ($userType == 'host') {
   $host = new Host();
   $host->getOne($idFromQuery);
-
-  $services = $host->getneeds();
+  $userName = $host->getUserName();
+  $country = $host->getCountry();
+  $email = $host->getEmail();
+  $needs = [];
+  foreach ($host->getneeds() as $need) {
+    array_push($needs, $need['name']);
+  }
   $description = $host->getDescription();
-  $travellersCount = $host->getTraveller_num();
+  $travellersCount = $host->getTraveller_num() ?? 0;
   $location = $host->getLocation();
   $rate = $host->getrate();
   $status = $host->getStatus();

@@ -13,6 +13,3 @@ ini_set('error_reporting', 1);
 
 use core\Classes\Reservation;
 
-$test = new Host();
-$test->getOne(1);
-dd($test);

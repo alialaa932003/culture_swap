@@ -53,7 +53,7 @@ class NotificationDB
     public static  function getAllRes($user_id)
     {
 
-        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN reservation on action_id = reservation.Id  WHERE reciever_id = :user_id and action = 1 ", ['user_id' => $user_id])->get();
+        return Database::getInstance()->query("SELECT notification.*,reservation.Id as res_id,traveller_id,host_id,reservation.Status,Start_date,end_date FROM notification INNER JOIN reservation on action_id = reservation.Id  WHERE reciever_id = :user_id and action = 1 ", ['user_id' => $user_id])->get();
     }
 
 
