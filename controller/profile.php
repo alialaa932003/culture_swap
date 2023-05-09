@@ -15,7 +15,10 @@ use core\Classes\DB\{
 $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
 
-$userType = getUserType($idFromQuery) == 1 ? 'host' : 'traveller';
+if(!getUserType($idFromQuery))
+  abort();
+
+$userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
 
 if ($userId == $idFromQuery) {
@@ -32,22 +35,23 @@ if ($userType == 'traveller') {
   foreach ($traveller->getService() as $service) {
     array_push($services, $service['name']);
   }
-  $posts = PostDB::getUserPostIdsAndTitle($userId);
+  $posts = PostDB::getUserPostIdsAndTitle($idFromQuery);
   $postsCount = count($posts);
-  $hostsCount = TravellerDB::getHostNums($userId)['COUNT(traveller_id'] ?? 0;
-  $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
+  $hostsCount = TravellerDB::getHostNums($idFromQuery)['COUNT(traveller_id'] ?? 0;
+  $commentsCount = CommentDB::getUserCommentsNum($idFromQuery)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
   $host->getOne($idFromQuery);
+
   $services = $host->getneeds();
   $description = $host->getDescription();
   $travellersCount = $host->getTraveller_num();
   $location = $host->getLocation();
   $rate = $host->getrate();
   $status = $host->getStatus();
-  $posts = PostDB::getUserPostIdsAndTitle($userId);
+  $posts = PostDB::getUserPostIdsAndTitle($idFromQuery);
   $postsCount = count($posts);
-  $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
+  $commentsCount = CommentDB::getUserCommentsNum($idFromQuery)[0]['COUNT(id)'];
 }
 
 
