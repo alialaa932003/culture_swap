@@ -14,6 +14,7 @@ use core\Classes\DB\{
 
 $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
+$canEditProfile = $userId == $idFromQuery ? True : False;
 
 if(!getUserType($idFromQuery))
   abort();
