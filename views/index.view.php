@@ -29,7 +29,7 @@
                 </p>
 
             </div>
-            <a href="#" class="second-btn discoverBtn ">
+            <a href="/culture_swap/hosts" class="second-btn discoverBtn ">
 
                 <span class="discoverIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
 
@@ -55,7 +55,7 @@
 
 
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                        <a href="/culture_swap/hosts?service=<?= $service["name"] ?>">
+                        <a href="/culture_swap/hosts?service=<?= $service["Id"] ?>">
 
                             <span class="itemIcon">
 
@@ -102,14 +102,14 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="myCard">
                             <div class="cardImage">
-                                <img src=<?= $card['cover-img'] ?> alt="">
+                                <img src="<?= $card['cover-img'] ?>" alt="">
                                 <button class="love">
                                     <span>
                                         <i class="fa-regular fa-heart"></i>
                                     </span>
                                 </button>
                                 <div class="userCardImg">
-                                    <img src=<?= $card['profile-img'] ?> alt="">
+                                    <img src="<?= $card['profile-img'] ?>" alt="">
                                 </div>
                             </div>
                             <div class="cardContent">
@@ -131,7 +131,7 @@
                                     <?= $card["descriptions"] ?>
                                 </h3>
                                 <div class="cardDetails">
-                                    <a href="#" class="second-btn">view profile</a>
+                                    <a href="/culture_swap/profile?id=<?= $card['Id'] ?>" class="second-btn">view profile</a>
                                     <!----------------------------------------------        Rate   ------------------------------------>
                                     <div class="rate">
 
@@ -224,9 +224,9 @@
                     <div class="col-lg-3">
                         <div class="placeItem">
                             <div class="placeImage">
-                                <img src=<?= "${ASSET_URL}assets/imgs/home/header3.webp" ?> alt="">
+                                <img src=<?= "${ASSET_URL}assets/imgs/home/header2.webp" ?> alt="">
                             </div>
-                            <a href="#" class='placeLink second-btn'>
+                            <a href="/culture_swap/hosts?country=<?= $popularPlace["Location"] ?>" class='placeLink second-btn'>
                                 <?= $popularPlace["Location"] ?>
                             </a>
                         </div>

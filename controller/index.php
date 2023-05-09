@@ -7,13 +7,13 @@ $ASSET_URL = "/culture_swap/public/";
 
 //   cards
 $cards = Database::getInstance()->query(
-    "SELECT id, MAX(Rate_average) AS max_rating, GROUP_CONCAT(Description SEPARATOR ', ') AS descriptions
- FROM host
+    "SELECT _user.Id, MAX(Rate_average) AS max_rating, GROUP_CONCAT(Description SEPARATOR ', ') AS descriptions,_user.*
+ FROM host INNER JOIN _user ON _user.Id = host.Id 
  GROUP BY id
  ORDER BY max_rating DESC
  LIMIT 6"
 )->get();
-
+// dd($cards);
 //end cards
 
 $icons = [
@@ -59,5 +59,3 @@ $num_joins = $joins["num_reservations"];
 
 
 require base_path("views/index.view.php");
-
-

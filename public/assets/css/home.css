@@ -187,8 +187,9 @@ header p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #5e4708;
-    opacity: .4;
+    background: #c18800;
+    opacity: 0.9;
+
 }
 
 .placeLink {

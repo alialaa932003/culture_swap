@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 09, 2023 at 08:21 PM
+-- Generation Time: May 09, 2023 at 10:03 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -337,8 +337,8 @@ CREATE TABLE `_user` (
   `email` varchar(50) NOT NULL,
   `type` int(11) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
-  `profile_img` blob NOT NULL,
-  `cover_img` blob NOT NULL,
+  `profile_img` blob NOT NULL DEFAULT 'http://localhost/culture_swap/public/assets/imgs/profile/download.png',
+  `cover_img` blob NOT NULL DEFAULT 'http://localhost/culture_swap/public/assets/imgs/profile/default-post-art.jpg',
   `country` varchar(15) NOT NULL,
   `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
