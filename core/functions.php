@@ -74,7 +74,7 @@ function  signUp($user)
     'country' => $user->getCountry(),
   ];
   
-  if( $user['type']==1){
+  if( $user->getType()==1){
     $_SESSION['user']=['type' =>"traveller",];
   }
   else{
