@@ -178,7 +178,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-people-group"></i></span>
-                        <span class="num" data-stat="<?= $num_trv ?>">0</span>
+                        <span class="num" data-stat="<?= $num_trv[0]['num_travelers'] ?>">0</span>
                         <span class="boxTitle">total travellers</span>
                     </div>
                 </div>
