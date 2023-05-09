@@ -197,7 +197,7 @@ class HostDB
         $dbref = Database::getInstance();
 
         $host = $dbref->query(
-            "SELECT _user.* ,status, Description, Rate_average, Traveller_num, location, user_id from _user 
+            "SELECT _user.* ,Status, Description, Rate_average, Traveller_num, Location, User_id from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.Id
                 WHERE _user.Id = :id
