@@ -90,7 +90,7 @@ class HostDB
         return $userId;
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         Database::getInstance()->query(
             "DELETE FROM _user WHERE id=:id",
@@ -203,7 +203,7 @@ class HostDB
                 WHERE _user.Id = :id
         ",
             ['id' => $id]
-        )->findOrFail();
+        )->find();
 
         $needs = $dbref->query(
             "SELECT service.* from service

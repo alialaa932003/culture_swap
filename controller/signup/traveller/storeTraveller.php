@@ -5,7 +5,7 @@ use core\Validator;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-$type = 1;
+$type = 2;
 $errors = [];
 
 
@@ -67,7 +67,7 @@ if (Validator::string($password, 8, 55) && Validator::email($email)) {
     'country' => $_POST['country'],
     'services' => [
       [
-        'id' => '1',
+        'id' => '2',
         'service' => $_POST['services']
       ]
     ],
