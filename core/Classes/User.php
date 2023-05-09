@@ -141,20 +141,7 @@ abstract class User{
       Post::delete($postId);
     }
    
-    public static function login(string $user_name, string $password) {
-      // implementation details
-      //$this->username=$username;
-     // $this->password=$password;
-    }
-  
-    public static function signUp(User $user) {
-
-      // implementation details
-    }
-  
-    public static function logout(): void {
-     
-    }
+    
     public function addComment ( $content,$postId) {
       $data= ['content'=>$content,'postId'=>$postId];
       $c=new comment();
