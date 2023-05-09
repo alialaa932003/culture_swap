@@ -81,7 +81,6 @@ function signUp($user)
 
 function login($user)
 {
-  dd($user);
   session_start();
   $_SESSION['user'] = [
     'name' => $user['first_name'] . " ". $user['lase_name'],
