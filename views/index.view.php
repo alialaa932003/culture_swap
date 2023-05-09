@@ -194,7 +194,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
-                        <span class="num" data-stat="<?=$avg_hst_rating[0]['avg_rate'];?>">0</span>
+                        <span class="num" data-stat="<?= $rate ?>">0</span>
                         <span class="boxTitle">Average host rating
                         </span>
                     </div>
