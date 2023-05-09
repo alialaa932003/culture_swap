@@ -2,6 +2,7 @@
 
   <form class="d-flex flex-column" style="gap: 3.2rem;">
     <div style=<?= $isHost ? "display: none;" : '' ?>>
+
       <h4 class='mb-3'>Rating</h4>
       <div class='form-check'>
         <input type='radio' class='form-check-input' id='4OrMore' name='startRate' value='4' />
@@ -21,38 +22,29 @@
       </div>
     </div>
 
-    <div>
-      <button type="submit" class="main-btn">Filter</button>
-    </div>
-  </form>
 
-  <form class="d-flex flex-column" style="gap: 3.2rem;">
     <div style=<?= $isHost ? "display: none;" : '' ?>>
       <h4 class='mb-3'>Countries</h4>
-    
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
-      <div class='form-check'>
-        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
-        <label class='form-check-label' for='4OrMore'>4 or more</label>
-      </div>
 
-    <div>
-      <button type="submit" class="main-btn">Filter</button>
+      <div class='form-check'>
+        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
+        <label class='form-check-label' for='4OrMore'>4 or more</label>
+      </div>
+      <div class='form-check'>
+        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
+        <label class='form-check-label' for='4OrMore'>4 or more</label>
+      </div>
+      <div class='form-check'>
+        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
+        <label class='form-check-label' for='4OrMore'>4 or more</label>
+      </div>
+      <div class='form-check'>
+        <input type='checkbox' class='form-check-input' id='4OrMore' name='startRate' value='4' />
+        <label class='form-check-label' for='4OrMore'>4 or more</label>
+      </div>
     </div>
-  </form>
 
-  <form class="d-flex flex-column" style="gap: 3.2rem;">
+
     <div style=<?= $isHost ? "display: none;" : '' ?>>
       <h4 class='mb-3'>Services</h4>
 
@@ -80,7 +72,7 @@
         <input type='checkbox' class='form-check-input' id='6' name='services[]' value='6' />
         <label class='form-check-label' for='6'>intenships Abroad</label>
       </div>
-
+    </div>
     <div>
       <button type="submit" class="main-btn">Filter</button>
     </div>
