@@ -19,6 +19,7 @@ const swiper = new Swiper(".swiper", {
 });
 
 let nums = document.querySelectorAll(".num");
+
 let section = document.querySelector(".statistics");
 let started = false;
 window.addEventListener("scroll", function () {
