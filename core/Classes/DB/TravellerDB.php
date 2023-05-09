@@ -16,7 +16,8 @@ class TravellerDB
             'phone_num',
             'profile_img',
             'cover_img',
-            'country'
+            'country',
+            'password'
         ]
     ];
 
@@ -26,8 +27,8 @@ class TravellerDB
         $dbref = Database::getInstance();
 
         $dbref->query(
-            "INSERT INTO _user (first_name, last_name,email,type, phone_num, profile_img, cover_img, country) 
-                values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country)
+            "INSERT INTO _user (first_name, last_name,email,type, phone_num, profile_img,cover_img,country,password) 
+                values(:fName,:lName,:email,:type,:phoneNum,:profileImg, :coverImg,:country,:password)
             ",
             [
                 'fName' => $first_name,
@@ -38,6 +39,7 @@ class TravellerDB
                 'profileImg' => $profile_img,
                 'coverImg' => $cover_img,
                 'country' => $country,
+                'password' => $password
             ]
         );
 
@@ -135,7 +137,7 @@ class TravellerDB
         $travellerSevices = $dbref->query(
             "SELECT service.*, traveller_service.traveller_id from traveller_service
                 INNER JOIN service
-                on traveller_service.service_id = service.id
+                on traveller_service.service_id = service.Id
                 WHERE traveller_service.traveller_id IN ({$travellerIds})
                 ORDER BY traveller_service.traveller_id desc
             "
@@ -176,7 +178,7 @@ class TravellerDB
         $services = $dbref->query(
             "SELECT service.* from service
                 INNER JOIN traveller_service
-                ON service.id = traveller_service.service_id
+                ON service.Id = traveller_service.service_id
                 WHERE traveller_service.traveller_id = :travellerId
             ",
             ['travellerId' => $traveller['Id']]
