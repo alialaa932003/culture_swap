@@ -175,7 +175,7 @@ class Host extends User
       $id = HostDB::add($data);
       extract($data);
       $this->id = $id;
-      $this->setUserName($username) ;
+      $this->setUserName($user_name) ;
       $this->setFirstName($first_name) ;
       $this->setLastName($last_name) ;
       $this->setPassword($password);
