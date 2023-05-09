@@ -35,7 +35,7 @@ class NotificationDB
     public static function delete($id, $user_id)
     {
         Database::getInstance()->query(
-            "DELETE FROM notification WHERE id=:id AND  reciever_id = :user_id",
+            "DELETE FROM notification WHERE Id=:id AND  reciever_id = :user_id",
             [
                 'user_id' => $user_id,
                 'id' => $id
