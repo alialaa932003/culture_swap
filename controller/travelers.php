@@ -2,7 +2,7 @@
 $ASSET_URL = "/culture_swap/public/";
 $allCountries = getCountries();
 
-//! needs filter logic
+//! services filter logic
 $servicesIds = [];
 foreach ($_GET['services'] as $service) {
   array_push($servicesIds, $service);
