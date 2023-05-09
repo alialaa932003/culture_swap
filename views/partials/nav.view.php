@@ -53,7 +53,6 @@ require base_path('controller/nav.php');
                         <ul class="dropdown-menu">
                             <?php foreach ($notimerge as $noti) : ?>
 
-                                <?php var_dump($notimerge); ?>
                                 <li class="noti-item ">
 
                                     <?php if ($noti['action'] == 2) : ?>

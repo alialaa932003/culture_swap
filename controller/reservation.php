@@ -14,7 +14,4 @@ if ($_POST['acceptNoti'] == 1) {
     Notification::delete($_POST['noti_id'], $userData['id']);
 }
 
-
-
-
 header('Location: ' . $_SERVER['HTTP_REFERER']);
