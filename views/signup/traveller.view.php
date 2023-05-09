@@ -39,7 +39,7 @@
 
 				
 				<label for="phone-number">Phone Number:</label>
-				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
+				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number"  pattern="[0-9]+" title="Phone number should only contain integers." required><br>
 
 				<label for="profile-photo">Profile image:</label>
 				<input type="file" id="profile-photo" name="profile-photo" accept="image/*" required><br>

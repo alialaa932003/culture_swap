@@ -10,10 +10,10 @@ class user{
     {
     }
 
-    public static function cheick($username,$password){
+    public static function cheick($email){
 
         $dbref =  Database::getInstance();
-        $user=$dbref->query("select * from  _user where email='$username' and phone_num ='$password'");
+        $user=$dbref->query("SELECT  _user.* from  _user where email= :email  ",['email'=>$email,])->find();
         return $user;
     }
 

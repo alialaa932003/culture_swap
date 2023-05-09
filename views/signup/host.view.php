@@ -31,7 +31,7 @@
         <input type="text" id="last_name" name="last-name" placeholder="Enter your last name" required><br>
 
         <label for="telephone">Telephone Number:</label>
-        <input type="tel" id="telephone" name="phone-number" placeholder="Enter your telephone number" required><br>
+        <input type="tel" id="telephone" name="phone-number" placeholder="Enter your telephone number"  pattern="[0-9]+" title="Phone number should only contain integers." required><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter your email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"><br>

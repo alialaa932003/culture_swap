@@ -62,7 +62,7 @@ function fetchTravelersCardData($params, $page)
     return $cardsData;
 }
 //////////////////////////////////////////////////////////////
-function  login($user)
+function  signUp($user)
 {
 
     session_start();
@@ -72,6 +72,20 @@ function  login($user)
     'username' => $user->getUserName(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
+  ];
+  session_regenerate_id(true); // To have a high security
+}
+
+function  login ($user)
+{
+
+    session_start();
+  $_SESSION['user'] = [
+    'type' => $user['type'],
+    'email' => $user['email'],
+    'username' => $user['username'],
+    'id' => $user['id'],
+    'country' => $user['country'],
   ];
   session_regenerate_id(true); // To have a high security
 }

@@ -82,7 +82,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
         'exp_date' =>  $_POST['expiration-date'],
         ];
     $user->add($data);
-     login($user);
+    signUp($user);
      header("location: /culture_swap");
       exit();
 }

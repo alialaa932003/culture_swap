@@ -23,10 +23,10 @@
           <img src="public/assets/imgs/login/logo.png">
         </div>
 
-        <div class="form-content">
+        <div class="form-content" action="/culture_swap/login">
           <form method="POST" class="form">
-            <input type="text" class="username-input" name="username" placeholder="Username" required>
-            <input type="password" class="password-input" name="password" placeholder="Password" required>
+            <input type="text" class="username-input" name="email" placeholder="Enter your email "pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required>
+            <input type="password" class="password-input" name="password" placeholder="Enter your Password" pattern=".{8,}" title="Password must be at least 8 characters long" required>
             <label class="remember-pass"><input type="checkbox" name="Remember-password">Remember Password</label>
             
             <button type="submit" class="submit main-btn btn">Log In</button>

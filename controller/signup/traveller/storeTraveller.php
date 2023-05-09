@@ -74,7 +74,7 @@ if (Validator::string($password, 8, 55) && Validator::email($email)) {
     'type' => $type
   ];
   $user->add($data);
-  login($user);
+  signUp($user);
   header("location: /culture_swap");
   exit();
 } elseif (!Validator::string($password, 8, 255)) {

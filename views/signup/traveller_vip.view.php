@@ -34,7 +34,7 @@
 				<input type="password" id="password" name="password" placeholder="Enter your password" required pattern=".{8,}" title="Password must be at least 8 characters long"><br>
 
 				<label for="phone-number">Phone Number:</label>
-				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number" required><br>
+				<input type="tel" id="phone-number" name="phone-number" placeholder="Enter your phone number"  pattern="[0-9]+" title="Phone number should only contain integers." required><br>
 				<label for="country">Country:</label>
 		        <input type="text" id="country" name="country" placeholder="Enter your country" required><br>
 

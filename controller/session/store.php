@@ -3,26 +3,20 @@
 use core\function ;
 use core\Classes\DB\user;
 
-$username=$_POST['Username'];
-$password=$_POST['Password'];
-
-$errors ;
-/*
-Qure  
-$username=$_POST['username'];
+$email=$_POST['email'];
 $password=$_POST['password'];
 
-*/
+$errors ;
 
 
-
-
-$user =user::cheick($username,$password) ;
+$user =user::cheick($email) ;
 
 if ($user){
-
-    if (password_verify($password,$user['password'])) {
-    login($user);    
+    
+     if (password_verify($password,$user['password'])) {
+   login($user);   
+    header("location: /culture_swap");
+     exit(); 
 }
  else {
     $errors =" password invaild " ;
@@ -32,3 +26,4 @@ if ($user){
 else{
     $errors ="user name or password invaild " ;
 }
+
