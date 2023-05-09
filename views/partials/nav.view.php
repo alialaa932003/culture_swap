@@ -8,7 +8,7 @@ $userData = $_SESSION['user'];
 ?>
 <nav class="navbar navbar-expand-lg active ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="./">culture swap</a>
+        <a class="navbar-brand" href="/culture_swap/">culture swap</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +26,7 @@ $userData = $_SESSION['user'];
                 <li class="nav-item">
                     <a class="nav-link" href="/culture_swap/posts">community</a>
                 </li>
-                <?php if ($userData['type'] == 2) : ?>
+                <?php if ($userData['type'] == 'traveller') : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/culture_swap/favourites">favourites</a>
                     </li>
