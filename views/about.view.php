@@ -22,7 +22,7 @@
       <h1 class="section-header">How it works</h1>
       <h3 class="section-description">New to Culture Swap? Here you'll find all you need to know about our great
         community.</h3>
-      <a href="#"><button class="second-btn btn">Let's start</button></a>
+      <a href="#adv-section"><button class="second-btn btn">Let's start</button></a>
     </div>
   </section>
 
@@ -30,7 +30,7 @@
   <!-- Advantages Section -->
   <!-- --------------->
 
-  <section class="advantages-section section-padding">
+  <section class="advantages-section section-padding" id="adv-section">
     <div class="container">
       <h1 class="section-header">Culture Swap Advantages</h1>
       <div class="cards-container">
@@ -151,7 +151,7 @@
 
     </div>
 
-    <a href="#"><button class="second-btn btn join-btn">Join Now !</button></a>
+    <a href="/culture_swap/signup/traveller"><button class="second-btn btn join-btn">Join Now !</button></a>
   </section>
 
   <!-- --------------->
@@ -198,6 +198,7 @@
       </div> 
 
     </div>
+        <a href="/culture_swap/signup/host"><button class="second-btn btn join-btn">Join Now !</button></a>
   </section>
 
 
