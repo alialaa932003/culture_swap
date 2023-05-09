@@ -81,6 +81,7 @@
     <!-- start host cards -->
 
     <section class="section-padding cards">
+
         <div class="container">
             <div class="head">
                 <h2 class="heading">Featured Stays</h2>
@@ -162,7 +163,45 @@
             </div>
     </section>
 
+
     <!-------------------------------------     end  cards        -------------------------------------------->
+
+    <section class=" statistics">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="box">
+                        <span class="stateIcon"><i class="fa-solid fa-people-group"></i></span>
+                        <span class="num">50</span>
+                        <span class="boxTitle">total travellers</span>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="box">
+                        <span class="stateIcon"><i class="fa-solid fa-house-user"></i></span>
+                        <span class="num">510</span>
+                        <span class="boxTitle">total hosts</span>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="box">
+                        <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
+                        <span class="num">623</span>
+                        <span class="boxTitle">Average host rating
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="box">
+                        <span class="stateIcon"><i class="fa-solid fa-map-location-dot"></i></span>
+                        <span class="num">149</span>
+                        <span class="boxTitle">number of joins
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- start popular places -->
 
     <section class="section-padding places">

@@ -121,6 +121,45 @@ header p {
 
 
 /******************************
+***********[statisicts]*********
+*****************************/
+.statistics {
+    background: #fff3b8;
+    padding: 5rem 0;
+}
+
+.box {
+    background: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 2rem 1rem;
+    margin: 1.5rem auto;
+    color: var(--h-color);
+    font-size: 1.8rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border-bottom: 12px solid var(--secondary);
+}
+
+.stateIcon {
+    font-size: 3.2rem;
+    color: var(--secondary);
+}
+
+.num {
+    margin: 0rem 0;
+    font-size: 4.2rem;
+    font-weight: 600;
+}
+
+.boxTitle {
+    color: var(--p-color);
+    font-weight: 400;
+}
+
+/******************************
 ***********[4-places]*********
 *****************************/
 
