@@ -1,7 +1,7 @@
 <aside style="gap: 3.2rem;width:15%;">
 
   <form class="d-flex flex-column" style="gap: 3.2rem;">
-    <div style=<?= $isHost ? "display: none;" : '' ?>>
+    <div style=<?= $isHost ? "display: none;" : "" ?>>
 
       <h4 class='mb-3'>Rating</h4>
       <div class='form-check'>
