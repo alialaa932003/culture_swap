@@ -68,18 +68,14 @@ function signUp($user)
 
   session_start();
   $_SESSION['user'] = [
+    'name' => $user->getFirstName() . ' ' . $user->getLastName(),
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
+    'type' => $user->getType() == 1 ? "traveller" : "host"
   ];
   
-  if( $user->getType()==1){
-    $_SESSION['user']=['type' =>"traveller",];
-  }
-  else{
-    $_SESSION['user']=['type' =>"host",];
-  }
   session_regenerate_id(true); // To have a high security
 }
 
