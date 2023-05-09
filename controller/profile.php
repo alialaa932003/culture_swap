@@ -22,7 +22,6 @@ if (!getUserType($idFromQuery))
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
 
-
 if ($userType == 'traveller') {
   $traveller = new Traveller();
   $traveller->getOne($idFromQuery);
@@ -48,7 +47,7 @@ if ($userType == 'traveller') {
     array_push($needs, $need['name']);
   }
   $description = $host->getDescription();
-  $travellersCount = $host->getTraveller_num();
+  $travellersCount = $host->getTraveller_num() ?? 0;
   $location = $host->getLocation();
   $rate = $host->getrate();
   $status = $host->getStatus();
