@@ -32,8 +32,10 @@
             <input type="text" class="username-input" name="email" placeholder="Enter your email "pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" required>
             <input type="password" class="password-input" name="password" placeholder="Enter your Password" pattern=".{8,}" title="Password must be at least 8 characters long" required>
             <label class="remember-pass"><input type="checkbox" name="Remember-password">Remember Password</label>
-            <p class="error" >
-           <?php echo $errors; ?></p>
+            <?php if($errors): ?>
+              <p class="error-msg"><?= $errors['email']?> </p>
+              <p class="error-msg"><?= $errors['password']?> </p>
+            <?php endif;?>
             <button type="submit" class="submit main-btn btn">Log In</button>
           </form>
         </div>

@@ -19,16 +19,23 @@
     <!-- start header -->
     <header class="">
         <div class="container">
+
             <div class="headerContent">
                 <h1>Travel differently, connect globally</h1>
                 <p>
                     The largest and safest community for cultural exchange, working holidays and volunteering in 170
                     countries.
+
                 </p>
             </div>
             <a href="#" class="second-btn discoverBtn ">
+
                 <span class="discoverIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
+
+
                 <span class="discoverText ">Discover 50,000+ opportunities</span>
+
+
             </a>
         </div>
 
@@ -172,7 +179,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-people-group"></i></span>
-                        <span class="num" data-stat="50">0</span>
+                        <span class="num" data-stat="<?= $num_trv[0]['num_travelers'] ?>">0</span>
                         <span class="boxTitle">total travellers</span>
                     </div>
                 </div>
