@@ -61,12 +61,13 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $user = new TravellerVip();
      $data = [
-        'username'=>$_POST['username'],
+        'user_name'=>$_POST['username'],
       'first_name' => $_POST['first-name'],
       'last_name' => $_POST['last-name'],
        'email' => $_POST['email'],
        'phone_num' => $_POST['phone-number'],
        'profile_img' => "{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
+       'cover_img' =>"{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
        'services' => [
          [
            'id' => '1',

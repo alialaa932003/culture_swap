@@ -38,11 +38,12 @@ class HostDB
 
         $dbref->query(
             "INSERT INTO _user (first_name, last_name,user_name,email,type, phone_num, profile_img, cover_img, country,password) 
-                values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
+                values(:fName,:lName,:user_name,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
             ",
             [
                 'fName' => $first_name,
                 'lName' => $last_name,
+                'userName' => $user_name,
                 'email' => $email,
                 'type' => $type,
                 'phoneNum' => $phone_num,
@@ -128,7 +129,7 @@ class HostDB
             "SELECT DISTINCT _user.* , Status, Description, Rate_average, Traveller_num, Location from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.id
-                INNER JOIn host_need
+                LEFt JOIn host_need
                 ON host_need.Host_id = _user.id
                 WHERE (
                     first_name LIKE :first_name

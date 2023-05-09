@@ -14,7 +14,7 @@ abstract class User{
     protected int $id;
     protected string $firstName;
     protected string $lastName;
-    protected string $username;
+    protected string $user_name;
     protected string $password;
     protected string $email;
     protected int $phoneNumber;
@@ -31,9 +31,9 @@ abstract class User{
     }
     
     //! sconde Constructors:
-    public function __construct2(string $name, string $username, string $pass, string $email, int $phoneNumber, string $profilePhoto, string $country, int $type) {
+    public function __construct2(string $name, string $user_name, string $pass, string $email, int $phoneNumber, string $profilePhoto, string $country, int $type) {
       $this->firstName = $name;
-      $this->username = $username;
+      $this->user_name = $user_name;
       $this->password = $pass;
       $this->email = $email;
       $this->phoneNumber = $phoneNumber;
@@ -43,7 +43,7 @@ abstract class User{
     }
 
     abstract public function  getNotification(); 
-   abstract public  function getOne( $username) ; 
+   abstract public  function getOne( $user_name) ; 
    abstract   public static function search ( $attributes, $skip, $limit); 
    abstract public function add(array $data) ;
   
@@ -70,11 +70,11 @@ abstract class User{
     }
   
     public function getUserName() {
-      return $this->username;
+      return $this->user_name;
     }
   
-    public function setUserName(string $username) {
-      $this->username = $username;
+    public function setUserName(string $user_name) {
+      $this->user_name = $user_name;
     }
   
     public function getPassword() {
@@ -141,7 +141,7 @@ abstract class User{
       Post::delete($postId);
     }
    
-    public static function login(string $username, string $password) {
+    public static function login(string $user_name, string $password) {
       // implementation details
       //$this->username=$username;
      // $this->password=$password;
