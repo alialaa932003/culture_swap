@@ -47,7 +47,7 @@ class Reservation
     }
 
 
-    public static function makeReservation($traveller_id, $host_id, $status, $startDate, $endDate, $tvname, $action_id)
+    public static function makeReservation($traveller_id, $host_id, $status, $startDate, $endDate, $tvname)
     {
         $content = "the traveller $tvname want to join to you";
         $action = 1; //reservation 
@@ -61,7 +61,9 @@ class Reservation
             'end_date' => $endDate
         ]);
 
-        Notification::makeNoti($traveller_id, $host_id, $content, $action, $action_id);
+
+
+        Notification::makeNoti($traveller_id, $host_id, $content, $action,  $rv_id );
 
         return $rv_id;
     }
@@ -78,8 +80,6 @@ class Reservation
            'id' => $id
         ]);
             
-
-  
 
         $action = 1; // reservation
         $hst_id =  $res['host_id'];
@@ -128,7 +128,7 @@ class Reservation
         $res = Reservation::get_Detailed_Res($id);
         return  $res['host_id'];
     }
-    
+
     public static function getStatus($id)
     {
         $res = Reservation::get_Detailed_Res($id);

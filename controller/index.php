@@ -2,6 +2,7 @@
 
 use core\Classes\DB\HostDB;
 use core\Database;
+use core\classes\Reservation;
 
 $ASSET_URL = "/culture_swap/public/";
 
@@ -53,7 +54,6 @@ $num_joins = $joins["num_reservations"];
 
 
 // end  statistics 
-
 
 
 

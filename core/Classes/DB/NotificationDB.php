@@ -47,8 +47,16 @@ class NotificationDB
     public static  function getAll($user_id)
     {
 
-        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN interaction on interaction.code = notification.action INNER JOIN reservation ON action_id = reservation.Id = notification.action WHERE reciever_id = :user_id ", ['user_id' => $user_id])->get();
+        return Database::getInstance()->query("SELECT * FROM notification   WHERE reciever_id = :user_id and action = 2 or action = 3", ['user_id' => $user_id])->get();
     }
+
+    public static  function getAllRes($user_id)
+    {
+
+        return Database::getInstance()->query("SELECT * FROM notification INNER JOIN reservation on action_id = reservation.Id  WHERE reciever_id = :user_id and action = 1 ", ['user_id' => $user_id])->get();
+    }
+
+
 
     public static function  getOne($id, $user_id)
     {
@@ -62,3 +70,6 @@ class NotificationDB
         return $notification;
     }
 }
+
+
+

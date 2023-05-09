@@ -55,7 +55,7 @@ require base_path('controller/nav.php');
                             <i class="fa-solid fa-bell"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <?php foreach ($notifications as $noti) : ?>
+                            <?php foreach ($notimerge as $noti) : ?>
                                 <li class="noti-item ">
 
                                     <?php if ($noti['action'] == 2) : ?>
@@ -84,7 +84,7 @@ require base_path('controller/nav.php');
                                                 <?php if ($noti['Status'] == 0) : ?>
                                                     <form action="/culture_swap/reservation" class="noti-actions" method="POST">
                                                         <input type="hidden" name="action_id" value=<?= $noti['action_id'] ?>>
-                                                        <input type="hidden" name="noti_id" value=<?= $noti['Id'] ?>>
+                                                        <input type="hidden" name="noti_id" value=<?= $noti['Id'] ; ?>>
                                                         <button  class="second-btn" name="acceptNoti" value="1" type="submit" >accept</button>
                                                         <button class="main-btn" name="cancelNoti" value="2" type="submit" >cancel</button>
                                                     </form>
