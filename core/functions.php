@@ -85,12 +85,13 @@ function signUp($user)
 
 function login($user)
 {
-
+  dd($user);
   session_start();
   $_SESSION['user'] = [
+    'name' => $user['first_name'] . " ". $user['lase_name'],
     'email' => $user['email'],
     'username' => $user['username'],
-    'id' => $user['id'],
+    'id' => $user['Id'],
     'country' => $user['country'],
     'type' => $user['type'] == 1 ? "traveller" : "host"
   ];
