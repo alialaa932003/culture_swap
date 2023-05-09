@@ -256,25 +256,28 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         extract($host);
 
         $this->id = $id;
-        $this->setFirstName($f_name);
-        $this->setLastName($l_name);
-        $this->setPassword($password);
+        $this->firstName = $first_name ;
+        $this->lastName = $last_name;
+        $this-> user_name = $user_name ;
+        $this->password = $password;
         $this->type = $type;
+        $this ->coverPhoto = $cover_img;
+        $this ->profilePhoto = $profile_img;
+        $this->email = $email;
+        $this->phoneNumber = $phone_num;
+        $this->country = $country;
+        $this->notification [] = $notificationIds;
 
-        $this->setEmail($email);
-        $this->setPhoneNumber($phone_num);
-        $this->setCountry($country);
-
-        $this->setLocation($Location);
-        $this->setStatus($Status);
+        $this->location = $location;
+        $this->status =$Status;
 
 
-        $this->setDescription($Description);
+        $this->description = $Description;
 
-        $this->needs = $Needs; ////////////////////////////////////////////////////////
+        $this->needs[] = $needs ; ////////////////////////////////////////////////////////
 
-        $this->setTraveller_num($Traveller_num);
-        $this->setrate($Rate_average);
+        $this->Traveller_num = $Traveller_num;
+        $this->rate =$Rate_average ;
     }
 
 
