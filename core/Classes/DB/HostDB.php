@@ -13,12 +13,14 @@ class HostDB
         '_user' => [
             'first_name',
             'last_name',
+            'user_name',
             'email',
             'type',
             'phone_num',
             'profile_img',
             'cover_img',
-            'country'
+            'country',
+            'password'
         ],
         'host' => [
             'Status',
@@ -35,7 +37,7 @@ class HostDB
         extract($data);
 
         $dbref->query(
-            "INSERT INTO _user (first_name, last_name,email,type, phone_num, profile_img, cover_img, country) 
+            "INSERT INTO _user (first_name, last_name,user_name,email,type, phone_num, profile_img, cover_img, country,password) 
                 values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country)
             ",
             [
@@ -47,6 +49,7 @@ class HostDB
                 'profileImg' => $profile_img,
                 'coverImg' => $cover_img,
                 'country' => $country,
+                'password' => $password
             ]
         );
 
@@ -73,7 +76,7 @@ class HostDB
 
             $values_str = implode(',', $values);
             $stmt = $dbref->connection->prepare(
-                "INSERT INTO host (id,status, Description, Rate_average, Traveller_num, location, user_id) 
+                "INSERT INTO host (Id,Status, Description, Rate_average, Traveller_num, Location, User_id) 
                     values(:id,:status,:description,:rate, :travelersNum, :location, :userId);
                 INSERT INTO host_need (Host_id, Need_id)
                     VALUES $values_str;
@@ -122,7 +125,7 @@ class HostDB
         $needssCondtion = $needIds ? "AND Need_id IN ({$needIds})" : '';
 
         $hosts = $dbref->query(
-            "SELECT DISTINCT _user.* , status, Description, Rate_average, Traveller_num, location from _user 
+            "SELECT DISTINCT _user.* , Status, Description, Rate_average, Traveller_num, Location from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.id
                 INNER JOIn host_need
@@ -162,7 +165,7 @@ class HostDB
         $hostNeeds = $dbref->query(
             "SELECT service.*, host_need.Host_id from host_need
                 INNER JOIN service
-                on host_need.Need_id = service.id
+                on host_need.Need_id = service.Id
                 WHERE host_need.Host_id IN ({$hostIds})
                 ORDER BY host_need.Host_id desc
             "
@@ -205,7 +208,7 @@ class HostDB
         $needs = $dbref->query(
             "SELECT service.* from service
                 INNER JOIN host_need
-                ON service.id = host_need.Need_id
+                ON service.Id = host_need.Need_id
                 WHERE host_need.traveller_id = :hostId
             ",
             ['hostId' => $host['Id']]
