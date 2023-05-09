@@ -22,9 +22,6 @@ if(!getUserType($idFromQuery))
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
 
-if ($userId == $idFromQuery) {
-  //! Auth Login
-}
 
 if ($userType == 'traveller') {
   $traveller = new Traveller();
