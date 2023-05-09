@@ -38,12 +38,11 @@ class HostDB
 
         $dbref->query(
             "INSERT INTO _user (first_name, last_name,user_name,email,type, phone_num, profile_img, cover_img, country,password) 
-                values(:fName,:lName,:userName,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
+                values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country, :password)
             ",
             [
                 'fName' => $first_name,
                 'lName' => $last_name,
-                'userName' => $userName,
                 'email' => $email,
                 'type' => $type,
                 'phoneNum' => $phone_num,

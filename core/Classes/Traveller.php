@@ -29,7 +29,7 @@ class Traveller extends User
     $id = TravellerDB::add($data);
     extract($data);
     $this->id = $id ?? "";
-    $this->username = $username ?? "";
+    $this->user_name = $user_name ?? "";
     $this->password = $password ?? "";
     $this->firstName = $first_name ?? "";
     $this->lastName = $last_name ?? "";
