@@ -1,5 +1,6 @@
 <?php
 $ASSET_URL = "/culture_swap/public/";
+
 use core\Classes\{
   Traveller,
   Host
@@ -37,12 +38,9 @@ if ($userType == 'traveller') {
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
-  $host->getOne($idFromQuery);
-  $userName = $host->getUserName();
-  $country = $host->getCountry();
-  $email = $host->getEmail();
+  $host->getOne($userId);
   $services = $host->getneeds();
-  $description = $hots->getDescription();
+  $description = $host->getDescription();
   $travellersCount = $host->getTraveller_num();
   $location = $host->getLocation();
   $rate = $host->getrate();
@@ -50,7 +48,6 @@ if ($userType == 'traveller') {
   $posts = PostDB::getUserPostIdsAndTitle($userId);
   $postsCount = count($posts);
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
-
 }
 
 
