@@ -16,7 +16,7 @@ $_GET['needIds'] = implode(',', $needIds);
 //! Countries filter logic
 $countries = [];
 foreach ($_GET['countries'] as $country) {
-  array_push($countries, $country);
+  array_push($countries, "'$country'");
 };
 $_GET['country'] = implode(',', $countries);
 

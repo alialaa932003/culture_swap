@@ -5,6 +5,7 @@ use core\Classes\Host;
 use core\Classes\Traveller;
 use core\Response;
 use core\Database;
+
 function dd($value)
 {
   echo "<pre>";
@@ -38,7 +39,7 @@ function fetchHostsCardData($params, $page)
   $filters = [
     'first_name' => $params['searchQ'] ?? '',
     'last_name' => $params['searchQ'] ?? '',
-    'country' => $params['searchQ'] ?? '',
+    'country' => $params['country'] ?? '',
     'needIds' => $params['needIds'],
     'startRate' => $params['startRate'] ?? 0,
     'endRate' => $params['endRate'] ?? 5
@@ -54,7 +55,7 @@ function fetchTravelersCardData($params, $page)
   $filters = [
     'first_name' => $params['searchQ'] ?? '',
     'last_name' => $params['searchQ'] ?? '',
-    'country' => $params['searchQ'] ?? '',
+    'country' => $params['country'] ?? '',
     'serviceIds' => $params['serviceIds'],
   ];
   $limit = Components::getCardsPerPageLimit();
@@ -71,12 +72,12 @@ function signUp($user)
     'name' => "{$user->getFirstName()} {$user->getLastName()}",
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
-    'profileImg' =>$user->getProfilePhoto(),
+    'profileImg' => $user->getProfilePhoto(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
     'type' => $user->getType() == 1 ? "host" : "traveller"
   ];
-  
+
   session_regenerate_id(true); // To have a high security
 }
 
@@ -87,7 +88,7 @@ function login($user)
     'name' => "{$user['first_name']} {$user['last_name']}",
     'email' => $user['email'],
     'profileImg' => $user['profile_img'],
-    'username' => $user['user_name'],  
+    'username' => $user['user_name'],
     'id' => $user['Id'],
     'country' => $user['country'],
     'type' => $user['type'] == 1 ? "host" : "traveller"
@@ -104,7 +105,8 @@ function logout()
 }
 
 
-function getCountries(){
+function getCountries()
+{
   $db = Database::getInstance();
   return $db->query('SELECT DISTINCT country FROM _user')->get();
 }
