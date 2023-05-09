@@ -180,11 +180,11 @@ class Host extends User
       $this->setLastName($last_name) ;
       $this->setPassword($password);
       $this->type = $type;
-
+      $this->setProfilePhoto($profile_img);
       $this->setEmail($email) ;
       $this->setPhoneNumber($phone_num) ;
       $this->setCountry($country) ;
-
+      $this->setCoverPhoto($cover_img);
       $this->setLocation($location) ;
       $this->setStatus($Status) ;
     
