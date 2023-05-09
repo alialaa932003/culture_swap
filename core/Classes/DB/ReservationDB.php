@@ -46,9 +46,9 @@ class ReservationDB
   {
     extract($data);
 
-    Database::getInstance()->query("UPDATE reservation SET $key = :value WHERE id = :id ", [
+    Database::getInstance()->query("UPDATE reservation SET $key = :value WHERE Id = :id ", [
       'value' => $value,
-      'id' => $id
+      'id' => $Id
     ]);
   }
 
