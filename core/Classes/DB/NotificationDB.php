@@ -43,6 +43,7 @@ class NotificationDB
 
         );
     }
+    
     public static  function getAll($user_id)
     {
 
