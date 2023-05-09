@@ -1,8 +1,8 @@
 <?php
 $userData = $_SESSION['user'];
-echo "<br>";
-echo "<pre>";
-var_dump($userData);
+// echo "<br>";
+// echo "<pre>";
+// var_dump($userData);
 
 ?>
 <nav class="navbar navbar-expand-lg active ">
@@ -93,7 +93,7 @@ var_dump($userData);
 
                         </ul>
                     </div>
-
+                    <button class="logoutBtn second-btn">logout</button>
                 <?php endif; ?>
 
             </ul>

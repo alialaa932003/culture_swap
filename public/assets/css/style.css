@@ -33,6 +33,10 @@ html {
     font-size: 62.5%;
 }
 
+.logoutBtn {
+    margin-left: 1rem;
+}
+
 body {
     line-height: 1.6;
     font-weight: 500;
