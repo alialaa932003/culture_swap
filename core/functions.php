@@ -87,7 +87,7 @@ function login($user)
     'name' => "{$user['first_name']} {$user['last_name']}",
     'email' => $user['email'],
     'profileImg' => $user['profile_img'],
-    'username' => $user['username'],  
+    'username' => $user['user_name'],  
     'id' => $user['Id'],
     'country' => $user['country'],
     'type' => $user['type'] == 1 ? "host" : "traveller"
