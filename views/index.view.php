@@ -30,6 +30,7 @@
 
                 <span class="discoverIcon"><i class="fa-solid fa-magnifying-glass"></i></span>
 
+
                 <span class="discoverText ">Discover 50,000+ opportunities</span>
 
             </a>
