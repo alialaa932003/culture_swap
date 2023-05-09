@@ -9,7 +9,7 @@ $notifications = Notification::getAll($userData['id']);
 $notificationsRes = NotificationDB::getAllRes($userData['id']);
 $notimerge = array_merge($notificationsRes, $notifications);
 
-Reservation::makeReservation(2, 11, 0, "2023-5-10", "2023-5-12", "ali alaa");
+//Reservation::makeReservation(2, 11, 0, "2023-5-10", "2023-5-12", "ali alaa");
 
 
 // if ($_POST['acceptNoti'] == 1) {
