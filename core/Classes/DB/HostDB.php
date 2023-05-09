@@ -43,7 +43,7 @@ class HostDB
             [
                 'fName' => $first_name,
                 'lName' => $last_name,
-                'userName' => $userName,
+                'userName' => $user_name,
                 'email' => $email,
                 'type' => $type,
                 'phoneNum' => $phone_num,
