@@ -29,8 +29,8 @@
       <?php foreach ($allCountries as $i => $country) : ?>
 
         <div class='form-check'>
-          <input type='checkbox' class='form-check-input' id='<?= $i ?>' name='countries[]' value='<?= $country['country'] ?>' />
-          <label class='form-check-label' for='<?= $i ?>'><?= $country['country'] ?></label>
+          <input type='checkbox' class='form-check-input' id='<?= "country-$i" ?>' name='countries[]' value='<?= $country['country'] ?>' />
+          <label class='form-check-label' for='<?= "country-$i" ?>'><?= $country['country'] ?></label>
         </div>
       <?php endforeach; ?>
     </div>

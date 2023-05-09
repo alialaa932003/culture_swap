@@ -209,7 +209,7 @@ class HostDB
             "SELECT service.* from service
                 INNER JOIN host_need
                 ON service.Id = host_need.Need_id
-                WHERE host_need.traveller_id = :hostId
+                WHERE host_need.Host_id = :hostId
             ",
             ['hostId' => $host['Id']]
         )->get();
