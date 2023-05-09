@@ -99,11 +99,24 @@
                                         <i class="fa-regular fa-heart"></i>
                                     </span>
                                 </button>
+                                <div class="userCardImg">
+                                    <img src="public/assets/imgs/home/header5.webp" alt="">
+                                </div>
                             </div>
                             <div class="cardContent">
-                                <div class="cardCountry">
-                                    <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                    <span class="countryText">norway</span>
+
+                                <div class="userContent">
+                                    <div class="cardCountry">
+                                        <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
+                                        <span class="countryText">norway</span>
+                                    </div>
+                                    <div class="userCardContent">
+
+
+                                        <span class="userIcon"><i class="fa-regular fa-user"></i></span>
+                                        <span>ali alaa</span>
+
+                                    </div>
                                 </div>
                                 <h3>
                                     <?= $card["descriptions"] ?>
