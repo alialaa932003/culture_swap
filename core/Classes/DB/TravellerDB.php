@@ -34,7 +34,7 @@ class TravellerDB
             [
                 'fName' => $first_name,
                 'lName' => $last_name,
-                'user_name'=>$user_name,
+                'user_name' => $user_name,
                 'email' => $email,
                 'type' => $type,
                 'phoneNum' => $phone_num,
@@ -99,7 +99,8 @@ class TravellerDB
         $dbref =  Database::getInstance();
         extract($data);
 
-        $servicesCondtion = $serviceIds ? "AND service_id IN ($serviceIds)" : '';
+        $servicesCondtion = $serviceId && $serviceId !== '' ? "AND Need_id IN ({$serviceId})" : '';
+        $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
 
         $travellers = $dbref->query(
             "SELECT DISTINCT _user.*  from _user 
@@ -114,6 +115,7 @@ class TravellerDB
                     OR
                     country like :country 
                 ) 
+                {$countryCondition}
                 {$servicesCondtion}
                 ORDER BY _user.id desc   
                 LIMIT $limit
