@@ -82,7 +82,7 @@ class Reservation
          $content = " $name Reject your reservation "; //reject
 
 
-      Notification::makeNoti($res['host_id'],$res['travelelr_id'],$content,$action, $action_id);   
+      Notification::makeNoti($res['host_id'],$res['travelelr_id'],$content,$action,$id);   
           
     }  
 
