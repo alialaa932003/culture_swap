@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: May 08, 2023 at 10:19 PM
+-- Generation Time: May 09, 2023 at 08:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -132,14 +132,10 @@ CREATE TABLE `interaction` (
 --
 
 INSERT INTO `interaction` (`code`, `action_type`) VALUES
-(1, 'Like'),
-(2, 'Comment'),
-(3, 'Share'),
-(4, 'Follow'),
-(5, 'Unfollow'),
-(6, 'Block'),
-(7, 'Report'),
-(8, 'Flag');
+(1, 'resevation'),
+(2, 'comment post'),
+(3, 'love post'),
+(4, 'review host');
 
 -- --------------------------------------------------------
 
@@ -165,8 +161,7 @@ INSERT INTO `notification` (`Id`, `sender_id`, `reciever_id`, `content`, `status
 (1, 1, 2, 'You have a new message!', 0, 1, 0),
 (2, 3, 1, 'Your post has been liked!', 1, 2, 0),
 (3, 2, 1, 'Your reservation request has been approved!', 0, 3, 0),
-(4, 4, 1, 'You have a new follower!', 1, 4, 0),
-(5, 1, 3, 'You have been invited to join a group!', 0, 5, 0);
+(4, 4, 1, 'You have a new follower!', 1, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -356,7 +351,8 @@ INSERT INTO `_user` (`Id`, `first_name`, `last_name`, `user_name`, `email`, `typ
 (1, 'omar', 'osama', '', 'omar.osama@omar.osama', 1, '1234567890', 0x3c62696e6172792d646174613e, '', 'USA', ''),
 (2, 'ali', 'alaa', '', 'ali.alaa@ali.alaa', 1, '1234567889', 0x3c62696e6172792d646174613e, '', 'Uk', ''),
 (3, 'halem', 'ashraf', '', 'halem.ashraf@halem.ashraf', 1, '1245567890', 0x3c62696e6172792d646174613e, '', 'egypt', ''),
-(4, 'salah', 'mohamed', '', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, '', 'sudia', '');
+(4, 'salah', 'mohamed', '', 'salah.mohamed@salah.mohamed', 1, '12315767890', 0x3c62696e6172792d646174613e, '', 'sudia', ''),
+(7, 'omar', 'osama', 'omar osama', 'omar.shark2413@gmail.com', 2, '01555793130', 0x687474703a2f2f6c6f63616c686f73742f63756c747572655f737761702f7075626c69632f6173736574732f696d67732f70726f66696c652f36343561376565666531356639392e39373038363331382e6a7067, 0x687474703a2f2f6c6f63616c686f73742f63756c747572655f737761702f7075626c69632f6173736574732f696d67732f6162646f2f36343561376565666531356639392e39373038363331382e6a7067, 'egypt', '$2y$10$q5cm6GWqf38p3N4rv/lnweNbtfbdj02cHJfX4wmJE4NrtGdOIORgG');
 
 --
 -- Indexes for dumped tables
@@ -544,7 +540,7 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `_user`
 --
 ALTER TABLE `_user`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
