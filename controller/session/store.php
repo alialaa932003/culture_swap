@@ -4,11 +4,11 @@ use core\function ;
 use core\Classes\DB\user;
 
 $email=$_POST['email'];
-$password=$_POST['password'];
+$password=$_POST['phone_num'];
 
-$errors ;
+$errors= null ;
 
-
+if (isset($_POST['submit'])){
 $user =user::cheick($email) ;
 
 if ($user){
@@ -20,10 +20,14 @@ if ($user){
 }
  else {
     $errors =" password invaild " ;
+    dd($errors);
+    
 }
 
 }
 else{
     $errors ="user name or password invaild " ;
+        dd($errors);
 }
 
+}
