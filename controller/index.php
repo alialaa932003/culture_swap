@@ -43,9 +43,14 @@ LIMIT 8 ")->get();
 $num_trv =  Database::getInstance()->query("SELECT COUNT(DISTINCT traveller_id) AS num_travelers FROM host_traveller")->get();
 $num_hst =  Database::getInstance()->query("SELECT COUNT(DISTINCT host_id) AS num_hosts FROM host_traveller")->get();
 
+<<<<<<< Updated upstream
 $avg_hst_rating = Database::getInstance()->query("SELECT AVG(Rate_average) AS avg_rate FROM host")->get();
 
 dd($avg_hst_rating[0]["avg_rate"]);
+=======
+$num_trv =  Database::getInstance()->query("SELECT COUNT(id) AS num_travelers FROM traveller")->get();
+
+>>>>>>> Stashed changes
 
 // end  statistics 
 
