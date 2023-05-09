@@ -123,7 +123,8 @@ class HostDB
         $dbref = Database::getInstance();
         extract($data);
 
-        $needssCondtion = $needIds ? "AND Need_id IN ({$needIds})" : '';
+        $needssCondition = $needIds && $needIds !== '' ? "AND Need_id IN ({$needIds})" : '';
+        $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
 
         $hosts = $dbref->query(
             "SELECT DISTINCT _user.* , Status, Description, Rate_average, Traveller_num, Location from _user 
@@ -135,11 +136,10 @@ class HostDB
                     first_name LIKE :first_name
                     OR 
                     last_name like :last_name
-                    OR
-                    country like :country 
                 ) 
+                {$countryCondition}
                 AND Rate_average between :startRate and :endRate 
-                {$needssCondtion}
+                {$needssCondition}
                 ORDER BY _user.id desc   
                 LIMIT $limit
                 OFFSET $offset 
@@ -147,7 +147,6 @@ class HostDB
             [
                 'first_name' => '%' . $first_name . '%',
                 'last_name' => '%' . $last_name . '%',
-                'country' => '%' . $country . '%',
                 'startRate' => $startRate,
                 'endRate' => $endRate
             ]
