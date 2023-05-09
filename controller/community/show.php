@@ -12,8 +12,10 @@ $lovesNum = Post::get_loves_num($_GET['id'])['lovesNum'];
 $post = new Post();
 
 $postdet = $post->getOne($req);
-
-$comments = $postdet['comments'];
+if (empty($postdet)) {
+    abort();
+}
+$comments = $postdet['comments'] ?? [];
 $num_comments = count($comments);
 $recentPosts = Post::search("", 0, 6);
 

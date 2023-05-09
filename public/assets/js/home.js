@@ -32,8 +32,7 @@ window.addEventListener("scroll", function () {
         if (!started) {
             nums.forEach((num) => {
                 if (num.dataset.stat != 0) {
-                    console.log(num);
-                    return startCount(num);
+                    startCount(num);
                 }
             });
         }
@@ -45,7 +44,11 @@ if (
     section.offsetTop - window.innerHeight + section.clientHeight
 ) {
     if (!started) {
-        nums.forEach((num) => startCount(num));
+        nums.forEach((num) => {
+            if (num.dataset.stat != 0) {
+                startCount(num);
+            }
+        });
     }
     started = true;
 }
