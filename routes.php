@@ -16,11 +16,11 @@ $router->get('/culture_swap/about', 'controller/about.php');
 
 //! Signup Requests
 $router->get('/culture_swap/signup/traveller', 'controller/signup/traveller/createTraveller.php')->only('guest');
-$router->post('/culture_swap/signup/traveller', 'controller/signup/traveller/storeTraveller.php');
+$router->post('/culture_swap/signup/traveller', 'controller/signup/traveller/storeTraveller.php')->only('guest');
 $router->get('/culture_swap/signup/traveller_vip', 'controller/signup/traveller/createTravellerVip.php')->only('guest');
-$router->post('/culture_swap/signup/traveller_vip', 'controller/signup/traveller/storeTravellerVip.php');
+$router->post('/culture_swap/signup/traveller_vip', 'controller/signup/traveller/storeTravellerVip.php')->only('guest');
 $router->get('/culture_swap/signup/host', 'controller/signup/host/createHost.php')->only('guest');
-$router->post('/culture_swap/signup/host', 'controller/signup/host/storeHost.php');
+$router->post('/culture_swap/signup/host', 'controller/signup/host/storeHost.php')->only('guest');
 //! Login Requests
 $router->get('/culture_swap/login', 'controller/session/create.php')->only('guest');
 $router->post('/culture_swap/login', 'controller/session/store.php')->only('guest');

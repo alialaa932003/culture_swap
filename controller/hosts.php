@@ -5,7 +5,7 @@ $page = $_GET['page'] ?? 0;
 $allCountries = getCountries();
 
 
-//! Services filter logic
+//! needs filter logic
 $needIds = [];
 foreach ($_GET['needs'] as $need) {
   array_push($needIds, $need);
