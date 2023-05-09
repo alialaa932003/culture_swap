@@ -7,7 +7,7 @@ class UserAuth
 
   public function handle()
   {
-    if ($_SESSION['user']['type'] !== 'host' || $_SESSION['user']['type'] !== 'traveller') {
+    if (!$_SESSION['user']['type']) {
       header('location: /culture_swap/');
       exit();
     }
