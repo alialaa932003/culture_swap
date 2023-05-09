@@ -18,6 +18,8 @@ $recentPosts = Post::search("", 0, 6);
 /// extract day from date
 
 //$postdet["date"];
+
+
 $date = '2023-05-07';
 $day = date('d', strtotime($date));
 //echo $day; 
