@@ -5,7 +5,7 @@
 	<?php
 	require base_path("views/partials/head.view.php");
 	?>
-	<title>home</title>
+	<title>Travellers</title>
 	<link rel="stylesheet" href=<?= "{$ASSET_URL}/assets/css/search/searchInput.css" ?>>
 </head>
 
@@ -26,7 +26,7 @@
 
 			<?php Components::createCardsGrid($cardsData, false) ?>
 		</div>
-	</div>>
+	</div>
 
 	<?php
 	require base_path("views/partials/footer.view.php");

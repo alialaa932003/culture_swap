@@ -55,7 +55,7 @@
 
 
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                        <a href="#">
+                        <a href="/culture_swap/hosts?service=<?= $service["name"] ?>">
 
                             <span class="itemIcon">
 
@@ -93,7 +93,7 @@
         <div class="container">
             <div class="head">
                 <h2 class="heading">Featured Stays</h2>
-                <a href="./hosts" class="main-btn">all hosts</a>
+                <a href="/culture_swap/hosts" class="main-btn">all hosts</a>
             </div>
             <div class="row">
                 <!-- -------------------------------------#cards---------------------------------------------->
@@ -102,14 +102,14 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="myCard">
                             <div class="cardImage">
-                                <img src="public/assets/imgs/home/header5.webp" alt="">
+                                <img src=<?= $card['cover-img'] ?> alt="">
                                 <button class="love">
                                     <span>
                                         <i class="fa-regular fa-heart"></i>
                                     </span>
                                 </button>
                                 <div class="userCardImg">
-                                    <img src="public/assets/imgs/home/header5.webp" alt="">
+                                    <img src=<?= $card['profile-img'] ?> alt="">
                                 </div>
                             </div>
                             <div class="cardContent">
@@ -117,13 +117,13 @@
                                 <div class="userContent">
                                     <div class="cardCountry">
                                         <span class="countryIcon"><i class="fa-solid fa-location-dot"></i></span>
-                                        <span class="countryText">norway</span>
+                                        <span class="countryText"><?= $card['country'] ?></span>
                                     </div>
                                     <div class="userCardContent">
 
 
                                         <span class="userIcon"><i class="fa-regular fa-user"></i></span>
-                                        <span>ali alaa</span>
+                                        <span><?= $card['first_name'] ?> <?= $card['last_name'] ?></span>
 
                                     </div>
                                 </div>
@@ -194,7 +194,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
-                        <span class="num" data-stat="<?=$hst_avg_rate?>">0</span>
+                        <span class="num" data-stat="<?= $hst_avg_rate ?>">0</span>
                         <span class="boxTitle">Average host rating
                         </span>
                     </div>
@@ -202,7 +202,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-map-location-dot"></i></span>
-                        <span class="num" data-stat="<?=$num_joins?>">0</span>
+                        <span class="num" data-stat="<?= $num_joins ?>">0</span>
                         <span class="boxTitle">number of joins
                         </span>
                     </div>

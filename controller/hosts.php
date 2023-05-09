@@ -7,17 +7,19 @@ $allCountries = getCountries();
 
 //! Services filter logic
 $needIds = [];
-foreach ($_GET['services'] as $service) {
-  array_push($needIds, $service);
-};
-array_push($needIds, $_GET['service']);
+foreach ($_GET['needs'] as $need) {
+  array_push($needIds, $need);
+}
+;
+$_GET['need'] ? array_push($needIds, $_GET['need']) : "";
 $_GET['needIds'] = implode(',', $needIds);
 
 //! Countries filter logic
 $countries = [];
 foreach ($_GET['countries'] as $country) {
   array_push($countries, "'$country'");
-};
+}
+;
 $_GET['country'] = implode(',', $countries);
 
 

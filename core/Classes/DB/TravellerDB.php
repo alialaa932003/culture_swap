@@ -99,8 +99,8 @@ class TravellerDB
         $dbref =  Database::getInstance();
         extract($data);
 
-        $servicesCondtion = $serviceId && $serviceId !== '' ? "AND Need_id IN ({$serviceId})" : '';
-        $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
+        $servicesCondtion = $serviceIds && $serviceIds !== '' ? "AND service_id IN ({$serviceIds})" : '';
+        $countryCondition = $countries && $countries !== '' ? "AND country IN ({$countries})" : '';
 
         $travellers = $dbref->query(
             "SELECT DISTINCT _user.*  from _user 
