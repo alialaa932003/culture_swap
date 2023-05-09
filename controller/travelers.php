@@ -1,6 +1,7 @@
 <?php
 $ASSET_URL = "/culture_swap/public/";
 $allCountries = getCountries();
+$page = $_GET['page'] ?? 0;
 
 //! services filter logic
 $servicesIds = [];
@@ -14,12 +15,10 @@ $_GET['serviceIds'] = implode(',', $servicesIds);
 $countries = [];
 foreach ($_GET['countries'] as $country) {
   array_push($countries, "'$country'");
-}
-;
-$_GET['country'] = implode(',', $countries);
+};
+$_GET['country'] ? array_push($countries, "'{$_GET['country']}'") : "";
+$_GET['countries'] = implode(',', $countries);
 
-
-$page = $_GET['page'] ?? 0;
 $cardsData = fetchTravelersCardData($_GET, $page);
 
 require base_path("views/travelers.view.php");

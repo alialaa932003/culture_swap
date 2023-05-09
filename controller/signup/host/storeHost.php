@@ -7,7 +7,7 @@ use core\Classes\Host;
 use core\Validator;
 $email = $_POST['email'];
 $password = $_POST['password'];
-$type=2;
+$type=1;
 $errors = [];
 
 

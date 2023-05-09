@@ -62,7 +62,7 @@ require base_path('controller/nav.php');
                                         <span class="noti-icon purple-noti">
                                             <i class="fa-regular fa-comment"></i>
                                         </span>
-                                    <?php elseif ($noti['action'] == 1) : ?>
+                                    <?php elseif ($noti['action'] == 1) : ;?>
                                         <span class="noti-icon green-noti">
                                             <i class="fa-regular fa-bell"></i>
                                         </span>
@@ -81,11 +81,12 @@ require base_path('controller/nav.php');
                                                 <a class="second-btn" href="/culture_swap/post?id=<?= $noti['action_id'] ?>">view post</a>
 
                                             <?php elseif ($noti['action'] == 1) : ?>
-                                                <?php if ($noti['status'] == 0) : ?>
+                                                <?php if ($noti['Status'] == 0) : ?>
                                                     <form action="/culture_swap/reservation" class="noti-actions" method="POST">
                                                         <input type="hidden" name="action_id" value=<?= $noti['action_id'] ?>>
-                                                        <button class="second-btn" name="acceptNoti" value="1" type="submit">accept</button>
-                                                        <button class="main-btn" name="cancelNoti" value="1" type="submit">cancel</button>
+                                                        <input type="hidden" name="noti_id" value=<?= $noti['Id'] ?>>
+                                                        <button  class="second-btn" name="acceptNoti" value="1" type="submit" >accept</button>
+                                                        <button class="main-btn" name="cancelNoti" value="2" type="submit" >cancel</button>
                                                     </form>
                                                 <?php endif; ?>
                                             <?php else : ?>

@@ -55,7 +55,7 @@
 
 
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 item">
-                        <a href="/culture_swap/hosts?service=<?= $service["name"] ?>">
+                        <a href="/culture_swap/hosts?service=<?= $service["Id"] ?>">
 
                             <span class="itemIcon">
 
