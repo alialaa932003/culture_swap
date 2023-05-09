@@ -28,11 +28,7 @@ require base_path('controller/nav.php');
                 <li class="nav-item">
                     <a class="nav-link" href="/culture_swap/posts">community</a>
                 </li>
-                <?php if ($userData['type'] == 'traveller') : ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/culture_swap/favourites">favourites</a>
-                    </li>
-                <?php endif; ?>
+
                 <?php if (!empty($userData)) : ?>
                     <li class="nav-item">
                         <a class="nav-link userInfo" href="#">
@@ -57,7 +53,7 @@ require base_path('controller/nav.php');
                         <ul class="dropdown-menu">
                             <?php foreach ($notimerge as $noti) : ?>
 
-                                <?php var_dump($notimerge);?>
+                                <?php var_dump($notimerge); ?>
                                 <li class="noti-item ">
 
                                     <?php if ($noti['action'] == 2) : ?>
