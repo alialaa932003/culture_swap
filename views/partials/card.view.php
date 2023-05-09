@@ -24,7 +24,7 @@ $heartEmpty = "<i class=\"fa-regular fa-heart\"></i>";
       </div>
       <h3><?= "{$first_name} {$last_name}" ?></h3>
       <div class="cardDetails">
-        <a href=<?= "/profile?id={$Id}" ?> class="second-btn">view profile</a>
+        <a href=<?= "./profile?id={$Id}" ?> class="second-btn">view profile</a>
 
         <div class='rate' style="<?= $isHost ? '' : 'display: none' ?>">
           <?php
