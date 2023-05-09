@@ -3,7 +3,9 @@
 use core\Classes\Post;
 
 $config = require base_path('config.php');
-$current_user_id = 1;
+$userData = $_SESSION['user'];
+
+$current_user_id = $userData['id'];
 if (isset($_POST['subLove'])) {
     Post::makeLove($current_user_id, $_POST['loveVal']);
 }
@@ -30,7 +32,7 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($fileTmpName, $fileDestination);
                 $post = new Post();
                 $post->add([
-                    'user_id' => 1,
+                    'user_id' => $current_user_id,
                     'title' => $_POST['title'],
                     'content' => $_POST['content'],
                     'img' => "{$config['base_urll']}/public/assets/imgs/posts/{$fileNameNew}",
