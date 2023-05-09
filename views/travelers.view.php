@@ -26,7 +26,7 @@
 
 			<?php Components::createCardsGrid($cardsData, false) ?>
 		</div>
-	</div>>
+	</div>
 
 	<?php
 	require base_path("views/partials/footer.view.php");
