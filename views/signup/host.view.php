@@ -54,18 +54,18 @@
           rows="10" required></textarea><br>
 
         <label for="help_with">What Are You Looking for Help With?</label><br>
-        <input type="checkbox" id="help_none" name="help-with[]" value="Farmstay help" checked>
-        <label for="help_none">Farmstay help</label><br>
-        <input type="checkbox" id="help_one" name="help-with[]" value="Creating/ Cooking family meals">
-        <label for="help_one">Creating/ Cooking family meals</label><br>
-        <input type="checkbox" id="help_two" name="help-with[]" value="Art Projects" >
-        <label for="help_two">Art Projects</label><br>
-        <input type="checkbox" id="help_three" name="help-with[]" value="Animal Care">
-        <label for="help_three">Animal Care</label><br>
-        <input type="checkbox" id="help_four" name="help-with[]" value="Teaching">
-        <label for="help_four">Teaching </label><br>
-        <input type="checkbox" id="help_five" name="help-with[]" value="Language practice">
-        <label for="help_five">Language practice</label><br>
+        <input type="checkbox" id="help_none" name="help-with[]" value="Animals & Farming" checked>
+        <label for="help_none">Animals & Farming</label><br>
+        <input type="checkbox" id="help_one" name="help-with[]" value=" 	packpaker Hotels &hospitality">
+        <label for="help_one"> 	packpaker Hotels &hospitality</label><br>
+        <input type="checkbox" id="help_two" name="help-with[]" value="Farming & Homesteads" >
+        <label for="help_two">Farming & Homesteads</label><br>
+        <input type="checkbox" id="help_three" name="help-with[]" value="Building & Restoration">
+        <label for="help_three">Building & Restoration</label><br>
+        <input type="checkbox" id="help_four" name="help-with[]" value="Teaching & language">
+        <label for="help_four">Teaching & language </label><br>
+        <input type="checkbox" id="help_five" name="help-with[]" value="intenships Abroad">
+        <label for="help_five">intenships Abroad</label><br>
 
         <label for="more_info">Some More Information:</label><br>
         <input type="checkbox" id="info_none" name="more-info[]" value="have Internet access" checked>

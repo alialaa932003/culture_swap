@@ -187,7 +187,7 @@ class Host extends User
       $this->setCoverPhoto($cover_img);
       $this->setLocation($location) ;
       $this->setStatus($Status) ;
-    
+      $this->setrate($Rate_average);
      
       $this->setDescription($Description);
      

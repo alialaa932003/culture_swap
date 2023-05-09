@@ -76,8 +76,13 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
          'profile_img' => "{$config['base_urll']}/public/assets/imgs/profile/{$fileNameNew}",
          'cover_img' =>"{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
          'country' => $_POST['country'],
-         'services' => $_POST['help-with'],
+         'services' => [
+            'id' => '1',
+            'service' => $_POST['services']
+          ],
          'password' => $hashedPassword ,
+         'Status'=>"Active",
+         'Rate_average'=>0,
          'type' => $type,
          'Description' => $_POST['Description'],
          'Traveller_num' => 0,
