@@ -66,7 +66,6 @@ function fetchTravelersCardData($params, $page)
 //////////////////////////////////////////////////////////////
 function signUp($user)
 {
-
   session_start();
   $_SESSION['user'] = [
     'name' => "{$user->getFirstName()} {$user->getLastName()}",

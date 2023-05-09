@@ -8,29 +8,7 @@
   <title>Profile</title>
 </head>
 
-<?php
-$isHost = false;
-$userName = "Salah Mohamed";
-$country = 'USA';
-$email = 'sdasda@gmail.com';
-$description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis magnam repellat adipisci voluptatibus tempore, nemo repellendus, eum accusantium et, illo odit obcaecati. Qui nam reprehenderit corporis amet exercitationem ad dolorum!';
-$posts = [
-  [
-    'id' => 1,
-    'title' => 'My last journy'
-  ]
-];
-$postsCount = 5;
-$commentsCount = 7;
-$services = ['Web', 'mobile', 'UI'];
-//Traveller
-$hostsCount = 10;
-//Host
-$travellersCount = 20;
-$location = "128,los anglos";
-$rate = 5;
-$status = 'Active'
-?>
+
 
 <body>
   <?php

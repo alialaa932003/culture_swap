@@ -5,7 +5,7 @@ use core\Classes\TravellerVip;
 use core\Validator;
 $email = $_POST['email'];
 $password = $_POST['password'];
-$type="1";
+$type="2";
 $errors = [];
 $cvc=$_POST['cvc'];
 $card_num=$_POST['card-number'];
@@ -76,7 +76,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
       ],
        'password' => $hashedPassword ,
        'country' => $_POST['country'],
-       'type' => 1,
+       'type' => 2,
         'payment_option' =>  $_POST['payment'],
         'card_number' =>  $_POST['card-number'],
         'cvc_number' =>  $_POST['cvc'],
