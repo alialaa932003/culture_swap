@@ -22,12 +22,12 @@ if ($userType == 'traveller') {
   $traveller = new Traveller();
   $traveller->getOne($userId);
   $services = [];
-  foreach($traveller->getService() as $service){
+  foreach ($traveller->getService() as $service) {
     array_push($services, $service['name']);
   }
   $posts = PostDB::getUserPostIdsAndTitle($userId);
   $postsCount = count($posts);
-  $hostsCount = TravellerDB::getHostNums($userId);
+  $hostsCount = TravellerDB::getHostNums($userId)['COUNT(traveller_id'] ?? 0;
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
