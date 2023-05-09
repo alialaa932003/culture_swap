@@ -99,7 +99,7 @@ class TravellerDB
         $dbref =  Database::getInstance();
         extract($data);
 
-        $servicesCondtion = $serviceId && $serviceId !== '' ? "AND Need_id IN ({$serviceId})" : '';
+        $servicesCondtion = $serviceIds && $serviceIds !== '' ? "AND service_id IN ({$serviceIds})" : '';
         $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
 
         $travellers = $dbref->query(
