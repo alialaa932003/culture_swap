@@ -55,5 +55,11 @@ class CommentDB
         return Database::getInstance()->query("SELECT * from comment ORDER BY id desc LIMIT $limit  ")->get();
     }
 
-    // function get post id 
+    public static function getUserCommentsNum($id)
+    {
+        return Database::getInstance()->query(
+            "SELECT COUNT(id) from comment WHERE user_id = :id",
+            [':id' => $id]
+        )->get();
+    }
 }

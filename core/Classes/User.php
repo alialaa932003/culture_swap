@@ -3,6 +3,7 @@
 namespace core\Classes;
 
 use core\Classes\comment;
+use core\Classes\DB\PostDB;
 //use core\Classes\DB\PostDB;
 //use core\Classes\DB\NotificationDB;
 use core\Classes\post;
@@ -136,10 +137,10 @@ abstract class User{
       $post->add($data);
       return $post;
     }
-    public function removePost( $postId) {
+   /* public function removePost( $postId) {
 
-      Post::delete($postId);
-    }
+      PostDB::delete($postId);
+    }*/
    
     
     public function addComment ( $content,$postId) {

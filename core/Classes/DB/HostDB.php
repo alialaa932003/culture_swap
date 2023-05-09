@@ -90,7 +90,7 @@ class HostDB
         return $userId;
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
         Database::getInstance()->query(
             "DELETE FROM _user WHERE id=:id",
@@ -197,13 +197,13 @@ class HostDB
         $dbref = Database::getInstance();
 
         $host = $dbref->query(
-            "SELECT _user.* ,status, Description, Rate_average, Traveller_num, location, user_id from _user 
+            "SELECT _user.* ,Status, Description, Rate_average, Traveller_num, Location, User_id from _user 
                 INNER JOIN host 
                 ON host.User_id = _user.Id
                 WHERE _user.Id = :id
         ",
             ['id' => $id]
-        )->findOrFail();
+        )->find();
 
         $needs = $dbref->query(
             "SELECT service.* from service

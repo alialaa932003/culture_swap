@@ -293,4 +293,12 @@ class TravellerDB
             ]
         );
     }
+
+    public static function getHostNums($id)
+    {
+        return (Database::getInstance()->query(
+            "SELECT COUNT(traveller_id) FROM reservation WHERE traveller_id = :id AND Status = 1",
+            [':id' => $id]
+        )->find());
+    }
 }
