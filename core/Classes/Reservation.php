@@ -69,24 +69,10 @@ class Reservation
     public static function updateStatus($id, $act_val)
     {
 
-      $res = Reservation::get_Detailed_Res($id);
-      $res['status'] = $act_val ;
+        $res = Reservation::get_Detailed_Res($id);
+        $res['Status'] = $act_val;
 
-
-
-      $action = 1; // reservation
-      $hst_id =  $res['host_id'];
-
-         // need host name
-       $name = Host::getNAme($hst_id) ;
-
-      if($act_val == 1){
-             
-        $content = " $name Accept your reservation "; //accept
-      } 
-      if($act_val == -1)
-         $content = " $name Reject your reservation "; //reject
-
+  
 
         $action = 1; // reservation
         $hst_id =  $res['host_id'];
@@ -98,7 +84,7 @@ class Reservation
 
             $content = " $name Accept your reservation "; //accept
         }
-        if ($act_val == -1)
+        if ($act_val == 2)
             $content = " $name Reject your reservation "; //reject
 
 

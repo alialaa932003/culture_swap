@@ -9,7 +9,13 @@ use core\Classes\DB\{
 ini_set('display_errors', 1);
 ini_set('error_reporting', 1);
 
-use core\Classes\TravellerVip;
+use core\Classes\Reservation;
+
+    $myres = new  Reservation() ;
+
+    $myres::updateStatus(1,1);
+
+
 
 dd(TravellerDB::add([
   'first_name' => 'aswefwfwffsafsf',

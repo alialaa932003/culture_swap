@@ -85,7 +85,7 @@ require base_path('controller/nav.php');
                                                     <form action="/culture_swap/reservation" class="noti-actions" method="POST">
                                                         <input type="hidden" name="action_id" value=<?= $noti['action_id'] ?>>
                                                         <button class="second-btn" name="acceptNoti" value="1" type="submit">accept</button>
-                                                        <button class="main-btn" name="cancelNoti" value="0" type="submit">cancel</button>
+                                                        <button class="main-btn" name="cancelNoti" value="1" type="submit">cancel</button>
                                                     </form>
                                                 <?php endif; ?>
                                             <?php else : ?>
