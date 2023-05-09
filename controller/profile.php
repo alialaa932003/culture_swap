@@ -16,7 +16,7 @@ $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
 $canEditProfile = $userId == $idFromQuery ? True : False;
 
-if(!getUserType($idFromQuery))
+if (!getUserType($idFromQuery))
   abort();
 
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
@@ -46,7 +46,7 @@ if ($userType == 'traveller') {
   $needs = [];
   foreach ($host->getneeds() as $need) {
     array_push($needs, $need['name']);
-  }  
+  }
   $description = $host->getDescription();
   $travellersCount = $host->getTraveller_num();
   $location = $host->getLocation();
