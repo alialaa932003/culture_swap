@@ -119,4 +119,11 @@ class PostDB
             ]
         )->find());
     }
+    public static function getUserPostIds($id)
+    {
+        return (Database::getInstance()->query(
+            "SELECT Id FROM post WHERE user_id = :id",
+            [':id' => $id]
+        )->get());
+    }
 }

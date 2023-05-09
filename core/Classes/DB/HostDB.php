@@ -27,7 +27,7 @@ class HostDB
             'Description',
             'Rate_average',
             'Traveller_num',
-            'location',
+            'Location',
         ]
     ];
 
