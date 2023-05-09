@@ -63,6 +63,14 @@ function fetchTravelersCardData($params, $page)
 
   return $cardsData;
 }
+
+function getUserType($id)
+{
+  return (Database::getInstance()->query(
+    "SELECT type FROM _user WHERE Id = :id",
+    [':id' => $id]
+  )->find());
+}
 //////////////////////////////////////////////////////////////
 function signUp($user)
 {

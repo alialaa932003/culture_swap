@@ -143,6 +143,7 @@ class Traveller extends User
   {
     $traveller = TravellerDB::getOne($id);
     extract($traveller);
+    $this->user_name = $user_name;
     $this->id = $Id ?? "";
     $this->firstName = $first_name ?? "";
     $this->lastName = $last_name ?? "";
