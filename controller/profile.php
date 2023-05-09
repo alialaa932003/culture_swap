@@ -42,8 +42,13 @@ if ($userType == 'traveller') {
 } elseif ($userType == 'host') {
   $host = new Host();
   $host->getOne($idFromQuery);
-
-  $services = $host->getneeds();
+  $userName = $host->getUserName();
+  $country = $host->getCountry();
+  $email = $host->getEmail();
+  $needs = [];
+  foreach ($host->getneeds() as $need) {
+    array_push($needs, $need['name']);
+  }  
   $description = $host->getDescription();
   $travellersCount = $host->getTraveller_num();
   $location = $host->getLocation();
