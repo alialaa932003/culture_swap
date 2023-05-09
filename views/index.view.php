@@ -180,21 +180,21 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-people-group"></i></span>
-                        <span class="num" data-stat="<?= $num_trv[0]['num_travelers'] ?>">0</span>
+                        <span class="num" data-stat="<?= $trv_rate ?>">0</span>
                         <span class="boxTitle">total travellers</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-house-user"></i></span>
-                        <span class="num" data-stat="<?= $num_hst[0]['num_hosts'] ?>">0</span>
+                        <span class="num" data-stat="<?= $hst_rate ?>">0</span>
                         <span class="boxTitle">total hosts</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
-                        <span class="num" data-stat="<?= $rate ?>">0</span>
+                        <span class="num" data-stat="<?=$hst_avg_rate?>">0</span>
                         <span class="boxTitle">Average host rating
                         </span>
                     </div>
@@ -202,7 +202,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-map-location-dot"></i></span>
-                        <span class="num" data-stat="149">0</span>
+                        <span class="num" data-stat="<?= $num_joins ?>">0</span>
                         <span class="boxTitle">number of joins
                         </span>
                     </div>
