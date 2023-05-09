@@ -45,7 +45,7 @@ $num_hst =  Database::getInstance()->query("SELECT COUNT(DISTINCT host_id) AS nu
 
 $avg_hst_rating = Database::getInstance()->query("SELECT AVG(Rate_average) AS avg_rate FROM host")->get();
 
-dd($avg_hst_rating[0]["avg_rate"]);
+$avg_hst_rating[0]["avg_rate"];
 
 // end  statistics 
 
