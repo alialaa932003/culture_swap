@@ -1,5 +1,6 @@
 <?php
 
+use core\Classes\DB\user;
 use core\Classes\Host;
 use core\Classes\Traveller;
 use core\Response;
@@ -67,12 +68,18 @@ function  signUp($user)
 
     session_start();
   $_SESSION['user'] = [
-    'type' => $user->getType(),
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
   ];
+  
+  if( $user['type']==1){
+    $_SESSION['user']=['type' =>"traveller",];
+  }
+  else{
+    $_SESSION['user']=['type' =>"host",];
+  }
   session_regenerate_id(true); // To have a high security
 }
 
@@ -87,6 +94,12 @@ function  login ($user)
     'id' => $user['id'],
     'country' => $user['country'],
   ];
+  if( $user['type']==1){
+    $_SESSION['user']=['type' =>"traveller",];
+  }
+  else{
+    $_SESSION['user']=['type' =>"host",];
+  }
   session_regenerate_id(true); // To have a high security
 }
 
