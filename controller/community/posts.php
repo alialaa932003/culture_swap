@@ -6,6 +6,7 @@ use core\Classes\Comment;
 use core\Classes\DB\PostDB;
 
 $config = require base_path('config.php');
+$userData = $_SESSION['user'];
 // $posts = new Post();
 // $postsCount = Post::count()['count'];
 // $limit = 3;
@@ -30,7 +31,7 @@ $pageNumber = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($pageNumber - 1) * $postsPerPage;
 // Perform the search query and retrieve the results
 // This is just an example and will depend on your specific application
-$current_user_id = 1;
+$current_user_id = $userData['id'];
 $user_loves = Post::get_user_loves($current_user_id);
 if (!empty($searchQuery)) {
     $results = Post::search($searchQuery, $offset, $postsPerPage);

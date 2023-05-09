@@ -38,9 +38,9 @@ class Post
         $this->date = $date;
     }
 
-    public static function delete($id)
+    public static function delete($id, $user_id)
     {
-        PostDB::delete($id);
+        PostDB::delete($id, $user_id);
     }
 
     public function setContent($content)

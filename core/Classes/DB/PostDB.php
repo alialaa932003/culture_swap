@@ -29,12 +29,13 @@ class PostDB
         );
         return Database::getInstance()->getLastRecordIdAdded("post");
     }
-    public static function delete($id)
+    public static function delete($id, $user_id)
     {
         Database::getInstance()->query(
-            "DELETE FROM post WHERE id=:id",
+            "DELETE FROM post WHERE id=:id AND user_id = :user_id",
             [
-                'id' => $id
+                'id' => $id,
+                'user_id' => $user_id,
             ]
         );
     }

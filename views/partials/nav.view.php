@@ -1,9 +1,9 @@
 <?php
 $userData = $_SESSION['user'];
-echo "<br>";
-echo "<pre>";
-var_dump($userData);
-echo "</pre>";
+// echo "<br>";
+// echo "<pre>";
+// var_dump($userData);
+// echo "</pre>";
 
 ?>
 <nav class="navbar navbar-expand-lg active ">
