@@ -202,7 +202,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-map-location-dot"></i></span>
-                        <span class="num" data-stat="<?= $num_joins ?>">0</span>
+                        <span class="num" data-stat="<?=$num_joins?>">0</span>
                         <span class="boxTitle">number of joins
                         </span>
                     </div>

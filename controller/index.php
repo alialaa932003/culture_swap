@@ -40,15 +40,17 @@ LIMIT 8 ")->get();
 
 
 // statistics 
-$num_trv =  Database::getInstance()->query("SELECT COUNT(DISTINCT traveller_id) AS num_travelers FROM host_traveller")->find();
-$num_hst =  Database::getInstance()->query("SELECT COUNT(DISTINCT host_id) AS num_hosts FROM host_traveller")->find();
+$num_trv =  Database::getInstance()->query("SELECT COUNT(Id) AS num_travelers FROM traveller")->find();
+$num_hst =  Database::getInstance()->query("SELECT COUNT(Id) AS num_hosts FROM host")->find();
 $avg_hst_rating = Database::getInstance()->query("SELECT AVG(Rate_average) AS avg_rate FROM host")->find();
-$joins = Database::getInstance()->query("SELECT COUNT(Id) AS num_reservations FROM reservation WHERE status = 1")->find();
+$joins = Database::getInstance()->query("SELECT COUNT(Id) AS num_reservations FROM reservation WHERE Status = 1")->find();
+
 
 $trv_rate = $num_trv['num_travelers'];
 $hst_rate = $num_hst['num_hosts'];
 $hst_avg_rate = (int)$avg_hst_rating["avg_rate"];
 $num_joins = $joins["num_reservations"];
+
 
 // end  statistics 
 
