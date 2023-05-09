@@ -3,7 +3,9 @@ $ASSET_URL = "/culture_swap/public/";
 
 use core\Classes\Post;
 
-$current_user_id = 1;
+$userData = $_SESSION['user'];
+
+$current_user_id = $userData['id'];
 $user_loves = Post::get_user_loves($current_user_id);
 $req = $_GET['id'];
 $lovesNum = Post::get_loves_num($_GET['id'])['lovesNum'];

@@ -17,44 +17,52 @@ require base_path("views/partials/head.view.php");
     <?php
     require base_path("views/partials/nav.view.php");
     ?>
+    <?php if ($postdet['user_id'] == $userData['id']) : ?>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form class="modal-content" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_method" value="PATCH">
+                    <div class="modal-header">
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form class="modal-content" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="_method" value="PATCH">
-                <div class="modal-header">
-                    <h2 class="modal-title " id="exampleModalLabel">edit post</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="postItem">
-                        <label for="title">title</label>
-                        <input placeholder="enter title" name="title" type="text" value=<?= $postdet["title"]  ?>>
+                        <h2 class="modal-title " id="exampleModalLabel">edit post</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="postItem">
-                        <label for="content">content</label>
-                        <textarea placeholder="enter content" name="content" type="text" value=><?= $postdet["content"]  ?></textarea>
+                    <div class="modal-body">
+                        <div class="postItem">
+                            <label for="title">title</label>
+                            <input placeholder="enter title" name="title" type="text" value=<?= $postdet["title"]  ?>>
+                        </div>
+                        <div class="postItem">
+                            <label for="content">content</label>
+                            <textarea placeholder="enter content" name="content" type="text" value=><?= $postdet["content"]  ?></textarea>
+                        </div>
+                        <div class="postItem">
+                            <label for="image">image</label>
+                            <input placeholder="enter image" name="image" type="file">
+                        </div>
                     </div>
-                    <div class="postItem">
-                        <label for="image">image</label>
-                        <input placeholder="enter image" name="image" type="file">
+                    <div class="modal-footer">
+                        <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="second-btn">Save changes</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="main-btn" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="second-btn">Save changes</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <section class="blogDetails section-padding">
         <div class="container">
             <div class="head">
                 <h2 class="heading">
                     post details
                 </h2>
-                <button class="main-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">edit post</button>
-
+                <?php if ($postdet['user_id'] == $userData['id']) : ?>
+                    <div class="postActions">
+                        <button class="second-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">edit post</button>
+                        <form action="">
+                            <button class="main-btn"> delete post</button>
+                        </form>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="row">
 
