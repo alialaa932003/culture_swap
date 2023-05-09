@@ -22,7 +22,7 @@
     <div class="container">
       <div class="login-form">
 
-        <a href="" class="back-link"><img src="public/assets/imgs/login/left-arrow.png" class="back-icon"></a> 
+        <a href="/culture_swap/" class="back-link"><img src="public/assets/imgs/login/left-arrow.png" class="back-icon"></a> 
         <div class="logo">
           <img src="public/assets/imgs/login/logo.png">
         </div>
