@@ -55,7 +55,7 @@ class Notification
     // 1 -> resevation
     // 2 -> comment post
     // 3 -> love post
-    // 4 -> review host
+
   
     $noti =   new Notification();
     $id = $noti -> Add(

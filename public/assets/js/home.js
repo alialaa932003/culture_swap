@@ -60,5 +60,5 @@ function startCount(el) {
         if (el.textContent == stat) {
             clearInterval(count);
         }
-    }, 2000 / stat);
+    }, 1000 / stat);
 }
