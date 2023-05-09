@@ -1,29 +1,26 @@
 <?php
 
-use core\function ;
+use core\functions;
 use core\Classes\DB\user;
 
-$email=$_POST['email'];
-$password=$_POST['password'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$errors = [];
 
-$errors ;
 
+$user = user::cheick($email);
+if ($user) {
 
-$user =user::cheick($email) ;
-
-if ($user){
-    
-     if (password_verify($password,$user['password'])) {
-   login($user);   
+  if (password_verify($password, $user['password']) || $password == $user['password']) {
+    login($user);
     header("location: /culture_swap");
-     exit(); 
-}
- else {
-    $errors =" password invaild " ;
+    exit();
+  } else {
+    $errors['password'] = " password invaild ";
+  }
+
+} else {
+  $errors['email'] = "user name or password invaild ";
 }
 
-}
-else{
-    $errors ="user name or password invaild " ;
-}
-
+require base_path("views/session/create.view.php");
