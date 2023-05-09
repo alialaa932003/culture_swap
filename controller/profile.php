@@ -15,7 +15,7 @@ use core\Classes\DB\{
 $userId = $_SESSION['user']['id'];
 $idFromQuery = $_GET['id'];
 
-$userType = $traveller->getType() == 1 ? 'host' : 'traveller';
+$userType = getUserType($idFromQuery) == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
 
 if ($userId == $idFromQuery) {
@@ -38,7 +38,7 @@ if ($userType == 'traveller') {
   $commentsCount = CommentDB::getUserCommentsNum($userId)[0]['COUNT(id)'];
 } elseif ($userType == 'host') {
   $host = new Host();
-  $host->getOne($userId);
+  $host->getOne($idFromQuery);
   $services = $host->getneeds();
   $description = $host->getDescription();
   $travellersCount = $host->getTraveller_num();
