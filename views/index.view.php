@@ -172,21 +172,21 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-people-group"></i></span>
-                        <span class="num">50</span>
+                        <span class="num" data-stat="50">0</span>
                         <span class="boxTitle">total travellers</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-house-user"></i></span>
-                        <span class="num">510</span>
+                        <span class="num" data-stat="510">0</span>
                         <span class="boxTitle">total hosts</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-regular fa-star-half-stroke"></i></span>
-                        <span class="num">623</span>
+                        <span class="num" data-stat="623">0</span>
                         <span class="boxTitle">Average host rating
                         </span>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="col-xl-3 col-md-6">
                     <div class="box">
                         <span class="stateIcon"><i class="fa-solid fa-map-location-dot"></i></span>
-                        <span class="num">149</span>
+                        <span class="num" data-stat="149">0</span>
                         <span class="boxTitle">number of joins
                         </span>
                     </div>

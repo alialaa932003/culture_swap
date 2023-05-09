@@ -17,3 +17,37 @@ const swiper = new Swiper(".swiper", {
         // when window width is >= 640px
     },
 });
+
+let nums = document.querySelectorAll(".num");
+let section = document.querySelector(".statistics");
+let started = false;
+window.addEventListener("scroll", function () {
+    if (
+        window.scrollY >=
+        section.offsetTop - window.innerHeight + section.clientHeight
+    ) {
+        if (!started) {
+            nums.forEach((num) => startCount(num));
+        }
+        started = true;
+    }
+});
+if (
+    window.scrollY >=
+    section.offsetTop - window.innerHeight + section.clientHeight
+) {
+    if (!started) {
+        nums.forEach((num) => startCount(num));
+    }
+    started = true;
+}
+function startCount(el) {
+    let stat = el.dataset.stat;
+    let count = setInterval(() => {
+        el.textContent++;
+
+        if (el.textContent == stat) {
+            clearInterval(count);
+        }
+    }, 2000 / stat);
+}
