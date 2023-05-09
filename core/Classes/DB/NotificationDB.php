@@ -17,7 +17,7 @@ class NotificationDB
     {
 
         Database::getInstance()->query(
-            "INSERT INTO  notification (sender_id,reciever_id,content,action) 
+            "INSERT INTO  notification (sender_id,reciever_id,content,action,action_id) 
             
             values(:sender_id,:reciever_id,:content,:action,:action_id)",
             [
