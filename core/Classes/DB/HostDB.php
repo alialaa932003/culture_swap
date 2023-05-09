@@ -13,6 +13,7 @@ class HostDB
         '_user' => [
             'first_name',
             'last_name',
+            'user_name',
             'email',
             'type',
             'phone_num',
@@ -36,7 +37,7 @@ class HostDB
         extract($data);
 
         $dbref->query(
-            "INSERT INTO _user (first_name, last_name,email,type, phone_num, profile_img, cover_img, country,password) 
+            "INSERT INTO _user (first_name, last_name,user_name,email,type, phone_num, profile_img, cover_img, country,password) 
                 values(:fName,:lName,:email,:type, :phoneNum, :profileImg, :coverImg, :country)
             ",
             [
