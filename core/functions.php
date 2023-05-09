@@ -71,9 +71,10 @@ function signUp($user)
     'name' => $user->getFirstName() . ' ' . $user->getLastName(),
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
+    'profileImg' =>$user->getProfilePhoto(),
     'id' => $user->getId(),
     'country' => $user->getCountry(),
-    'type' => $user->getType() == 1 ? "traveller" : "host"
+    'type' => $user->getType() == 1 ? "host" : "traveller"
   ];
   
   session_regenerate_id(true); // To have a high security
@@ -85,10 +86,11 @@ function login($user)
   $_SESSION['user'] = [
     'name' => $user['first_name'] . " ". $user['lase_name'],
     'email' => $user['email'],
-    'username' => $user['username'],
+    'profileImg' => $user['profile_img'],
+    'username' => $user['username'],  
     'id' => $user['Id'],
     'country' => $user['country'],
-    'type' => $user['type'] == 1 ? "traveller" : "host"
+    'type' => $user['type'] == 1 ? "host" : "traveller"
   ];
   session_regenerate_id(true); // To have a high security
 }
