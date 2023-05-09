@@ -97,7 +97,9 @@ require base_path('controller/nav.php');
 
                         </ul>
                     </div>
-                    <button class="logoutBtn second-btn">logout</button>
+                    <form action="/culture_swap/logout" method="POST">
+                        <button class="logoutBtn second-btn" type="submit">logout</button>
+                    </form>
                 <?php endif; ?>
 
             </ul>
