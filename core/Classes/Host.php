@@ -247,13 +247,12 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     public function getOne($id)
     {
         $host = HostDB::getOne($id);
-
         extract($host);
 
         $this->id = $id;
-        $this->firstName = $first_name ;
+        $this->firstName = $first_name;
         $this->lastName = $last_name;
-        $this-> user_name = $user_name ;
+        $this->user_name = $user_name;
         $this->password = $password;
         $this->type = $type;
         $this->coverPhoto = $cover_img;
@@ -261,13 +260,18 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         $this->email = $email;
         $this->phoneNumber = $phone_num;
         $this->country = $country;
-        $this->notification [] = $notificationIds;
+        $this->notification[] = $notificationIds;
+
         $this->location = $location;
-        $this->status =$Status;
+        $this->status = $Status;
+
+
         $this->description = $Description;
-        $this->needs[] = $needs ;
+
+        $this->needs[] = $needs; ////////////////////////////////////////////////////////
+
         $this->Traveller_num = $Traveller_num;
-        $this->rate =$Rate_average ;
+        $this->rate = $Rate_average;
     }
 
 
