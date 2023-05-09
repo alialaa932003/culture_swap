@@ -121,8 +121,19 @@
     height: auto;
     margin: 12px 0 0 24px;
 }
+<<<<<<< HEAD
 
 .error-msg{
   color: red;
   font-size: 14px;
+=======
+.error{
+    color: #000;
+    background-color: #ff5849;
+    display: none;
+    padding: 10px;
+    transform: translateY(-20px);
+    margin: 20px;
+    font-size: 20px;
+>>>>>>> refs/remotes/master/main
 }
