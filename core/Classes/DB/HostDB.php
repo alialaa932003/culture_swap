@@ -124,7 +124,7 @@ class HostDB
         extract($data);
 
         $needssCondition = $needIds && $needIds !== '' ? "AND Need_id IN ({$needIds})" : '';
-        $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
+        $countryCondition = $countries && $countries !== '' ? "AND countries IN ({$countries})" : '';
 
         $hosts = $dbref->query(
             "SELECT DISTINCT _user.* , Status, Description, Rate_average, Traveller_num, Location from _user 

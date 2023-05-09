@@ -100,7 +100,7 @@ class TravellerDB
         extract($data);
 
         $servicesCondtion = $serviceIds && $serviceIds !== '' ? "AND service_id IN ({$serviceIds})" : '';
-        $countryCondition = $country && $country !== '' ? "AND country IN ({$country})" : '';
+        $countryCondition = $countries && $countries !== '' ? "AND countries IN ({$countries})" : '';
 
         $travellers = $dbref->query(
             "SELECT DISTINCT _user.*  from _user 
