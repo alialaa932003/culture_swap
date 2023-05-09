@@ -39,7 +39,7 @@ function fetchHostsCardData($params, $page)
   $filters = [
     'first_name' => $params['searchQ'] ?? '',
     'last_name' => $params['searchQ'] ?? '',
-    'country' => $params['country'] ?? '',
+    'countries' => $params['countries'] ?? '',
     'needIds' => $params['needIds'],
     'startRate' => $params['startRate'] ?? 0,
     'endRate' => $params['endRate'] ?? 5
@@ -55,7 +55,7 @@ function fetchTravelersCardData($params, $page)
   $filters = [
     'first_name' => $params['searchQ'] ?? '',
     'last_name' => $params['searchQ'] ?? '',
-    'country' => $params['country'] ?? '',
+    'countries' => $params['countries'] ?? '',
     'serviceIds' => $params['serviceIds'],
   ];
   $limit = Components::getCardsPerPageLimit();

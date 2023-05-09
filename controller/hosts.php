@@ -18,11 +18,10 @@ $_GET['needIds'] = implode(',', $needIds);
 $countries = [];
 foreach ($_GET['countries'] as $country) {
   array_push($countries, "'$country'");
-}
-;
-$_GET['country'] = implode(',', $countries);
+};
 
-
+$_GET['country'] ? array_push($countries, "'{$_GET['country']}'") : "";
+$_GET['countries'] = implode(',', $countries);
 $cardsData = fetchHostsCardData($_GET, $page);
 
 require base_path("views/hosts.view.php");
