@@ -68,7 +68,7 @@ function signUp($user)
 
   session_start();
   $_SESSION['user'] = [
-    'name' => $user->getFirstName() . ' ' . $user->getLastName(),
+    'name' => "{$user->getFirstName()} {$user->getLastName()}",
     'email' => $user->getEmail(),
     'username' => $user->getUserName(),
     'profileImg' =>$user->getProfilePhoto(),
@@ -84,7 +84,7 @@ function login($user)
 {
   session_start();
   $_SESSION['user'] = [
-    'name' => $user['first_name'] . " ". $user['lase_name'],
+    'name' => "{$user['first_name']} {$user['last_name']}",
     'email' => $user['email'],
     'profileImg' => $user['profile_img'],
     'username' => $user['username'],  
