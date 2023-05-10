@@ -86,6 +86,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email))
          'location' => $_POST['location'],
          'more_info' => $_POST['more-info']
        ];
+       
     $user->add($data);
     signUp($user);
      header("location: /culture_swap");
