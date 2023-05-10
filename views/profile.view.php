@@ -69,12 +69,12 @@
 
           ?>
         </div>
-
+        <?php if($isHost):?>
         <div style="color: var(--h-color);font-size:1.6rem">
           <h4 style="font-size: 3rem;margin-bottom:1rem">Description</h4>
           <p style="color: black"><?= $description ?></p>
         </div>
-
+        <?php endif;?>
         <div style="color: var(--h-color);font-size:1.6rem">
           <h4 style="font-size: 3rem;margin-bottom:1rem"><?= $isHost ? 'My needs' : 'My services' ?></h4>
           <ul>
