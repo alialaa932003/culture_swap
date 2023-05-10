@@ -8,13 +8,22 @@ if (!$_POST['update'])
 
 $id = $_POST['id'];
 unset($_POST['id']);
-dd($_POST);
-if (getUserType($id)) {
-  foreach ($_POST as $item)
-    HostDB::update([$item]);
+$userType = getUserType($id)['type'] == 1 ? 'host' : 'traveller';
+
+if ($userType == 'host') {
+  foreach ($_POST as $key => $value)
+    HostDB::update([
+      'id' => $id,
+      'key' => $key,
+      'value' => $value
+    ]);
 } else {
-  foreach ($_POST as $item)
-    TravellerDB::update([$item]);
+  foreach ($_POST as $key => $value)
+    TravellerDB::update([
+      'id' => $id,
+      'key' => $key,
+      'value' => $value
+    ]);
 }
 
 header('location:' . "/culture_swap/profile?id=$id");

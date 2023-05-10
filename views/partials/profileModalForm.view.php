@@ -12,16 +12,16 @@ $user = $isHost ? $host : $traveller;
       <div class="modal-body d-flex flex-column" style="gap: 2.4rem;">
         <input type="number" name="id" value="<?= $idFromQuery ?>" hidden />
         <div class="d-flex flex-column">
-          <label for="firstName" class='form-check-label'>First name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="FirstName" id="firstName" name="firstName" value="<?= $user->getFirstName() ?? '' ?>">
+          <label for="first_name" class='form-check-label'>First name</label>
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="FirstName" id="first_name" name="first_name" value="<?= $user->getFirstName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
-          <label for="lastName" class='form-check-label'>Last name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="LastName" id="lastName" name="lastName" value="<?= $user->getLastName() ?? '' ?>">
+          <label for="last_name" class='form-check-label'>Last name</label>
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="lastName" id="last_name" name="last_name" value="<?= $user->getLastName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
-          <label for="userName" class='form-check-label'>User name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Username" id="userName" name="userName" value="<?= $user->getUserName() ?? '' ?>">
+          <label for="user_name" class='form-check-label'>User name</label>
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Username" id="user_name" name="user_name" value="<?= $user->getUserName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
           <label for="email" class='form-check-label'>Email</label>
