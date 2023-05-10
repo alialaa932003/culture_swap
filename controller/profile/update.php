@@ -5,7 +5,7 @@ use core\Classes\DB\TravellerDB;
 
 $id = $_POST['id'];
 unset($_POST['id']);
-
+dd($_POST);
 if (getUserType($id)) {
   foreach ($_POST as $item)
     HostDB::update([$item]);
