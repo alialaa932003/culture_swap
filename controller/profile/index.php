@@ -57,7 +57,6 @@ if ($userType == 'traveller') {
 }
 
 
-
 require base_path("views/profile.view.php");
 
 
