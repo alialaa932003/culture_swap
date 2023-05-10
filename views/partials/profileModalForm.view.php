@@ -67,5 +67,6 @@ $user = $isHost ? $host : $traveller;
         <button type="button" class="second-btn" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="main-btn" name='update' value=true>Save changes</button>
       </div>
+    </div>
   </form>
 </div>
