@@ -45,9 +45,12 @@
               <i class="fa-solid fa-pen-to-square fa-2xl"></i>
             </button>
           <?php endif; ?>
+
           <?php if (!$canEditProfile) : ?>
             <a href="mailto:<?= $email ?>" class="main-btn">Contact</a>
-            <button class="second-btn" data-bs-toggle="modal" data-bs-target="#joinForm" style="<?= !$isHost ? "display:none" : '' ?>">Join</button>
+            <?php if ($isHost || $isCurrentUserHost) : ?>
+              <button class="second-btn" data-bs-toggle="modal" data-bs-target="#joinForm">Join</button>
+            <?php endif; ?>
           <?php endif; ?>
         </div>
       </div>

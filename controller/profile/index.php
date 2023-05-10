@@ -21,6 +21,7 @@ if (!getUserType($idFromQuery))
 
 $userType = getUserType($idFromQuery)['type'] == 1 ? 'host' : 'traveller';
 $isHost = $userType == 'host' ? True : false;
+$isCurrentUserHost = getUserType($user)['type'] == 1 ? true : false;
 
 if ($userType == 'traveller') {
   $traveller = new Traveller();
