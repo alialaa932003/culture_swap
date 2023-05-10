@@ -9,21 +9,19 @@
             <div class="col-lg-3 footerItem">
                 <h3>section</h3>
                 <div class="footerSection">
-                    <a href="#">home</a>
-                    <a href="#">about</a>
-                    <a href="#">faq</a>
-                    <a href="#">hosts</a>
-                    <a href="#">travelers</a>
+                    <a href="/culture_swap/">home</a>
+                    <a href="/culture_swap/about">about</a>
+                    <a href="/culture_swap/faq">faq</a>
+                    <a href="#stats">over view</a>
                 </div>
             </div>
             <div class="col-lg-3 footerItem">
                 <h3>section</h3>
                 <div class="footerSection">
-                    <a href="#">home</a>
-                    <a href="#">about</a>
-                    <a href="#">faq</a>
-                    <a href="#">hosts</a>
-                    <a href="#">travelers</a>
+                    <a href="/culture_swap/login">log in</a>
+                    <a href="/culture_swap/signup/host">Signup Host</a>
+                    <a href="/culture_swap/signup/traveller">Signup Traveller</a>
+                    <a href="/culture_swap/signup/traveller_vip">Signup Traveller vip</a>
                 </div>
             </div>
         </div>
