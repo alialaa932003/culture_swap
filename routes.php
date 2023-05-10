@@ -34,3 +34,4 @@ $router->get('/culture_swap/travelers', 'controller/travelers.php');
 
 $router->get('/culture_swap/profile', 'controller/profile/index.php');
 $router->put('/culture_swap/profile', 'controller/profile/update.php');
+$router->post('/culture_swap/profile', 'controller/profile/join.php');
