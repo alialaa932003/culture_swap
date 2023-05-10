@@ -1,7 +1,6 @@
 <div class="modal fade" id="joinForm" tabindex="-1" aria-labelledby="joinFormLabel" aria-hidden="true">
   <form class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" style="font-size: 2rem;width:70vw"
     method="POST">
-    <input type="hidden" name="_method" value="PUT">
     <div class="modal-content">
       <div class="modal-header px-5">
         <h5 class="modal-title" id="joinFormLabel" style="font-size: 3.2rem;">Edit your data</h5>
