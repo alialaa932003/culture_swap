@@ -31,6 +31,7 @@ class HostDB
         ]
     ];
 
+    
     public static function add($data)
     {
         $dbref = Database::getInstance();
