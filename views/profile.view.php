@@ -47,7 +47,7 @@
           <?php endif; ?>
           <?php if (!$canEditProfile) : ?>
             <a href="mailto:<?= $email ?>" class="main-btn">Contact</a>
-            <button class="second-btn" style="<?= !$isHost ? "display:none" : '' ?>">Join</button>
+            <button class="second-btn" data-bs-toggle="modal" data-bs-target="#joinForm" style="<?= !$isHost ? "display:none" : '' ?>">Join</button>
           <?php endif; ?>
         </div>
       </div>
@@ -99,6 +99,7 @@
   require base_path("views/partials/footer.view.php");
   require base_path("views/partials/scripts.view.php");
   require base_path('views/partials/profileModalForm.view.php');
+  require base_path('views/partials/joinForm.view.php');
   ?>
 </body>
 
