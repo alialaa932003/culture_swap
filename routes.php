@@ -31,4 +31,6 @@ $router->get('/culture_swap/test', 'controller/test.php');
 //! Search
 $router->get('/culture_swap/hosts', 'controller/hosts.php');
 $router->get('/culture_swap/travelers', 'controller/travelers.php');
-$router->get('/culture_swap/profile', 'controller/profile.php');
+
+$router->get('/culture_swap/profile', 'controller/profile/index.php');
+$router->post('/culture_swap/profile', 'controller/profile/update.php');

@@ -10,7 +10,7 @@ class Host extends User
     private $location;
     private $status;
     private $description;
-    private $needs =[];
+    private $needs = [];
     private $Traveller_num;
     private $rate;
     private $reviews;
@@ -94,14 +94,14 @@ class Host extends User
         return $this->needs;
     }
 
-      public function setneeds($needs)/////////////////////////////////
+    public function setneeds($needs) /////////////////////////////////
     {
-      
+
         HostDB::update([
             'id' => $this->id,
             'key' => '  ',
             'value' => $needs
-          ]);
+        ]);
 
         $this->needs = $needs;
     }
@@ -175,9 +175,9 @@ class Host extends User
         $id = HostDB::add($data);
         extract($data);
         $this->id = $id;
-        $this->firstName = $first_name ;
+        $this->firstName = $first_name;
         $this->lastName = $last_name;
-        $this-> user_name = $user_name ;
+        $this->user_name = $user_name;
         $this->password = $password;
         $this->type = $type;
         $this->coverPhoto = $cover_img;
@@ -185,12 +185,12 @@ class Host extends User
         $this->email = $email;
         $this->phoneNumber = $phone_num;
         $this->country = $country;
-        $this->status =$Status;
+        $this->status = $Status;
         $this->description = $Description;
         $this->location = $location;
-        $this->Traveller_num = $Traveller_num ;
-        $this->rate =$Rate_average ;
-        $this->needs =$needs;
+        $this->Traveller_num = $Traveller_num;
+        $this->rate = $Rate_average;
+        $this->needs = $needs;
     }
 
 
@@ -263,7 +263,7 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         $this->country = $country;
         $this->notification[] = $notificationIds;
 
-        $this->location = $location;
+        $this->location = $Location;
         $this->status = $Status;
 
 
