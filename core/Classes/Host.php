@@ -269,7 +269,7 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
         $this->description = $Description;
 
-        $this->needs[] = $needs; ////////////////////////////////////////////////////////
+        $this->needs = $needs; ////////////////////////////////////////////////////////
 
         $this->Traveller_num = $Traveller_num;
         $this->rate = $Rate_average;

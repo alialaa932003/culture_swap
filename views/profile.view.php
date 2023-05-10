@@ -55,42 +55,46 @@
       <div class="d-flex flex-column p-5 my-5" style="background:var(--second-bg);gap:2.8rem;">
         <div style="color: var(--h-color);font-size:1.6rem">
           <h4 style="font-size: 3rem;margin-bottom:1rem">Some statistics</h4>
-          <?php
-          if ($isHost)
-            echo "<p style='color: black'><?= $travellersCount ?> travellers joined with this host</p>
-            <p style='color: black'>he shared {$postsCount} posts</p>
-            <p style='color: black'>he commented {$commentsCount} comment</p>
-            ";
-          else
-            echo "<p style='color: black'>{$hostsCount} hosts he joined with</p>
-              <p style='color: black'>he shared {$postsCount} posts</p>
-              <p style='color: black'>he commented  {$commentsCount} comment</p>
-              ";
-
-          ?>
+          <?php if ($isHost) : ?>
+            <p style='color: black'><?= $travellersCount ?> travellers joined with this host</p>
+            <p style='color: black'>he shared <?= $postsCount ?> posts</p>
+            <p style='color: black'>he commented <?= $commentsCount ?> comment</p>
+          <?php else : ?>
+            <p style='color: black'><?= $hostsCount ?> hosts he joined with</p>
+            <p style='color: black'>he shared <?= $postsCount ?> posts</p>
+            <p style='color: black'>he commented <?= $commentsCount ?> comment</p>
+          <?php endif; ?>
         </div>
-        <?php if($isHost):?>
-        <div style="color: var(--h-color);font-size:1.6rem">
-          <h4 style="font-size: 3rem;margin-bottom:1rem">Description</h4>
-          <p style="color: black"><?= $description ?></p>
-        </div>
-        <?php endif;?>
+        <?php if ($isHost) : ?>
+          <div style="color: var(--h-color);font-size:1.6rem">
+            <h4 style="font-size: 3rem;margin-bottom:1rem">Description</h4>
+            <p style="color: black"><?= $description ?></p>
+          </div>
+        <?php endif; ?>
         <div style="color: var(--h-color);font-size:1.6rem">
           <h4 style="font-size: 3rem;margin-bottom:1rem"><?= $isHost ? 'My needs' : 'My services' ?></h4>
           <ul>
-            <?php foreach ($services as $service) : ?>
-              <li><?= $service ?></li>
-            <?php endforeach; ?>
+            <?php if ($isHost) : ?>
+              <?php foreach ($needs as $need) : ?>
+                <li><?= $need ?></li>
+              <?php endforeach; ?>
+            <?php else : ?>
+              <?php foreach ($services as $service) : ?>
+                <li><?= $service ?></li>
+              <?php endforeach; ?>
+            <?php endif; ?>
           </ul>
         </div>
 
         <div style="color: var(--h-color);font-size:1.6rem">
           <h4 style="font-size: 3rem;margin-bottom:1rem">Posts</h4>
-          <?php
-          foreach ($posts as $post) {
-            echo "<a href='./posts?id={$post['id']}'>{$post['title']}</a>";
-          }
-          ?>
+          <ui>
+            <?php
+            foreach ($posts as $post) {
+              echo "<li><a href='./posts?id={$post['id']}'>{$post['title']}</a></li>";
+            }
+            ?>
+          </ui>
         </div>
       </div>
     </div>
