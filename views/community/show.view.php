@@ -140,6 +140,7 @@ require base_path("views/partials/head.view.php");
                                     <div class="item">
                                         <a href="#">
                                             <i class="fa fa-user" aria-hidden="true"></i>
+
                                             <?= $postdet['first_name'] . " " . $postdet['last_name'] ?>
                                         </a>
                                     </div>
@@ -206,13 +207,13 @@ require base_path("views/partials/head.view.php");
 
                 <?php $cnt = 0; ?>
                 <?php while ($cnt < $num_comments) : ?>
-                    <div class="comment row">
 
+                    <div class="comment row">
                         <?php $name = $comments[$cnt]["first_name"] . " " . $comments[$cnt]["last_name"] ?>
                         <div class="col-lg-2">
                             <div class="user">
                                 <div class="userImg">
-                                    <img src=<?= "${ASSET_URL}assets/imgs/home/header4.webp" ?> alt="">
+                                    <img src=<?= $comments[$cnt]['profile_img'] ?> alt="">
                                 </div>
 
                                 <div class="userContent">
