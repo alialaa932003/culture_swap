@@ -56,8 +56,6 @@ if ($userType == 'traveller') {
   $commentsCount = CommentDB::getUserCommentsNum($idFromQuery)[0]['COUNT(id)'];
 }
 
-
-
 require base_path("views/profile.view.php");
 
 
