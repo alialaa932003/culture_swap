@@ -10,7 +10,7 @@ class Host extends User
     private $location;
     private $status;
     private $description;
-    private $needs = [];
+    private $needs =[];
     private $Traveller_num;
     private $rate;
     private $reviews;
@@ -94,7 +94,7 @@ class Host extends User
         return $this->needs;
     }
 
-  /*    public function setneeds($needs)/////////////////////////////////
+      public function setneeds($needs)/////////////////////////////////
     {
       
         HostDB::update([
@@ -105,7 +105,7 @@ class Host extends User
 
         $this->needs = $needs;
     }
-*/
+
 
 
     public function getTraveller_num()
@@ -190,7 +190,7 @@ class Host extends User
         $this->location = $location;
         $this->Traveller_num = $Traveller_num ;
         $this->rate =$Rate_average ;
-        $this->needs[] =$needs;
+        $this->needs =$needs;
     }
 
 

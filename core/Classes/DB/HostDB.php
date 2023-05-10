@@ -66,7 +66,8 @@ class HostDB
                 'travelersNum' => $Traveller_num,
                 'location' => $location,
                 'userId' => $userId,
-                'hostId' => $userId
+                'hostId' => $userId,
+                'needs'=>$needs
             ];
             $params['userId'] = $params['id'] = $userId;
 
