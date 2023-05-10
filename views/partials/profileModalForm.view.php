@@ -3,7 +3,8 @@ $user = $isHost ? $host : $traveller;
 ?>
 
 <div class="modal fade" id="profileForms" tabindex="-1" aria-labelledby="profileFormsLabel" aria-hidden="true">
-  <form class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" style="font-size: 2rem;width:70vw" method="post">
+  <form class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable" style="font-size: 2rem;width:70vw"
+    method="post">
     <div class="modal-content">
       <div class="modal-header px-5">
         <h5 class="modal-title" id="profileFormsLabel" style="font-size: 3.2rem;">Edit your data</h5>
@@ -13,52 +14,60 @@ $user = $isHost ? $host : $traveller;
         <input type="number" name="id" value="<?= $idFromQuery ?>" hidden />
         <div class="d-flex flex-column">
           <label for="first_name" class='form-check-label'>First name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="FirstName" id="first_name" name="first_name" value="<?= $user->getFirstName() ?? '' ?>">
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="FirstName"
+            id="first_name" name="first_name" value="<?= $user->getFirstName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
           <label for="last_name" class='form-check-label'>Last name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="lastName" id="last_name" name="last_name" value="<?= $user->getLastName() ?? '' ?>">
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="lastName" id="last_name"
+            name="last_name" value="<?= $user->getLastName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
           <label for="user_name" class='form-check-label'>User name</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Username" id="user_name" name="user_name" value="<?= $user->getUserName() ?? '' ?>">
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Username" id="user_name"
+            name="user_name" value="<?= $user->getUserName() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
           <label for="email" class='form-check-label'>Email</label>
-          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Email" id="email" name="email" value="<?= $user->getEmail() ?? '' ?>">
+          <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Email" id="email"
+            name="email" value="<?= $user->getEmail() ?? '' ?>">
         </div>
         <div class="d-flex flex-column">
           <label for="password" class='form-check-label'>Password</label>
-          <input type="password" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Password" id="password" name="password" value="<?= $user->getPassword() ?? '' ?>">
+          <input type="password" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Password"
+            id="password" name="password" value="<?= $user->getPassword() ?? '' ?>">
         </div>
 
-        <?php if ($isHost) : ?>
+        <?php if ($isHost): ?>
           <div class='dropdown'>
-            <button class='btn btn-secondary dropdown-toggle px-2 px-4' style='font-size: 1.6rem;' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
+            <button class='btn btn-secondary dropdown-toggle px-2 px-4' style='font-size: 1.6rem;' type='button'
+              data-bs-toggle='dropdown' aria-expanded='false'>
               Status
             </button>
             <ul class='dropdown-menu px-3' style='text-align: center;'>
               <li>
                 <div class='form-check'>
-                  <input type='radio' class='form-check-input' id='status-active' name='status' value='Active' checked />
+                  <input type='radio' class='form-check-input' id='status-active' name='Status' value='Active' checked />
                   <label class='form-check-label' for='status-active'>Active</label>
                 </div>
               </li>
               <li>
                 <div class='form-check'>
-                  <input type='radio' class='form-check-input' id='status-inactive' name='status' value='Inactive' />
+                  <input type='radio' class='form-check-input' id='status-inactive' name='Status' value='Inactive' />
                   <label class='form-check-label' for='status-inactive'>Inactive</label>
                 </div>
               </li>
             </ul>
           </div>
           <div class="d-flex flex-column">
-            <label for="description" class='form-check-label'>Description</label>
-            <textarea class="form-control px-4" style="font-size: 1.8rem;" placeholder="Description" id="description" name="description"><?= $user->getDescription() ?? '' ?></textarea>
+            <label for="Description" class='form-check-label'>Description</label>
+            <textarea class="form-control px-4" style="font-size: 1.8rem;" placeholder="Description" id="Description"
+              name="Description"><?= $user->getDescription() ?? '' ?></textarea>
           </div>
           <div class="d-flex flex-column">
-            <label for="location" class='form-check-label'>Location</label>
-            <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Location" id="location" name="location" value="<?= $user->getLocation() ?? '' ?>">
+            <label for="Location" class='form-check-label'>Location</label>
+            <input type="text" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Location" id="Location"
+              name="Location" value="<?= $user->getLocation() ?? '' ?>">
           </div>
         <?php endif; ?>
 
