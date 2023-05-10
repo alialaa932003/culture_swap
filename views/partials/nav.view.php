@@ -42,7 +42,7 @@ require base_path('controller/nav.php');
                 <?php endif; ?>
                 <?php if (empty($userData)) : ?>
                     <li class="nav-item">
-                        <a class=" navJoinBtn second-btn" href="#">join now</a>
+                        <a class=" navJoinBtn second-btn" href="/culture_swap/login">join now</a>
                     </li>
                 <?php endif; ?>
                 <?php if (!empty($userData)) : ?>

@@ -236,7 +236,7 @@
 
 
     <!-- start testimonials -->
-    <section class="section-padding testimonials">
+    <!-- <section class="section-padding testimonials">
         <div class="container">
             <div class="head">
                 <h2 class="heading">our testimonials</h2>
@@ -348,7 +348,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <?php
     require base_path("views/partials/footer.view.php");
