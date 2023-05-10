@@ -33,5 +33,5 @@ $router->get('/culture_swap/hosts', 'controller/hosts.php');
 $router->get('/culture_swap/travelers', 'controller/travelers.php');
 
 $router->get('/culture_swap/profile', 'controller/profile/index.php');
-$router->put('/culture_swap/profile', 'controller/profile/update.php');
-$router->post('/culture_swap/profile', 'controller/profile/join.php');
+$router->put('/culture_swap/profile', 'controller/profile/update.php')->only('user');
+$router->post('/culture_swap/profile', 'controller/profile/join.php')->only('user');
