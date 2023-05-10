@@ -8,6 +8,7 @@ if (!$_POST['update'])
 
 $id = $_POST['id'];
 unset($_POST['id']);
+
 $userType = getUserType($id)['type'] == 1 ? 'host' : 'traveller';
 if ($userType == 'host') {
   foreach ($_POST as $key => $value)

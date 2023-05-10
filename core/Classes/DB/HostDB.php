@@ -113,7 +113,7 @@ class HostDB
                 'id' => $id
             ]);
         } else if (in_array($key, HostDB::$tableMap['host'])) {
-            $dbref->query("UPDATE host SET $key = :value WHERE id = :id ", [
+            $dbref->query("UPDATE host SET $key = :value WHERE User_id = :id ", [
                 'value' => $value,
                 'id' => $id
             ]);
