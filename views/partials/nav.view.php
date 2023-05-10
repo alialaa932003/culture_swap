@@ -31,7 +31,7 @@ require base_path('controller/nav.php');
 
                 <?php if (!empty($userData)) : ?>
                     <li class="nav-item">
-                        <a class="nav-link userInfo" href="#">
+                        <a class="nav-link userInfo" href="/culture_swap/profile?id=<?= $userData['id'] ?>">
                             <div class="user_img">
                                 <img src=<?= $userData['profileImg'] ?> alt="">
 
