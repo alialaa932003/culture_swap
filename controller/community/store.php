@@ -8,6 +8,7 @@ $userData = $_SESSION['user'];
 $current_user_id = $userData['id'];
 if (isset($_POST['subLove'])) {
     Post::makeLove($current_user_id, $_POST['loveVal']);
+    //add love noti
 }
 if (isset($_POST['submit'])) {
 
