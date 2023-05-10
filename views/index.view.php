@@ -102,10 +102,10 @@
                     <div class="col-xl-4 col-md-6">
                         <div class="myCard">
                             <div class="cardImage">
-                                <img src="<?= $card['cover-img'] ?>" alt="">
+                                <img src=<?= $card['cover_img'] ?> alt="">
 
                                 <div class="userCardImg">
-                                    <img src="<?= $card['profile-img'] ?>" alt="">
+                                    <img src=<?= $card['profile_img'] ?> alt="">
                                 </div>
                             </div>
                             <div class="cardContent">
