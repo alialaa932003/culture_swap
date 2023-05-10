@@ -35,6 +35,7 @@
           <input type="password" class="form-control px-4" style="font-size: 1.8rem;" placeholder="Password" id="password" name="password">
         </div>
 
+
         <?php if ($isHost) : ?>
           <div class='dropdown'>
             <button class='btn btn-secondary dropdown-toggle px-2 px-4' style='font-size: 1.6rem;' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
@@ -56,10 +57,12 @@
             </ul>
           </div>
         <?php endif; ?>
-        <div class="modal-footer">
-          <button type="button" class="second-btn" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="main-btn">Save changes</button>
-        </div>
+
+
+      </div>
+      <div class="modal-footer px-5 py-4">
+        <button type="button" class="second-btn" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="main-btn">Save changes</button>
       </div>
   </form>
 </div>
