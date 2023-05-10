@@ -3,6 +3,9 @@
 use core\Classes\DB\HostDB;
 use core\Classes\DB\TravellerDB;
 
+if (!$_POST['update'])
+  return;
+
 $id = $_POST['id'];
 unset($_POST['id']);
 

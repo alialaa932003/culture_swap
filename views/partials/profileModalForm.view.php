@@ -65,7 +65,7 @@ $user = $isHost ? $host : $traveller;
       </div>
       <div class="modal-footer px-5 py-4">
         <button type="button" class="second-btn" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="main-btn">Save changes</button>
+        <button type="submit" class="main-btn" name='update' value=true>Save changes</button>
       </div>
   </form>
 </div>
