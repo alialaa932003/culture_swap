@@ -171,7 +171,7 @@ class Post
     {
         return PostDB::get_loves_num($post_id);
     }
-    public static function makeLove($user_id, $post_id)
+    public static function makeLove($user_id, $post_id,$current_user_id,$session)
     {
         $val = PostDB::checkLove($user_id, $post_id);
         if (!empty($val)) {
@@ -179,5 +179,13 @@ class Post
             return;
         }
         PostDB::makeLove($user_id, $post_id);
+        $post = new Post();
+        $mypost = $post->getOne($_POST['loveVal']);
+          $recieverid = $mypost['user_id'];
+          $sendername = $session['name'] ;   
+
+            if($current_user_id != $recieverid){
+                Notification::makeNoti($current_user_id, $recieverid,"$sendername loves your post",3, $_POST['loveVal']);
+            }
     }
 }

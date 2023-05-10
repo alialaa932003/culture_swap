@@ -1,15 +1,17 @@
 <?php
 
+use core\Classes\Notification;
 use core\Classes\Post;
 
 $config = require base_path('config.php');
 $userData = $_SESSION['user'];
 
 $current_user_id = $userData['id'];
+
 if (isset($_POST['subLove'])) {
-    Post::makeLove($current_user_id, $_POST['loveVal']);
-    //add love noti
+    Post::makeLove($current_user_id, $_POST['loveVal'],$current_user_id,$userData);
 }
+
 if (isset($_POST['submit'])) {
 
 
@@ -54,4 +56,6 @@ if (isset($_POST['submit'])) {
         die();
     }
 }
+
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
