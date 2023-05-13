@@ -15,9 +15,9 @@
   <div style="padding: 1rem"></div>
   <div style="margin-top: 6rem;">
     <div style="position: relative;">
-      <img src=<?= "{$ASSET_URL}/assets/imgs/home/header2.webp" ?> alt="cover" style="height: 40rem;" />
+      <img src=<?= "{$ASSET_URL}/assets/imgs/home/header2.webp" ?>  alt="cover" style="height: 40rem;" />
       <div style="width: 30rem;position:absolute;bottom:0;left:20%;translate:-50% 50%;border-radius:1000px;overflow:hidden">
-        <img src=<?= "{$ASSET_URL}/assets/imgs/home/header4.webp" ?> alt="<?= $userName ?>" />
+        <img src=<?= "{$profileImg}" ?> alt="<?= $userName ?>" />
       </div>
     </div>
     <div class="container py-3">

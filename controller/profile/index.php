@@ -37,6 +37,8 @@ if ($userType == 'traveller') {
   $postsCount = count($posts);
   $hostsCount = TravellerDB::getHostNums($idFromQuery)['COUNT(traveller_id'] ?? 0;
   $commentsCount = CommentDB::getUserCommentsNum($idFromQuery)[0]['COUNT(id)'];
+  $coverImg = $traveller->getCoverPhoto();
+  $profileImg = $traveller->getProfilePhoto();
 } elseif ($userType == 'host') {
   $host = new Host();
   $host->getOne($idFromQuery);
@@ -55,6 +57,8 @@ if ($userType == 'traveller') {
   $posts = PostDB::getUserPostIdsAndTitle($idFromQuery);
   $postsCount = count($posts);
   $commentsCount = CommentDB::getUserCommentsNum($idFromQuery)[0]['COUNT(id)'];
+  $profileImg = $host->getProfilePhoto();
+  $CoverImg = $host->getCoverPhoto();
 }
 
 require base_path("views/profile.view.php");

@@ -256,7 +256,7 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
         $this->user_name = $user_name;
         $this->password = $password;
         $this->type = $type;
-        $this->coverPhoto = $cover_img;
+        $this->setCoverPhoto($cover_img);
         $this->profilePhoto = $profile_img;
         $this->email = $email;
         $this->phoneNumber = $phone_num;
@@ -311,4 +311,5 @@ zdmcnsklnsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
     {
         Reservation::updateStatus($id, $actionValue, $actionId);
     }
+
 }

@@ -7,6 +7,7 @@
       </div>
 
       <div class="modal-body d-flex flex-column" style="gap: 2.4rem;">
+      <input type="text" name="id" value="<?=$_GET['id']?>" hidden />
 
         <div class="d-flex flex-column">
           <label for="startDate" class='form-check-label'>First name</label>

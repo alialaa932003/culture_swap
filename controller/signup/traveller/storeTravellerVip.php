@@ -68,12 +68,7 @@ if(Validator::string($password,  8, 55) && Validator::email($email)&&Validator::
        'phone_num' => $_POST['phone-number'],
        'profile_img' => "{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
        'cover_img' =>"{$config['base_urll']}/public/assets/imgs/abdo/{$fileNameNew}",
-       'services' => [
-         [
-           'id' => '1',
-           'service' => $_POST['services']
-         ],
-      ],
+       'services' => [1],
        'password' => $hashedPassword ,
        'country' => $_POST['country'],
        'type' => 2,
